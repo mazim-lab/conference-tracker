@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Conference Tracker — Finance · Accounting · Economics</title>
+  <meta name="description" content="Track 340+ academic conferences in Finance, Accounting, and Economics. Deadlines, tiers, and dates from SSRN FEN/ARN/ERN networks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: #0a0e17; color: #e2e8f0; font-family: 'Newsreader', Georgia, serif; }
+    body { min-height: 100vh; }
+    #root { min-height: 100vh; }
+    ::selection { background: rgba(129,140,248,0.3); }
+    input, textarea, button { font-family: inherit; }
+    a { color: inherit; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0e17">
+      <div style="text-align:center">
+        <div style="color:#818cf8;font-size:14px;font-family:'JetBrains Mono',monospace;margin-bottom:8px">Loading conferences...</div>
+        <div style="color:#4b5563;font-size:11px;font-family:'JetBrains Mono',monospace">Fetching data from conferences.json</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js"></script>
+
+  <script type="text/babel" data-type="module">
+    const { useState, useMemo, useEffect, useCallback } = React;
+
+    /* ── Data loading ── */
+    const JSON_URL = "./conferences.json";
+    const LOCAL_OVERRIDES_KEY = "conftracker-overrides-v1";
+    const TODAY = new Date();
+    const TODAY_STR = TODAY.toISOString().split("T")[0];
+
+    function expandRaw(r) {
+      return {
+        id: r.id, name: r.name || r.n, dates: r.dates || r.d,
+        startDate: r.startDate || r.s, location: r.location || r.l,
+        country: r.country || r.c, disc: r.disc || r.x,
+        sid: r.sid || r.si, ssrnLink: r.ssrnLink || r.sl,
+        deadline: r.deadline || "TBD", url: r.url || "", tier: r.tier || "",
+      };
+    }
+
+    /* ── Helpers ── */
+    function getDaysUntil(ds) { return Math.ceil((new Date(ds+"T23:59:59")-new Date(TODAY_STR+"T00:00:00"))/86400000); }
+    function fmtShort(s) { return new Date(s+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric"}); }
+    function fmtDeadline(s) { return new Date(s+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}); }
+    function isTBD(dl) { return !dl||dl==="TBD"||dl===""||dl==="tbd"; }
+
+    function getRegion(country) {
+      const na=["USA","Canada","Mexico","St. Kitts","Puerto Rico"];
+      const eu=["UK","France","Germany","Italy","Spain","Netherlands","Switzerland","Belgium","Denmark","Portugal","Greece","Sweden","Finland","Ireland","Norway","Austria","Czech Republic","Poland","Croatia","Cyprus","Romania","Luxembourg","Iceland","Slovenia","Lithuania","Hungary","Turkey"];
+      const ap=["China","Japan","South Korea","Singapore","Hong Kong","Australia","India","Indonesia","Taiwan","Thailand","Vietnam","New Zealand"];
+      if(country==="Virtual"||country==="Online")return"Virtual";
+      if(na.includes(country))return"N. America";
+      if(eu.includes(country))return"Europe";
+      if(ap.includes(country))return"Asia-Pacific";
+      return"Other";
+    }
+    function getTimeStatus(sd){const d=getDaysUntil(sd);if(d<0)return{label:"PAST",color:"#6b7280",bg:"rgba(107,114,128,0.1)"};if(d<=14)return{label:d+"d LEFT",color:"#ef4444",bg:"rgba(239,68,68,0.15)"};if(d<=60)return{label:d+"d",color:"#f59e0b",bg:"rgba(245,158,11,0.12)"};if(d<=180)return{label:d+"d",color:"#10b981",bg:"rgba(16,185,129,0.1)"};return{label:d+"d",color:"#6366f1",bg:"rgba(99,102,241,0.1)"};}
+    function getDeadlineStatus(dl){if(isTBD(dl))return{label:"TBD",color:"#6b7280",bg:"rgba(107,114,128,0.12)",isTBD:true};const d=getDaysUntil(dl);if(d<0)return{label:"CLOSED",color:"#6b7280",bg:"rgba(107,114,128,0.1)",isTBD:false};if(d<=7)return{label:d+"d LEFT",color:"#ef4444",bg:"rgba(239,68,68,0.18)",isTBD:false};if(d<=30)return{label:d+"d",color:"#f59e0b",bg:"rgba(245,158,11,0.14)",isTBD:false};if(d<=90)return{label:d+"d",color:"#10b981",bg:"rgba(16,185,129,0.1)",isTBD:false};return{label:d+"d",color:"#6366f1",bg:"rgba(99,102,241,0.1)",isTBD:false};}
+    function getDeadlineSortKey(c){return isTBD(c.deadline)?"9999-12-31":c.deadline;}
+
+    function deduplicateBySid(data){
+      const seen=new Map();
+      for(const c of data){if(!seen.has(c.sid)){seen.set(c.sid,c);}else{const ex=seen.get(c.sid);for(const d of(c.disc||[]))if(!ex.disc.includes(d))ex.disc.push(d);if(c.deadline&&c.deadline!=="TBD"&&isTBD(ex.deadline))ex.deadline=c.deadline;if(c.url&&!ex.url)ex.url=c.url;if(c.tier&&!ex.tier)ex.tier=c.tier;}}
+      return Array.from(seen.values());
+    }
+
+    /* Merge local overrides (from Admin panel) onto fetched data */
+    function applyOverrides(confs) {
+      try {
+        const raw = localStorage.getItem(LOCAL_OVERRIDES_KEY);
+        if (!raw) return confs;
+        const overrides = JSON.parse(raw); // { sid: { deadline, url, tier } }
+        return confs.map(c => {
+          const o = overrides[c.sid];
+          return o ? { ...c, ...o } : c;
+        });
+      } catch { return confs; }
+    }
+
+    function saveOverride(sid, fields) {
+      try {
+        const raw = localStorage.getItem(LOCAL_OVERRIDES_KEY);
+        const overrides = raw ? JSON.parse(raw) : {};
+        overrides[sid] = { ...(overrides[sid]||{}), ...fields };
+        localStorage.setItem(LOCAL_OVERRIDES_KEY, JSON.stringify(overrides));
+      } catch {}
+    }
+
+    const D={acct:{l:"ACCT",c:"#f472b6",b:"rgba(244,114,182,0.12)"},fin:{l:"FIN",c:"#818cf8",b:"rgba(129,140,248,0.12)"},econ:{l:"ECON",c:"#fbbf24",b:"rgba(251,191,36,0.12)"}};
+    const R={"N. America":{c:"#60a5fa",b:"rgba(96,165,250,0.1)"},Europe:{c:"#a78bfa",b:"rgba(167,139,250,0.1)"},"Asia-Pacific":{c:"#34d399",b:"rgba(52,211,153,0.1)"},Virtual:{c:"#94a3b8",b:"rgba(148,163,184,0.1)"},Other:{c:"#94a3b8",b:"rgba(148,163,184,0.1)"}};
+    const TIER={"1":{l:"T1",c:"#fbbf24",b:"rgba(251,191,36,0.15)",full:"Tier 1"},"2":{l:"T2",c:"#94a3b8",b:"rgba(148,163,184,0.1)",full:"Tier 2"},"3":{l:"T3",c:"#64748b",b:"rgba(100,116,139,0.08)",full:"Tier 3"}};
+
+    /* ── Card component ── */
+    function Card({conf,expanded,onToggle,sortBy}){
+      const st=getTimeStatus(conf.startDate);const dl=getDeadlineStatus(conf.deadline);
+      const region=getRegion(conf.country);const rStyle=R[region]||R.Other;
+      const primaryBadge=sortBy==="deadline"?dl:st;
+      const tier=conf.tier?TIER[conf.tier]:null;
+      const linkUrl=conf.url||conf.ssrnLink;const linkLabel=conf.url?"Conference Page":"SSRN Announcement";
+      return(
+        <div onClick={onToggle} style={{background:"rgba(255,255,255,0.025)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:10,cursor:"pointer",transition:"all 0.15s"}}
+          onMouseEnter={e=>{e.currentTarget.style.background="rgba(255,255,255,0.055)";e.currentTarget.style.borderColor="rgba(255,255,255,0.12)";}}
+          onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,0.025)";e.currentTarget.style.borderColor="rgba(255,255,255,0.06)";}}>
+          <div style={{padding:"13px 16px",display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+            <div style={{minWidth:62,padding:"3px 7px",borderRadius:5,background:primaryBadge.bg,color:primaryBadge.color,fontSize:10,fontWeight:700,letterSpacing:"0.04em",textAlign:"center",fontFamily:"'JetBrains Mono',monospace",border:primaryBadge.isTBD?"1px dashed rgba(107,114,128,0.4)":"1px solid transparent"}}>{primaryBadge.label}</div>
+            <div style={{flex:1,minWidth:170}}>
+              <div style={{display:"flex",alignItems:"center",gap:5,flexWrap:"wrap"}}>
+                <span style={{fontWeight:600,color:"#f1f5f9",fontSize:13,letterSpacing:"-0.01em"}}>{conf.name}</span>
+                {tier&&<span style={{padding:"1px 5px",borderRadius:3,background:tier.b,color:tier.c,fontSize:7.5,fontWeight:700,letterSpacing:"0.06em",fontFamily:"'JetBrains Mono',monospace"}}>{tier.l}</span>}
+                {conf.disc.map(d=>{const dc=D[d];return dc?<span key={d} style={{padding:"1px 5px",borderRadius:3,background:dc.b,color:dc.c,fontSize:7.5,fontWeight:700,letterSpacing:"0.06em"}}>{dc.l}</span>:null;})}
+              </div>
+            </div>
+            <div style={{minWidth:90,textAlign:"right"}}><div style={{color:"#64748b",fontSize:9,fontWeight:500}}>Date</div><div style={{color:"#e2e8f0",fontSize:11,fontWeight:600,fontFamily:"'JetBrains Mono',monospace"}}>{conf.dates}</div></div>
+            <div style={{minWidth:95,textAlign:"right"}}><span style={{color:"#94a3b8",fontSize:10.5}}>{conf.location.length>22?conf.location.slice(0,20)+"...":conf.location}</span></div>
+            <div style={{color:"#4b5563",fontSize:13,transition:"transform 0.2s",transform:expanded?"rotate(180deg)":"none"}}>&#9662;</div>
+          </div>
+          {expanded&&(
+            <div style={{padding:"0 16px 13px",borderTop:"1px solid rgba(255,255,255,0.04)",paddingTop:13,display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:9}}>
+              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>LOCATION</div><div style={{color:"#e2e8f0",fontSize:11.5}}>{conf.location}</div></div>
+              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>COUNTRY</div><div style={{color:"#e2e8f0",fontSize:11.5}}>{conf.country}</div></div>
+              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>REGION</div><div style={{color:(R[region]||R.Other).c,fontSize:11.5}}>{region}</div></div>
+              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>DEADLINE</div>
+                <div style={{display:"flex",alignItems:"center",gap:5}}>
+                  <span style={{padding:"2px 6px",borderRadius:4,background:dl.bg,color:dl.color,fontSize:10,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",border:dl.isTBD?"1px dashed rgba(107,114,128,0.35)":"none"}}>{dl.isTBD?"TBD":dl.label}</span>
+                  {!dl.isTBD&&<span style={{color:"#94a3b8",fontSize:10}}>{fmtDeadline(conf.deadline)}</span>}
+                </div>
+              </div>
+              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>CONFERENCE</div>
+                <div style={{display:"flex",alignItems:"center",gap:5}}>
+                  <span style={{padding:"2px 6px",borderRadius:4,background:st.bg,color:st.color,fontSize:10,fontWeight:600,fontFamily:"'JetBrains Mono',monospace"}}>{st.label}</span>
+                  <span style={{color:"#94a3b8",fontSize:10}}>{conf.dates}</span>
+                </div>
+              </div>
+              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>TIER</div>
+                <div>{tier?<span style={{padding:"2px 6px",borderRadius:4,background:tier.b,color:tier.c,fontSize:10,fontWeight:600}}>{tier.full}</span>:<span style={{color:"#4b5563",fontSize:10}}>Unranked</span>}</div>
+              </div>
+              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>DISCIPLINES</div>
+                <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
+                  {conf.disc.map(d=>{const dc=D[d];return dc?<span key={d} style={{padding:"2px 6px",borderRadius:3,background:dc.b,color:dc.c,fontSize:10}}>{dc.l==="ACCT"?"Accounting":dc.l==="FIN"?"Finance":"Economics"}</span>:null;})}
+                </div>
+              </div>
+              <div style={{gridColumn:"1 / -1",display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+                <a href={linkUrl} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()}
+                  style={{display:"inline-flex",alignItems:"center",gap:5,padding:"5px 11px",borderRadius:5,background:conf.url?"rgba(16,185,129,0.15)":"rgba(99,102,241,0.15)",color:conf.url?"#34d399":"#818cf8",fontSize:11,fontWeight:600,textDecoration:"none"}}>
+                  {linkLabel+" \u2192"}
+                </a>
+                {conf.url&&<a href={conf.ssrnLink} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()}
+                  style={{display:"inline-flex",alignItems:"center",gap:5,padding:"5px 11px",borderRadius:5,background:"rgba(99,102,241,0.1)",color:"#818cf8",fontSize:10,fontWeight:500,textDecoration:"none"}}>
+                  {"SSRN \u2192"}
+                </a>}
+                <span style={{color:"#374151",fontSize:9,fontFamily:"'JetBrains Mono',monospace"}}>{"SID: "+conf.sid}</span>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    /* ── Admin Panel ── */
+    function AdminPanel({conferences,onUpdateSingle,onReset,lastFetched}){
+      const[mode,setMode]=useState("info");
+      const[singleId,setSingleId]=useState("");
+      const[singleJson,setSingleJson]=useState("");
+      const[msg,setMsg]=useState("");
+
+      const handleSingleUpdate=()=>{
+        try{
+          const update=JSON.parse(singleJson);
+          const id=parseInt(singleId);
+          const existing=conferences.find(c=>c.id===id);
+          if(!existing){setMsg("Error: Conference ID not found");return;}
+          saveOverride(existing.sid, update);
+          onUpdateSingle(id, update);
+          setMsg("Updated #"+id+": "+existing.name);
+          setSingleJson("");
+        }catch(e){setMsg("Error: "+e.message);}
+      };
+
+      const tbdCount=conferences.filter(c=>isTBD(c.deadline)).length;
+      const confirmedCount=conferences.length-tbdCount;
+      const tiered=conferences.filter(c=>c.tier).length;
+      const past=conferences.filter(c=>getDaysUntil(c.startDate)<0).length;
+
+      const tabStyle=(active)=>({padding:"5px 10px",borderRadius:4,border:"none",fontSize:10,fontWeight:500,cursor:"pointer",background:active?"rgba(16,185,129,0.2)":"transparent",color:active?"#34d399":"#64748b"});
+
+      return(
+        <div style={{margin:"16px 0",padding:16,borderRadius:10,background:"rgba(16,185,129,0.03)",border:"1px solid rgba(16,185,129,0.15)"}}>
+          <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+            <span style={{fontSize:12,fontWeight:700,color:"#34d399"}}>Data Admin</span>
+            <div style={{display:"flex",gap:2}}>
+              <button style={tabStyle(mode==="info")} onClick={()=>setMode("info")}>Info</button>
+              <button style={tabStyle(mode==="single")} onClick={()=>setMode("single")}>Update One</button>
+            </div>
+          </div>
+          {mode==="info"&&(
+            <div style={{fontSize:10.5,color:"#94a3b8",lineHeight:1.6}}>
+              <div>Total: <strong style={{color:"#e2e8f0"}}>{conferences.length}</strong> | Past: <strong style={{color:"#6b7280"}}>{past}</strong> | Upcoming: <strong style={{color:"#10b981"}}>{conferences.length-past}</strong></div>
+              <div>Deadlines confirmed: <strong style={{color:"#10b981"}}>{confirmedCount}</strong> | TBD: <strong style={{color:"#6b7280"}}>{tbdCount}</strong></div>
+              <div>Tiered: <strong style={{color:"#fbbf24"}}>{tiered}</strong> | Unranked: <strong style={{color:"#6b7280"}}>{conferences.length-tiered}</strong></div>
+              <div>Data source: <strong style={{color:"#e2e8f0"}}>conferences.json</strong> {lastFetched && <span>(fetched {lastFetched})</span>}</div>
+              <div style={{marginTop:6,padding:8,borderRadius:5,background:"rgba(0,0,0,0.2)",fontFamily:"'JetBrains Mono',monospace",fontSize:9,color:"#64748b",whiteSpace:"pre-line"}}>
+                {"Deadline: {\"deadline\": \"2026-03-15\"}\nClear: {\"deadline\": \"TBD\"}\nTier: {\"tier\": \"1\"}  (1, 2, or 3)\nURL: {\"url\": \"https://conf.org\"}\nCombo: {\"deadline\":\"2026-04-01\",\"tier\":\"1\",\"url\":\"https://..\"}"}
+              </div>
+              <div style={{marginTop:6,fontSize:9,color:"#4b5563"}}>
+                Local overrides are saved in your browser. The main data comes from conferences.json (updated by OpenClaw).
+              </div>
+              <button onClick={onReset} style={{marginTop:8,padding:"4px 10px",borderRadius:4,border:"1px solid rgba(239,68,68,0.3)",background:"rgba(239,68,68,0.08)",color:"#f87171",fontSize:10,cursor:"pointer"}}>
+                Clear Local Overrides
+              </button>
+            </div>
+          )}
+          {mode==="single"&&(
+            <div style={{display:"flex",flexDirection:"column",gap:6}}>
+              <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                <input placeholder="Conference ID" value={singleId} onChange={e=>setSingleId(e.target.value)}
+                  style={{width:100,padding:"5px 8px",borderRadius:5,border:"1px solid rgba(255,255,255,0.1)",background:"rgba(0,0,0,0.2)",color:"#e2e8f0",fontSize:11,outline:"none"}} />
+                <span style={{color:"#64748b",fontSize:10}}>{singleId&&conferences.find(c=>c.id===parseInt(singleId))?.name?.slice(0,40)}</span>
+              </div>
+              <textarea placeholder='{"deadline":"2026-03-01","tier":"1"}' value={singleJson} onChange={e=>setSingleJson(e.target.value)}
+                style={{padding:"6px 8px",borderRadius:5,border:"1px solid rgba(255,255,255,0.1)",background:"rgba(0,0,0,0.2)",color:"#e2e8f0",fontSize:10,fontFamily:"'JetBrains Mono',monospace",outline:"none",minHeight:50,resize:"vertical"}} />
+              <button onClick={handleSingleUpdate} style={{alignSelf:"flex-start",padding:"5px 12px",borderRadius:5,border:"none",background:"rgba(16,185,129,0.2)",color:"#34d399",fontSize:10,fontWeight:600,cursor:"pointer"}}>Update</button>
+            </div>
+          )}
+          {msg&&<div style={{marginTop:6,fontSize:10,color:msg.startsWith("Error")?"#f87171":"#34d399"}}>{msg}</div>}
+        </div>
+      );
+    }
+
+    /* ── Main App ── */
+    function App(){
+      const[conferences,setConferences]=useState([]);
+      const[loading,setLoading]=useState(true);
+      const[error,setError]=useState(null);
+      const[lastFetched,setLastFetched]=useState(null);
+      const[discFilter,setDiscFilter]=useState("all");
+      const[regionFilter,setRegionFilter]=useState("all");
+      const[tierFilter,setTierFilter]=useState("all");
+      const[sortBy,setSortBy]=useState("deadline");
+      const[search,setSearch]=useState("");
+      const[expandedId,setExpandedId]=useState(null);
+      const[view,setView]=useState("list");
+      const[showAdmin,setShowAdmin]=useState(false);
+      const[showArchive,setShowArchive]=useState(false);
+
+      useEffect(()=>{
+        fetch(JSON_URL+"?t="+Date.now())
+          .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
+          .then(data=>{
+            const expanded=data.map(expandRaw);
+            const deduped=deduplicateBySid(expanded);
+            const withOverrides=applyOverrides(deduped);
+            setConferences(withOverrides);
+            setLastFetched(new Date().toLocaleTimeString());
+            setLoading(false);
+          })
+          .catch(err=>{setError(err.message);setLoading(false);});
+      },[]);
+
+      const handleUpdateSingle=useCallback((id,update)=>{
+        setConferences(prev=>prev.map(c=>c.id===id?{...c,...update}:c));
+      },[]);
+
+      const handleReset=useCallback(()=>{
+        localStorage.removeItem(LOCAL_OVERRIDES_KEY);
+        window.location.reload();
+      },[]);
+
+      const upcoming=useMemo(()=>conferences.filter(c=>getDaysUntil(c.startDate)>=0),[conferences]);
+      const pastConfs=useMemo(()=>conferences.filter(c=>getDaysUntil(c.startDate)<0).sort((a,b)=>new Date(b.startDate)-new Date(a.startDate)),[conferences]);
+
+      const filtered=useMemo(()=>{
+        let r=upcoming;
+        if(discFilter!=="all")r=r.filter(c=>c.disc.includes(discFilter));
+        if(regionFilter!=="all")r=r.filter(c=>getRegion(c.country)===regionFilter);
+        if(tierFilter!=="all")r=r.filter(c=>tierFilter==="unranked"?!c.tier:c.tier===tierFilter);
+        if(search){const s=search.toLowerCase();r=r.filter(c=>c.name.toLowerCase().includes(s)||c.location.toLowerCase().includes(s)||c.country.toLowerCase().includes(s));}
+        if(sortBy==="deadline")r=[...r].sort((a,b)=>{const ak=getDeadlineSortKey(a),bk=getDeadlineSortKey(b);if(ak===bk)return new Date(a.startDate)-new Date(b.startDate);return new Date(ak)-new Date(bk);});
+        else r=[...r].sort((a,b)=>new Date(a.startDate)-new Date(b.startDate));
+        return r;
+      },[upcoming,discFilter,regionFilter,tierFilter,search,sortBy]);
+
+      const filteredPast=useMemo(()=>{
+        let r=pastConfs;
+        if(discFilter!=="all")r=r.filter(c=>c.disc.includes(discFilter));
+        if(search){const s=search.toLowerCase();r=r.filter(c=>c.name.toLowerCase().includes(s)||c.location.toLowerCase().includes(s)||c.country.toLowerCase().includes(s));}
+        return r;
+      },[pastConfs,discFilter,search]);
+
+      const counts=useMemo(()=>{
+        const tbdCount=upcoming.filter(c=>isTBD(c.deadline)).length;
+        return{total:conferences.length,upcoming:upcoming.length,past:pastConfs.length,
+          acct:conferences.filter(c=>c.disc.includes("acct")).length,
+          fin:conferences.filter(c=>c.disc.includes("fin")).length,
+          econ:conferences.filter(c=>c.disc.includes("econ")).length,
+          countries:new Set(conferences.map(c=>c.country)).size,
+          soon:upcoming.filter(c=>getDaysUntil(c.startDate)<=60).length,
+          tbd:tbdCount,confirmed:upcoming.length-tbdCount,
+        };
+      },[conferences,upcoming,pastConfs]);
+
+      const timelineMonths=[];
+      for(let i=0;i<14;i++){const d=new Date(TODAY);d.setMonth(d.getMonth()+i);timelineMonths.push({year:d.getFullYear(),month:d.getMonth()});}
+
+      const btn=(active)=>({padding:"5px 11px",borderRadius:5,border:"1px solid "+(active?"rgba(129,140,248,0.4)":"rgba(255,255,255,0.07)"),background:active?"rgba(129,140,248,0.12)":"transparent",color:active?"#a5b4fc":"#94a3b8",fontSize:11,fontWeight:500,cursor:"pointer",transition:"all 0.15s"});
+
+      if(loading)return(<div style={{minHeight:"100vh",background:"#0a0e17",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{color:"#818cf8",fontSize:14,fontFamily:"'JetBrains Mono',monospace"}}>Loading conferences...</div></div>);
+      if(error)return(<div style={{minHeight:"100vh",background:"#0a0e17",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{textAlign:"center"}}><div style={{color:"#f87171",fontSize:14,fontFamily:"'JetBrains Mono',monospace",marginBottom:8}}>Failed to load data</div><div style={{color:"#4b5563",fontSize:11}}>{error}</div><div style={{color:"#4b5563",fontSize:10,marginTop:12}}>Make sure conferences.json is in the same folder as this page.</div></div></div>);
+
+      return(
+        <div style={{minHeight:"100vh",background:"#0a0e17",color:"#e2e8f0",fontFamily:"'Newsreader','Georgia','Times New Roman',serif"}}>
+          {/* HEADER */}
+          <div style={{padding:"30px 20px 22px",background:"linear-gradient(180deg, rgba(99,102,241,0.06) 0%, transparent 100%)",borderBottom:"1px solid rgba(255,255,255,0.04)"}}>
+            <div style={{maxWidth:980,margin:"0 auto"}}>
+              <div style={{display:"flex",alignItems:"baseline",gap:10,marginBottom:2}}>
+                <h1 style={{fontSize:24,fontWeight:700,letterSpacing:"-0.03em",color:"#f8fafc",margin:0}}>Academic Conference Tracker</h1>
+                <span style={{fontSize:10,color:"#4b5563",fontFamily:"'JetBrains Mono',monospace"}}>2025\u201326</span>
+              </div>
+              <p style={{color:"#4b5563",fontSize:11.5,margin:"2px 0 0",fontFamily:"'JetBrains Mono','SF Mono',monospace"}}>
+                {"Finance \u00b7 Accounting \u00b7 Economics \u2014 SSRN Networks FEN/ARN/ERN \u00b7 "+TODAY_STR}
+              </p>
+              <div style={{display:"flex",gap:22,marginTop:18,flexWrap:"wrap"}}>
+                {[{n:counts.total,l:"TOTAL",c:"#818cf8"},{n:counts.upcoming,l:"UPCOMING",c:"#10b981"},{n:counts.past,l:"PAST",c:"#6b7280"},{n:counts.soon,l:"\u226460 DAYS",c:counts.soon>0?"#f59e0b":"#4b5563"},{n:counts.confirmed,l:"DL SET",c:counts.confirmed>0?"#34d399":"#4b5563"},{n:counts.tbd,l:"TBD",c:"#6b7280"},{n:counts.countries,l:"COUNTRIES",c:"#a78bfa"}].map(s=>(
+                  <div key={s.l}><div style={{fontSize:26,fontWeight:700,color:s.c,fontFamily:"'JetBrains Mono',monospace",lineHeight:1}}>{s.n}</div>
+                  <div style={{fontSize:8.5,color:"#4b5563",fontWeight:600,letterSpacing:"0.1em",marginTop:2,fontFamily:"'JetBrains Mono',monospace"}}>{s.l}</div></div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CONTROLS */}
+          <div style={{maxWidth:980,margin:"0 auto",padding:"14px 20px"}}>
+            <div style={{display:"flex",gap:6,alignItems:"center",flexWrap:"wrap",marginBottom:10}}>
+              <input type="text" placeholder="Search name, location, country..." value={search} onChange={e=>setSearch(e.target.value)}
+                style={{flex:1,minWidth:170,padding:"7px 11px",borderRadius:6,border:"1px solid rgba(255,255,255,0.07)",background:"rgba(255,255,255,0.025)",color:"#e2e8f0",fontSize:12,outline:"none",fontFamily:"'JetBrains Mono',monospace"}} />
+              <div style={{display:"flex",gap:2,background:"rgba(255,255,255,0.025)",borderRadius:5,padding:2}}>
+                {["list","timeline"].map(v=><button key={v} onClick={()=>setView(v)} style={{padding:"5px 10px",borderRadius:4,border:"none",background:view===v?"rgba(99,102,241,0.2)":"transparent",color:view===v?"#a5b4fc":"#64748b",fontSize:10.5,cursor:"pointer",textTransform:"capitalize",fontFamily:"'JetBrains Mono',monospace"}}>{v}</button>)}
+              </div>
+              <button onClick={()=>setShowAdmin(!showAdmin)} style={{padding:"5px 9px",borderRadius:5,border:"1px solid rgba(16,185,129,0.2)",background:showAdmin?"rgba(16,185,129,0.1)":"transparent",color:showAdmin?"#34d399":"#4b5563",fontSize:10,cursor:"pointer"}}>{"\u2699"}</button>
+            </div>
+
+            <div style={{display:"flex",gap:4,flexWrap:"wrap",alignItems:"center",marginBottom:6}}>
+              {[["all","All"],["acct","Accounting ("+counts.acct+")"],["fin","Finance ("+counts.fin+")"],["econ","Economics ("+counts.econ+")"]].map(([v,l])=><button key={v} style={btn(discFilter===v)} onClick={()=>setDiscFilter(v)}>{l}</button>)}
+              <span style={{width:1,height:16,background:"rgba(255,255,255,0.05)",margin:"0 2px"}} />
+              {[["all","All Regions"],["N. America","N. America"],["Europe","Europe"],["Asia-Pacific","Asia-Pac"],["Virtual","Virtual"]].map(([v,l])=><button key={v} style={btn(regionFilter===v)} onClick={()=>setRegionFilter(v)}>{l}</button>)}
+            </div>
+
+            <div style={{display:"flex",gap:4,flexWrap:"wrap",alignItems:"center",marginBottom:6}}>
+              <span style={{fontSize:10,color:"#4b5563",fontFamily:"'JetBrains Mono',monospace",fontWeight:600,letterSpacing:"0.06em",marginRight:2}}>SORT</span>
+              {[["deadline","By Deadline"],["confdate","By Conference Date"]].map(([v,l])=><button key={v} style={btn(sortBy===v)} onClick={()=>setSortBy(v)}>{l}</button>)}
+              <span style={{width:1,height:16,background:"rgba(255,255,255,0.05)",margin:"0 4px"}} />
+              <span style={{fontSize:10,color:"#4b5563",fontFamily:"'JetBrains Mono',monospace",fontWeight:600,letterSpacing:"0.06em",marginRight:2}}>TIER</span>
+              {[["all","All"],["1","T1"],["2","T2"],["3","T3"],["unranked","Unranked"]].map(([v,l])=><button key={v} style={btn(tierFilter===v)} onClick={()=>setTierFilter(v)}>{l}</button>)}
+            </div>
+
+            {showAdmin&&<AdminPanel conferences={conferences} onUpdateSingle={handleUpdateSingle} onReset={handleReset} lastFetched={lastFetched} />}
+          </div>
+
+          {/* MAIN LIST */}
+          <div style={{maxWidth:980,margin:"0 auto",padding:"0 20px 36px"}}>
+            <div style={{fontSize:10,color:"#4b5563",marginBottom:8,fontFamily:"'JetBrains Mono',monospace"}}>
+              {"Showing "+filtered.length+" upcoming"+(sortBy==="deadline"?" \u00b7 sorted by deadline":" \u00b7 sorted by conference date")}
+            </div>
+
+            {view==="list"?(
+              <div style={{display:"flex",flexDirection:"column",gap:4,marginTop:4}}>
+                {filtered.length===0?<div style={{textAlign:"center",padding:36,color:"#4b5563",fontSize:13}}>No upcoming conferences match your filters.</div>
+                :filtered.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} />)}
+              </div>
+            ):(
+              <div style={{marginTop:10}}>
+                {timelineMonths.map(({year,month})=>{
+                  const evs=filtered.filter(c=>{const d=new Date(c.startDate+"T12:00:00");return d.getFullYear()===year&&d.getMonth()===month;});
+                  if(!evs.length)return null;
+                  const ml=new Date(year,month).toLocaleDateString("en-US",{month:"long",year:"numeric"});
+                  const isCur=TODAY.getFullYear()===year&&TODAY.getMonth()===month;
+                  return(
+                    <div key={year+"-"+month} style={{marginBottom:18}}>
+                      <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:7}}>
+                        <div style={{fontSize:14,fontWeight:700,color:isCur?"#818cf8":"#94a3b8"}}>{ml}</div>
+                        {isCur&&<span style={{fontSize:8,fontWeight:700,letterSpacing:"0.1em",color:"#818cf8",background:"rgba(129,140,248,0.12)",padding:"2px 5px",borderRadius:3,fontFamily:"'JetBrains Mono',monospace"}}>NOW</span>}
+                        <span style={{fontSize:9,color:"#4b5563",fontFamily:"'JetBrains Mono',monospace"}}>{evs.length+" event"+(evs.length!==1?"s":"")}</span>
+                        <div style={{flex:1,height:1,background:"rgba(255,255,255,0.04)"}} />
+                      </div>
+                      {evs.map(c=>{
+                        const dc=c.disc[0]?D[c.disc[0]]:D.fin;const dl=getDeadlineStatus(c.deadline);const tier=c.tier?TIER[c.tier]:null;
+                        return(
+                          <div key={"ev-"+c.id} onClick={()=>setExpandedId(expandedId===c.id?null:c.id)}
+                            style={{display:"flex",alignItems:"center",gap:8,padding:"6px 10px",marginBottom:3,borderRadius:6,background:dc.b.replace("0.12","0.04"),borderLeft:"3px solid "+dc.c,cursor:"pointer",transition:"background 0.1s"}}
+                            onMouseEnter={e=>{e.currentTarget.style.background=dc.b.replace("0.12","0.08");}}
+                            onMouseLeave={e=>{e.currentTarget.style.background=dc.b.replace("0.12","0.04");}}>
+                            <span style={{fontSize:10,fontWeight:600,color:dc.c,minWidth:52,fontFamily:"'JetBrains Mono',monospace"}}>{fmtShort(c.startDate)}</span>
+                            <div style={{display:"flex",gap:3}}>
+                              {c.disc.map(d=>{const dd=D[d];return dd?<span key={d} style={{fontSize:7,color:dd.c,fontWeight:700,letterSpacing:"0.06em",fontFamily:"'JetBrains Mono',monospace"}}>{dd.l}</span>:null;})}
+                            </div>
+                            {tier&&<span style={{fontSize:7,fontWeight:700,color:tier.c,fontFamily:"'JetBrains Mono',monospace"}}>{tier.l}</span>}
+                            <span style={{fontSize:12,color:"#f1f5f9",fontWeight:500,flex:1}}>{c.name}</span>
+                            <span style={{padding:"1px 5px",borderRadius:3,fontSize:8,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",background:dl.bg,color:dl.color,border:dl.isTBD?"1px dashed rgba(107,114,128,0.35)":"none"}}>{dl.isTBD?"TBD":"DL: "+dl.label}</span>
+                            <span style={{fontSize:10,color:"#4b5563"}}>{c.location.length>25?c.location.slice(0,23)+"...":c.location}</span>
+                          </div>
+                        );
+                      })}
+                      {evs.filter(c=>expandedId===c.id).map(c=>{
+                        const region=getRegion(c.country);const dl=getDeadlineStatus(c.deadline);const st=getTimeStatus(c.startDate);const tier=c.tier?TIER[c.tier]:null;const linkUrl=c.url||c.ssrnLink;
+                        return(
+                          <div key={"detail-"+c.id} style={{margin:"4px 0 8px 14px",padding:12,borderRadius:8,background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)"}}>
+                            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
+                              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>LOCATION</div><div style={{color:"#e2e8f0",fontSize:11}}>{c.location}</div></div>
+                              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>COUNTRY</div><div style={{color:"#e2e8f0",fontSize:11}}>{c.country}</div></div>
+                              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>REGION</div><div style={{color:(R[region]||R.Other).c,fontSize:11}}>{region}</div></div>
+                              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>DEADLINE</div>
+                                <div style={{display:"flex",alignItems:"center",gap:4}}>
+                                  <span style={{padding:"2px 5px",borderRadius:3,fontSize:9,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",background:dl.bg,color:dl.color,border:dl.isTBD?"1px dashed rgba(107,114,128,0.35)":"none"}}>{dl.isTBD?"TBD":dl.label}</span>
+                                  {!dl.isTBD&&<span style={{color:"#94a3b8",fontSize:9}}>{fmtDeadline(c.deadline)}</span>}
+                                </div>
+                              </div>
+                              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>CONFERENCE</div>
+                                <span style={{padding:"2px 5px",borderRadius:3,fontSize:9,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",background:st.bg,color:st.color}}>{st.label}</span>
+                              </div>
+                              <div><div style={{color:"#4b5563",fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>TIER</div>
+                                {tier?<span style={{padding:"2px 5px",borderRadius:3,fontSize:9,fontWeight:600,background:tier.b,color:tier.c}}>{tier.full}</span>:<span style={{color:"#4b5563",fontSize:10}}>Unranked</span>}
+                              </div>
+                            </div>
+                            <a href={linkUrl} target="_blank" rel="noopener noreferrer"
+                              style={{display:"inline-flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:5,background:c.url?"rgba(16,185,129,0.15)":"rgba(99,102,241,0.15)",color:c.url?"#34d399":"#818cf8",fontSize:10,fontWeight:600,textDecoration:"none",marginTop:8}}>
+                              {(c.url?"Conference Page":"SSRN Announcement")+" \u2192"}
+                            </a>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* PAST CONFERENCES */}
+            {filteredPast.length>0&&(
+              <div style={{marginTop:26}}>
+                <div onClick={()=>setShowArchive(!showArchive)} style={{display:"flex",alignItems:"center",gap:8,cursor:"pointer",padding:"10px 14px",borderRadius:8,background:"rgba(107,114,128,0.05)",border:"1px solid rgba(107,114,128,0.1)"}}>
+                  <span style={{color:"#4b5563",fontSize:13,transition:"transform 0.2s",transform:showArchive?"rotate(180deg)":"none"}}>&#9662;</span>
+                  <span style={{fontSize:13,fontWeight:600,color:"#6b7280"}}>Past Conferences</span>
+                  <span style={{fontSize:10,color:"#4b5563",fontFamily:"'JetBrains Mono',monospace"}}>{filteredPast.length} conferences</span>
+                  <div style={{flex:1,height:1,background:"rgba(255,255,255,0.03)"}} />
+                </div>
+                {showArchive&&(
+                  <div style={{marginTop:6,display:"flex",flexDirection:"column",gap:3,opacity:0.7}}>
+                    {filteredPast.map(c=>{
+                      const dc=c.disc[0]?D[c.disc[0]]:D.fin;const tier=c.tier?TIER[c.tier]:null;
+                      return(
+                        <div key={"past-"+c.id} style={{display:"flex",alignItems:"center",gap:8,padding:"5px 10px",borderRadius:5,background:"rgba(107,114,128,0.04)",borderLeft:"2px solid rgba(107,114,128,0.2)"}}>
+                          <span style={{fontSize:9,color:"#4b5563",minWidth:52,fontFamily:"'JetBrains Mono',monospace"}}>{fmtShort(c.startDate)}</span>
+                          {c.disc.map(d=>{const dd=D[d];return dd?<span key={d} style={{fontSize:7,color:dd.c,opacity:0.6,fontWeight:700,fontFamily:"'JetBrains Mono',monospace"}}>{dd.l}</span>:null;})}
+                          {tier&&<span style={{fontSize:7,color:tier.c,opacity:0.6,fontWeight:700,fontFamily:"'JetBrains Mono',monospace"}}>{tier.l}</span>}
+                          <span style={{fontSize:11.5,color:"#94a3b8",flex:1}}>{c.name}</span>
+                          <span style={{fontSize:9,color:"#374151"}}>{c.location.length>25?c.location.slice(0,23)+"...":c.location}</span>
+                          <span style={{padding:"1px 4px",borderRadius:3,fontSize:8,color:"#6b7280",background:"rgba(107,114,128,0.08)",fontFamily:"'JetBrains Mono',monospace"}}>PAST</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* FOOTER */}
+            <div style={{marginTop:26,padding:14,borderRadius:8,background:"rgba(255,255,255,0.015)",border:"1px solid rgba(255,255,255,0.035)"}}>
+              <div style={{fontSize:10,color:"#4b5563",lineHeight:1.6}}>
+                <strong style={{color:"#94a3b8"}}>Disclaimer:</strong> Conference dates sourced from SSRN professional announcement networks (FEN, ARN, ERN). Deadlines marked TBD until confirmed. Tiers assigned via web research. Always verify on the official conference website.
+              </div>
+              <div style={{fontSize:9.5,color:"#374151",marginTop:5}}>
+                {"Sources: SSRN FEN, ARN & ERN \u00b7 "+counts.total+" conferences ("+counts.upcoming+" upcoming, "+counts.past+" past) \u00b7 "+counts.countries+" countries"}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
