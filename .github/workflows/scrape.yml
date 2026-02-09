@@ -25,6 +25,9 @@ jobs:
       - name: Check for new conferences
         run: python ssrn_scraper.py --new-only
 
+      - name: Assign tiers to new conferences
+        run: python assign_tiers.py --no-api
+
       - name: Commit changes
         run: |
           git config user.name "SSRN Scraper Bot"
