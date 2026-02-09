@@ -43,7 +43,7 @@
     ],
     "sid": "16894",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16894",
-    "deadline": "TBD",
+    "deadline": "2025-03-30",
     "url": "",
     "tier": ""
   },
@@ -59,7 +59,7 @@
     ],
     "sid": "16901",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16901",
-    "deadline": "TBD",
+    "deadline": "2025-04-15",
     "url": "",
     "tier": ""
   },
@@ -82,7 +82,7 @@
   },
   {
     "id": 6,
-    "name": "6th LTI@UniTO/Bank of Italy Workshop on Long-term investors\u2019 trends: theory and practice",
+    "name": "6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’ trends: theory and practice",
     "dates": "Jun 17",
     "startDate": "2025-06-17",
     "location": "Collegio Carlo Alberto, Turin, Italy",
@@ -92,7 +92,7 @@
     ],
     "sid": "16876",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16876",
-    "deadline": "TBD",
+    "deadline": "2025-04-27",
     "url": "",
     "tier": ""
   },
@@ -121,11 +121,12 @@
     "location": "Beijing - China",
     "country": "China",
     "disc": [
-      "fin"
+      "fin",
+      "econ"
     ],
     "sid": "16675",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16675",
-    "deadline": "TBD",
+    "deadline": "2025-04-30",
     "url": "",
     "tier": ""
   },
@@ -141,7 +142,7 @@
     ],
     "sid": "16906",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16906",
-    "deadline": "TBD",
+    "deadline": "2025-03-31",
     "url": "",
     "tier": ""
   },
@@ -157,13 +158,13 @@
     ],
     "sid": "17141",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17141",
-    "deadline": "TBD",
+    "deadline": "2025-09-15",
     "url": "",
     "tier": ""
   },
   {
     "id": 11,
-    "name": "Conference on \u201cClimate Policy Commodity Markets and Economic Adaptations\u201d",
+    "name": "Conference on “Climate Policy Commodity Markets and Economic Adaptations”",
     "dates": "Jun 25-26",
     "startDate": "2025-06-25",
     "location": "Shenzhen, China",
@@ -254,7 +255,7 @@
     ],
     "sid": "17247",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17247",
-    "deadline": "TBD",
+    "deadline": "2025-06-02",
     "url": "",
     "tier": ""
   },
@@ -351,7 +352,7 @@
     ],
     "sid": "17027",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17027",
-    "deadline": "TBD",
+    "deadline": "2025-05-09",
     "url": "",
     "tier": ""
   },
@@ -399,7 +400,7 @@
     ],
     "sid": "16989",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16989",
-    "deadline": "TBD",
+    "deadline": "2025-03-31",
     "url": "",
     "tier": ""
   },
@@ -431,7 +432,7 @@
     ],
     "sid": "16970",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16970",
-    "deadline": "TBD",
+    "deadline": "2025-04-28",
     "url": "",
     "tier": ""
   },
@@ -463,7 +464,7 @@
     ],
     "sid": "17010",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17010",
-    "deadline": "TBD",
+    "deadline": "2025-04-07",
     "url": "",
     "tier": ""
   },
@@ -491,7 +492,8 @@
     "location": "Suzhou, China",
     "country": "China",
     "disc": [
-      "fin"
+      "fin",
+      "acct"
     ],
     "sid": "16962",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16962",
@@ -517,13 +519,14 @@
   },
   {
     "id": 33,
-    "name": "Rice University\u2019s Conference on Accounting & Information Frictions in Microenterprises in Developing Markets",
+    "name": "Rice University’s Conference on Accounting & Information Frictions in Microenterprises in Developing Markets",
     "dates": "Sep 5-6",
     "startDate": "2025-09-05",
     "location": "Jones Graduate School of Business, Rice University",
     "country": "USA",
     "disc": [
-      "econ"
+      "econ",
+      "acct"
     ],
     "sid": "17359",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17359",
@@ -543,7 +546,7 @@
     ],
     "sid": "17389",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17389",
-    "deadline": "TBD",
+    "deadline": "2025-07-31",
     "url": "",
     "tier": ""
   },
@@ -559,7 +562,7 @@
     ],
     "sid": "17223",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17223",
-    "deadline": "TBD",
+    "deadline": "2025-06-30",
     "url": "",
     "tier": ""
   },
@@ -585,7 +588,7 @@
     "name": "2025 Canadian Derivatives Institute (CDI) Conference",
     "dates": "Sep 11-12",
     "startDate": "2025-09-11",
-    "location": "Montr\u00e9al (Qc), Canada",
+    "location": "Montréal (Qc), Canada",
     "country": "Canada",
     "disc": [
       "fin"
@@ -618,7 +621,7 @@
     "name": "Fourth Oxford Sustainable Private Markets Conference",
     "dates": "Sep 15",
     "startDate": "2025-09-15",
-    "location": "Sa\u00efd Business School, University of Oxford",
+    "location": "Saïd Business School, University of Oxford",
     "country": "UK",
     "disc": [
       "fin"
@@ -689,7 +692,7 @@
     ],
     "sid": "17121",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17121",
-    "deadline": "TBD",
+    "deadline": "2025-04-30",
     "url": "",
     "tier": ""
   },
@@ -705,7 +708,7 @@
     ],
     "sid": "16600",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16600",
-    "deadline": "TBD",
+    "deadline": "2025-03-17",
     "url": "",
     "tier": ""
   },
@@ -733,11 +736,12 @@
     "location": "Silicon Valley/Santa Clara, CA, USA",
     "country": "USA",
     "disc": [
-      "fin"
+      "fin",
+      "econ"
     ],
     "sid": "17489",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17489",
-    "deadline": "TBD",
+    "deadline": "2025-08-17",
     "url": "",
     "tier": ""
   },
@@ -749,7 +753,8 @@
     "location": "Santa Clara, CA, USA",
     "country": "USA",
     "disc": [
-      "fin"
+      "fin",
+      "econ"
     ],
     "sid": "17265",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17265",
@@ -775,7 +780,7 @@
   },
   {
     "id": 49,
-    "name": "Finance Research Letters Paper Development Workshop \u201cArtificial Intelligence in Corporate Finance\u201d",
+    "name": "Finance Research Letters Paper Development Workshop “Artificial Intelligence in Corporate Finance”",
     "dates": "Sep 25-26",
     "startDate": "2025-09-25",
     "location": "Dresden, Germany",
@@ -866,7 +871,7 @@
     ],
     "sid": "16980",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16980",
-    "deadline": "TBD",
+    "deadline": "2025-05-01",
     "url": "",
     "tier": ""
   },
@@ -898,7 +903,7 @@
     ],
     "sid": "16990",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16990",
-    "deadline": "TBD",
+    "deadline": "2025-05-16",
     "url": "",
     "tier": ""
   },
@@ -946,7 +951,7 @@
     ],
     "sid": "17154",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17154",
-    "deadline": "TBD",
+    "deadline": "2025-06-30",
     "url": "",
     "tier": ""
   },
@@ -962,7 +967,7 @@
     ],
     "sid": "17085",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17085",
-    "deadline": "TBD",
+    "deadline": "2025-06-15",
     "url": "",
     "tier": ""
   },
@@ -1029,7 +1034,7 @@
     ],
     "sid": "17534",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17534",
-    "deadline": "TBD",
+    "deadline": "2025-09-19",
     "url": "",
     "tier": ""
   },
@@ -1046,7 +1051,7 @@
     ],
     "sid": "17186",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17186",
-    "deadline": "TBD",
+    "deadline": "2025-07-01",
     "url": "",
     "tier": ""
   },
@@ -1160,7 +1165,7 @@
     ],
     "sid": "16948",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16948",
-    "deadline": "TBD",
+    "deadline": "2025-04-18",
     "url": "",
     "tier": ""
   },
@@ -1257,7 +1262,7 @@
     ],
     "sid": "17109",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17109",
-    "deadline": "TBD",
+    "deadline": "2025-08-08",
     "url": "",
     "tier": ""
   },
@@ -1282,14 +1287,14 @@
     "name": "2nd AI in Finance Conference",
     "dates": "Oct 27-30",
     "startDate": "2025-10-27",
-    "location": "Montr\u00e9al, Canada",
+    "location": "Montréal, Canada",
     "country": "Canada",
     "disc": [
       "fin"
     ],
     "sid": "17194",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17194",
-    "deadline": "TBD",
+    "deadline": "2025-09-15",
     "url": "",
     "tier": ""
   },
@@ -1298,7 +1303,7 @@
     "name": "PhD and Postdoc Workshop on Empirical AI in Finance",
     "dates": "Oct 27",
     "startDate": "2025-10-27",
-    "location": "Montr\u00e9al, Canada",
+    "location": "Montréal, Canada",
     "country": "Canada",
     "disc": [
       "fin"
@@ -1337,16 +1342,16 @@
     ],
     "sid": "17226",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17226",
-    "deadline": "TBD",
+    "deadline": "2025-08-31",
     "url": "",
     "tier": ""
   },
   {
     "id": 84,
-    "name": "2025 (5th) \u201cInnovation Sustainability and Regeneration\u201d International Conference",
+    "name": "2025 (5th) “Innovation Sustainability and Regeneration” International Conference",
     "dates": "Oct 29-30",
     "startDate": "2025-10-29",
-    "location": "Universidade Cat\u00f3lica Portuguesa, Porto campus, Porto, Portugal",
+    "location": "Universidade Católica Portuguesa, Porto campus, Porto, Portugal",
     "country": "Portugal",
     "disc": [
       "fin",
@@ -1354,7 +1359,7 @@
     ],
     "sid": "17402",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17402",
-    "deadline": "TBD",
+    "deadline": "2025-07-20",
     "url": "",
     "tier": ""
   },
@@ -1370,7 +1375,7 @@
     ],
     "sid": "17468",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17468",
-    "deadline": "TBD",
+    "deadline": "2025-09-15",
     "url": "",
     "tier": ""
   },
@@ -1395,14 +1400,14 @@
     "name": "AI in Real Estate | Day 3 of the 2nd AI in Finance Conference",
     "dates": "Oct 30",
     "startDate": "2025-10-30",
-    "location": "Montr\u00e9al, Canada",
+    "location": "Montréal, Canada",
     "country": "Canada",
     "disc": [
       "fin"
     ],
     "sid": "17277",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17277",
-    "deadline": "TBD",
+    "deadline": "2025-09-15",
     "url": "",
     "tier": ""
   },
@@ -1450,7 +1455,7 @@
     ],
     "sid": "17313",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17313",
-    "deadline": "TBD",
+    "deadline": "2025-08-01",
     "url": "",
     "tier": ""
   },
@@ -1466,7 +1471,7 @@
     ],
     "sid": "17870",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17870",
-    "deadline": "TBD",
+    "deadline": "2025-10-10",
     "url": "",
     "tier": ""
   },
@@ -1479,7 +1484,8 @@
     "country": "USA",
     "disc": [
       "fin",
-      "acct"
+      "acct",
+      "econ"
     ],
     "sid": "17089",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17089",
@@ -1515,7 +1521,7 @@
     ],
     "sid": "16869",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16869",
-    "deadline": "TBD",
+    "deadline": "2025-07-01",
     "url": "",
     "tier": ""
   },
@@ -1563,7 +1569,7 @@
     ],
     "sid": "17482",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17482",
-    "deadline": "TBD",
+    "deadline": "2025-09-14",
     "url": "",
     "tier": ""
   },
@@ -1579,7 +1585,7 @@
     ],
     "sid": "17733",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17733",
-    "deadline": "TBD",
+    "deadline": "2025-09-30",
     "url": "",
     "tier": ""
   },
@@ -1604,7 +1610,7 @@
     "name": "6th CEAR-RSI Household Finance Workshop",
     "dates": "Nov 14-15",
     "startDate": "2025-11-14",
-    "location": "Montr\u00e9al (Qu\u00e9bec), Canada",
+    "location": "Montréal (Québec), Canada",
     "country": "Canada",
     "disc": [
       "fin",
@@ -1661,7 +1667,7 @@
     ],
     "sid": "17347",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17347",
-    "deadline": "TBD",
+    "deadline": "2025-07-31",
     "url": "",
     "tier": ""
   },
@@ -1677,7 +1683,7 @@
     ],
     "sid": "17423",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17423",
-    "deadline": "TBD",
+    "deadline": "2025-07-18",
     "url": "",
     "tier": ""
   },
@@ -1693,7 +1699,7 @@
     ],
     "sid": "17357",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17357",
-    "deadline": "TBD",
+    "deadline": "2025-07-15",
     "url": "",
     "tier": ""
   },
@@ -1741,7 +1747,7 @@
     ],
     "sid": "17435",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17435",
-    "deadline": "TBD",
+    "deadline": "2025-09-28",
     "url": "",
     "tier": ""
   },
@@ -1769,7 +1775,9 @@
     "location": "Indian Institute of Management Ahmedabad",
     "country": "India",
     "disc": [
-      "fin"
+      "fin",
+      "acct",
+      "econ"
     ],
     "sid": "17200",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17200",
@@ -1805,7 +1813,7 @@
     ],
     "sid": "17469",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17469",
-    "deadline": "TBD",
+    "deadline": "2025-08-31",
     "url": "",
     "tier": ""
   },
@@ -1886,7 +1894,7 @@
     ],
     "sid": "17940",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17940",
-    "deadline": "TBD",
+    "deadline": "2025-11-03",
     "url": "",
     "tier": ""
   },
@@ -1950,7 +1958,7 @@
     ],
     "sid": "17206",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17206",
-    "deadline": "TBD",
+    "deadline": "2025-09-01",
     "url": "",
     "tier": ""
   },
@@ -1966,7 +1974,7 @@
     ],
     "sid": "17558",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17558",
-    "deadline": "TBD",
+    "deadline": "2025-09-15",
     "url": "",
     "tier": ""
   },
@@ -1978,7 +1986,8 @@
     "location": "Dubai",
     "country": "UAE",
     "disc": [
-      "fin"
+      "fin",
+      "econ"
     ],
     "sid": "17597",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17597",
@@ -1998,7 +2007,7 @@
     ],
     "sid": "17160",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17160",
-    "deadline": "TBD",
+    "deadline": "2025-08-31",
     "url": "",
     "tier": ""
   },
@@ -2014,7 +2023,7 @@
     ],
     "sid": "17152",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17152",
-    "deadline": "TBD",
+    "deadline": "2025-08-15",
     "url": "",
     "tier": ""
   },
@@ -2030,7 +2039,7 @@
     ],
     "sid": "17146",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17146",
-    "deadline": "TBD",
+    "deadline": "2025-08-15",
     "url": "",
     "tier": ""
   },
@@ -2090,7 +2099,8 @@
     "location": "Goregaon, Mumbai, India",
     "country": "India",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "17306",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17306",
@@ -2126,7 +2136,7 @@
     ],
     "sid": "17250",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17250",
-    "deadline": "TBD",
+    "deadline": "2025-10-10",
     "url": "",
     "tier": ""
   },
@@ -2158,7 +2168,7 @@
     ],
     "sid": "17695",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17695",
-    "deadline": "TBD",
+    "deadline": "2025-09-30",
     "url": "",
     "tier": ""
   },
@@ -2207,7 +2217,7 @@
     ],
     "sid": "17162",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17162",
-    "deadline": "TBD",
+    "deadline": "2025-06-30",
     "url": "",
     "tier": ""
   },
@@ -2239,7 +2249,7 @@
     ],
     "sid": "17066",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17066",
-    "deadline": "TBD",
+    "deadline": "2025-08-15",
     "url": "",
     "tier": "2"
   },
@@ -2256,7 +2266,7 @@
     ],
     "sid": "17561",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17561",
-    "deadline": "TBD",
+    "deadline": "2025-12-15",
     "url": "",
     "tier": "3"
   },
@@ -2288,7 +2298,7 @@
     ],
     "sid": "17686",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17686",
-    "deadline": "TBD",
+    "deadline": "2025-09-15",
     "url": "",
     "tier": "3"
   },
@@ -2297,7 +2307,7 @@
     "name": "European Winter Finance Conference 2026",
     "dates": "Jan 11-14",
     "startDate": "2026-01-11",
-    "location": "Meg\u00e9ve, France",
+    "location": "Megéve, France",
     "country": "France",
     "disc": [
       "fin"
@@ -2320,7 +2330,7 @@
     ],
     "sid": "17514",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17514",
-    "deadline": "TBD",
+    "deadline": "2025-09-08",
     "url": "",
     "tier": "3"
   },
@@ -2368,7 +2378,7 @@
     ],
     "sid": "18325",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18325",
-    "deadline": "TBD",
+    "deadline": "2025-11-30",
     "url": "",
     "tier": ""
   },
@@ -2384,13 +2394,13 @@
     ],
     "sid": "17478",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17478",
-    "deadline": "TBD",
+    "deadline": "2025-09-15",
     "url": "",
     "tier": ""
   },
   {
     "id": 149,
-    "name": "1st Global Banking and Finance Conference 2026 \u2013 XLRI Delhi NCR",
+    "name": "1st Global Banking and Finance Conference 2026 – XLRI Delhi NCR",
     "dates": "Feb 5-7",
     "startDate": "2026-02-05",
     "location": "XLRI Xavier School of Management Delhi-NCR, Jhajjar, India",
@@ -2406,7 +2416,7 @@
   },
   {
     "id": 150,
-    "name": "2026 ICVG Conference on \u201cShareholder primacy versus Stakeholder primacy\"",
+    "name": "2026 ICVG Conference on “Shareholder primacy versus Stakeholder primacy\"",
     "dates": "Feb 5-6",
     "startDate": "2026-02-05",
     "location": "Monash University Caulfield Campus, Melbourne, Australia",
@@ -2416,7 +2426,7 @@
     ],
     "sid": "17840",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17840",
-    "deadline": "TBD",
+    "deadline": "2025-11-14",
     "url": "",
     "tier": "3"
   },
@@ -2432,7 +2442,7 @@
     ],
     "sid": "17691",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17691",
-    "deadline": "TBD",
+    "deadline": "2025-10-15",
     "url": "",
     "tier": ""
   },
@@ -2480,7 +2490,7 @@
     ],
     "sid": "17912",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17912",
-    "deadline": "TBD",
+    "deadline": "2025-10-19",
     "url": "",
     "tier": ""
   },
@@ -2496,7 +2506,7 @@
     ],
     "sid": "17756",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17756",
-    "deadline": "TBD",
+    "deadline": "2025-10-19",
     "url": "",
     "tier": ""
   },
@@ -2512,7 +2522,7 @@
     ],
     "sid": "17719",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17719",
-    "deadline": "TBD",
+    "deadline": "2025-11-15",
     "url": "",
     "tier": ""
   },
@@ -2530,7 +2540,7 @@
     ],
     "sid": "18116",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18116",
-    "deadline": "TBD",
+    "deadline": "2025-11-15",
     "url": "",
     "tier": "3"
   },
@@ -2542,7 +2552,8 @@
     "location": "WashU Olin Business School, St. Louis, MO",
     "country": "USA",
     "disc": [
-      "fin"
+      "fin",
+      "econ"
     ],
     "sid": "18070",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18070",
@@ -2627,7 +2638,7 @@
     ],
     "sid": "18237",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18237",
-    "deadline": "TBD",
+    "deadline": "2026-01-15",
     "url": "",
     "tier": ""
   },
@@ -2639,11 +2650,12 @@
     "location": "St. Kitts",
     "country": "St. Kitts",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18173",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18173",
-    "deadline": "TBD",
+    "deadline": "2026-02-01",
     "url": "",
     "tier": "3"
   },
@@ -2692,13 +2704,13 @@
     ],
     "sid": "17644",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17644",
-    "deadline": "TBD",
+    "deadline": "2025-10-19",
     "url": "",
     "tier": ""
   },
   {
     "id": 168,
-    "name": "Joint World Bank - Financial Analysts Journal Conference on \u201cPublic Asset Management\u201d",
+    "name": "Joint World Bank - Financial Analysts Journal Conference on “Public Asset Management”",
     "dates": "Mar 16-17",
     "startDate": "2026-03-16",
     "location": "World Bank Headquarters, Washington DC, USA",
@@ -2740,7 +2752,7 @@
     ],
     "sid": "17782",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17782",
-    "deadline": "TBD",
+    "deadline": "2026-02-01",
     "url": "",
     "tier": ""
   },
@@ -2782,7 +2794,7 @@
     "name": "Central Bank Payments Conference",
     "dates": "Mar 23-25",
     "startDate": "2026-03-23",
-    "location": "Istanbul, T\u00fcrkiye",
+    "location": "Istanbul, Türkiye",
     "country": "Turkey",
     "disc": [
       "fin"
@@ -2821,7 +2833,7 @@
     ],
     "sid": "18146",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18146",
-    "deadline": "TBD",
+    "deadline": "2025-12-22",
     "url": "",
     "tier": ""
   },
@@ -2837,7 +2849,7 @@
     ],
     "sid": "17992",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17992",
-    "deadline": "TBD",
+    "deadline": "2026-10-20",
     "url": "",
     "tier": ""
   },
@@ -2869,7 +2881,7 @@
     ],
     "sid": "17484",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17484",
-    "deadline": "TBD",
+    "deadline": "2025-10-15",
     "url": "",
     "tier": ""
   },
@@ -2885,7 +2897,7 @@
     ],
     "sid": "17933",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17933",
-    "deadline": "TBD",
+    "deadline": "2025-11-18",
     "url": "",
     "tier": ""
   },
@@ -2917,7 +2929,7 @@
     ],
     "sid": "17702",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17702",
-    "deadline": "TBD",
+    "deadline": "2025-11-18",
     "url": "",
     "tier": ""
   },
@@ -2949,7 +2961,7 @@
     ],
     "sid": "17706",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17706",
-    "deadline": "TBD",
+    "deadline": "2025-12-22",
     "url": "",
     "tier": ""
   },
@@ -3098,7 +3110,7 @@
     ],
     "sid": "17796",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17796",
-    "deadline": "TBD",
+    "deadline": "2025-12-01",
     "url": "",
     "tier": "3"
   },
@@ -3148,7 +3160,7 @@
     ],
     "sid": "18337",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18337",
-    "deadline": "TBD",
+    "deadline": "2026-01-10",
     "url": "",
     "tier": "3"
   },
@@ -3164,7 +3176,7 @@
     ],
     "sid": "17726",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17726",
-    "deadline": "TBD",
+    "deadline": "2025-11-09",
     "url": "",
     "tier": ""
   },
@@ -3180,7 +3192,7 @@
     ],
     "sid": "17476",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17476",
-    "deadline": "TBD",
+    "deadline": "2025-11-25",
     "url": "",
     "tier": ""
   },
@@ -3228,7 +3240,7 @@
     ],
     "sid": "18154",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18154",
-    "deadline": "TBD",
+    "deadline": "2025-12-06",
     "url": "",
     "tier": ""
   },
@@ -3285,7 +3297,7 @@
     "name": "Inaugural Rutgers Finance Research Conference 2026",
     "dates": "Apr 30 - May 1",
     "startDate": "2026-04-30",
-    "location": "Rutgers Business School \u2013 Newark & New Brunswick, NJ",
+    "location": "Rutgers Business School – Newark & New Brunswick, NJ",
     "country": "Australia",
     "disc": [
       "fin"
@@ -3336,7 +3348,8 @@
     "location": "Federal Reserve Bank of Philadelphia, Philadelphia, PA",
     "country": "USA",
     "disc": [
-      "fin"
+      "fin",
+      "econ"
     ],
     "sid": "18247",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18247",
@@ -3352,11 +3365,12 @@
     "location": "Federal Reserve Bank of Philadelphia, Philadelphia, PA",
     "country": "USA",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18319",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18319",
-    "deadline": "TBD",
+    "deadline": "2026-02-17",
     "url": "",
     "tier": ""
   },
@@ -3372,7 +3386,7 @@
     ],
     "sid": "18465",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18465",
-    "deadline": "TBD",
+    "deadline": "2026-02-01",
     "url": "",
     "tier": ""
   },
@@ -3404,7 +3418,7 @@
     ],
     "sid": "18561",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18561",
-    "deadline": "TBD",
+    "deadline": "2026-01-31",
     "url": "",
     "tier": ""
   },
@@ -3484,7 +3498,7 @@
     ],
     "sid": "17909",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17909",
-    "deadline": "TBD",
+    "deadline": "2025-11-18",
     "url": "",
     "tier": ""
   },
@@ -3516,7 +3530,7 @@
     ],
     "sid": "18275",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18275",
-    "deadline": "TBD",
+    "deadline": "2025-12-28",
     "url": "",
     "tier": ""
   },
@@ -3532,7 +3546,7 @@
     ],
     "sid": "18316",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18316",
-    "deadline": "TBD",
+    "deadline": "2026-07-01",
     "url": "",
     "tier": ""
   },
@@ -3581,7 +3595,7 @@
     ],
     "sid": "18040",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18040",
-    "deadline": "TBD",
+    "deadline": "2025-12-31",
     "url": "",
     "tier": "2"
   },
@@ -3613,7 +3627,7 @@
     ],
     "sid": "18201",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18201",
-    "deadline": "TBD",
+    "deadline": "2025-12-15",
     "url": "",
     "tier": ""
   },
@@ -3737,11 +3751,12 @@
     "location": "Universidad Pontificia de Comillas, Madrid, Spain",
     "country": "Spain",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18621",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18621",
-    "deadline": "TBD",
+    "deadline": "2026-03-10",
     "url": "",
     "tier": "2"
   },
@@ -3757,7 +3772,7 @@
     ],
     "sid": "18620",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18620",
-    "deadline": "TBD",
+    "deadline": "2026-03-10",
     "url": "",
     "tier": "3"
   },
@@ -3769,7 +3784,8 @@
     "location": "Universidad Pontificia de Comillas, Madrid, Spain",
     "country": "Spain",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18618",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18618",
@@ -3805,7 +3821,7 @@
     ],
     "sid": "18619",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18619",
-    "deadline": "TBD",
+    "deadline": "2026-03-10",
     "url": "",
     "tier": "3"
   },
@@ -3837,7 +3853,7 @@
     ],
     "sid": "18471",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18471",
-    "deadline": "TBD",
+    "deadline": "2026-01-15",
     "url": "",
     "tier": ""
   },
@@ -3853,7 +3869,7 @@
     ],
     "sid": "18610",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18610",
-    "deadline": "TBD",
+    "deadline": "2026-02-09",
     "url": "",
     "tier": ""
   },
@@ -3901,7 +3917,7 @@
     ],
     "sid": "18605",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18605",
-    "deadline": "TBD",
+    "deadline": "2026-02-08",
     "url": "",
     "tier": ""
   },
@@ -3949,7 +3965,7 @@
     ],
     "sid": "17843",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17843",
-    "deadline": "TBD",
+    "deadline": "2025-12-15",
     "url": "",
     "tier": ""
   },
@@ -4047,7 +4063,7 @@
     ],
     "sid": "18486",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18486",
-    "deadline": "TBD",
+    "deadline": "2026-02-14",
     "url": "",
     "tier": ""
   },
@@ -4063,7 +4079,7 @@
     ],
     "sid": "18395",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18395",
-    "deadline": "TBD",
+    "deadline": "2026-01-11",
     "url": "",
     "tier": ""
   },
@@ -4129,7 +4145,7 @@
     ],
     "sid": "18691",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18691",
-    "deadline": "TBD",
+    "deadline": "2026-03-15",
     "url": "",
     "tier": ""
   },
@@ -4145,7 +4161,7 @@
     ],
     "sid": "18669",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18669",
-    "deadline": "TBD",
+    "deadline": "2026-04-30",
     "url": "",
     "tier": ""
   },
@@ -4168,17 +4184,18 @@
   },
   {
     "id": 259,
-    "name": "2nd Conference on \u201cOwnership Control and Economic Performance\u201d",
+    "name": "2nd Conference on “Ownership Control and Economic Performance”",
     "dates": "Jun 8-9",
     "startDate": "2026-06-08",
     "location": "Paris",
     "country": "France",
     "disc": [
-      "fin"
+      "fin",
+      "econ"
     ],
     "sid": "18242",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18242",
-    "deadline": "TBD",
+    "deadline": "2026-02-01",
     "url": "",
     "tier": ""
   },
@@ -4227,7 +4244,7 @@
     ],
     "sid": "18675",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18675",
-    "deadline": "TBD",
+    "deadline": "2026-03-15",
     "url": "",
     "tier": ""
   },
@@ -4243,7 +4260,7 @@
     ],
     "sid": "18648",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18648",
-    "deadline": "TBD",
+    "deadline": "2026-03-16",
     "url": "",
     "tier": ""
   },
@@ -4259,7 +4276,7 @@
     ],
     "sid": "18202",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18202",
-    "deadline": "TBD",
+    "deadline": "2025-12-16",
     "url": "",
     "tier": ""
   },
@@ -4291,7 +4308,7 @@
     ],
     "sid": "17715",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17715",
-    "deadline": "TBD",
+    "deadline": "2026-01-15",
     "url": "",
     "tier": "2"
   },
@@ -4307,7 +4324,7 @@
     ],
     "sid": "18270",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18270",
-    "deadline": "TBD",
+    "deadline": "2026-01-31",
     "url": "",
     "tier": "2"
   },
@@ -4319,11 +4336,12 @@
     "location": "Cagliari, Sardinia, Italy",
     "country": "Italy",
     "disc": [
-      "fin"
+      "fin",
+      "acct"
     ],
     "sid": "18589",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18589",
-    "deadline": "TBD",
+    "deadline": "2026-02-13",
     "url": "",
     "tier": ""
   },
@@ -4371,7 +4389,7 @@
     ],
     "sid": "18672",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18672",
-    "deadline": "TBD",
+    "deadline": "2026-02-28",
     "url": "",
     "tier": ""
   },
@@ -4404,7 +4422,7 @@
     ],
     "sid": "18549",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18549",
-    "deadline": "TBD",
+    "deadline": "2026-04-15",
     "url": "",
     "tier": ""
   },
@@ -4436,7 +4454,7 @@
     ],
     "sid": "18228",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18228",
-    "deadline": "TBD",
+    "deadline": "2026-03-26",
     "url": "",
     "tier": ""
   },
@@ -4502,7 +4520,7 @@
     ],
     "sid": "18664",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18664",
-    "deadline": "TBD",
+    "deadline": "2026-02-23",
     "url": "",
     "tier": ""
   },
@@ -4518,7 +4536,7 @@
     ],
     "sid": "18415",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18415",
-    "deadline": "TBD",
+    "deadline": "2026-02-01",
     "url": "",
     "tier": ""
   },
@@ -4534,13 +4552,13 @@
     ],
     "sid": "18342",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18342",
-    "deadline": "TBD",
+    "deadline": "2026-01-31",
     "url": "",
     "tier": ""
   },
   {
     "id": 282,
-    "name": "CAAA 2026 Call for Papers | Appel \u00e0 communications de l'ACPC 2026",
+    "name": "CAAA 2026 Call for Papers | Appel à communications de l'ACPC 2026",
     "dates": "Jun 18-20",
     "startDate": "2026-06-18",
     "location": "Banff, Alberta, Canada",
@@ -4550,7 +4568,7 @@
     ],
     "sid": "18458",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18458",
-    "deadline": "TBD",
+    "deadline": "2026-01-12",
     "url": "",
     "tier": "2"
   },
@@ -4672,10 +4690,10 @@
   },
   {
     "id": 290,
-    "name": "Oxford Sa\u00efd - VU SBE Macro-finance Conference Money Liquidity and Financial Stability",
+    "name": "Oxford Saïd - VU SBE Macro-finance Conference Money Liquidity and Financial Stability",
     "dates": "Jun 25-26",
     "startDate": "2026-06-25",
-    "location": "Sa\u00efd Business School, University of Oxford",
+    "location": "Saïd Business School, University of Oxford",
     "country": "UK",
     "disc": [
       "fin"
@@ -4698,7 +4716,7 @@
     ],
     "sid": "18357",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18357",
-    "deadline": "TBD",
+    "deadline": "2026-04-05",
     "url": "",
     "tier": ""
   },
@@ -4791,7 +4809,8 @@
     "location": "Shanghai, China",
     "country": "China",
     "disc": [
-      "acct"
+      "acct",
+      "fin"
     ],
     "sid": "18705",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18705",
@@ -4811,7 +4830,7 @@
     ],
     "sid": "18630",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18630",
-    "deadline": "TBD",
+    "deadline": "2026-04-20",
     "url": "",
     "tier": ""
   },
@@ -4860,7 +4879,7 @@
     ],
     "sid": "18651",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18651",
-    "deadline": "TBD",
+    "deadline": "2026-02-15",
     "url": "",
     "tier": ""
   },
@@ -4876,7 +4895,7 @@
     ],
     "sid": "18462",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18462",
-    "deadline": "TBD",
+    "deadline": "2026-03-31",
     "url": "",
     "tier": ""
   },
@@ -4908,7 +4927,7 @@
     ],
     "sid": "18736",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18736",
-    "deadline": "TBD",
+    "deadline": "2026-05-08",
     "url": "",
     "tier": ""
   },
@@ -4924,7 +4943,7 @@
     ],
     "sid": "17803",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17803",
-    "deadline": "TBD",
+    "deadline": "2026-03-01",
     "url": "",
     "tier": ""
   },
@@ -4940,13 +4959,13 @@
     ],
     "sid": "18684",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18684",
-    "deadline": "TBD",
+    "deadline": "2026-03-22",
     "url": "",
     "tier": ""
   },
   {
     "id": 307,
-    "name": "Conference on \u201cFiscal and monetary policies in developing economies for navigating fragmentation risks\u201d",
+    "name": "Conference on “Fiscal and monetary policies in developing economies for navigating fragmentation risks”",
     "dates": "Jul 28-29",
     "startDate": "2026-07-28",
     "location": "Singapore",
@@ -4972,7 +4991,7 @@
     ],
     "sid": "18447",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18447",
-    "deadline": "TBD",
+    "deadline": "2026-02-15",
     "url": "",
     "tier": ""
   },
@@ -4988,7 +5007,7 @@
     ],
     "sid": "18196",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18196",
-    "deadline": "TBD",
+    "deadline": "2026-03-07",
     "url": "",
     "tier": ""
   },
@@ -5020,7 +5039,7 @@
     ],
     "sid": "18700",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18700",
-    "deadline": "TBD",
+    "deadline": "2026-03-31",
     "url": "",
     "tier": ""
   },
@@ -5100,7 +5119,7 @@
     ],
     "sid": "18586",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18586",
-    "deadline": "TBD",
+    "deadline": "2026-03-15",
     "url": "",
     "tier": ""
   },
@@ -5109,14 +5128,14 @@
     "name": "9th Annual GRASFI Conference",
     "dates": "Aug 24-26",
     "startDate": "2026-08-24",
-    "location": "Li\u00e8ge, Belgium",
+    "location": "Liège, Belgium",
     "country": "Belgium",
     "disc": [
       "fin"
     ],
     "sid": "18513",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18513",
-    "deadline": "TBD",
+    "deadline": "2026-02-28",
     "url": "",
     "tier": ""
   },
@@ -5165,7 +5184,7 @@
     ],
     "sid": "18692",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18692",
-    "deadline": "TBD",
+    "deadline": "2026-04-20",
     "url": "",
     "tier": ""
   },
@@ -5248,7 +5267,7 @@
     ],
     "sid": "18276",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18276",
-    "deadline": "TBD",
+    "deadline": "2026-04-15",
     "url": "",
     "tier": "3"
   },
@@ -5257,7 +5276,7 @@
     "name": "Fourteenth Oxford Financial Intermediation Theory Conference (OxFIT)",
     "dates": "Sep 14-15",
     "startDate": "2026-09-14",
-    "location": "Sa\u00efd Business School, University of Oxford",
+    "location": "Saïd Business School, University of Oxford",
     "country": "UK",
     "disc": [
       "fin"
@@ -5280,7 +5299,7 @@
     ],
     "sid": "18657",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18657",
-    "deadline": "TBD",
+    "deadline": "2026-04-30",
     "url": "",
     "tier": ""
   },
@@ -5312,7 +5331,7 @@
     ],
     "sid": "18668",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18668",
-    "deadline": "TBD",
+    "deadline": "2026-04-12",
     "url": "",
     "tier": ""
   },
@@ -5492,7 +5511,7 @@
     ],
     "sid": "18720",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18720",
-    "deadline": "TBD",
+    "deadline": "2026-07-31",
     "url": "",
     "tier": ""
   },
@@ -5501,7 +5520,7 @@
     "name": "Bank of Finland and CEPR Joint conference on Navigating Monetary Policy by the Northern Lights",
     "dates": "Dec 17-18",
     "startDate": "2026-12-17",
-    "location": "Saariselk\u00e4, Lapland",
+    "location": "Saariselkä, Lapland",
     "country": "Finland",
     "disc": [
       "fin",
@@ -5542,6 +5561,1240 @@
     ],
     "sid": "18712",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18712",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 344,
+    "name": "Call for Papers: 2026 Vietnam Symposium in Entrepreneurship, Finance, and Innovation",
+    "dates": "Jul 2-3",
+    "startDate": "2026-07-02",
+    "location": "Hanoi, Vietnam",
+    "country": "Vietnam",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18766",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18766",
+    "deadline": "2026-04-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 345,
+    "name": "International Risk Management Conference 2026",
+    "dates": "Jun 22-23",
+    "startDate": "2026-06-22",
+    "location": "Warsaw, Poland",
+    "country": "Poland",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18764",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18764",
+    "deadline": "2026-03-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 346,
+    "name": "12th IWH-FIN-FIRE Workshop on “Challenges to Financial Stability”",
+    "dates": "Aug 24-25",
+    "startDate": "2026-08-24",
+    "location": "Halle Institute for Economic Research (IWH), Halle/Saale Germany",
+    "country": "Germany",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18763",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18763",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 347,
+    "name": "Call for Papers: 11th SDU Finance Workshop on Corporate Finance -- Dynamics, Uncertainty, and Strategic Decisions",
+    "dates": "",
+    "startDate": "",
+    "location": "University of Southern Denmark (SDU), Odense, Denmark",
+    "country": "Denmark",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18694",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18694",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 348,
+    "name": "Behavioral/Cognitive Finance, Decision/Risk Sciences in the Age of Artificial Intelligence; Entrepreneurship & Economics-2025; Submission Deadline: June 27, 2025",
+    "dates": "Sep 24-26",
+    "startDate": "2025-09-24",
+    "location": "Silicon Valley/Santa Clara, CA, USA",
+    "country": "USA",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "16967",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16967",
+    "deadline": "2025-06-27",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 349,
+    "name": "HKIMR Monetary Research Programmes - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18106",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18106",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 350,
+    "name": "The Graduate Programme in Economics and Finance (GPEF) at the University of St. Gallen is inviting applications",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18408",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18408",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 351,
+    "name": "Summer School on Market Microstructure",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18012",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18012",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 352,
+    "name": "HKIMR Monetary Research Programmes - Call For Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17503",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17503",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 353,
+    "name": "HKIMR Monetary Research Programmes and Doctoral Internship Programme - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17126",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17126",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 354,
+    "name": "CEMFI Summer School 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17035",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17035",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 355,
+    "name": "Tinbergen Institute Summer School 2025 - Economics & Business Data Science – Call for Applications",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "16960",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16960",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 356,
+    "name": "HKIMR Monetary Research Programmes - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "16692",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16692",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 357,
+    "name": "2025 Summer School on Structural Estimation in Corporate Finance at the Wharton School",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "16860",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16860",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 358,
+    "name": "4th Finance and Business Analytics Conference, 5th-7th September 2026, Rhodes, Greece",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18627",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18627",
+    "deadline": "2026-08-01",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 359,
+    "name": "Call for papers: 2026 Asia Meeting of the Econometric Society, East & Southeast Asia",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17971",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17971",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 360,
+    "name": "2026 MRS International Risk Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18537",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18537",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 361,
+    "name": "2025 GSU-MS AI and FinTech Conference‬",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17722",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17722",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 362,
+    "name": "21st European Winter Finance Summit",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17643",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17643",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 363,
+    "name": "Inaugural Notre Dame Investment Management Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17577",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17577",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 364,
+    "name": "2025 Accountability in a Sustainable World Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "17574",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17574",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 365,
+    "name": "CALLING SCHOLARS INTERESTED IN COLLABORATING WITH FINTECHS – FUTURE FINANCE FEST (3f), VILNIUS, LITHUANIA, 25-27 AUGUST 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17538",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17538",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 366,
+    "name": "10th annual Business Valuation Challenge",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17531",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17531",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 367,
+    "name": "Call for Registration Vitznau FRR Inaugural Conference June 28-29th July",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17279",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17279",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 368,
+    "name": "CICF 2025: Conference Registration",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17175",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17175",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 369,
+    "name": "Atlanta Fed's 29th Annual Financial Markets Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17215",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17215",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 370,
+    "name": "4th Hong Kong Conference for Fintech, AI, and Big Data in Business",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17164",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17164",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 371,
+    "name": "FEDERAL RESERVE BANK OF CHICAGO CONFERENCE ON MUNICIPAL BOND MARKETS",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17075",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17075",
+    "deadline": "2025-05-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 372,
+    "name": "Fintech and Financial Institutions Research Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "16857",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16857",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 373,
+    "name": "6th Annual FIASI-Gabelli School Student Research Competition",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18200",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18200",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 374,
+    "name": "2026 Edition of the Ieke van den Burg Prize for research on systemic risk",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18575",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18575",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 375,
+    "name": "Call for papers! FESE De la Vega Prize 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18476",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18476",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 376,
+    "name": "Fintech Chair. 6th Call for Research Projects 2024",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18078",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18078",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 377,
+    "name": "KCFR- Call for Research Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17977",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17977",
+    "deadline": "2025-12-01",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 378,
+    "name": "Call for Applications and Nominations: Philipp Sandner Memorial Award in Digital Finance Research 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17922",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17922",
+    "deadline": "2025-12-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 379,
+    "name": "10th Annual Southeastern Hedge Fund Competition",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17819",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17819",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 380,
+    "name": "2026 University of Delaware/ECGI Corporate Governance Symposium and John L. Weinberg/IRRCi Research Paper Competition",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17787",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17787",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 381,
+    "name": "CALL FOR PAPERS: THE THIRTY-FIFTH ANNUAL UTAH WINTER FINANCE CONFERENCE",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17593",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17593",
+    "deadline": "2025-09-08",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 382,
+    "name": "Jackson Hole Finance Group Conference 2026 - Call for Papers",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17487",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17487",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 383,
+    "name": "17th Annual Hedge Fund Research Conference Paris, January 29-30, 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17403",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17403",
+    "deadline": "2025-09-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 384,
+    "name": "Chicago Quantitative Alliance - Call for Papers 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17252",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17252",
+    "deadline": "2025-06-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 385,
+    "name": "Call for Job Market Paper - 8th Asset Pricing Conference by LTI@UniTO",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17148",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17148",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 386,
+    "name": "Call for Papers: PRI Research Awards at PRI in Person 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17095",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17095",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 387,
+    "name": "Business for a Better World Dissertation Proposal Competition – Colorado State University, College of Business",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "16885",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16885",
+    "deadline": "2025-06-03",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 388,
+    "name": "Call for Papers: Nature-Inspired Finance: Innovations in Biodiversity Finance An edited collection to be published by Palgrave Macmillan",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18144",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18144",
+    "deadline": "2026-02-28",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 389,
+    "name": "Call for Papers: Transition Finance: Designing Credible Pathways to Net-Zero Emissions An edited collection to be published by Palgrave Macmillan",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18143",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18143",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 390,
+    "name": "CSR Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17310",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17310",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 391,
+    "name": "HKIMR Open-bid Applied Research Programme - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18383",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18383",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 392,
+    "name": "RESEARCH GRANTS PROVIDED BY INQUIRE EUROPE, MARCH 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18210",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18210",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 393,
+    "name": "FARFE Awards Ninth Ross Prize to Lubos Pastor and Pietro Veronesi for Research on Effect of Technological Revolutions on Stock Prices",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17600",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17600",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 394,
+    "name": "DEWEY Research Data Grants 2025 - Now Accepting Submissions",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17480",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17480",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 395,
+    "name": "Pladifes Call for Projects: Carbon Data for Sustainable Finance Research",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17056",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17056",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 396,
+    "name": "Ph.D. in Finance, fully funded",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18585",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18585",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 397,
+    "name": "Pre-Announcments: Assistant Professorship in Finance (W1 TT) and Postdoctoral Researcher in Financial Intermediation or Household Finance",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18132",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18132",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 398,
+    "name": "EUROFIDAI-ESSEC Paris December Finance Meeting 2025 – Program & Registration Now Available",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18099",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18099",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 399,
+    "name": "Finance Theory Insights: Surprising implications of regulations and technological advancement",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17467",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17467",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 400,
+    "name": "The 2025 Rising Stars Conference and the 2025 Trailblazer in Finance Keynote Lecture",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17237",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17237",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 401,
+    "name": "2025 SoFiE Financial Econometrics Summer School",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17100",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17100",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 402,
+    "name": "Finance Theory Insights: Regulatory Implications of Corporate Financing and Payout Policies",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18044",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18044",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 403,
+    "name": "2025 CUHK Accounting Research Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18225",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18225",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 404,
+    "name": "The Glen McLaughlin (Endowed) Prize for Research in Accounting and Ethics - CALL FOR PAPERS (2025-2026)",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct"
+    ],
+    "sid": "17834",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17834",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 405,
+    "name": "Ph.D. in Accounting (financial/managerial) - Frankfurt School of Finance and Management",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18424",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18424",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 406,
+    "name": "Bonn Graduate School of Economics (BGSE) Combined M.Sc. Economic Research / Doctoral Program",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18107",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18107",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 407,
+    "name": "EcoMod School of Modeling and Data Science Summer School - Registrations open",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "16930",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16930",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 408,
+    "name": "Call for Papers for David Dollar Memorial Prize 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17868",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17868",
+    "deadline": "2026-01-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 409,
+    "name": "2025 Huebner-ARIA Doctoral Colloquium",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17227",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17227",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 410,
+    "name": "ICPM Research Award 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "16886",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16886",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 411,
+    "name": "American Bankers Association Banking Research Dissertation Grant",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18650",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18650",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 412,
+    "name": "Call for Research Projects 2025 “Women and Science”",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17383",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17383",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 413,
+    "name": "100 Years of the Ramsey Model",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18713",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18713",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 414,
+    "name": "SBUR Collection on Responsible Innovation - Business Administration creates Future",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18331",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18331",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 415,
+    "name": "Advances in Econometrics volume: Bayesian Macroeconometrics",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18216",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18216",
+    "deadline": "2026-02-28",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 416,
+    "name": "Estimating the Impact of Natural Disasters on U.S. Communities",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17084",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17084",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 417,
+    "name": "Call for applications: Gateway education policy hackathon",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18704",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18704",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 418,
+    "name": "The 23rd session of the Institutional and Organizational Economics Academy",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18688",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18688",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 419,
+    "name": "THE WEINBERG CENTER’S 25th ANNIVERSARY: Celebrating Boardroom Legacy: John L. Weinberg’s 1948 Princeton Thesis",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17625",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17625",
     "deadline": "TBD",
     "url": "",
     "tier": ""
