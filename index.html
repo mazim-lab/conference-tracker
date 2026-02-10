@@ -141,7 +141,6 @@
 
     /* ── Data loading ── */
     const JSON_URL = "./conferences.json";
-    const LOCAL_OVERRIDES_KEY = "conftracker-overrides-v1";
     const TODAY = new Date();
     const TODAY_STR = TODAY.toISOString().split("T")[0];
 
@@ -197,27 +196,6 @@
       const seen=new Map();
       for(const c of data){if(!seen.has(c.sid)){seen.set(c.sid,c);}else{const ex=seen.get(c.sid);for(const d of(c.disc||[]))if(!ex.disc.includes(d))ex.disc.push(d);if(c.deadline&&c.deadline!=="TBD"&&isTBD(ex.deadline))ex.deadline=c.deadline;if(c.url&&!ex.url)ex.url=c.url;if(c.tier&&!ex.tier)ex.tier=c.tier;}}
       return Array.from(seen.values());
-    }
-
-    function applyOverrides(confs) {
-      try {
-        const raw = localStorage.getItem(LOCAL_OVERRIDES_KEY);
-        if (!raw) return confs;
-        const overrides = JSON.parse(raw);
-        return confs.map(c => {
-          const o = overrides[c.sid];
-          return o ? { ...c, ...o } : c;
-        });
-      } catch { return confs; }
-    }
-
-    function saveOverride(sid, fields) {
-      try {
-        const raw = localStorage.getItem(LOCAL_OVERRIDES_KEY);
-        const overrides = raw ? JSON.parse(raw) : {};
-        overrides[sid] = { ...(overrides[sid]||{}), ...fields };
-        localStorage.setItem(LOCAL_OVERRIDES_KEY, JSON.stringify(overrides));
-      } catch {}
     }
 
     /* Discipline & region colors — adjusted per theme for readability */
@@ -310,75 +288,6 @@
       );
     }
 
-    /* ── Admin Panel ── */
-    function AdminPanel({conferences,onUpdateSingle,onReset,lastFetched,T,isDark}){
-      const[mode,setMode]=useState("info");
-      const[singleId,setSingleId]=useState("");
-      const[singleJson,setSingleJson]=useState("");
-      const[msg,setMsg]=useState("");
-
-      const handleSingleUpdate=()=>{
-        try{
-          const update=JSON.parse(singleJson);
-          const id=parseInt(singleId);
-          const existing=conferences.find(c=>c.id===id);
-          if(!existing){setMsg("Error: Conference ID not found");return;}
-          saveOverride(existing.sid, update);
-          onUpdateSingle(id, update);
-          setMsg("Updated #"+id+": "+existing.name);
-          setSingleJson("");
-        }catch(e){setMsg("Error: "+e.message);}
-      };
-
-      const tbdCount=conferences.filter(c=>isTBD(c.deadline)).length;
-      const confirmedCount=conferences.length-tbdCount;
-      const tiered=conferences.filter(c=>c.tier).length;
-      const past=conferences.filter(c=>getDaysUntil(c.startDate)<0).length;
-
-      const tabStyle=(active)=>({padding:"5px 10px",borderRadius:4,border:"none",fontSize:10,fontWeight:500,cursor:"pointer",background:active?(isDark?"rgba(16,185,129,0.2)":"rgba(16,185,129,0.15)"):"transparent",color:active?"#34d399":T.textDim});
-
-      return(
-        <div style={{margin:"16px 0",padding:16,borderRadius:10,background:T.adminBg,border:"1px solid "+T.adminBorder}}>
-          <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
-            <span style={{fontSize:12,fontWeight:700,color:"#34d399"}}>Data Admin</span>
-            <div style={{display:"flex",gap:2}}>
-              <button style={tabStyle(mode==="info")} onClick={()=>setMode("info")}>Info</button>
-              <button style={tabStyle(mode==="single")} onClick={()=>setMode("single")}>Update One</button>
-            </div>
-          </div>
-          {mode==="info"&&(
-            <div style={{fontSize:10.5,color:T.textMuted,lineHeight:1.6}}>
-              <div>Total: <strong style={{color:T.text}}>{conferences.length}</strong> | Past: <strong style={{color:"#6b7280"}}>{past}</strong> | Upcoming: <strong style={{color:"#10b981"}}>{conferences.length-past}</strong></div>
-              <div>Deadlines confirmed: <strong style={{color:"#10b981"}}>{confirmedCount}</strong> | TBD: <strong style={{color:"#6b7280"}}>{tbdCount}</strong></div>
-              <div>Tiered: <strong style={{color:isDark?"#fbbf24":"#b45309"}}>{tiered}</strong> | Unranked: <strong style={{color:"#6b7280"}}>{conferences.length-tiered}</strong></div>
-              <div>Data source: <strong style={{color:T.text}}>conferences.json</strong> {lastFetched && <span>(fetched {lastFetched})</span>}</div>
-              <div style={{marginTop:6,padding:8,borderRadius:5,background:T.codeBg,fontFamily:"'JetBrains Mono',monospace",fontSize:9,color:T.textDim,whiteSpace:"pre-line"}}>
-                {"Deadline: {\"deadline\": \"2026-03-15\"}\nClear: {\"deadline\": \"TBD\"}\nTier: {\"tier\": \"1\"}  (1, 2, or 3)\nURL: {\"url\": \"https://conf.org\"}\nCombo: {\"deadline\":\"2026-04-01\",\"tier\":\"1\",\"url\":\"https://..\"}"}
-              </div>
-              <div style={{marginTop:6,fontSize:9,color:T.textDim}}>
-                Local overrides are saved in your browser. The main data comes from conferences.json (updated by OpenClaw).
-              </div>
-              <button onClick={onReset} style={{marginTop:8,padding:"4px 10px",borderRadius:4,border:"1px solid rgba(239,68,68,0.3)",background:"rgba(239,68,68,0.08)",color:"#f87171",fontSize:10,cursor:"pointer"}}>
-                Clear Local Overrides
-              </button>
-            </div>
-          )}
-          {mode==="single"&&(
-            <div style={{display:"flex",flexDirection:"column",gap:6}}>
-              <div style={{display:"flex",gap:6,alignItems:"center"}}>
-                <input placeholder="Conference ID" value={singleId} onChange={e=>setSingleId(e.target.value)}
-                  style={{width:100,padding:"5px 8px",borderRadius:5,border:"1px solid "+T.inputBorder,background:T.codeBg,color:T.text,fontSize:11,outline:"none"}} />
-                <span style={{color:T.textDim,fontSize:10}}>{singleId&&conferences.find(c=>c.id===parseInt(singleId))?.name?.slice(0,40)}</span>
-              </div>
-              <textarea placeholder='{"deadline":"2026-03-01","tier":"1"}' value={singleJson} onChange={e=>setSingleJson(e.target.value)}
-                style={{padding:"6px 8px",borderRadius:5,border:"1px solid "+T.inputBorder,background:T.codeBg,color:T.text,fontSize:10,fontFamily:"'JetBrains Mono',monospace",outline:"none",minHeight:50,resize:"vertical"}} />
-              <button onClick={handleSingleUpdate} style={{alignSelf:"flex-start",padding:"5px 12px",borderRadius:5,border:"none",background:isDark?"rgba(16,185,129,0.2)":"rgba(16,185,129,0.15)",color:"#34d399",fontSize:10,fontWeight:600,cursor:"pointer"}}>Update</button>
-            </div>
-          )}
-          {msg&&<div style={{marginTop:6,fontSize:10,color:msg.startsWith("Error")?"#f87171":"#34d399"}}>{msg}</div>}
-        </div>
-      );
-    }
 
     /* ── Main App ── */
     function App(){
@@ -413,7 +322,6 @@
       const[search,setSearch]=useState("");
       const[expandedId,setExpandedId]=useState(null);
       const[view,setView]=useState("list");
-      const[showAdmin,setShowAdmin]=useState(false);
       const[showArchive,setShowArchive]=useState(false);
 
       useEffect(()=>{
@@ -422,21 +330,11 @@
           .then(data=>{
             const expanded=data.map(expandRaw);
             const deduped=deduplicateBySid(expanded);
-            const withOverrides=applyOverrides(deduped);
-            setConferences(withOverrides);
+            setConferences(deduped);
             setLastFetched(new Date().toLocaleTimeString());
             setLoading(false);
           })
           .catch(err=>{setError(err.message);setLoading(false);});
-      },[]);
-
-      const handleUpdateSingle=useCallback((id,update)=>{
-        setConferences(prev=>prev.map(c=>c.id===id?{...c,...update}:c));
-      },[]);
-
-      const handleReset=useCallback(()=>{
-        localStorage.removeItem(LOCAL_OVERRIDES_KEY);
-        window.location.reload();
       },[]);
 
       const upcoming=useMemo(()=>conferences.filter(c=>getDaysUntil(c.startDate)>=0),[conferences]);
@@ -512,7 +410,7 @@
               <div style={{display:"flex",gap:2,background:T.switchBg,borderRadius:5,padding:2}}>
                 {["list","timeline"].map(v=><button key={v} onClick={()=>setView(v)} style={{padding:"5px 10px",borderRadius:4,border:"none",background:view===v?T.viewBtnBg:T.viewBtnOffBg,color:view===v?T.viewBtnColor:T.viewBtnOffColor,fontSize:10.5,cursor:"pointer",textTransform:"capitalize",fontFamily:"'JetBrains Mono',monospace"}}>{v}</button>)}
               </div>
-              <button onClick={()=>setShowAdmin(!showAdmin)} style={{padding:"5px 9px",borderRadius:5,border:"1px solid "+(isDark?"rgba(16,185,129,0.2)":"rgba(16,185,129,0.25)"),background:showAdmin?(isDark?"rgba(16,185,129,0.1)":"rgba(16,185,129,0.08)"):"transparent",color:showAdmin?"#34d399":T.textDim,fontSize:10,cursor:"pointer"}}>{"\u2699"}</button>
+
             </div>
 
             <div style={{display:"flex",gap:4,flexWrap:"wrap",alignItems:"center",marginBottom:6}}>
@@ -529,7 +427,7 @@
               {[["all","All"],["1","T1"],["2","T2"],["3","T3"],["unranked","Unranked"]].map(([v,l])=><button key={v} style={btn(tierFilter===v)} onClick={()=>setTierFilter(v)}>{l}</button>)}
             </div>
 
-            {showAdmin&&<AdminPanel conferences={conferences} onUpdateSingle={handleUpdateSingle} onReset={handleReset} lastFetched={lastFetched} T={T} isDark={isDark} />}
+
           </div>
 
           {/* MAIN LIST */}
