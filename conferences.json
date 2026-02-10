@@ -6798,5 +6798,53 @@
     "deadline": "TBD",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 420,
+    "name": "3rd Modern Finance Conference (MFC 2026)",
+    "dates": "Sep 14-16",
+    "startDate": "2026-09-14",
+    "location": "Krakow, Poland",
+    "country": "Poland",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18774",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18774",
+    "deadline": "2026-08-10",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 421,
+    "name": "The First University of Maryland/Singapore Management University/UBS Quant Investment Forum: AI and Finance",
+    "dates": "Jun 15-16",
+    "startDate": "2026-06-15",
+    "location": "Singapore (Exact venue to be announced)",
+    "country": "Singapore",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18770",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18770",
+    "deadline": "2026-04-10",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 422,
+    "name": "2026 City University of Hong Kong International Finance Conference",
+    "dates": "Jun 18-20",
+    "startDate": "2026-06-18",
+    "location": "City University of Hong Kong",
+    "country": "Hong Kong",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18777",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18777",
+    "deadline": "2026-03-18",
+    "url": "",
+    "tier": ""
   }
 ]
