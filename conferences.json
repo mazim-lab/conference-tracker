@@ -6846,5 +6846,55 @@
     "deadline": "2026-03-18",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 423,
+    "name": "The 11th International Conference on Accounting and Finance (ICOAF-2026, Danang Vietnam)",
+    "dates": "",
+    "startDate": "",
+    "location": "Danang (the most livable city in Vietnam and named among 10 most beautiful beach city in Asia)",
+    "country": "Vietnam",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18782",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18782",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "3"
+  },
+  {
+    "id": 424,
+    "name": "Liechtenstein Workshop on AI in Finance 2026",
+    "dates": "May 6-7",
+    "startDate": "2026-05-06",
+    "location": "Vaduz, Liechtenstein",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18779",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18779",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 425,
+    "name": "HKIMR Monetary Research Programmes and Doctoral Internship Programme - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18783",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18783",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
   }
 ]
