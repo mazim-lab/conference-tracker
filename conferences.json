@@ -6896,5 +6896,54 @@
     "deadline": "TBD",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 426,
+    "name": "Sustainability, Technology, and the Transformation of Accounting and Finance (STTAF26)",
+    "dates": "Apr 8-9",
+    "startDate": "2026-04-08",
+    "location": "Bahrain",
+    "country": "Unknown",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18796",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18796",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 427,
+    "name": "Call for Papers: CityUHK–CJAR Joint Accounting Research Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "Hong Kong",
+    "country": "Hong Kong",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18794",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18794",
+    "deadline": "2026-04-01",
+    "url": "",
+    "tier": "1"
+  },
+  {
+    "id": 428,
+    "name": "Rutgers Accounting Doctoral Symposium (RADS) 2026 — Call for Submissions & Participants",
+    "dates": "",
+    "startDate": "",
+    "location": "Online",
+    "country": "Virtual",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18792",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18792",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
   }
 ]
