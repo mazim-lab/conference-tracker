@@ -6945,5 +6945,70 @@
     "deadline": "TBD",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 429,
+    "name": "Call for Papers: Politics in Finance 2026 Conference",
+    "dates": "Sep 4-5",
+    "startDate": "2026-09-04",
+    "location": "McDonough School of Business, Rafik B. Hariri Building 37th and O Streets, N.W Washington, D.C. 20057 USA",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18806",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18806",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 430,
+    "name": "London Business School 2026 Summer Finance Symposium: Call for Papers",
+    "dates": "Jun 5-6",
+    "startDate": "2026-06-05",
+    "location": "London Business School",
+    "country": "UK",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18797",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18797",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 431,
+    "name": "Call for Applications: Tinbergen Institute Summer School 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18807",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18807",
+    "deadline": "2026-04-13",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 432,
+    "name": "Call for Papers: Multinational Finance Journal (MFJ)",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18800",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18800",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "3"
   }
 ]
