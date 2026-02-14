@@ -7010,5 +7010,21 @@
     "deadline": "TBD",
     "url": "",
     "tier": "3"
+  },
+  {
+    "id": 433,
+    "name": "2026 Clemson Finance Research Conference",
+    "dates": "Apr 17-18",
+    "startDate": "2026-04-17",
+    "location": "Clemson, SC",
+    "country": "USA",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18810",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18810",
+    "deadline": "2026-03-10",
+    "url": "",
+    "tier": "3"
   }
 ]
