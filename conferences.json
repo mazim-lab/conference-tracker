@@ -7026,5 +7026,37 @@
     "deadline": "2026-03-10",
     "url": "",
     "tier": "3"
+  },
+  {
+    "id": 434,
+    "name": "3rd Arne Ryde Conference on Crypto, Fintech and Payments",
+    "dates": "Aug 25-26",
+    "startDate": "2026-08-25",
+    "location": "Lund, Sweden.",
+    "country": "Sweden",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18815",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18815",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 435,
+    "name": "2026 CAPANA Annual Conference - Call for Papers and Participations",
+    "dates": "Jul 1-2",
+    "startDate": "2026-07-01",
+    "location": "Shenzhen, China",
+    "country": "China",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18814",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18814",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
   }
 ]
