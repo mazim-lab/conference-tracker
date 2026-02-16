@@ -978,14 +978,6 @@
 
             {view==="list"?(
               <div style={{display:"flex",flexDirection:"column",gap:4,marginTop:4}}>
-                {filtered.length>0&&<div style={{display:"flex",alignItems:"center",gap:10,padding:"6px 16px",fontSize:9,fontWeight:700,letterSpacing:"0.1em",color:T.textDim,textTransform:"uppercase",fontFamily:"'JetBrains Mono',monospace",position:"sticky",top:0,zIndex:5,background:T.bg,borderBottom:"1px solid "+T.divider,marginBottom:2}}>
-                  <div style={{width:18,marginRight:2}}></div>
-                  <div style={{minWidth:62,textAlign:"center"}}>{sortBy==="deadline"?"Deadline":"Status"}</div>
-                  <div style={{flex:1,minWidth:170}}>Conference</div>
-                  <div style={{minWidth:90,textAlign:"right"}}>Dates</div>
-                  <div style={{minWidth:95,textAlign:"right"}}>Location</div>
-                  <div style={{width:13}}></div>
-                </div>}
                 {filtered.length===0?<div style={{textAlign:"center",padding:36,color:T.textDim,fontSize:13}}>No upcoming conferences match your filters.</div>
                 :filtered.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} isSelected={comparisonList.includes(c.id)} onCompareToggle={handleCompareToggle} travelData={travelData} />)}
               </div>
