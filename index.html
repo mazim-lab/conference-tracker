@@ -27,6 +27,122 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
     html.light ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); }
+
+    /* Tooltip styles */
+    .tooltip-container {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-left: 6px;
+      cursor: help;
+    }
+    .tooltip-icon {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background-color: rgba(148, 163, 184, 0.3);
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-weight: bold;
+      user-select: none;
+    }
+    html.light .tooltip-icon {
+      background-color: rgba(100, 116, 139, 0.2);
+      color: #334155;
+    }
+    .tooltip {
+      visibility: hidden;
+      width: 260px;
+      background-color: #1e293b;
+      color: #e2e8f0;
+      text-align: left;
+      border-radius: 6px;
+      padding: 8px 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -130px; /* half of width */
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-size: 11px;
+      font-family: 'Newsreader', serif;
+      font-weight: 400;
+      line-height: 1.5;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    html.light .tooltip {
+      background-color: #ffffff;
+      color: #1e293b;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .tooltip-container:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Banner styles */
+    .update-banner {
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .update-banner strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .update-banner-dismiss {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      padding: 2px 4px;
+    }
+    /* Dark theme banner */
+    .update-banner.dark {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      color: #c7d2fe;
+    }
+    .update-banner.dark strong {
+      color: #e0e7ff;
+    }
+    .update-banner-dismiss.dark {
+      color: #a5b4fc;
+    }
+    .update-banner-dismiss.dark:hover {
+      color: #e0e7ff;
+    }
+    /* Light theme banner */
+    .update-banner.light {
+      background: rgba(99, 102, 241, 0.06);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      color: #4338ca;
+    }
+    .update-banner.light strong {
+      color: #3730a3;
+    }
+    .update-banner-dismiss.light {
+      color: #6366f1;
+    }
+    .update-banner-dismiss.light:hover {
+      color: #3730a3;
+    }
   </style>
 </head>
 <body>
@@ -458,6 +574,46 @@
       );
     }
 
+    /* ── Update Banner Component ── */
+    function UpdateBanner({ T, isDark }) {
+      const BANNER_KEY = "conftracker-banner-v1";
+      const [isVisible, setIsVisible] = useState(false);
+
+      useEffect(() => {
+        try {
+          const dismissed = localStorage.getItem(BANNER_KEY);
+          if (!dismissed) {
+            setIsVisible(true);
+          }
+        } catch (e) {
+          // localStorage can be disabled
+          setIsVisible(true);
+        }
+      }, []);
+
+      const handleDismiss = () => {
+        try {
+          localStorage.setItem(BANNER_KEY, "true");
+        } catch (e) {}
+        setIsVisible(false);
+      };
+
+      if (!isVisible) {
+        return null;
+      }
+
+      return (
+        <div className={`update-banner ${isDark ? 'dark' : 'light'}`}>
+          <span>
+            ✨ <strong>New:</strong> Travel cost estimates, calendar export (.ics), and conference comparison tool now available!
+          </span>
+          <button onClick={handleDismiss} className={`update-banner-dismiss ${isDark ? 'dark' : 'light'}`}>
+            &times;
+          </button>
+        </div>
+      );
+    }
+
     /* ── Card component ── */
     function Card({conf,expanded,onToggle,sortBy,T,isDark,isSelected,onCompareToggle,travelData}){
       const disc=isDark?D:D_LIGHT;
@@ -530,6 +686,12 @@
                   <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
                     <div style={{fontSize:11,fontWeight:700,color:isDark?"#34d399":"#059669",display:"flex",alignItems:"center",gap:6}}>
                       <span>💰 TRAVEL ESTIMATES</span>
+                      <div className="tooltip-container">
+                        <span className="tooltip-icon">i</span>
+                        <div className="tooltip">
+                          Per diem rates based on U.S. GSA rates (domestic) and State Department rates (international). Includes max lodging + meals & incidental expenses (M&IE) allowances. Actual costs may vary by season and availability.
+                        </div>
+                      </div>
                       <span style={{fontSize:9,fontWeight:400,color:T.textDimmer,background:T.bg,padding:"1px 4px",borderRadius:3,border:"1px solid "+T.cardBorder}}>Src: {travel.source}</span>
                     </div>
                     <div style={{fontSize:10,color:T.textDim,display:"flex",alignItems:"center",gap:4}}>
@@ -754,6 +916,7 @@
 
           {/* MAIN LIST */}
           <div style={{maxWidth:980,margin:"0 auto",padding:"0 20px 36px"}}>
+            <UpdateBanner T={T} isDark={isDark} />
             <div style={{fontSize:10,color:T.textDim,marginBottom:8,fontFamily:"'JetBrains Mono',monospace"}}>
               {"Showing "+filtered.length+" upcoming"+(sortBy==="deadline"?" \u00b7 sorted by deadline":" \u00b7 sorted by conference date")}
             </div>
