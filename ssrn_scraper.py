@@ -79,6 +79,11 @@ def parse_date_flexible(text):
     if m:
         return text[:10]
 
+    # "MM/DD/YYYY"
+    m = re.match(r"(\d{1,2})/(\d{1,2})/(\d{4})", text)
+    if m:
+        return f"{int(m.group(3))}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+
     # "Month DD, YYYY" or "Month DD YYYY"
     m = re.match(r"(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})", text)
     if m:
@@ -129,31 +134,41 @@ def parse_conf_dates(date_str):
 # --- Deadline Extraction ---
 
 DEADLINE_PATTERNS = [
-    # "Submission deadline: 30 April, 2026" (DD Month, YYYY)
-    r"[Ss]ubmission\s+[Dd]eadline[:\s]+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
-    # "Submission Deadline: February 25, 2026" (Month DD, YYYY)
-    r"[Ss]ubmission\s+[Dd]eadline[:\s]+(\w+\s+\d{1,2},?\s+\d{4})",
+    # Allow optional timezone / filler words (e.g., "PST,", "11:59 PM EST,", "midnight") between keyword and date
+    # The (?:.*?) bridges up to ~40 chars of filler between the keyword and the date
+
+    # "Submission Deadline: [optional filler] February 25, 2026" (Month DD, YYYY)
+    r"[Ss]ubmission\s+[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
+    # "Submission deadline: [optional filler] 30 April, 2026" (DD Month, YYYY)
+    r"[Ss]ubmission\s+[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
     # "The submission deadline is ..."
-    r"submission\s+deadline\s+is\s+(\w+\s+\d{1,2},?\s+\d{4})",
-    r"submission\s+deadline\s+is\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
-    # "Deadline: ..."
-    r"[Dd]eadline[:\s]+(\w+\s+\d{1,2},?\s+\d{4})",
-    r"[Dd]eadline[:\s]+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    r"submission\s+deadline\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"submission\s+deadline\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "Deadline: [optional filler] ..."
+    r"[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "Deadline: MM/DD/YYYY or YYYY-MM-DD"
+    r"[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}/\d{1,2}/\d{4})",
+    r"[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\d{4}-\d{2}-\d{2})",
     # "submit papers by ..."
-    r"submit\s+(?:papers?|manuscripts?)\s+by\s+(\w+\s+\d{1,2},?\s+\d{4})",
-    r"submit\s+(?:papers?|manuscripts?)\s+by\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    r"submit\s+(?:papers?|manuscripts?)\s+by\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"submit\s+(?:papers?|manuscripts?)\s+by\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
     # "submitted by ..."
-    r"submitted?\s+by\s+(\w+\s+\d{1,2},?\s+\d{4})",
-    r"submitted?\s+by\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
-    # "due by ..."
-    r"due\s+(?:by|on)\s+(\w+\s+\d{1,2},?\s+\d{4})",
-    r"due\s+(?:by|on)\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    r"submitted?\s+by\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"submitted?\s+by\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "due by/on ..."
+    r"due\s+(?:by|on)\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"due\s+(?:by|on)\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
     # "no later than ..."
-    r"no\s+later\s+than\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
-    r"no\s+later\s+than\s+(\w+\s+\d{1,2},?\s+\d{4})",
+    r"no\s+later\s+than\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    r"no\s+later\s+than\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
     # "before ..."
     r"before\s+(\w+\s+\d{1,2},?\s+\d{4})",
     r"before\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # Bare dates near deadline-related context (fallback): "November 18, 2025"
+    # Only if preceded by deadline-ish word within ~60 chars
+    r"[Dd]eadline.{0,60}?(\w+\s+\d{1,2},\s+\d{4})",
+    r"[Dd]eadline.{0,60}?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
 ]
 
 def extract_deadline_from_text(text):
