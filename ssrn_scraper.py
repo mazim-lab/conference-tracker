@@ -48,6 +48,29 @@ PAGE_DELAY = 2.0
 JSON_PATH = Path("conferences.json")
 LOG_PATH = Path("scrape_log.txt")
 
+# Non-conference items to filter out (prizes, PhD programs, summer schools, job posts, etc.)
+NON_CONFERENCE_KEYWORDS = [
+    'prize', 'award', 'ph.d. in finance', 'ph.d. in accounting', 'professorship',
+    'finance theory insights', 'data grant', 'sbur collection',
+    'farfe awards', 'pre-announcments:', 'ecomod school',
+    'calling scholars interested', 'call for registration',
+    'multinational finance journal', 'assistant professor',
+]
+NON_CONFERENCE_EXACT = [
+    'summer school',  # filter unless "conference" also in name
+]
+
+def is_non_conference(name):
+    """Return True if the item is not a real conference (prize, PhD program, etc.)."""
+    name_lower = name.lower()
+    for kw in NON_CONFERENCE_KEYWORDS:
+        if kw in name_lower:
+            return True
+    for kw in NON_CONFERENCE_EXACT:
+        if kw in name_lower and 'conference' not in name_lower:
+            return True
+    return False
+
 # --- Logging ---
 
 logging.basicConfig(
