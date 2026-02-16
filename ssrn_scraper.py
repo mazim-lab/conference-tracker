@@ -21,7 +21,7 @@ Output:
     scrape_log.txt    - Detailed log of what was found/changed
 """
 
-import json, re, os, sys, time, argparse, logging
+import json, re, os, sys, time, argparse, logging, random
 from datetime import datetime, date
 from pathlib import Path
 
@@ -73,7 +73,7 @@ MONTH_MAP = {
 def parse_date_flexible(text):
     if not text:
         return None
-    text = text.strip().rstrip(".")
+    text = text.strip().rstrip(".").replace(".", "")
 
     m = re.match(r"(\d{4})-(\d{2})-(\d{2})", text)
     if m:
@@ -141,9 +141,9 @@ DEADLINE_PATTERNS = [
     r"[Ss]ubmission\s+[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
     # "Submission deadline: [optional filler] 30 April, 2026" (DD Month, YYYY)
     r"[Ss]ubmission\s+[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
-    # "The submission deadline is ..."
-    r"submission\s+deadline\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
-    r"submission\s+deadline\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "The submission deadline is [optional filler/day name] ..."
+    r"submission\s+deadline\s+is\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"submission\s+deadline\s+is\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
     # "Deadline: [optional filler] ..."
     r"[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
     r"[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
@@ -168,15 +168,38 @@ DEADLINE_PATTERNS = [
     # "deadline for submission(s) is ..."
     r"[Dd]eadline\s+for\s+\w+\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
     r"[Dd]eadline\s+for\s+\w+\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
-    # Generic "by <date>" (broader catch — any "by Month DD, YYYY")
-    r"\bby\s+(\w+\s+\d{1,2},?\s+\d{4})",
-    r"\bby\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
-    # "by Nov 19 2025" — abbreviated month, no comma (Month DD YYYY without comma)
-    r"\bby\s+(\w{3,9}\s+\d{1,2}\s+\d{4})",
-    # Bare dates near deadline-related context (fallback): "November 18, 2025"
-    # Only if preceded by deadline-ish word within ~60 chars
+    # Generic "by [optional day name,] <date>" (broader catch)
+    r"\bby\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"\bby\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "by Nov 19 2025" — abbreviated month, no comma
+    r"\bby\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w{3,9}\.?\s+\d{1,2}\s+\d{4})",
+    # "on 31 March, 2025" / "on March 31, 2025" (date after "on")
+    r"\bon\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    r"\bon\s+(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    # "until/through [day,] <date>"
+    r"\b(?:until|through)\s+(?:(?:the\s+)?(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"\b(?:until|through)\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "Submissions Due: March 6, 2026" / "Due: ..."
+    r"[Dd]ue[:\s]+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"[Dd]ue[:\s]+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "deadline of [day,] March 13, 2026"
+    r"[Dd]eadline\s+of\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"[Dd]eadline\s+of\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "extended to [date]"
+    r"extended\s+to\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"extended\s+to\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "Closing date/Closing of the call: <date>"
+    r"[Cc]losing.{0,30}?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"[Cc]losing.{0,30}?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # Bare dates near deadline-related context (fallback)
     r"[Dd]eadline.{0,60}?(\w+\s+\d{1,2},\s+\d{4})",
     r"[Dd]eadline.{0,60}?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # Bare dates near submit-related context (fallback)
+    r"[Ss]ubmi.{0,60}?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,\s+\d{4})",
+    r"[Ss]ubmi.{0,60}?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # Reverse: date BEFORE keyword (e.g., "November 30th 2025 ... Closing")
+    r"(\w+\s+\d{1,2}(?:st|nd|rd|th)?\s+\d{4}).{0,40}?(?:[Cc]losing|[Dd]eadline)",
+    r"(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4}).{0,40}?(?:[Cc]losing|[Dd]eadline)",
 ]
 
 def extract_deadline_from_text(text):
@@ -188,6 +211,36 @@ def extract_deadline_from_text(text):
                 year = int(parsed[:4])
                 if 2025 <= year <= 2028:
                     return parsed
+
+    # Second pass: try patterns WITHOUT year (Month DD, DD Month, etc.)
+    # and infer year from context
+    NO_YEAR_PATTERNS = [
+        # "is [Day,] DD Month" or "is [Day,] Month DD"
+        r"deadline\s+is\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+)\b",
+        r"deadline\s+is\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\.?\s+\d{1,2}(?:st|nd|rd|th)?)\b",
+        # "by/on/until [Day,] Month DDth" or "Month DD"
+        r"(?:by|on|until|through|before)\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\.?\s+\d{1,2}(?:st|nd|rd|th)?)\b",
+        r"(?:by|on|until|through|before)\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+)\b",
+        # "Deadline ... Month DD" / "Closing ... Month DD"
+        r"[Dd]eadline.{0,60}?(\w+\s+\d{1,2}(?:st|nd|rd|th)?)\b",
+        r"[Cc]losing.{0,30}?(\w+\s+\d{1,2}(?:st|nd|rd|th)?)\b",
+        # "Due: Month DD"
+        r"[Dd]ue[:\s]+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?)\b",
+    ]
+    from datetime import date as _date
+    current_year = _date.today().year
+    for pattern in NO_YEAR_PATTERNS:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            raw = match.group(1).strip().rstrip(".")
+            # Try appending current year and next year, pick the one that makes sense
+            for try_year in [current_year, current_year + 1, current_year - 1]:
+                parsed = parse_date_flexible(raw + f", {try_year}")
+                if not parsed:
+                    parsed = parse_date_flexible(raw + f" {try_year}")
+                if parsed:
+                    return parsed
+
     return None
 
 # --- Country Detection ---
@@ -303,25 +356,18 @@ def scrape_listing_page(page, network_name, network_id):
     # Extract conference entries from the listing page HTML
     entries = page.evaluate("""(confSections) => {
         const results = [];
-        
-        // Find section headings (h4 tags) and their associated <ul> lists
         const headings = document.querySelectorAll('h4, h3');
-        
         headings.forEach(heading => {
             const headingText = heading.textContent.trim();
             const isConference = confSections.some(s => headingText.includes(s));
             if (!isConference) return;
-            
             let nextEl = heading.nextElementSibling;
             if (!nextEl || (nextEl.tagName !== 'UL' && nextEl.tagName !== 'OL')) return;
-            
             const items = nextEl.querySelectorAll('li');
             items.forEach(li => {
                 const link = li.querySelector('a[href*="/announcement/?id="]');
                 if (!link) return;
-                
                 const entry = { name: link.textContent.trim(), href: link.href, dates: '', location: '', posted: '' };
-                
                 li.querySelectorAll('p').forEach(p => {
                     const text = p.textContent.trim();
                     if (text.startsWith('Conference Dates:') || text.startsWith('Date:'))
@@ -331,14 +377,11 @@ def scrape_listing_page(page, network_name, network_id):
                     if (text.startsWith('Posted:'))
                         entry.posted = text.replace('Posted:', '').trim();
                 });
-                
                 const idMatch = link.href.match(/id=(\\d+)/);
                 entry.sid = idMatch ? idMatch[1] : '';
                 results.push(entry);
             });
         });
-        
-        // FALLBACK: if heading-based extraction found nothing, grab all announcement links
         if (results.length === 0) {
             document.querySelectorAll('a[href*="/announcement/?id="]').forEach(link => {
                 const li = link.closest('li');
@@ -358,11 +401,9 @@ def scrape_listing_page(page, network_name, network_id):
                 results.push(entry);
             });
         }
-        
         return results;
     }""", CONFERENCE_SECTIONS)
 
-    # Filter out non-conference entries by name
     conferences = []
     for entry in entries:
         name_lower = entry["name"].lower()
@@ -386,12 +427,27 @@ def scrape_deadline_from_page(page, url):
     """Visit one SSRN announcement page and extract submission deadline."""
     try:
         page.goto(url, wait_until="networkidle", timeout=30000)
-        time.sleep(PAGE_DELAY)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(3000)
+        
+        # Check for Cloudflare
+        content = page.content()
+        if "Cloudflare" in content or "security verification" in content:
+            log.warning(f"    Cloudflare detected on {url}. Waiting and retrying...")
+            page.wait_for_timeout(8000)
+            page.reload(wait_until="networkidle")
+            page.wait_for_timeout(3000)
+            content = page.content()
+            if "Cloudflare" in content or "security verification" in content:
+                log.error(f"    Cloudflare block persisted after retry on {url}")
+                return None
+
     except Exception as e:
         log.warning(f"    Page load failed for {url}: {e}")
         return None
 
     full_text = page.evaluate("() => document.body ? document.body.innerText : ''")
+    time.sleep(random.uniform(2, 5))
     return extract_deadline_from_text(full_text)
 
 
@@ -469,14 +525,23 @@ def run_full_scrape():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        ctx = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        ctx = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            viewport={"width": 1920, "height": 1080},
+            locale="en-US",
+            timezone_id="America/New_York",
+        )
         page = ctx.new_page()
+        page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+
 
         # Phase 1: Listing pages
         log.info("\n=== PHASE 1: Scraping listing pages ===")
         for name, nid in NETWORKS.items():
             confs = scrape_listing_page(page, name, nid)
             all_scraped.extend(confs)
+            time.sleep(random.uniform(2, 5))
+
 
         # Deduplicate by SID
         seen = {}
@@ -512,7 +577,7 @@ def run_full_scrape():
 
         visited = 0
         deadlines_found = 0
-
+        
         for sid in sids_to_visit:
             url = sid_to_url.get(sid)
             if not url: continue
@@ -562,8 +627,14 @@ def run_deadlines_only():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        ctx = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        ctx = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            viewport={"width": 1920, "height": 1080},
+            locale="en-US",
+            timezone_id="America/New_York",
+        )
         page = ctx.new_page()
+        page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 
         found = 0
         for i, conf in enumerate(tbd_confs):
@@ -571,11 +642,16 @@ def run_deadlines_only():
                 log.info(f"  Progress: {i+1}/{len(tbd_confs)}...")
             url = conf.get("ssrnLink", "")
             if not url: continue
+            
             deadline = scrape_deadline_from_page(page, url)
+            
             if deadline:
                 conf["deadline"] = deadline
                 found += 1
                 log.info(f"  Found: {conf['name'][:50]} -> {deadline}")
+            
+            time.sleep(random.uniform(3, 7))
+
 
         browser.close()
 
@@ -602,14 +678,22 @@ def run_new_only():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        ctx = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        ctx = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            viewport={"width": 1920, "height": 1080},
+            locale="en-US",
+            timezone_id="America/New_York",
+        )
         page = ctx.new_page()
+        page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+
 
         # Phase 1: Scrape listing pages
         log.info("\n=== Checking for new conferences ===")
         for name, nid in NETWORKS.items():
             confs = scrape_listing_page(page, name, nid)
             all_scraped.extend(confs)
+            time.sleep(random.uniform(2, 5))
 
         # Deduplicate
         seen = {}
@@ -670,8 +754,15 @@ def run_list_only():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        ctx = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+        ctx = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            viewport={"width": 1920, "height": 1080},
+            locale="en-US",
+            timezone_id="America/New_York",
+        )
         page = ctx.new_page()
+        page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+
         for name, nid in NETWORKS.items():
             confs = scrape_listing_page(page, name, nid)
             all_scraped.extend(confs)
@@ -728,3 +819,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
