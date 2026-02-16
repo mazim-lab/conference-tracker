@@ -192,6 +192,85 @@
 
     function getDeadlineSortKey(c){return isTBD(c.deadline)?"9999-12-31":c.deadline;}
 
+    /* ── ICS Generation ── */
+    function formatICSDate(dateStr) {
+      if(!dateStr) return "";
+      return dateStr.replace(/-/g, "");
+    }
+
+    function createICSContent(conf) {
+      const now = new Date().toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
+      const start = formatICSDate(conf.startDate);
+      
+      // Calculate end date (assume 1 day if not specified, or parse from dates string if possible)
+      // For simplicity in this single-file setup, we'll just make it a 1-day all-day event
+      // matching the start date. 
+      const startDateObj = new Date(conf.startDate);
+      const endDateObj = new Date(startDateObj);
+      endDateObj.setDate(endDateObj.getDate() + 1);
+      const end = endDateObj.toISOString().split("T")[0].replace(/-/g, "");
+
+      const desc = `Conference: ${conf.name}\\nLocation: ${conf.location}, ${conf.country}\\nDates: ${conf.dates}\\n\\nDeadline: ${conf.deadline}\\nSSRN: ${conf.ssrnLink}\\nWebsite: ${conf.url || "N/A"}`;
+      
+      let ics = [];
+      ics.push("BEGIN:VEVENT");
+      ics.push(`UID:${conf.id}@faeconf.com`);
+      ics.push(`DTSTAMP:${now}`);
+      ics.push(`DTSTART;VALUE=DATE:${start}`);
+      ics.push(`DTEND;VALUE=DATE:${end}`);
+      ics.push(`SUMMARY:${conf.name}`);
+      ics.push(`LOCATION:${conf.location}, ${conf.country}`);
+      ics.push(`DESCRIPTION:${desc.replace(/\\n/g, "\\n")}`);
+      ics.push(`URL:${conf.url || conf.ssrnLink}`);
+
+      // Add reminder for deadline if valid
+      if (conf.deadline && !isTBD(conf.deadline)) {
+        const dlDate = new Date(conf.deadline);
+        // Reminder 7 days before deadline at 9 AM UTC
+        const reminderDate = new Date(dlDate);
+        reminderDate.setDate(reminderDate.getDate() - 7);
+        reminderDate.setUTCHours(14, 0, 0, 0); // 9 AM EST = 14:00 UTC approx
+        
+        // Only add if reminder is in future (or reasonable past)
+        // We use an absolute trigger for the alarm
+        const trigger = reminderDate.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
+        
+        ics.push("BEGIN:VALARM");
+        ics.push("ACTION:DISPLAY");
+        ics.push("DESCRIPTION:Conference Deadline Upcoming");
+        ics.push(`TRIGGER;VALUE=DATE-TIME:${trigger}`);
+        ics.push("END:VALARM");
+      }
+
+      ics.push("END:VEVENT");
+      return ics.join("\r\n");
+    }
+
+    function downloadICS(filename, content) {
+      const blob = new Blob([content], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function handleExportOne(conf) {
+      const header = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FaeConf//Academic Conference Tracker//EN"].join("\r\n");
+      const event = createICSContent(conf);
+      const footer = "END:VCALENDAR";
+      downloadICS(`conference_${conf.sid || conf.id}.ics`, `${header}\r\n${event}\r\n${footer}`);
+    }
+
+    function handleExportAll(conferences) {
+      if(!conferences.length) return;
+      const header = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FaeConf//Academic Conference Tracker//EN"].join("\r\n");
+      const events = conferences.map(createICSContent).join("\r\n");
+      const footer = "END:VCALENDAR";
+      downloadICS("faeconf_export.ics", `${header}\r\n${events}\r\n${footer}`);
+    }
+
     function deduplicateBySid(data){
       const seen=new Map();
       for(const c of data){if(!seen.has(c.sid)){seen.set(c.sid,c);}else{const ex=seen.get(c.sid);for(const d of(c.disc||[]))if(!ex.disc.includes(d))ex.disc.push(d);if(c.deadline&&c.deadline!=="TBD"&&isTBD(ex.deadline))ex.deadline=c.deadline;if(c.url&&!ex.url)ex.url=c.url;if(c.tier&&!ex.tier)ex.tier=c.tier;}}
@@ -219,8 +298,111 @@
       );
     }
 
+    /* ── Comparison Components ── */
+    function ComparisonFloater({count, onOpen, onClear, T, isDark}){
+      if(count<2)return null;
+      return(
+        <div style={{position:"fixed",bottom:20,left:"50%",transform:"translateX(-50%)",zIndex:100,display:"flex",alignItems:"center",gap:10,padding:"8px 16px",borderRadius:50,background:isDark?"rgba(30,41,59,0.9)":"rgba(255,255,255,0.9)",border:"1px solid "+(isDark?"rgba(148,163,184,0.2)":"rgba(0,0,0,0.1)"),boxShadow:"0 10px 25px -5px rgba(0,0,0,0.3)",backdropFilter:"blur(8px)"}}>
+          <button onClick={onOpen} style={{background:isDark?"#6366f1":"#4f46e5",color:"white",border:"none",padding:"8px 20px",borderRadius:40,fontSize:13,fontWeight:600,cursor:"pointer",boxShadow:"0 4px 12px rgba(99,102,241,0.3)"}}>
+            Compare ({count})
+          </button>
+          <button onClick={onClear} style={{background:"transparent",border:"none",color:T.textMuted,fontSize:18,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:4}} title="Clear comparison">
+            &times;
+          </button>
+        </div>
+      );
+    }
+
+    function ComparisonModal({confs, onClose, T, isDark}){
+      const disc=isDark?D:D_LIGHT;
+      const tiers=isDark?TIER:TIER_LIGHT;
+      
+      // Close on escape key
+      useEffect(()=>{
+        const h=e=>{if(e.key==="Escape")onClose();};
+        window.addEventListener("keydown",h);
+        return()=>window.removeEventListener("keydown",h);
+      },[onClose]);
+
+      const cellStyle={padding:"12px 16px",borderBottom:"1px solid "+T.divider,minWidth:200,verticalAlign:"top"};
+      const labelStyle={position:"sticky",left:0,background:T.cardBg,zIndex:10,padding:"12px 16px",borderBottom:"1px solid "+T.divider,borderRight:"1px solid "+T.divider,fontWeight:600,color:T.textDim,fontSize:11,width:140,verticalAlign:"top"};
+
+      return(
+        <div style={{position:"fixed",top:0,left:0,right:0,bottom:0,zIndex:200,background:"rgba(0,0,0,0.6)",backdropFilter:"blur(4px)",display:"flex",alignItems:"center",justifyContent:"center",padding:20}} onClick={onClose}>
+          <div style={{background:T.bg,borderRadius:12,border:"1px solid "+T.cardBorder,width:"100%",maxWidth:1000,maxHeight:"90vh",display:"flex",flexDirection:"column",boxShadow:"0 20px 25px -5px rgba(0,0,0,0.3)",overflow:"hidden"}} onClick={e=>e.stopPropagation()}>
+            <div style={{padding:"16px 20px",borderBottom:"1px solid "+T.divider,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+              <h2 style={{fontSize:18,fontWeight:700,color:T.textHeading,margin:0}}>Compare Conferences</h2>
+              <button onClick={onClose} style={{background:"transparent",border:"none",color:T.textMuted,fontSize:24,cursor:"pointer",lineHeight:1}}>&times;</button>
+            </div>
+            <div style={{overflow:"auto",flex:1}}>
+              <table style={{borderCollapse:"separate",borderSpacing:0,width:"100%"}}>
+                <tbody>
+                  <tr>
+                    <td style={{...labelStyle,background:T.bg,borderTopLeftRadius:12}}>Name</td>
+                    {confs.map(c=>(<td key={c.id} style={{...cellStyle,background:T.bg,fontWeight:600,color:T.textHeading,fontSize:14}}>{c.name}</td>))}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Dates</td>
+                    {confs.map(c=>(<td key={c.id} style={cellStyle}><span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:12}}>{c.dates}</span><div style={{fontSize:10,color:T.textDim,marginTop:4}}>{getDaysUntil(c.startDate)} days away</div></td>))}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Location</td>
+                    {confs.map(c=>(<td key={c.id} style={cellStyle}>{c.location}<div style={{color:T.textDim,fontSize:11,marginTop:2}}>{c.country}</div></td>))}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Region</td>
+                    {confs.map(c=>(<td key={c.id} style={cellStyle}>{getRegion(c.country)}</td>))}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Deadline</td>
+                    {confs.map(c=>{
+                      const dl=getDeadlineStatus(c.deadline,isDark);
+                      return(<td key={c.id} style={cellStyle}>
+                        <div style={{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}}>
+                          <span style={{padding:"2px 6px",borderRadius:4,background:dl.bg,color:dl.color,fontSize:11,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",border:dl.isTBD?"1px dashed rgba(107,114,128,0.35)":"none"}}>{dl.isTBD?"TBD":dl.label}</span>
+                          {!dl.isTBD&&<span style={{color:T.textMuted,fontSize:11}}>{fmtDeadline(c.deadline)}</span>}
+                        </div>
+                      </td>);
+                    })}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Tier</td>
+                    {confs.map(c=>{
+                      const tier=c.tier?tiers[c.tier]:null;
+                      return(<td key={c.id} style={cellStyle}>{tier?<span style={{padding:"2px 6px",borderRadius:4,background:tier.b,color:tier.c,fontSize:11,fontWeight:600}}>{tier.full}</span>:<span style={{color:T.textDim,fontSize:11}}>Unranked</span>}</td>);
+                    })}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Disciplines</td>
+                    {confs.map(c=>(<td key={c.id} style={cellStyle}><div style={{display:"flex",gap:4,flexWrap:"wrap"}}>{c.disc.map(d=>{const dc=disc[d];return dc?<span key={d} style={{padding:"2px 6px",borderRadius:3,background:dc.b,color:dc.c,fontSize:10,fontWeight:600}}>{dc.l}</span>:null;})}</div></td>))}
+                  </tr>
+                  <tr>
+                    <td style={{...labelStyle,borderBottom:"none"}}>Links</td>
+                    {confs.map(c=>(
+                      <td key={c.id} style={{...cellStyle,borderBottom:"none"}}>
+                        <div style={{display:"flex",flexDirection:"column",gap:6,alignItems:"flex-start"}}>
+                          <a href={c.url||c.ssrnLink} target="_blank" rel="noopener noreferrer" style={{color:isDark?"#818cf8":"#6366f1",fontSize:12,textDecoration:"none",fontWeight:500}}>
+                            {c.url ? "Conference Page \u2192" : "SSRN Announcement \u2192"}
+                          </a>
+                          {c.url && c.ssrnLink && (
+                             <a href={c.ssrnLink} target="_blank" rel="noopener noreferrer" style={{color:T.textDim,fontSize:11,textDecoration:"none"}}>
+                               SSRN \u2192
+                             </a>
+                          )}
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     /* ── Card component ── */
-    function Card({conf,expanded,onToggle,sortBy,T,isDark}){
+    function Card({conf,expanded,onToggle,sortBy,T,isDark,isSelected,onCompareToggle}){
       const disc=isDark?D:D_LIGHT;
       const regions=isDark?R:R_LIGHT;
       const tiers=isDark?TIER:TIER_LIGHT;
@@ -229,11 +411,20 @@
       const primaryBadge=sortBy==="deadline"?dl:st;
       const tier=conf.tier?tiers[conf.tier]:null;
       const linkUrl=conf.url||conf.ssrnLink;const linkLabel=conf.url?"Conference Page":"SSRN Announcement";
+      
+      const handleCheckbox=(e)=>{
+        e.stopPropagation();
+        onCompareToggle(conf.id);
+      };
+
       return(
         <div onClick={onToggle} style={{background:T.cardBg,border:"1px solid "+T.cardBorder,borderRadius:10,cursor:"pointer",transition:"all 0.15s"}}
           onMouseEnter={e=>{e.currentTarget.style.background=T.cardHover;e.currentTarget.style.borderColor=T.cardBorderHover;}}
           onMouseLeave={e=>{e.currentTarget.style.background=T.cardBg;e.currentTarget.style.borderColor=T.cardBorder;}}>
           <div style={{padding:"13px 16px",display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+            <div onClick={handleCheckbox} style={{display:"flex",alignItems:"center",justifyContent:"center",width:18,height:18,borderRadius:4,border:"1px solid "+(isSelected?isDark?"#6366f1":"#4f46e5":T.cardBorder),background:isSelected?(isDark?"#6366f1":"#4f46e5"):"transparent",cursor:"pointer",transition:"all 0.1s",marginRight:2}}>
+              {isSelected&&<span style={{color:"white",fontSize:12,fontWeight:700,lineHeight:1}}>✓</span>}
+            </div>
             <div style={{minWidth:62,padding:"3px 7px",borderRadius:5,background:primaryBadge.bg,color:primaryBadge.color,fontSize:10,fontWeight:700,letterSpacing:"0.04em",textAlign:"center",fontFamily:"'JetBrains Mono',monospace",border:primaryBadge.isTBD?"1px dashed rgba(107,114,128,0.4)":"1px solid transparent"}}>{primaryBadge.label}</div>
             <div style={{flex:1,minWidth:170}}>
               <div style={{display:"flex",alignItems:"center",gap:5,flexWrap:"wrap"}}>
@@ -281,6 +472,10 @@
                   {"SSRN \u2192"}
                 </a>}
                 <span style={{color:T.textDimmer,fontSize:9,fontFamily:"'JetBrains Mono',monospace"}}>{"SID: "+conf.sid}</span>
+                <button onClick={(e)=>{e.stopPropagation();handleExportOne(conf);}} 
+                  style={{marginLeft:"auto",display:"inline-flex",alignItems:"center",gap:5,padding:"5px 11px",borderRadius:5,background:isDark?"rgba(255,255,255,0.05)":"rgba(0,0,0,0.04)",color:T.textMuted,fontSize:10,fontWeight:500,border:"1px solid "+T.btnBorder,cursor:"pointer",fontFamily:"'JetBrains Mono',monospace"}}>
+                  📅 Add to Calendar
+                </button>
               </div>
             </div>
           )}
@@ -323,6 +518,16 @@
       const[expandedId,setExpandedId]=useState(null);
       const[view,setView]=useState("list");
       const[showArchive,setShowArchive]=useState(false);
+      const[comparisonList,setComparisonList]=useState([]);
+      const[showComparisonModal,setShowComparisonModal]=useState(false);
+
+      const handleCompareToggle=useCallback((id)=>{
+        setComparisonList(prev=>{
+          if(prev.includes(id))return prev.filter(cid=>cid!==id);
+          if(prev.length>=5){alert("You can compare up to 5 conferences.");return prev;}
+          return[...prev,id];
+        });
+      },[]);
 
       useEffect(()=>{
         fetch(JSON_URL+"?t="+Date.now())
@@ -425,6 +630,10 @@
               <span style={{width:1,height:16,background:T.dividerSubtle,margin:"0 4px"}} />
               <span style={{fontSize:10,color:T.textDim,fontFamily:"'JetBrains Mono',monospace",fontWeight:600,letterSpacing:"0.06em",marginRight:2}}>TIER</span>
               {[["all","All"],["1","T1"],["2","T2"],["3","T3"],["unranked","Unranked"]].map(([v,l])=><button key={v} style={btn(tierFilter===v)} onClick={()=>setTierFilter(v)}>{l}</button>)}
+              <span style={{width:1,height:16,background:T.dividerSubtle,margin:"0 4px"}} />
+              <button onClick={()=>handleExportAll(filtered)} style={{...btn(false),display:"flex",alignItems:"center",gap:4}}>
+                <span>📅</span><span>Export All</span>
+              </button>
             </div>
 
 
@@ -439,7 +648,7 @@
             {view==="list"?(
               <div style={{display:"flex",flexDirection:"column",gap:4,marginTop:4}}>
                 {filtered.length===0?<div style={{textAlign:"center",padding:36,color:T.textDim,fontSize:13}}>No upcoming conferences match your filters.</div>
-                :filtered.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} />)}
+                :filtered.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} isSelected={comparisonList.includes(c.id)} onCompareToggle={handleCompareToggle} />)}
               </div>
             ):(
               <div style={{marginTop:10}}>
@@ -547,6 +756,8 @@
               </div>
             </div>
           </div>
+          <ComparisonFloater count={comparisonList.length} onOpen={()=>setShowComparisonModal(true)} onClear={()=>setComparisonList([])} T={T} isDark={isDark} />
+          {showComparisonModal && <ComparisonModal confs={conferences.filter(c=>comparisonList.includes(c.id))} onClose={()=>setShowComparisonModal(false)} T={T} isDark={isDark} />}
         </div>
       );
     }
