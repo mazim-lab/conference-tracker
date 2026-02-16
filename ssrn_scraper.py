@@ -165,6 +165,14 @@ DEADLINE_PATTERNS = [
     # "before ..."
     r"before\s+(\w+\s+\d{1,2},?\s+\d{4})",
     r"before\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "deadline for submission(s) is ..."
+    r"[Dd]eadline\s+for\s+\w+\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"[Dd]eadline\s+for\s+\w+\s+is\s+(?:[^,\n]{0,40}?,\s*)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # Generic "by <date>" (broader catch — any "by Month DD, YYYY")
+    r"\bby\s+(\w+\s+\d{1,2},?\s+\d{4})",
+    r"\bby\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "by Nov 19 2025" — abbreviated month, no comma (Month DD YYYY without comma)
+    r"\bby\s+(\w{3,9}\s+\d{1,2}\s+\d{4})",
     # Bare dates near deadline-related context (fallback): "November 18, 2025"
     # Only if preceded by deadline-ish word within ~60 chars
     r"[Dd]eadline.{0,60}?(\w+\s+\d{1,2},\s+\d{4})",

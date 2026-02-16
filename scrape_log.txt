@@ -1,104 +1,42 @@
-11:08:17  ===========================================
-11:08:17    SSRN Conference Scraper
-11:08:17    Date: 2026-02-16
-11:08:17    JSON: conferences.json
-11:08:17  ===========================================
-11:08:17  Loaded 435 conferences, 192 with TBD deadlines
-11:08:24    Found: Conference on “Climate Policy Commodity Markets an -> 2025-04-30
-11:08:29    Found: Inaugural Finance Conference Vitznau 2025 -> 2025-04-15
-11:08:46    Found: Bank of Finland's 23rd Simulator Seminar: Harnessi -> 2025-05-16
-11:08:51    Found: 2025 Conference Accounting and Finance Research an -> 2025-05-28
-11:08:57    Found: Rice University’s Conference on Accounting & Infor -> 2025-07-15
-11:09:10    Found: Inaugural RAPS/RCFS Europe Conference -> 2025-07-01
-11:09:10    Progress: 20/192...
-11:09:13    Found: CEPR European Conference on Household Finance 2025 -> 2025-05-28
-11:09:24    Found: Haskell & White Corporate Reporting and Governance -> 2025-07-11
-11:09:35    Found: Univ of Texas at Dallas 2025 Annual Finance Confer -> 2025-07-18
-11:09:38    Found: Univ of Texas at Dallas 2025 Annual Finance Confer -> 2025-07-18
-11:09:40    Found: The Institute for Quantitative Investment Research -> 2025-05-11
-11:09:43    Found: MIT GCFP 12th Annual Conference -> 2025-07-10
-11:09:49    Found: The 16th Annual Financial Markets and Liquidity (A -> 2025-05-02
-11:09:54    Found: 2025 Federal Reserve Stress Testing Research Confe -> 2025-06-15
-11:09:57    Found: Johns Hopkins Carey Finance Conference -> 2025-05-18
-11:10:00    Found: Fifth Annual Northwestern Empirical Research Confe -> 2025-05-21
-11:10:05    Found: 2025 FMA Annual Meeting - Innovation in Teaching A -> 2025-05-23
-11:10:05    Progress: 40/192...
-11:10:08    Found: 2025 FMA Annual Meeting - Doctoral Student Consort -> 2025-05-23
-11:10:11    Found: New Ideas Sessions at the 2025 FMA Annual Meeting -> 2025-08-04
-11:10:13    Found: 5th CEPR-Stigler Center Conference on Political Ec -> 2025-06-22
-11:10:22    Found: Developments in Sustainable Finance: A New Era of  -> 2025-09-15
-11:10:35    Found: 2025 FMA Conference on Derivatives & Volatility -> 2025-06-20
-11:10:41    Found: EBA's 14th Policy Research Workshop: Bridging capi -> 2025-06-06
-11:10:49    Found: SFS Cavalcade Asia-Pacific 2025 -> 2025-06-30
-11:11:03    Found: The 38th Australasian Finance and Banking Conferen -> 2025-08-15
-11:11:06    Found: 2025 Colorado Finance Summit -> 2025-07-01
-11:11:06    Progress: 60/192...
-11:11:15    Found: 4th Bonn/Frankfurt/Mannheim Workshop on Digital Fi -> 2025-08-15
-11:11:20    Found: 2025 HKUST Accounting Research Symposium -> 2025-09-15
-11:11:23    Found: The Second PHBS-IER Conference on Demographic Chan -> 2025-06-30
-11:11:31    Found: 1st Global Banking and Finance Conference 2026 – X -> 2025-11-15
-11:11:45    Found: 2026 UBC Winter Finance Conference -> 2025-11-19
-11:11:48    Found: 2026 Bretton Woods Accounting and Finance Ski Conf -> 2025-11-01
-11:11:51    Found: Baruch-JFQA Climate Finance and Sustainability Con -> 2025-11-18
-11:11:54    Found: 2nd ESSEC Financial Accounting Symposium -> 2026-11-30
-11:11:59    Found: Tenth Annual Young Scholars Finance Consortium -> 2025-11-18
-11:12:02    Progress: 80/192...
-11:12:07    Found: Central Bank Payments Conference -> 2025-12-05
-11:12:18    Found: Sustainability Technology and the Transformation o -> 2026-02-28
-11:12:24    Found: 27th Annual Texas Finance Festival -> 2025-11-18
-11:12:26    Found: Energy Finance and Climate Transition Risk Confere -> 2025-11-18
-11:12:29    Found: 19th Annual Corporate Governance Academic Conferen -> 2025-12-22
-11:12:32    Found: The Fifth Annual Conference on Financial Markets -> 2026-02-10
-11:12:35    Found: University of Kentucky Finance Conference -> 2025-11-17
-11:12:38    Found: 2026 Stanford Financial Education Symposium -> 2026-01-31
-11:12:40    Found: Cowles 20th Annual Conference on General Equilibri -> 2026-02-05
-11:12:43    Found: Inaugural Rutgers Finance Research Conference 2026 -> 2026-02-28
-11:12:49    Found: Forensic Finance Conference -> 2025-12-12
-11:12:54    Found: CEPR 11th European Workshop on Household Finance -> 2025-01-29
-11:12:57    Found: The 2026 Federal Reserve Financial and Monetary Hi -> 2026-01-15
-11:12:57    Progress: 100/192...
-11:13:00    Found: Ageing and Sustainable Finance -> 2026-01-15
-11:13:05    Found: 11th Annual University of Connecticut Finance Conf -> 2026-01-12
-11:13:08    Found: 2026 FMA Applied Finance Conference -> 2026-02-02
-11:13:19    Found: 2nd EDHEC AI and Finance Workshop -> 2026-02-08
-11:13:24    Found: 9th Short-Term Funding Markets Conference -> 2026-02-28
-11:13:27    Found: The 40th Annual Mitsui Symposium: Private Capital  -> 2026-03-01
-11:13:30    Found: 11th SDU Finance Workshop -> 2026-03-30
-11:13:38    Found: NBER-SAIF Conference on AI and Financial Markets -> 2026-02-26
-11:13:44    Found: Finance and Accounting 2026 Annual Research Sympos -> 2026-01-31
-11:13:46    Found: London Business School Accounting Symposium -> 2025-12-14
-11:13:52    Found: Oxford Saïd - VU SBE Macro-finance Conference Mone -> 2026-01-29
-11:13:52    Progress: 120/192...
-11:14:03    Found: Finance Research Revolution Conference -> 2026-03-15
-11:14:08    Found: 12th Workshop on Banking and Institutions -> 2026-03-15
-11:14:19    Found: Red Rock Finance Conference 2026 -> 2026-03-22
-11:14:22    Found: Fourteenth Oxford Financial Intermediation Theory  -> 2026-04-20
-11:14:34    Found: HKIMR Monetary Research Programmes - Call for Prop -> 2025-12-31
-11:14:36    Found: Summer School on Market Microstructure -> 2025-12-01
-11:14:39    Found: HKIMR Monetary Research Programmes - Call For Prop -> 2025-09-30
-11:14:42    Found: HKIMR Monetary Research Programmes and Doctoral In -> 2025-06-30
-11:14:47    Progress: 140/192...
-11:14:50    Found: HKIMR Monetary Research Programmes - Call for Prop -> 2025-03-31
-11:14:53    Found: 2025 Summer School on Structural Estimation in Cor -> 2025-03-17
-11:14:55    Found: Call for papers: 2026 Asia Meeting of the Economet -> 2026-04-30
-11:15:15    Found: CICF 2025: Conference Registration -> 2025-06-06
-11:15:40    Found: 2026 University of Delaware/ECGI Corporate Governa -> 2025-11-16
-11:15:42    Found: Jackson Hole Finance Group Conference 2026 - Call  -> 2025-08-27
-11:15:42    Progress: 160/192...
-11:15:50    Found: CSR Conference -> 2025-07-15
-11:15:53    Found: HKIMR Open-bid Applied Research Programme - Call f -> 2026-02-23
-11:15:56    Found: RESEARCH GRANTS PROVIDED BY INQUIRE EUROPE, MARCH  -> 2026-01-30
-11:16:19    Found: 2025 SoFiE Financial Econometrics Summer School -> 2025-05-31
-11:16:27    Found: Ph.D. in Accounting (financial/managerial) - Frank -> 2026-01-15
-11:16:30    Found: Bonn Graduate School of Economics (BGSE) Combined  -> 2026-01-15
-11:16:38    Progress: 180/192...
-11:16:57    Found: Liechtenstein Workshop on AI in Finance 2026 -> 2026-02-27
-11:17:00    Found: HKIMR Monetary Research Programmes and Doctoral In -> 2026-03-31
-11:17:03    Found: Sustainability, Technology, and the Transformation -> 2026-02-28
-11:17:05    Found: Rutgers Accounting Doctoral Symposium (RADS) 2026  -> 2026-04-01
-11:17:11    Found: London Business School 2026 Summer Finance Symposi -> 2026-03-30
-11:17:13  
-Found 84 deadlines out of 192 checked
-11:17:13  Saved to conferences.json
-11:17:13  
+11:40:39  ===========================================
+11:40:39    SSRN Conference Scraper
+11:40:39    Date: 2026-02-16
+11:40:39    JSON: conferences.json
+11:40:39  ===========================================
+11:40:39  Loaded 435 conferences, 108 with TBD deadlines
+11:40:47    Found: 10th RiskLab Finland Bank of Finland and European  -> 2025-03-17
+11:40:51    Found: 2025 USTC Alumni Finance Conference -> 2025-04-30
+11:40:57    Found: Conference on Sustainable Financial Intermediation -> 2025-04-14
+11:41:28    Found: Emerging Global Financial Systems -> 2025-05-31
+11:41:31    Found: Finance Research Letters Paper Development Worksho -> 2025-07-15
+11:41:39    Progress: 20/108...
+11:41:51    Found: AI Empowering Business Economics Finance & Healthc -> 2025-08-30
+11:41:54    Found: PhD and Postdoc Workshop on Empirical AI in Financ -> 2025-09-15
+11:41:56    Found: 2025 UNSW Asset Pricing Workshop -> 2025-08-15
+11:42:07    Found: 6th CEAR-RSI Household Finance Workshop -> 2025-06-13
+11:42:13    Found: The 15th Workshop on Exchange Rates -> 2025-09-26
+11:42:41    Found: 20th SHKDI Annual Conference: Reconfiguration of G -> 2025-12-15
+11:42:44    Progress: 40/108...
+11:43:19    Found: 9th World Symposium on Investment Research -> 2026-01-31
+11:43:27    Found: 2026 Research Conference on Banking Regulation -> 2026-01-31
+11:43:45    Found: 2026 UNSW Corporate Finance Workshop -> 2026-03-15
+11:43:45    Progress: 60/108...
+11:43:48    Found: 4th Bocconi Accounting Symposium -> 2026-01-20
+11:43:54    Found: 2026 Annual International Journal of Central Banki -> 2026-02-05
+11:44:00    Found: 14th Helsinki Finance Summit on Investor Behavior  -> 2026-03-08
+11:44:05    Found: 21st Central Bank Conference on the Microstructure -> 2026-03-22
+11:44:08    Found: 2026 Conference on Auditing and Capital Markets -> 2026-05-15
+11:44:23    Found: Tinbergen Institute Summer School 2025 - Economics -> 2025-04-15
+11:44:46    Progress: 80/108...
+11:44:55    Found: 6th Annual FIASI-Gabelli School Student Research C -> 2026-02-03
+11:44:58    Found: 2026 Edition of the Ieke van den Burg Prize for re -> 2026-03-31
+11:45:40    Found: 2025 CUHK Accounting Research Conference -> 2025-11-25
+11:45:45    Found: 2025 Huebner-ARIA Doctoral Colloquium -> 2025-06-27
+11:45:45    Progress: 100/108...
+11:45:48    Found: Call for Research Projects 2025 “Women and Science -> 2025-09-26
+11:45:56    Found: Estimating the Impact of Natural Disasters on U.S. -> 2025-05-31
+11:46:11  
+Found 26 deadlines out of 108 checked
+11:46:11  Saved to conferences.json
+11:46:11  
 Done! Check scrape_log.txt for details.
