@@ -140,7 +140,7 @@
     }
 
     /* ── Data loading ── */
-    const JSON_URL = "./conferences.json";
+    const TRAVEL_JSON_URL = "./travel-data.json";
     const TODAY = new Date();
     const TODAY_STR = TODAY.toISOString().split("T")[0];
 
@@ -191,6 +191,18 @@
     }
 
     function getDeadlineSortKey(c){return isTBD(c.deadline)?"9999-12-31":c.deadline;}
+
+    function getTravelInfo(conf, data) {
+      if (!data || !data.cities) return null;
+      // Try exact match
+      let info = data.cities[conf.location];
+      if (!info) {
+        // Try fuzzy match? Or just return null.
+        // My generator used exact strings from conferences.json so it should match.
+        return null;
+      }
+      return info;
+    }
 
     /* ── ICS Generation ── */
     function formatICSDate(dateStr) {
@@ -313,7 +325,7 @@
       );
     }
 
-    function ComparisonModal({confs, onClose, T, isDark}){
+    function ComparisonModal({confs, onClose, T, isDark, travelData}){
       const disc=isDark?D:D_LIGHT;
       const tiers=isDark?TIER:TIER_LIGHT;
       
@@ -376,6 +388,50 @@
                     <td style={labelStyle}>Disciplines</td>
                     {confs.map(c=>(<td key={c.id} style={cellStyle}><div style={{display:"flex",gap:4,flexWrap:"wrap"}}>{c.disc.map(d=>{const dc=disc[d];return dc?<span key={d} style={{padding:"2px 6px",borderRadius:3,background:dc.b,color:dc.c,fontSize:10,fontWeight:600}}>{dc.l}</span>:null;})}</div></td>))}
                   </tr>
+                  
+                  {/* Travel Rows */}
+                  <tr>
+                    <td style={labelStyle}>Est. Daily Cost</td>
+                    {confs.map(c=>{
+                      const tr=getTravelInfo(c, travelData);
+                      return(<td key={c.id} style={cellStyle}>
+                        {tr && tr.hotel_max > 0 ? (
+                          <div style={{fontFamily:"'JetBrains Mono',monospace",fontWeight:600,color:isDark?"#34d399":"#059669"}}>
+                            ${tr.hotel_max + tr.meals}
+                            <div style={{fontSize:10,color:T.textDim,fontWeight:400}}>max per diem</div>
+                          </div>
+                        ) : <span style={{color:T.textDim,fontSize:11}}>N/A</span>}
+                      </td>);
+                    })}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Trip Cost (3d)</td>
+                    {confs.map(c=>{
+                      const tr=getTravelInfo(c, travelData);
+                      return(<td key={c.id} style={cellStyle}>
+                        {tr && tr.hotel_max > 0 ? (
+                          <div style={{fontFamily:"'JetBrains Mono',monospace",fontWeight:700,color:isDark?"#34d399":"#059669"}}>
+                            ${(tr.hotel_max + tr.meals) * 3}
+                          </div>
+                        ) : <span style={{color:T.textDim,fontSize:11}}>N/A</span>}
+                      </td>);
+                    })}
+                  </tr>
+                  <tr>
+                    <td style={labelStyle}>Visa (US/CA)</td>
+                    {confs.map(c=>{
+                      const tr=getTravelInfo(c, travelData);
+                      return(<td key={c.id} style={cellStyle}>
+                        {tr ? (
+                          <div style={{fontSize:11}}>
+                            <div style={{marginBottom:2}}><span style={{color:T.textDim}}>US:</span> {tr.visa_us}</div>
+                            <div><span style={{color:T.textDim}}>CA:</span> {tr.visa_ca}</div>
+                          </div>
+                        ) : <span style={{color:T.textDim,fontSize:11}}>N/A</span>}
+                      </td>);
+                    })}
+                  </tr>
+
                   <tr>
                     <td style={{...labelStyle,borderBottom:"none"}}>Links</td>
                     {confs.map(c=>(
@@ -402,7 +458,7 @@
     }
 
     /* ── Card component ── */
-    function Card({conf,expanded,onToggle,sortBy,T,isDark,isSelected,onCompareToggle}){
+    function Card({conf,expanded,onToggle,sortBy,T,isDark,isSelected,onCompareToggle,travelData}){
       const disc=isDark?D:D_LIGHT;
       const regions=isDark?R:R_LIGHT;
       const tiers=isDark?TIER:TIER_LIGHT;
@@ -412,6 +468,9 @@
       const tier=conf.tier?tiers[conf.tier]:null;
       const linkUrl=conf.url||conf.ssrnLink;const linkLabel=conf.url?"Conference Page":"SSRN Announcement";
       
+      const travel = useMemo(()=>getTravelInfo(conf, travelData), [conf, travelData]);
+      const [tripDays, setTripDays] = useState(3);
+
       const handleCheckbox=(e)=>{
         e.stopPropagation();
         onCompareToggle(conf.id);
@@ -438,31 +497,80 @@
             <div style={{color:T.textDim,fontSize:13,transition:"transform 0.2s",transform:expanded?"rotate(180deg)":"none"}}>&#9662;</div>
           </div>
           {expanded&&(
-            <div style={{padding:"0 16px 13px",borderTop:"1px solid "+T.divider,paddingTop:13,display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:9}}>
-              <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>LOCATION</div><div style={{color:T.text,fontSize:11.5}}>{conf.location}</div></div>
-              <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>COUNTRY</div><div style={{color:T.text,fontSize:11.5}}>{conf.country}</div></div>
-              <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>REGION</div><div style={{color:(regions[region]||regions.Other).c,fontSize:11.5}}>{region}</div></div>
-              <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>DEADLINE</div>
-                <div style={{display:"flex",alignItems:"center",gap:5}}>
-                  <span style={{padding:"2px 6px",borderRadius:4,background:dl.bg,color:dl.color,fontSize:10,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",border:dl.isTBD?"1px dashed rgba(107,114,128,0.35)":"none"}}>{dl.isTBD?"TBD":dl.label}</span>
-                  {!dl.isTBD&&<span style={{color:T.textMuted,fontSize:10}}>{fmtDeadline(conf.deadline)}</span>}
+            <div style={{padding:"0 16px 13px",borderTop:"1px solid "+T.divider,paddingTop:13}}>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:9,marginBottom:16}}>
+                <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>LOCATION</div><div style={{color:T.text,fontSize:11.5}}>{conf.location}</div></div>
+                <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>COUNTRY</div><div style={{color:T.text,fontSize:11.5}}>{conf.country}</div></div>
+                <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>REGION</div><div style={{color:(regions[region]||regions.Other).c,fontSize:11.5}}>{region}</div></div>
+                <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>DEADLINE</div>
+                  <div style={{display:"flex",alignItems:"center",gap:5}}>
+                    <span style={{padding:"2px 6px",borderRadius:4,background:dl.bg,color:dl.color,fontSize:10,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",border:dl.isTBD?"1px dashed rgba(107,114,128,0.35)":"none"}}>{dl.isTBD?"TBD":dl.label}</span>
+                    {!dl.isTBD&&<span style={{color:T.textMuted,fontSize:10}}>{fmtDeadline(conf.deadline)}</span>}
+                  </div>
+                </div>
+                <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>CONFERENCE</div>
+                  <div style={{display:"flex",alignItems:"center",gap:5}}>
+                    <span style={{padding:"2px 6px",borderRadius:4,background:st.bg,color:st.color,fontSize:10,fontWeight:600,fontFamily:"'JetBrains Mono',monospace"}}>{st.label}</span>
+                    <span style={{color:T.textMuted,fontSize:10}}>{conf.dates}</span>
+                  </div>
+                </div>
+                <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>TIER</div>
+                  <div>{tier?<span style={{padding:"2px 6px",borderRadius:4,background:tier.b,color:tier.c,fontSize:10,fontWeight:600}}>{tier.full}</span>:<span style={{color:T.textDim,fontSize:10}}>Unranked</span>}</div>
+                </div>
+                <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>DISCIPLINES</div>
+                  <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
+                    {conf.disc.map(d=>{const dc=disc[d];return dc?<span key={d} style={{padding:"2px 6px",borderRadius:3,background:dc.b,color:dc.c,fontSize:10}}>{dc.l==="ACCT"?"Accounting":dc.l==="FIN"?"Finance":"Economics"}</span>:null;})}
+                  </div>
                 </div>
               </div>
-              <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>CONFERENCE</div>
-                <div style={{display:"flex",alignItems:"center",gap:5}}>
-                  <span style={{padding:"2px 6px",borderRadius:4,background:st.bg,color:st.color,fontSize:10,fontWeight:600,fontFamily:"'JetBrains Mono',monospace"}}>{st.label}</span>
-                  <span style={{color:T.textMuted,fontSize:10}}>{conf.dates}</span>
+
+              {travel && travel.hotel_max > 0 && (
+                <div style={{marginBottom:16,padding:"10px 12px",borderRadius:8,background:isDark?"rgba(16,185,129,0.06)":"rgba(16,185,129,0.04)",border:"1px solid "+(isDark?"rgba(16,185,129,0.15)":"rgba(16,185,129,0.1)")}}>
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+                    <div style={{fontSize:11,fontWeight:700,color:isDark?"#34d399":"#059669",display:"flex",alignItems:"center",gap:6}}>
+                      <span>💰 TRAVEL ESTIMATES</span>
+                      <span style={{fontSize:9,fontWeight:400,color:T.textDimmer,background:T.bg,padding:"1px 4px",borderRadius:3,border:"1px solid "+T.cardBorder}}>Src: {travel.source}</span>
+                    </div>
+                    <div style={{fontSize:10,color:T.textDim,display:"flex",alignItems:"center",gap:4}}>
+                      <label htmlFor={"days-"+conf.id}>Trip Days:</label>
+                      <input id={"days-"+conf.id} type="number" min="1" max="14" value={tripDays} onChange={e=>setTripDays(Math.max(1,parseInt(e.target.value)||1))} onClick={e=>e.stopPropagation()}
+                        style={{width:40,padding:"2px 4px",fontSize:10,borderRadius:4,border:"1px solid "+T.inputBorder,background:T.inputBg,color:T.text,fontFamily:"'JetBrains Mono',monospace"}} />
+                    </div>
+                  </div>
+                  
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
+                    <div>
+                      <div style={{fontSize:10,color:T.textDim,marginBottom:2}}>PER DIEM (MAX)</div>
+                      <div style={{fontSize:12,fontWeight:600,fontFamily:"'JetBrains Mono',monospace"}}>
+                        <span style={{color:T.textBright}}>${travel.hotel_max + travel.meals}</span>
+                        <span style={{fontSize:10,color:T.textMuted,fontWeight:400}}> /day</span>
+                      </div>
+                      <div style={{fontSize:9,color:T.textDim,marginTop:1}}>Hotel: ${travel.hotel_max} · Meals: ${travel.meals}</div>
+                    </div>
+                    
+                    <div>
+                      <div style={{fontSize:10,color:T.textDim,marginBottom:2}}>EST. TRIP TOTAL</div>
+                      <div style={{fontSize:12,fontWeight:700,color:isDark?"#34d399":"#059669",fontFamily:"'JetBrains Mono',monospace"}}>
+                        ${(travel.hotel_max + travel.meals) * tripDays}
+                      </div>
+                      <div style={{fontSize:9,color:T.textDim,marginTop:1}}>For {tripDays} days</div>
+                    </div>
+                    
+                    <div style={{gridColumn:"1 / -1",borderTop:"1px solid "+(isDark?"rgba(16,185,129,0.1)":"rgba(16,185,129,0.08)"),paddingTop:8,display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                       <div>
+                         <div style={{fontSize:9,fontWeight:600,color:T.textDim,marginBottom:1}}>VISA REQ (US/CA)</div>
+                         <div style={{fontSize:10,color:T.text}}>{travel.visa_us} / {travel.visa_ca}</div>
+                       </div>
+                       <div>
+                         <div style={{fontSize:9,fontWeight:600,color:T.textDim,marginBottom:1}}>TOURIST INFO</div>
+                         <div style={{fontSize:10,color:T.text}}>{travel.tourist_highlights}</div>
+                       </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>TIER</div>
-                <div>{tier?<span style={{padding:"2px 6px",borderRadius:4,background:tier.b,color:tier.c,fontSize:10,fontWeight:600}}>{tier.full}</span>:<span style={{color:T.textDim,fontSize:10}}>Unranked</span>}</div>
-              </div>
-              <div><div style={{color:T.textDim,fontSize:8.5,fontWeight:600,letterSpacing:"0.1em",marginBottom:2}}>DISCIPLINES</div>
-                <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-                  {conf.disc.map(d=>{const dc=disc[d];return dc?<span key={d} style={{padding:"2px 6px",borderRadius:3,background:dc.b,color:dc.c,fontSize:10}}>{dc.l==="ACCT"?"Accounting":dc.l==="FIN"?"Finance":"Economics"}</span>:null;})}
-                </div>
-              </div>
-              <div style={{gridColumn:"1 / -1",display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+              )}
+
+              <div style={{display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
                 <a href={linkUrl} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()}
                   style={{display:"inline-flex",alignItems:"center",gap:5,padding:"5px 11px",borderRadius:5,background:conf.url?(isDark?"rgba(16,185,129,0.15)":"rgba(16,185,129,0.1)"):(isDark?"rgba(99,102,241,0.15)":"rgba(99,102,241,0.1)"),color:conf.url?(isDark?"#34d399":"#059669"):(isDark?"#818cf8":"#6366f1"),fontSize:11,fontWeight:600,textDecoration:"none"}}>
                   {linkLabel+" \u2192"}
@@ -507,6 +615,7 @@
       },[isDark]);
 
       const[conferences,setConferences]=useState([]);
+      const[travelData,setTravelData]=useState(null);
       const[loading,setLoading]=useState(true);
       const[error,setError]=useState(null);
       const[lastFetched,setLastFetched]=useState(null);
@@ -530,12 +639,15 @@
       },[]);
 
       useEffect(()=>{
-        fetch(JSON_URL+"?t="+Date.now())
-          .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
-          .then(data=>{
+        Promise.all([
+          fetch(JSON_URL+"?t="+Date.now()).then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}),
+          fetch(TRAVEL_JSON_URL+"?t="+Date.now()).then(r=>{if(r.ok)return r.json();return null;}).catch(()=>null)
+        ])
+          .then(([data, tData])=>{
             const expanded=data.map(expandRaw);
             const deduped=deduplicateBySid(expanded);
             setConferences(deduped);
+            setTravelData(tData);
             setLastFetched(new Date().toLocaleTimeString());
             setLoading(false);
           })
@@ -648,7 +760,7 @@
             {view==="list"?(
               <div style={{display:"flex",flexDirection:"column",gap:4,marginTop:4}}>
                 {filtered.length===0?<div style={{textAlign:"center",padding:36,color:T.textDim,fontSize:13}}>No upcoming conferences match your filters.</div>
-                :filtered.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} isSelected={comparisonList.includes(c.id)} onCompareToggle={handleCompareToggle} />)}
+                :filtered.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} isSelected={comparisonList.includes(c.id)} onCompareToggle={handleCompareToggle} travelData={travelData} />)}
               </div>
             ):(
               <div style={{marginTop:10}}>
@@ -757,7 +869,7 @@
             </div>
           </div>
           <ComparisonFloater count={comparisonList.length} onOpen={()=>setShowComparisonModal(true)} onClear={()=>setComparisonList([])} T={T} isDark={isDark} />
-          {showComparisonModal && <ComparisonModal confs={conferences.filter(c=>comparisonList.includes(c.id))} onClose={()=>setShowComparisonModal(false)} T={T} isDark={isDark} />}
+          {showComparisonModal && <ComparisonModal confs={conferences.filter(c=>comparisonList.includes(c.id))} onClose={()=>setShowComparisonModal(false)} T={T} isDark={isDark} travelData={travelData} />}
         </div>
       );
     }
