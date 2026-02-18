@@ -547,7 +547,7 @@
     "sid": "17389",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17389",
     "deadline": "2025-07-31",
-    "url": "",
+    "url": "https://mf-conference.com/",
     "tier": "2"
   },
   {
@@ -1295,7 +1295,7 @@
     "sid": "17192",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17192",
     "deadline": "2025-09-15",
-    "url": "",
+    "url": "https://tu-dresden.de/bu/wirtschaft/bwl/finance/events/ai-in-corporate-finance-pdw-2025",
     "tier": ""
   },
   {
@@ -2153,7 +2153,7 @@
     "sid": "17695",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17695",
     "deadline": "2025-09-30",
-    "url": "",
+    "url": "https://www.cicfconf.org/",
     "tier": "2"
   },
   {
@@ -2607,7 +2607,7 @@
     "sid": "17451",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17451",
     "deadline": "2025-11-01",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-journal-of-business-finance-and-accounting-jbfa-conference",
     "tier": "2"
   },
   {
@@ -2657,7 +2657,7 @@
     "sid": "17884",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17884",
     "deadline": "2025-11-18",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-baruch-jfqa-climate-finance-and-sustainability-conference",
     "tier": "2"
   },
   {
@@ -4635,7 +4635,7 @@
     "sid": "18197",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18197",
     "deadline": "2026-04-07",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/accounting-summer-camp-2026-ix-edition",
     "tier": "1"
   },
   {
@@ -4766,7 +4766,7 @@
     "sid": "18112",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18112",
     "deadline": "2026-06-26",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-journal-of-accounting-and-public-policy-conference",
     "tier": "2"
   },
   {
@@ -5430,7 +5430,7 @@
     "sid": "18137",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18137",
     "deadline": "2026-03-27",
-    "url": "",
+    "url": "https://www.unilim.fr/lape/wp-content/uploads/sites/21/2026/01/2026-Finest-Spring-WorkShop-Call_FINAL.pdf",
     "tier": "1"
   },
   {
@@ -6551,7 +6551,7 @@
     "sid": "18806",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18806",
     "deadline": "2026-09-04",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-caaa-annual-conference-call-for-papers",
     "tier": "2"
   },
   {
@@ -7162,7 +7162,7 @@
     "url": "https://eaa-online.org/congress-2026/",
     "tier": "A",
     "id": 442,
-    "startDate": "",
+    "startDate": "2026-05-29",
     "country": "",
     "disc": [
       "fin"
@@ -7275,7 +7275,7 @@
     "deadline": "Closed",
     "tier": "A",
     "id": 449,
-    "startDate": "",
+    "startDate": "2026-03-20",
     "country": "",
     "disc": [
       "fin"
@@ -7673,7 +7673,7 @@
     "name": "AAA Leadership Conference 2026",
     "dates": "Feb 27-28",
     "startDate": "2026-02-27",
-    "location": "USA",
+    "location": "Nashville, TN",
     "country": "USA",
     "disc": [
       "acct"
@@ -7687,9 +7687,9 @@
   {
     "id": 474,
     "name": "AAA AIS/SET Bootcamp 2026",
-    "dates": "Mar 13-14",
-    "startDate": "2026-03-13",
-    "location": "USA",
+    "dates": "May 20-21",
+    "startDate": "2026-05-20",
+    "location": "Philadelphia, PA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7703,9 +7703,9 @@
   {
     "id": 475,
     "name": "AAA Forensic Accounting Section Research Conference 2026",
-    "dates": "Mar 20-21",
-    "startDate": "2026-03-20",
-    "location": "USA",
+    "dates": "Mar 13-14",
+    "startDate": "2026-03-13",
+    "location": "Montclair, NJ",
     "country": "USA",
     "disc": [
       "acct"
@@ -7719,25 +7719,25 @@
   {
     "id": 476,
     "name": "AAA Spark: Igniting Research Innovation 2026",
-    "dates": "May 21-22",
-    "startDate": "2026-05-21",
-    "location": "USA",
-    "country": "USA",
+    "dates": "Jun 1-3",
+    "startDate": "2026-06-01",
+    "location": "Virtual Meeting",
+    "country": "Online",
     "disc": [
       "acct"
     ],
     "sid": "aaa-516",
     "ssrnLink": "",
-    "deadline": "Mar 2, 2026",
+    "deadline": "2026-03-02",
     "url": "https://aaahq.org/Meetings/2026/Spark",
     "tier": ""
   },
   {
     "id": 477,
     "name": "AAA GNP Midyear Meeting 2026",
-    "dates": "Jun 01-03",
-    "startDate": "2026-06-01",
-    "location": "USA",
+    "dates": "Mar 20-21",
+    "startDate": "2026-03-20",
+    "location": "Durham, NH",
     "country": "USA",
     "disc": [
       "acct"
@@ -7751,9 +7751,9 @@
   {
     "id": 478,
     "name": "AAA ABO Research Conference 2026",
-    "dates": "Jun 03-05",
-    "startDate": "2026-06-03",
-    "location": "USA",
+    "dates": "Oct 15-17",
+    "startDate": "2026-10-15",
+    "location": "Baltimore, MD",
     "country": "USA",
     "disc": [
       "acct"
@@ -7767,10 +7767,10 @@
   {
     "id": 479,
     "name": "AAA JIAR Conference 2026",
-    "dates": "Jun 23-25",
-    "startDate": "2026-06-23",
-    "location": "USA",
-    "country": "USA",
+    "dates": "Jun 25-28",
+    "startDate": "2026-06-25",
+    "location": "Seoul, Korea",
+    "country": "South Korea",
     "disc": [
       "acct"
     ],
@@ -7783,9 +7783,9 @@
   {
     "id": 480,
     "name": "AAA Global Connect 2026 (Annual Meeting)",
-    "dates": "Aug 01-05",
+    "dates": "Aug 1-5",
     "startDate": "2026-08-01",
-    "location": "Chicago, IL",
+    "location": "Las Vegas, NV",
     "country": "USA",
     "disc": [
       "acct"
@@ -7799,9 +7799,9 @@
   {
     "id": 481,
     "name": "AAA FARS Midyear Meeting 2027",
-    "dates": "Jan 07-09",
-    "startDate": "2027-01-07",
-    "location": "USA",
+    "dates": "Jan 21-23",
+    "startDate": "2027-01-21",
+    "location": "San Francisco, CA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7815,9 +7815,9 @@
   {
     "id": 482,
     "name": "AAA MAS Midyear Meeting 2027",
-    "dates": "Jan 21-23",
-    "startDate": "2027-01-21",
-    "location": "USA",
+    "dates": "Jan 7-9",
+    "startDate": "2027-01-07",
+    "location": "Atlanta, GA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7831,9 +7831,9 @@
   {
     "id": 483,
     "name": "AAA Global Connect 2027 (Annual Meeting)",
-    "dates": "Jul 31-Aug 04",
+    "dates": "Jul 31-Aug 4",
     "startDate": "2027-07-31",
-    "location": "USA",
+    "location": "Orlando, FL",
     "country": "USA",
     "disc": [
       "acct"
@@ -7847,9 +7847,9 @@
   {
     "id": 484,
     "name": "AAA Global Connect 2028 (Annual Meeting)",
-    "dates": "Aug 05-09",
+    "dates": "Aug 5-9",
     "startDate": "2028-08-05",
-    "location": "USA",
+    "location": "Anaheim, CA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7944,5 +7944,102 @@
     "url": "https://www.brettonwoodsskiconference.com/",
     "tier": "",
     "source": "AFA Trumba Calendar"
+  },
+  {
+    "id": 490,
+    "name": "Audit Educators' Bootcamp",
+    "dates": "Jun 23-25",
+    "startDate": "2026-06-23",
+    "location": "Chicago, IL",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-e3e6f13a",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/Audit-Educators-Bootcamp",
+    "tier": "2",
+    "source": "aaa"
+  },
+  {
+    "id": 491,
+    "name": "AAA GOVERNMENT AND NONPROFIT (GNP) SECTION MIDYEAR MEETING – IN PARTNERSHIP WITH THE PUBLIC INTEREST, ETHICS, AND SUSTAINABILITY (PIES) SECTION",
+    "dates": "Mar 20, 2026",
+    "startDate": "2026-03-20",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-a76ec83e",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/aaa-government-and-nonprofit-gnp-section-midyear-meeting-in-partnership-with-the-public-interest-ethics-and-sustainability-pies-section",
+    "tier": "2"
+  },
+  {
+    "id": 492,
+    "name": "Annual Conference with Doctoral Masterclasses 2026",
+    "dates": "14–16 April 2026",
+    "startDate": "2026-04-14",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-a45c813f",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/annual-conference-with-doctoral-masterclasses-2026",
+    "tier": "2"
+  },
+  {
+    "id": 493,
+    "name": "SUSTAINABILITY ACCOUNTING, MANAGEMENT AND POLICY JOURNAL (SAMPJ) PAPER DEVELOPMENT WORKSHOP",
+    "dates": "Feb 27, 2026",
+    "startDate": "2026-02-27",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-7e434b78",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/sustainability-accounting-management-and-policy-journal-sampj-paper-development-workshop",
+    "tier": "2"
+  },
+  {
+    "id": 494,
+    "name": "2nd Accounting Forum Conference",
+    "dates": "June 1-3, 2026",
+    "startDate": "2026-06-03",
+    "location": "Bucuresti",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-298b6d2c",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/2-nd-accounting-forum-conference",
+    "tier": "2"
+  },
+  {
+    "id": 495,
+    "name": "The Thirteenth Accounting History International Conference",
+    "dates": "8-11 July 2026",
+    "startDate": "2026-07-08",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-d0e55fa0",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/the-thirteenth-accounting-history-international-conference",
+    "tier": "2"
   }
 ]

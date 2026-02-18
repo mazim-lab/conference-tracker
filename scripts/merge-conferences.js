@@ -1,141 +1,200 @@
+#!/usr/bin/env node
+/**
+ * merge-conferences.js
+ * Merges scraped conference data into conferences.json
+ * Usage: node merge-conferences.js [--dry-run]
+ */
+
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const crypto = require('crypto');
 
-const CONFERENCES_FILE = path.join(__dirname, '../conferences.json');
-const SCRIPTS_DIR = path.join(__dirname, '../scripts');
+const CONF_PATH = path.join(__dirname, '..', 'conferences.json');
 
-// Simple Levenshtein distance for fuzzy matching
-function levenshtein(a, b) {
-  const matrix = [];
+// Normalize name for comparison
+function normName(name) {
+  return name.toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
-  for (let i = 0; i <= b.length; i++) {
-    matrix[i] = [i];
+// Simple string similarity (Jaccard on words)
+function similarity(a, b) {
+  const wordsA = new Set(normName(a).split(' ').filter(w => w.length > 2));
+  const wordsB = new Set(normName(b).split(' ').filter(w => w.length > 2));
+  if (wordsA.size === 0 || wordsB.size === 0) return 0;
+  let intersection = 0;
+  for (const w of wordsA) if (wordsB.has(w)) intersection++;
+  return intersection / Math.max(wordsA.size, wordsB.size);
+}
+
+// Find best match in existing conferences
+function findMatch(newConf, existing) {
+  let bestMatch = null;
+  let bestScore = 0;
+  
+  for (const conf of existing) {
+    // URL match is strongest signal
+    if (newConf.url && conf.url && newConf.url.split('?')[0] === conf.url.split('?')[0]) {
+      return { conf, score: 1.0 };
+    }
+    
+    // Name similarity
+    const score = similarity(newConf.name, conf.name);
+    
+    // Boost if same year
+    if (newConf.startDate && conf.startDate && 
+        newConf.startDate.substring(0, 4) === conf.startDate.substring(0, 4)) {
+      if (score > 0.5 && score + 0.1 > bestScore) {
+        bestScore = score + 0.1;
+        bestMatch = conf;
+      }
+    }
+    
+    if (score > bestScore && score >= 0.6) {
+      bestScore = score;
+      bestMatch = conf;
+    }
   }
+  
+  return bestMatch ? { conf: bestMatch, score: bestScore } : null;
+}
 
-  for (let j = 0; j <= a.length; j++) {
-    matrix[0][j] = j;
+// Merge new data into existing entry (fill blanks, don't overwrite good data)
+function mergeEntry(existing, newData) {
+  const updated = { ...existing };
+  let changed = false;
+  
+  const fields = ['dates', 'startDate', 'location', 'country', 'deadline', 'url', 'ssrnLink'];
+  for (const field of fields) {
+    const existingVal = existing[field];
+    const newVal = newData[field];
+    
+    // Fill blank fields
+    if ((!existingVal || existingVal === '' || existingVal === 'TBD' || existingVal === 'USA') && 
+        newVal && newVal !== '' && newVal !== 'TBD') {
+      updated[field] = newVal;
+      changed = true;
+    }
   }
+  
+  // Fix disc if wrong (e.g., "fin" should be "acct" for AAA)
+  if (newData.source === 'aaa' && JSON.stringify(existing.disc) !== '["acct"]') {
+    updated.disc = ["acct"];
+    changed = true;
+  }
+  
+  // Fill name if existing is less specific
+  if (newData.name.length > existing.name.length && similarity(newData.name, existing.name) > 0.5) {
+    // Keep existing name unless new is clearly more complete
+  }
+  
+  return { updated, changed };
+}
 
-  for (let i = 1; i <= b.length; i++) {
-    for (let j = 1; j <= a.length; j++) {
-      if (b.charAt(i - 1) === a.charAt(j - 1)) {
-        matrix[i][j] = matrix[i - 1][j - 1];
+async function run() {
+  const dryRun = process.argv.includes('--dry-run');
+  
+  // Load existing conferences
+  const existing = JSON.parse(fs.readFileSync(CONF_PATH, 'utf8'));
+  console.error(`Loaded ${existing.length} existing conferences`);
+  
+  // Load scraped data from each source
+  const sources = ['aaa', 'afa', 'eaa', 'efa'];
+  const scraped = {};
+  
+  for (const source of sources) {
+    const filePath = path.join(__dirname, '..', `scraped-${source}.json`);
+    if (fs.existsSync(filePath)) {
+      scraped[source] = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      console.error(`Loaded ${scraped[source].length} scraped ${source.toUpperCase()} conferences`);
+    } else {
+      console.error(`No scraped data for ${source.toUpperCase()} (${filePath})`);
+      scraped[source] = [];
+    }
+  }
+  
+  let updated = 0, added = 0, unchanged = 0;
+  let maxId = Math.max(...existing.map(c => c.id || 0));
+  const usedSids = new Set(existing.map(c => c.sid).filter(Boolean));
+  
+  // Process each scraped conference
+  for (const [source, confs] of Object.entries(scraped)) {
+    for (const newConf of confs) {
+      const match = findMatch(newConf, existing);
+      
+      if (match && match.score >= 0.6) {
+        // Update existing entry
+        const { updated: mergedEntry, changed } = mergeEntry(match.conf, newConf);
+        if (changed) {
+          Object.assign(match.conf, mergedEntry);
+          updated++;
+          console.error(`  UPDATED: ${match.conf.name} (score: ${match.score.toFixed(2)})`);
+        } else {
+          unchanged++;
+        }
       } else {
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j - 1] + 1, // substitution
-          Math.min(
-            matrix[i][j - 1] + 1, // insertion
-            matrix[i - 1][j] + 1 // deletion
-          )
-        );
+        // Add new entry
+        maxId++;
+        newConf.id = maxId;
+        
+        // Ensure unique sid
+        if (!newConf.sid || usedSids.has(newConf.sid)) {
+          newConf.sid = `${source}-${crypto.createHash('md5').update(newConf.name + newConf.url).digest('hex').substring(0, 8)}`;
+        }
+        usedSids.add(newConf.sid);
+        
+        // Ensure all required fields
+        newConf.ssrnLink = newConf.ssrnLink || '';
+        newConf.tier = newConf.tier || '2';
+        newConf.disc = newConf.disc || ['acct'];
+        
+        existing.push(newConf);
+        added++;
+        console.error(`  ADDED: ${newConf.name} (${source})`);
       }
     }
   }
-
-  return matrix[b.length][a.length];
-}
-
-function isSimilar(title1, title2) {
-    if (!title1 || !title2) return false;
-    const s1 = title1.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const s2 = title2.toLowerCase().replace(/[^a-z0-9]/g, '');
-    
-    if (s1 === s2) return true;
-    if (s1.includes(s2) || s2.includes(s1)) return true;
-    
-    const dist = levenshtein(s1, s2);
-    const maxLen = Math.max(s1.length, s2.length);
-    // Allow 20% difference
-    return dist < maxLen * 0.2;
-}
-
-function runScraper(scriptName) {
-    try {
-        console.log(`Running ${scriptName}...`);
-        const output = execSync(`node "${path.join(SCRIPTS_DIR, scriptName)}"`, { encoding: 'utf8' });
-        // The scrapers print logs to stdout as well, but the JSON is likely at the end or we need to separate it.
-        // My scrapers print logs then the JSON. I should probably adjust them to output ONLY JSON or write to a file.
-        // Or I can parse the last line? Or try to find the JSON array in the output.
-        
-        // Robust way: find the first '[' and last ']'
-        const start = output.indexOf('[');
-        const end = output.lastIndexOf(']');
-        if (start === -1 || end === -1) {
-            console.error(`No JSON found in output of ${scriptName}`);
-            return [];
+  
+  // Verify no duplicate sids
+  const sidCounts = {};
+  for (const c of existing) {
+    if (c.sid) {
+      sidCounts[c.sid] = (sidCounts[c.sid] || 0) + 1;
+    }
+  }
+  const dupes = Object.entries(sidCounts).filter(([, count]) => count > 1);
+  if (dupes.length > 0) {
+    console.error(`\n⚠️  Duplicate sids found:`);
+    for (const [sid, count] of dupes) {
+      console.error(`  ${sid}: ${count} entries`);
+      // Fix by appending index
+      let idx = 0;
+      for (const c of existing) {
+        if (c.sid === sid) {
+          if (idx > 0) c.sid = `${sid}-${idx}`;
+          idx++;
         }
-        const jsonStr = output.substring(start, end + 1);
-        return JSON.parse(jsonStr);
-    } catch (e) {
-        console.error(`Failed to run ${scriptName}:`, e.message);
-        return [];
+      }
     }
+  }
+  
+  console.error(`\n=== Summary ===`);
+  console.error(`Updated: ${updated}`);
+  console.error(`Added: ${added}`);
+  console.error(`Unchanged: ${unchanged}`);
+  console.error(`Total: ${existing.length}`);
+  
+  if (dryRun) {
+    console.error('\n(Dry run — not writing)');
+  } else {
+    fs.writeFileSync(CONF_PATH, JSON.stringify(existing, null, 2));
+    console.error(`\nWritten to ${CONF_PATH}`);
+  }
 }
 
-function merge() {
-    console.log("Reading existing conferences...");
-    let existing = [];
-    try {
-        existing = JSON.parse(fs.readFileSync(CONFERENCES_FILE, 'utf8'));
-    } catch (e) {
-        console.error("Could not read existing conferences.json", e);
-        existing = [];
-    }
-
-    const afa = runScraper('scrape-afa.js');
-    const efa = runScraper('scrape-efa.js');
-    const eaa = runScraper('scrape-eaa.js');
-
-    const newConferences = [...afa, ...efa, ...eaa];
-    console.log(`Collected ${newConferences.length} potential new conferences.`);
-
-    let addedCount = 0;
-    let maxId = existing.reduce((max, c) => Math.max(max, c.id || 0), 0);
-
-    for (const conf of newConferences) {
-        // Check for duplicates
-        const exists = existing.find(e => {
-            // Check exact URL match if URL exists
-            if (conf.url && e.url === conf.url) return true;
-            // Check title similarity
-            if (isSimilar(e.name, conf.name)) return true;
-            return false;
-        });
-
-        if (!exists) {
-            maxId++;
-            // Normalize fields
-            const newEntry = {
-                id: maxId,
-                name: conf.name,
-                dates: conf.dates || "",
-                startDate: conf.startDate || "",
-                location: conf.location || "TBD",
-                country: conf.country || "", // Scrapers might not set this well
-                disc: conf.disc || ["fin"],
-                sid: "", // Source ID?
-                ssrnLink: "",
-                deadline: conf.deadline || "",
-                url: conf.url || "",
-                tier: "",
-                source: conf.source // Track where it came from
-            };
-            
-            existing.push(newEntry);
-            addedCount++;
-            console.log(`Adding: ${conf.name}`);
-        } else {
-            // Optional: update existing entry with better data?
-            // For now, skip to preserve manual edits.
-        }
-    }
-
-    console.log(`Merged ${addedCount} new conferences.`);
-    console.log(`Total conferences: ${existing.length}`);
-
-    fs.writeFileSync(CONFERENCES_FILE, JSON.stringify(existing, null, 2));
-    console.log("Updated conferences.json");
-}
-
-merge();
+run().catch(err => {
+  console.error('Fatal:', err.message);
+  process.exit(1);
+});
