@@ -7868,5 +7868,213 @@
     "tier": "",
     "sid": "ext-511",
     "ssrnLink": ""
+  },
+  {
+    "id": 512,
+    "name": "AAA ATA Midyear Meeting 2026",
+    "dates": "Feb 19-21",
+    "startDate": "2026-02-19",
+    "location": "Nashville, TN",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-512",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/ATA-Midyear-Meeting",
+    "tier": ""
+  },
+  {
+    "id": 513,
+    "name": "AAA Leadership Conference 2026",
+    "dates": "Feb 27-28",
+    "startDate": "2026-02-27",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-513",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/Leadership",
+    "tier": ""
+  },
+  {
+    "id": 514,
+    "name": "AAA AIS/SET Bootcamp 2026",
+    "dates": "Mar 13-14",
+    "startDate": "2026-03-13",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-514",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/AIS-Bootcamp",
+    "tier": ""
+  },
+  {
+    "id": 515,
+    "name": "AAA Forensic Accounting Section Research Conference 2026",
+    "dates": "Mar 20-21",
+    "startDate": "2026-03-20",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-515",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/Forensic-Accounting-Section-Research-Conference",
+    "tier": ""
+  },
+  {
+    "id": 516,
+    "name": "AAA Spark: Igniting Research Innovation 2026",
+    "dates": "May 21-22",
+    "startDate": "2026-05-21",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-516",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/Spark",
+    "tier": ""
+  },
+  {
+    "id": 517,
+    "name": "AAA GNP Midyear Meeting 2026",
+    "dates": "Jun 01-03",
+    "startDate": "2026-06-01",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-517",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/GNP-Midyear-Meeting",
+    "tier": ""
+  },
+  {
+    "id": 518,
+    "name": "AAA ABO Research Conference 2026",
+    "dates": "Jun 03-05",
+    "startDate": "2026-06-03",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-518",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/ABO-Research-Conference",
+    "tier": ""
+  },
+  {
+    "id": 519,
+    "name": "AAA JIAR Conference 2026",
+    "dates": "Jun 23-25",
+    "startDate": "2026-06-23",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-519",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/JIAR",
+    "tier": ""
+  },
+  {
+    "id": 520,
+    "name": "AAA Global Connect 2026 (Annual Meeting)",
+    "dates": "Aug 01-05",
+    "startDate": "2026-08-01",
+    "location": "Chicago, IL",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-520",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/AAA-Global-Connect",
+    "tier": ""
+  },
+  {
+    "id": 521,
+    "name": "AAA FARS Midyear Meeting 2027",
+    "dates": "Jan 07-09",
+    "startDate": "2027-01-07",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-521",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2027/FARS-Midyear-Meeting",
+    "tier": ""
+  },
+  {
+    "id": 522,
+    "name": "AAA MAS Midyear Meeting 2027",
+    "dates": "Jan 21-23",
+    "startDate": "2027-01-21",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-522",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2027/MAS-Midyear-Meeting",
+    "tier": ""
+  },
+  {
+    "id": 523,
+    "name": "AAA Global Connect 2027 (Annual Meeting)",
+    "dates": "Jul 31-Aug 04",
+    "startDate": "2027-07-31",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-523",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2027/AAA-Global-Connect",
+    "tier": ""
+  },
+  {
+    "id": 524,
+    "name": "AAA Global Connect 2028 (Annual Meeting)",
+    "dates": "Aug 05-09",
+    "startDate": "2028-08-05",
+    "location": "USA",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-524",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2028/AAA-Global-Connect",
+    "tier": ""
   }
 ]
