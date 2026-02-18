@@ -7097,7 +7097,16 @@
     "location": "Nashville, TN",
     "url": "https://aaahq.org/Meetings/2026/ATA-Midyear-Meeting",
     "section": "ATA",
-    "tier": "A"
+    "tier": "A",
+    "id": 465,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 Leadership in Accounting Education Section Midyear Meeting",
@@ -7105,7 +7114,16 @@
     "location": "Nashville, TN",
     "url": "https://aaahq.org/Meetings/2026/Leadership",
     "section": "LEADERSHIP",
-    "tier": "B"
+    "tier": "B",
+    "id": 466,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 Forensic Accounting Section Research Conference",
@@ -7113,7 +7131,16 @@
     "location": "Montclair, NJ",
     "url": "https://aaahq.org/Meetings/2026/FA",
     "section": "FA",
-    "tier": "B"
+    "tier": "B",
+    "id": 467,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 Government and Nonprofit (GNP) Section Midyear Meeting",
@@ -7121,7 +7148,16 @@
     "location": "Durham, NH",
     "url": "https://aaahq.org/Meetings/2026/GNP",
     "section": "GNP",
-    "tier": "B"
+    "tier": "B",
+    "id": 468,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 AIS Bootcamp",
@@ -7129,7 +7165,16 @@
     "location": "Philadelphia, PA",
     "url": "https://aaahq.org/Meetings/2026/AIS-Bootcamp",
     "section": "AIS",
-    "tier": "C"
+    "tier": "C",
+    "id": 469,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Accounting Horizons Conference on Bridging Accounting Research and Practice",
@@ -7137,7 +7182,15 @@
     "location": "Arlington, VA",
     "url": "https://aaahq.org/Meetings/2026/AH-Conference",
     "tier": "A",
-    "deadline": "Feb 23, 2026"
+    "deadline": "Feb 23, 2026",
+    "id": 470,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 Spark Meeting",
@@ -7145,14 +7198,31 @@
     "location": "Virtual Meeting",
     "url": "https://aaahq.org/Meetings/2026/Spark",
     "deadline": "Mar 2, 2026",
-    "tier": "C"
+    "tier": "C",
+    "id": 471,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 AAA Mid-Career Faculty Consortium",
     "dates": "Jun 3-5",
     "location": "Atlanta, GA",
     "url": "https://aaahq.org/Meetings/2026/Mid-Career",
-    "tier": "B"
+    "tier": "B",
+    "id": 472,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Audit Educators Bootcamp",
@@ -7160,14 +7230,32 @@
     "location": "Chicago, IL",
     "url": "https://aaahq.org/Meetings/2026/Audit-Bootcamp",
     "section": "AUD",
-    "tier": "C"
+    "tier": "C",
+    "id": 473,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 AAA Global Connect (formerly Annual Meeting)",
     "dates": "Aug 1-5",
     "location": "Las Vegas, NV",
     "url": "https://aaahq.org/Meetings/2026/AAA-Global-Connect",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 474,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 Accounting Behavior and Organizations Research Conference",
@@ -7175,7 +7263,16 @@
     "location": "Baltimore, MD",
     "url": "https://aaahq.org/Meetings/2026/ABO",
     "section": "ABO",
-    "tier": "B"
+    "tier": "B",
+    "id": 475,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2027 Management Accounting Section Midyear Meeting",
@@ -7183,7 +7280,16 @@
     "location": "Atlanta, GA",
     "url": "https://aaahq.org/Meetings/2027/MAS",
     "section": "MAS",
-    "tier": "A"
+    "tier": "A",
+    "id": 476,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2027 Financial Accounting and Reporting Section Midyear Meeting",
@@ -7191,49 +7297,112 @@
     "location": "San Francisco, CA",
     "url": "https://aaahq.org/Meetings/2027/FARS",
     "section": "FARS",
-    "tier": "A"
+    "tier": "A",
+    "id": 477,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2027 AAA Global Connect",
     "dates": "Jul 31 - Aug 4, 2027",
     "location": "Orlando, FL",
     "url": "https://aaahq.org/Meetings/2027/AAA-Global-Connect",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 478,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2028 AAA Global Connect",
     "dates": "Aug 5-9, 2028",
     "location": "Anaheim, CA",
     "url": "https://aaahq.org/Meetings/2028/AAA-Global-Connect",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 479,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "EAA Webinar: International Rules, Local Meanings: Culture and Diversity in Accounting and Governance",
     "dates": "Mar 5",
     "location": "Online",
     "url": "https://eaa-online.org/events/international-rules-local-meanings-culture-and-diversity-in-accounting-and-governance",
-    "tier": "C"
+    "tier": "C",
+    "id": 480,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "American Finance Association 2027 Annual Meeting",
     "dates": "Jan 2-5, 2027",
     "location": "TBD",
     "url": "https://afajof.org/annual-meeting/",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 481,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "48th EAA Annual Congress 2026",
     "dates": "May 27-29",
     "location": "Prague, Czech Republic",
     "url": "https://eaa-online.org/congress-2026/",
-    "tier": "A"
+    "tier": "A",
+    "id": 482,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "EAR Conference (European Accounting Review)",
     "dates": "TBD 2026",
     "location": "TBD",
     "url": "https://eaa-online.org/ear-conference/",
-    "tier": "A"
+    "tier": "A",
+    "id": 483,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "53rd EFA Annual Meeting 2026",
@@ -7241,7 +7410,15 @@
     "location": "Vlerick Business School, Ghent, Belgium",
     "url": "https://european-finance.org/r/news",
     "deadline": "Feb 1, 2026",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 484,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "EFA Doctoral Tutorial 2026",
@@ -7249,7 +7426,15 @@
     "location": "Vlerick Business School, Ghent, Belgium",
     "url": "https://european-finance.org/r/news",
     "deadline": "Mar 15, 2026",
-    "tier": "B"
+    "tier": "B",
+    "id": 485,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "EFFAS Gasperini ESG Research Award 2026",
@@ -7257,7 +7442,15 @@
     "location": "N/A",
     "url": "https://effas.com/professional-certificates/gasperini-awards-2026/",
     "deadline": "May 4, 2026",
-    "tier": "C"
+    "tier": "C",
+    "id": 486,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Irish Academy of Finance 7th Annual Conference",
@@ -7265,7 +7458,15 @@
     "location": "Johnstown Estate Hotel, Co. Meath, Ireland",
     "url": "https://european-finance.org/r/news",
     "deadline": "Feb 23, 2026",
-    "tier": "B"
+    "tier": "B",
+    "id": 487,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "LAPE-FINEST Spring Workshop: Sustainability, Bank Performance and Financial Stability",
@@ -7273,7 +7474,15 @@
     "location": "Université de Limoges, France",
     "url": "https://www.unilim.fr/lape/",
     "deadline": "Mar 29, 2026",
-    "tier": "B"
+    "tier": "B",
+    "id": 488,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "European Accounting Review 2026 Annual Conference",
@@ -7281,143 +7490,383 @@
     "location": "WHU Campus Düsseldorf, Germany",
     "url": "https://eaa-online.org/arc/events/european-accounting-review-2026-annual-conference/",
     "deadline": "Closed",
-    "tier": "A"
+    "tier": "A",
+    "id": 489,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "49th EAA Annual Congress 2027",
     "dates": "May 2027",
     "location": "Turin, Italy",
     "url": "https://eaa-online.org/",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 490,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "AFA 2027 Annual Meeting",
     "dates": "Jan 3-5, 2027",
     "location": "Washington, DC",
     "url": "https://afajof.org/forthcoming-meetings/",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 491,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "AFA 2028 Annual Meeting",
     "dates": "Jan 7-9, 2028",
     "location": "Atlanta, GA",
     "url": "https://afajof.org/forthcoming-meetings/",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 492,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "AFA 2029 Annual Meeting",
     "dates": "Jan 5-7, 2029",
     "location": "San Diego, CA",
     "url": "https://afajof.org/forthcoming-meetings/",
-    "tier": "A+"
+    "tier": "A+",
+    "id": 493,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 CAAA Annual Conference: From Insight to Impact",
     "dates": "Jun 18-20",
     "location": "Banff, Alberta, Canada",
     "url": "https://www.caaa.ca/caaa-conference",
-    "tier": "A"
+    "tier": "A",
+    "id": 494,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Call for Papers - LAPE Finest Spring workshop",
     "dates": "2026-02-02",
     "url": "https://www.unilim.fr/lape/seminars-and-conferences/conferences/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 495,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 International Conference in Financial Science, Napoli, Italy",
     "dates": "2026-02-05",
     "url": "https://icfs2026.sciencesconf.org/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 496,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "The 6th Greater China Area Finance Conference",
     "dates": "2026-02-07",
     "url": "https://conf.xmu.edu.cn/gcfc2026/index.htm",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 497,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Call for Papers: The 11th FISF Economics and Finance Workshop on Financing Global Energy Transition",
     "dates": "2026-02-17",
     "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 498,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "2026 AFP FP&A Forum",
     "dates": "2026-03-23",
     "url": "https://www.financialprofessionals.org/afp-fp-a--forum",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 499,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "SGF Conference 2026",
     "dates": "2026-03-27",
     "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 500,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "SIBR 2026 Bangkok Conference on Interdisciplinary Business & Economics Research",
     "dates": "2026-04-04",
     "url": "http://sibresearch.org/sibr-conference-call-for-paper.html",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 501,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Risk Theory Society Annual Seminar 2026",
     "dates": "2026-04-24",
     "url": "https://www.aria.org/risk-theory-society",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 502,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "International Conference on Sustainable Development, Social Responsibility & Business Ethics",
     "dates": "2026-05-11",
     "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 503,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Los Angeles Annual Business Research Conference (LABRC) 2026",
     "dates": "2026-05-15",
     "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 504,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "15th International Conference of the Financial Engineering and Banking Society (FEBS)",
     "dates": "2026-05-21",
     "url": "https://fbf.eui.eu/febs-2026/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 505,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Investment London 2026",
     "dates": "2026-06-16",
     "url": "https://go.evvnt.com/3361272-0?pid=10279",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 506,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "4th IMA Conference on Mathematics of Finance and Insurance",
     "dates": "2026-06-18",
     "url": "https://ima.org.uk/26905/4th-ima-conference-on-mathematics-of-finance-and-insurance/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 507,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Quantitative Finance and Risk Analysis (QFRA 2026)",
     "dates": "2026-06-18",
     "url": "https://www.monash.edu/business/events/quantitative-finance-and-risk-analysis-symposium-qfra-2026",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 508,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "Financial Management & Accounting Research Conference 2026",
     "dates": "2026-06-27",
     "url": "https://www.fmarc.eu/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 509,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "EIGHTH PAN-IIT INTERNATIONAL CONFERENCE ON FINANCIAL MARKETS & CORPORATE FINANCE (ICFMCF 2026)",
     "dates": "2026-07-03",
     "url": "https://iitk.ac.in/doms/icfmcf/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 510,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   },
   {
     "name": "WORLD FINANCE CONFERENCE - IRELAND",
     "dates": "2026-07-26",
     "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar"
+    "source": "AFA Trumba Calendar",
+    "id": 511,
+    "startDate": "",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "deadline": "",
+    "location": "TBD",
+    "tier": "",
+    "sid": "",
+    "ssrnLink": ""
   }
 ]
