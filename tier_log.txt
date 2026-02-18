@@ -1,49 +1,43 @@
-12:06:43  ===========================================
-12:06:43    Conference Tier Assigner
-12:06:43  ===========================================
-12:06:43  Loaded 436 conferences
-12:06:43  Conferences without tiers: 224
-12:06:43  
+08:04:39  ===========================================
+08:04:39    Conference Tier Assigner
+08:04:39  ===========================================
+08:04:39  Loaded 437 conferences
+08:04:39  Conferences without tiers: 219
+08:04:39  
 === Phase 1: Reference dictionary matching ===
-12:06:48    [2] 2026 Annual Community Bank Research Conference Call for Pape (exact:Federal Reserve Bank)
-12:06:48    [2] 2025 FMA Annual Meeting - Innovation in Teaching Award (exact:FMA Annual Meeting)
-12:06:48    [2] Summer School on Market Microstructure (exact:Market Microstructure)
-12:06:48    [2] 2026 Edition of the Ieke van den Burg Prize for research on  (exact:Systemic Risk)
-12:06:48    [3] Call for Papers: Multinational Finance Journal (MFJ) (exact:Multinational Finance)
-12:06:48    [2] 2025 SoFiE Financial Econometrics Summer School (exact:Financial Econometrics)
-12:06:48  
-Matched: 6/224 | Unmatched: 218
-12:06:48  
+08:04:44  
+Matched: 0/219 | Unmatched: 219
+08:04:44  
 === Skipping API (--no-api flag) ===
-12:06:48  218 conferences left untiered:
-12:06:48    ? 2nd Knut Wicksell Conference on Crypto and Fintech
-12:06:48    ? Financial Regulation and RegTech Forum
-12:06:48    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
-12:06:48    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
-12:06:48    ? 2025 International Symposium on Climate Finance and Sustaina
-12:06:48    ? International Society for the Advancement of Financial Econo
-12:06:48    ? Economic Governance of Social Media
-12:06:48    ? Conference on “Climate Policy Commodity Markets and Economic
-12:06:48    ? Symposium on Financial Markets in the Era of Climate Change
-12:06:48    ? 21st Annual Conference of the Asia-Pacific Association of De
-12:06:48    ? Conference on Sustainable Financial Intermediation
-12:06:48    ? Hybrid Conference on Islamic Law and Finance
-12:06:48    ? Sustainability at Crossroads: The Edinburgh and Internationa
-12:06:48    ? Conference on Digital Transformation for Social Impacts and 
-12:06:48    ? Future Finance Fest (3f )
-12:06:48    ? Bayesian Macroeconometric Modelling Workshop
-12:06:48    ? Warwick Business School Gillmore Centre Conference on DeFi &
-12:06:48    ? 2025 Conference Accounting and Finance Research and Educatio
-12:06:48    ? Rice University’s Conference on Accounting & Information Fri
-12:06:48    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
-12:06:48    ... and 198 more
-12:06:48  
+08:04:44  219 conferences left untiered:
+08:04:44    ? 2nd Knut Wicksell Conference on Crypto and Fintech
+08:04:44    ? Financial Regulation and RegTech Forum
+08:04:44    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
+08:04:44    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
+08:04:44    ? 2025 International Symposium on Climate Finance and Sustaina
+08:04:44    ? International Society for the Advancement of Financial Econo
+08:04:44    ? Economic Governance of Social Media
+08:04:44    ? Conference on “Climate Policy Commodity Markets and Economic
+08:04:44    ? Symposium on Financial Markets in the Era of Climate Change
+08:04:44    ? 21st Annual Conference of the Asia-Pacific Association of De
+08:04:44    ? Conference on Sustainable Financial Intermediation
+08:04:44    ? Hybrid Conference on Islamic Law and Finance
+08:04:44    ? Sustainability at Crossroads: The Edinburgh and Internationa
+08:04:44    ? Conference on Digital Transformation for Social Impacts and 
+08:04:44    ? Future Finance Fest (3f )
+08:04:44    ? Bayesian Macroeconometric Modelling Workshop
+08:04:44    ? Warwick Business School Gillmore Centre Conference on DeFi &
+08:04:44    ? 2025 Conference Accounting and Finance Research and Educatio
+08:04:44    ? Rice University’s Conference on Accounting & Information Fri
+08:04:44    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
+08:04:44    ... and 199 more
+08:04:44  
 === SUMMARY ===
-12:06:48  Tier 1: 40
-12:06:48  Tier 2: 118
-12:06:48  Tier 3: 60
-12:06:48  No tier: 218
-12:06:48  
+08:04:44  Tier 1: 40
+08:04:44  Tier 2: 118
+08:04:44  Tier 3: 60
+08:04:44  No tier: 219
+08:04:44  
 Saved to conferences.json
-12:06:48  
+08:04:44  
 Done! Check tier_log.txt for details.

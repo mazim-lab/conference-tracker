@@ -7074,5 +7074,21 @@
     "deadline": "TBD",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 464,
+    "name": "6th Annual Bristol Financial Markets Conference",
+    "dates": "Jun 29-30",
+    "startDate": "2026-06-29",
+    "location": "Bristol, UK",
+    "country": "UK",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18827",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18827",
+    "deadline": "2026-03-20",
+    "url": "",
+    "tier": ""
   }
 ]
