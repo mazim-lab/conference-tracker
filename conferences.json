@@ -3902,7 +3902,7 @@
     "sid": "18605",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18605",
     "deadline": "2026-02-08",
-    "url": "",
+    "url": "https://wp.lancs.ac.uk/ldwcf/",
     "tier": ""
   },
   {
@@ -5528,7 +5528,7 @@
     "sid": "18712",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18712",
     "deadline": "2026-03-30",
-    "url": "",
+    "url": "https://afajof.org/annual-meeting/",
     "tier": "2"
   },
   {
@@ -7136,7 +7136,8 @@
     "dates": "May 21-22",
     "location": "Arlington, VA",
     "url": "https://aaahq.org/Meetings/2026/AH-Conference",
-    "tier": "A"
+    "tier": "A",
+    "deadline": "Feb 23, 2026"
   },
   {
     "name": "2026 Spark Meeting",
@@ -7219,5 +7220,102 @@
     "location": "TBD",
     "url": "https://afajof.org/annual-meeting/",
     "tier": "A+"
+  },
+  {
+    "name": "48th EAA Annual Congress 2026",
+    "dates": "May 27-29",
+    "location": "Prague, Czech Republic",
+    "url": "https://eaa-online.org/congress-2026/",
+    "tier": "A"
+  },
+  {
+    "name": "EAR Conference (European Accounting Review)",
+    "dates": "TBD 2026",
+    "location": "TBD",
+    "url": "https://eaa-online.org/ear-conference/",
+    "tier": "A"
+  },
+  {
+    "name": "53rd EFA Annual Meeting 2026",
+    "dates": "Aug 19-22",
+    "location": "Vlerick Business School, Ghent, Belgium",
+    "url": "https://european-finance.org/r/news",
+    "deadline": "Feb 1, 2026",
+    "tier": "A+"
+  },
+  {
+    "name": "EFA Doctoral Tutorial 2026",
+    "dates": "Aug 19",
+    "location": "Vlerick Business School, Ghent, Belgium",
+    "url": "https://european-finance.org/r/news",
+    "deadline": "Mar 15, 2026",
+    "tier": "B"
+  },
+  {
+    "name": "EFFAS Gasperini ESG Research Award 2026",
+    "dates": "TBD",
+    "location": "N/A",
+    "url": "https://effas.com/professional-certificates/gasperini-awards-2026/",
+    "deadline": "May 4, 2026",
+    "tier": "C"
+  },
+  {
+    "name": "Irish Academy of Finance 7th Annual Conference",
+    "dates": "May 21-22",
+    "location": "Johnstown Estate Hotel, Co. Meath, Ireland",
+    "url": "https://european-finance.org/r/news",
+    "deadline": "Feb 23, 2026",
+    "tier": "B"
+  },
+  {
+    "name": "LAPE-FINEST Spring Workshop: Sustainability, Bank Performance and Financial Stability",
+    "dates": "TBD 2026",
+    "location": "Universit\u00e9 de Limoges, France",
+    "url": "https://www.unilim.fr/lape/",
+    "deadline": "Mar 29, 2026",
+    "tier": "B"
+  },
+  {
+    "name": "European Accounting Review 2026 Annual Conference",
+    "dates": "Mar 19-20",
+    "location": "WHU Campus D\u00fcsseldorf, Germany",
+    "url": "https://eaa-online.org/arc/events/european-accounting-review-2026-annual-conference/",
+    "deadline": "Closed",
+    "tier": "A"
+  },
+  {
+    "name": "49th EAA Annual Congress 2027",
+    "dates": "May 2027",
+    "location": "Turin, Italy",
+    "url": "https://eaa-online.org/",
+    "tier": "A+"
+  },
+  {
+    "name": "AFA 2027 Annual Meeting",
+    "dates": "Jan 3-5, 2027",
+    "location": "Washington, DC",
+    "url": "https://afajof.org/forthcoming-meetings/",
+    "tier": "A+"
+  },
+  {
+    "name": "AFA 2028 Annual Meeting",
+    "dates": "Jan 7-9, 2028",
+    "location": "Atlanta, GA",
+    "url": "https://afajof.org/forthcoming-meetings/",
+    "tier": "A+"
+  },
+  {
+    "name": "AFA 2029 Annual Meeting",
+    "dates": "Jan 5-7, 2029",
+    "location": "San Diego, CA",
+    "url": "https://afajof.org/forthcoming-meetings/",
+    "tier": "A+"
+  },
+  {
+    "name": "2026 CAAA Annual Conference: From Insight to Impact",
+    "dates": "Jun 18-20",
+    "location": "Banff, Alberta, Canada",
+    "url": "https://www.caaa.ca/caaa-conference",
+    "tier": "A"
   }
 ]
