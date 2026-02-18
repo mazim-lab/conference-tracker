@@ -1,0 +1,148 @@
+[
+  {
+    "url": "https://my.aaahq.org/Security/Sign-In?returnurl=https%3A%2F%2Faaahq.org/Meetings/AAA-Meetings?t=1771440054",
+    "title": "Log in",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "You must login to view the requested page.  Please\n    login below and you will be redirected:",
+    "dates": "6 6-6",
+    "location": "",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [],
+    "scrapedAt": "2026-02-18T18:41:13.638Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2026/AAA-Global-Connect",
+    "title": "AAA Global Connect (formerly Annual Meeting)",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "AAA Global Connect 2026 - Formerly the Annual Meeting",
+    "dates": "august 1-5, 2026",
+    "location": "0.9;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [],
+    "scrapedAt": "2026-02-18T18:41:17.689Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2026/ATA-Midyear-Meeting",
+    "title": "2026 American Taxation Association  Midyear Meeting",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "The 38th Annual American Taxation Association (ATA) Midyear Meeting",
+    "dates": "6 6-6",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:41:24.526Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2026/ATA-Midyear-Meeting/Registration-Information",
+    "title": "Register",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "The 38th Annual American Taxation Association (ATA) Midyear Meeting",
+    "dates": "6 6-6",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:41:31.402Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2026/AIS-Bootcamp",
+    "title": "2026 AIS Bootcamp",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "2026 Accounting Information Systems Bootcamp",
+    "dates": "may 20-21, 2026",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:41:37.543Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2026/ABO-Research-Conference",
+    "title": "2026 Accounting Behavior and Organizations Research Conference",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "JOIN US",
+    "dates": "october 15–17, 2026",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:41:43.899Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2027/MAS-Midyear-Meeting",
+    "title": "2027 Management Accounting Section Midyear Meeting",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "2027 Management Accounting Section Midyear Meeting: Research Conference, IMA Doctoral Colloquium, and CGMA Teaching and Practice Symposium",
+    "dates": "january 7-9, 2027",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:41:50.237Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2027/FARS-Midyear-Meeting",
+    "title": "2027 Financial Accounting and Reporting Section Midyear Meeting",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "2027 Financial Accounting and Reporting Section Midyear Meeting",
+    "dates": "january 21-23, 2027",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:41:56.210Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2027/AAA-Global-Connect",
+    "title": "2027 AAA Global Connect",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "2027 AAA Global Connect",
+    "dates": "august 2-4, 2027",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:42:02.171Z"
+  },
+  {
+    "url": "https://aaahq.org/Meetings/2028/AAA-Global-Connect",
+    "title": "2028 AAA Global Connect",
+    "source": "https://aaahq.org/Meetings/AAA-Meetings",
+    "fullName": "2028 AAA Global Connect Meeting",
+    "dates": "august 4-9, 2028",
+    "location": "0.5;",
+    "country": "",
+    "deadline": "",
+    "registrationDeadline": "",
+    "cfpLinks": [
+      "https://aaahq.org/portals/0/documents/research/white%20papers/WhitePaper%20Key%20Skills%20Accountancy%20Students%20are%20Lacking.pdf"
+    ],
+    "scrapedAt": "2026-02-18T18:42:08.281Z"
+  }
+]
