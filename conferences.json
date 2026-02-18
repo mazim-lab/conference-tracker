@@ -7102,7 +7102,7 @@
     "startDate": "",
     "country": "",
     "disc": [
-      "acct"
+      "fin"
     ],
     "sid": "ext-470",
     "ssrnLink": ""
@@ -7117,7 +7117,7 @@
     "startDate": "",
     "country": "",
     "disc": [
-      "acct"
+      "fin"
     ],
     "deadline": "",
     "sid": "ext-472",
@@ -7357,7 +7357,7 @@
     "startDate": "",
     "country": "",
     "disc": [
-      "acct"
+      "fin"
     ],
     "deadline": "",
     "sid": "ext-494",
@@ -7687,9 +7687,9 @@
   {
     "id": 474,
     "name": "AAA AIS/SET Bootcamp 2026",
-    "dates": "May 20-21",
+    "dates": "Mar 13-14",
     "startDate": "2026-03-13",
-    "location": "Atlanta, GA",
+    "location": "USA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7751,9 +7751,9 @@
   {
     "id": 478,
     "name": "AAA ABO Research Conference 2026",
-    "dates": "Oct 15-17",
+    "dates": "Jun 03-05",
     "startDate": "2026-06-03",
-    "location": "Atlanta, GA",
+    "location": "USA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7783,7 +7783,7 @@
   {
     "id": 480,
     "name": "AAA Global Connect 2026 (Annual Meeting)",
-    "dates": "Aug 1-5",
+    "dates": "Aug 01-05",
     "startDate": "2026-08-01",
     "location": "Chicago, IL",
     "country": "USA",
@@ -7799,9 +7799,9 @@
   {
     "id": 481,
     "name": "AAA FARS Midyear Meeting 2027",
-    "dates": "Jan 21-23",
+    "dates": "Jan 07-09",
     "startDate": "2027-01-07",
-    "location": "Atlanta, GA",
+    "location": "USA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7815,9 +7815,9 @@
   {
     "id": 482,
     "name": "AAA MAS Midyear Meeting 2027",
-    "dates": "Jan 7-9",
+    "dates": "Jan 21-23",
     "startDate": "2027-01-21",
-    "location": "Atlanta, GA",
+    "location": "USA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7831,9 +7831,9 @@
   {
     "id": 483,
     "name": "AAA Global Connect 2027 (Annual Meeting)",
-    "dates": "Aug 2-4",
+    "dates": "Jul 31-Aug 04",
     "startDate": "2027-07-31",
-    "location": "Atlanta, GA",
+    "location": "USA",
     "country": "USA",
     "disc": [
       "acct"
@@ -7847,9 +7847,9 @@
   {
     "id": 484,
     "name": "AAA Global Connect 2028 (Annual Meeting)",
-    "dates": "Aug 4-9",
+    "dates": "Aug 05-09",
     "startDate": "2028-08-05",
-    "location": "Atlanta, GA",
+    "location": "USA",
     "country": "USA",
     "disc": [
       "acct"
