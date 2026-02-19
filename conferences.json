@@ -6124,7 +6124,7 @@
     "disc": [
       "fin"
     ],
-    "deadline": "",
+    "deadline": "2025-12-01",
     "sid": "ext-482",
     "ssrnLink": ""
   },
@@ -6197,7 +6197,7 @@
     "dates": "Mar 19-20",
     "location": "WHU Campus Düsseldorf, Germany",
     "url": "https://eaa-online.org/arc/events/european-accounting-review-2026-annual-conference/",
-    "deadline": "TBD",
+    "deadline": "2025-08-31",
     "tier": "A",
     "id": 449,
     "startDate": "2026-03-19",
@@ -6258,17 +6258,17 @@
   },
   {
     "name": "2026 CAAA Annual Conference: From Insight to Impact",
-    "dates": "Jun 18-20",
+    "dates": "Jun 19-20",
     "location": "Banff, Alberta, Canada",
     "url": "https://www.caaa.ca/caaa-conference",
     "tier": "A",
     "id": 454,
-    "startDate": "2026-06-18",
+    "startDate": "2026-06-19",
     "country": "Canada",
     "disc": [
       "acct"
     ],
-    "deadline": "",
+    "deadline": "2026-01-12",
     "sid": "ext-494",
     "ssrnLink": ""
   },
@@ -6453,7 +6453,7 @@
     "disc": [
       "fin"
     ],
-    "deadline": "",
+    "deadline": "2026-01-26",
     "location": "Ayia Napa, Cyprus",
     "tier": "",
     "sid": "ext-509",
@@ -6488,7 +6488,7 @@
     ],
     "sid": "aaa-512",
     "ssrnLink": "",
-    "deadline": "",
+    "deadline": "2025-09-15",
     "url": "https://aaahq.org/Meetings/2026/ATA-Midyear-Meeting",
     "tier": ""
   },
@@ -6512,8 +6512,8 @@
     "id": 474,
     "name": "AAA AIS/SET Bootcamp 2026",
     "dates": "May 20-21",
-    "startDate": "2026-03-13",
-    "location": "Atlanta, GA",
+    "startDate": "2026-05-20",
+    "location": "KPMG Office, Philadelphia, PA",
     "country": "USA",
     "disc": [
       "acct"
@@ -6527,26 +6527,26 @@
   {
     "id": 475,
     "name": "AAA Forensic Accounting Section Research Conference 2026",
-    "dates": "Mar 20-21",
-    "startDate": "2026-03-20",
-    "location": "USA",
+    "dates": "Mar 13-14",
+    "startDate": "2026-03-13",
+    "location": "Montclair State University, Montclair, NJ",
     "country": "USA",
     "disc": [
       "acct"
     ],
     "sid": "aaa-515",
     "ssrnLink": "",
-    "deadline": "",
+    "deadline": "2025-11-17",
     "url": "https://aaahq.org/Meetings/2026/Forensic-Accounting-Section-Research-Conference",
     "tier": ""
   },
   {
     "id": 476,
     "name": "AAA Spark: Igniting Research Innovation 2026",
-    "dates": "May 21-22",
-    "startDate": "2026-05-21",
-    "location": "USA",
-    "country": "USA",
+    "dates": "Jun 1-3",
+    "startDate": "2026-06-01",
+    "location": "Virtual",
+    "country": "Virtual",
     "disc": [
       "acct"
     ],
@@ -6559,16 +6559,16 @@
   {
     "id": 477,
     "name": "AAA GNP Midyear Meeting 2026",
-    "dates": "Jun 01-03",
-    "startDate": "2026-06-01",
-    "location": "USA",
+    "dates": "Mar 20-21",
+    "startDate": "2026-03-20",
+    "location": "University of New Hampshire, Durham, NH",
     "country": "USA",
     "disc": [
       "acct"
     ],
     "sid": "aaa-517",
     "ssrnLink": "",
-    "deadline": "",
+    "deadline": "2025-11-05",
     "url": "https://aaahq.org/Meetings/2026/GNP-Midyear-Meeting",
     "tier": ""
   },
@@ -6576,8 +6576,8 @@
     "id": 478,
     "name": "AAA ABO Research Conference 2026",
     "dates": "Oct 15-17",
-    "startDate": "2026-06-03",
-    "location": "Atlanta, GA",
+    "startDate": "2026-10-15",
+    "location": "Lord Baltimore Hotel, Baltimore, Maryland",
     "country": "USA",
     "disc": [
       "acct"
@@ -6591,16 +6591,16 @@
   {
     "id": 479,
     "name": "AAA JIAR Conference 2026",
-    "dates": "Jun 23-25",
-    "startDate": "2026-06-23",
-    "location": "USA",
-    "country": "USA",
+    "dates": "Jun 25-28",
+    "startDate": "2026-06-25",
+    "location": "Seoul, Korea",
+    "country": "South Korea",
     "disc": [
       "acct"
     ],
     "sid": "aaa-519",
     "ssrnLink": "",
-    "deadline": "",
+    "deadline": "2026-02-15",
     "url": "https://aaahq.org/Meetings/2026/JIAR",
     "tier": ""
   },
@@ -6609,21 +6609,21 @@
     "name": "AAA Global Connect 2026 (Annual Meeting)",
     "dates": "Aug 1-5",
     "startDate": "2026-08-01",
-    "location": "Chicago, IL",
+    "location": "Las Vegas, NV",
     "country": "USA",
     "disc": [
       "acct"
     ],
     "sid": "aaa-520",
     "ssrnLink": "",
-    "deadline": "",
+    "deadline": "2026-01-12",
     "url": "https://aaahq.org/Meetings/2026/AAA-Global-Connect",
     "tier": ""
   },
   {
     "id": 481,
     "name": "AAA FARS Midyear Meeting 2027",
-    "dates": "Jan 21-23",
+    "dates": "Jan 7-9",
     "startDate": "2027-01-07",
     "location": "Atlanta, GA",
     "country": "USA",
@@ -6639,7 +6639,7 @@
   {
     "id": 482,
     "name": "AAA MAS Midyear Meeting 2027",
-    "dates": "Jan 7-9",
+    "dates": "Jan 21-23",
     "startDate": "2027-01-21",
     "location": "Atlanta, GA",
     "country": "USA",
@@ -6655,7 +6655,7 @@
   {
     "id": 483,
     "name": "AAA Global Connect 2027 (Annual Meeting)",
-    "dates": "Aug 2-4",
+    "dates": "Jul 31 - Aug 4",
     "startDate": "2027-07-31",
     "location": "Atlanta, GA",
     "country": "USA",
@@ -6671,7 +6671,7 @@
   {
     "id": 484,
     "name": "AAA Global Connect 2028 (Annual Meeting)",
-    "dates": "Aug 4-9",
+    "dates": "Aug 5-9",
     "startDate": "2028-08-05",
     "location": "Atlanta, GA",
     "country": "USA",

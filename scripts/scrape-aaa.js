@@ -1,7 +1,67 @@
 const { chromium } = require('playwright');
 const crypto = require('crypto');
+const https = require('https');
 
 const MEETINGS_URL = 'https://aaahq.org/Meetings/AAA-Meetings';
+
+// Fetch a URL and return the body text (no browser needed for AAA)
+function fetchPage(url) {
+  return new Promise((resolve) => {
+    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+      if (res.statusCode !== 200) { resolve(''); return; }
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => resolve(body));
+    }).on('error', () => resolve(''));
+  });
+}
+
+// Extract deadline from AAA submission page HTML
+function extractDeadlineFromHtml(html) {
+  // Strip HTML tags for text matching
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+  
+  const MONTH_MAP = {
+    january:1, february:2, march:3, april:4, may:5, june:6,
+    july:7, august:8, september:9, october:10, november:11, december:12
+  };
+  
+  const patterns = [
+    // "Submission Deadline: Month DD, YYYY" or "EXTENDED: Month DD, YYYY"  
+    /(?:submission\s+)?deadline[:\s]+.*?(?:EXTENDED[:\s]+)?(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    // "deadline of Month DD, YYYY"
+    /deadline\s+of\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    // "submit.*by Month DD, YYYY"
+    /submit.*?\bby\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    // "due.*Month DD, YYYY"
+    /due[:\s]+.*?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    // "Deadline: DD Month YYYY"
+    /deadline[:\s]+.*?(\d{1,2})(?:st|nd|rd|th)?\s+(\w+),?\s+(\d{4})/i,
+  ];
+  
+  for (const pat of patterns) {
+    const m = text.match(pat);
+    if (m) {
+      let month, day, year;
+      // Check if first capture is a month name or a day number
+      if (/^\d+$/.test(m[1])) {
+        // DD Month YYYY format
+        day = parseInt(m[1]);
+        month = MONTH_MAP[(m[2] || '').toLowerCase()];
+        year = parseInt(m[3]);
+      } else {
+        // Month DD YYYY format
+        month = MONTH_MAP[(m[1] || '').toLowerCase()];
+        day = parseInt(m[2]);
+        year = parseInt(m[3]);
+      }
+      if (month && day && year >= 2025 && year <= 2028) {
+        return `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+      }
+    }
+  }
+  return '';
+}
 
 function generateSid(name, url) {
   const input = `${name}|${url}`;
@@ -126,7 +186,76 @@ async function run() {
       conferences.push(conf);
     }
     
+    // Phase 2: Fetch each conference's main page for accurate dates/location
+    console.error(`\n--- Phase 2: Verifying dates/locations from conference pages ---`);
+    for (const conf of conferences) {
+      const html = await fetchPage(conf.url);
+      if (!html || html.includes('Page not found')) continue;
+      
+      const text = html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+      
+      // Extract date ranges like "March 13-14, 2026" or "June 25-28, 2026"
+      const datePatterns = [
+        /(\w+)\s+(\d{1,2})[-–](\d{1,2}),?\s+(\d{4})/,           // Month DD-DD, YYYY
+        /(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?\s*[-–]\s*(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})/, // Month DD - Month DD, YYYY
+        /(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})/,        // Month DD, YYYY (single day)
+      ];
+      
+      const MMAP = {january:1,february:2,march:3,april:4,may:5,june:6,july:7,august:8,september:9,october:10,november:11,december:12};
+      
+      for (const pat of datePatterns) {
+        const m = text.match(pat);
+        if (m) {
+          const month = MMAP[m[1].toLowerCase()];
+          if (month) {
+            const day = parseInt(m[2]);
+            const year = parseInt(m[m.length - 1]);
+            if (year >= 2026 && year <= 2029) {
+              const newStart = `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+              if (conf.startDate !== newStart) {
+                console.error(`  ${conf.name}: startDate ${conf.startDate} -> ${newStart}`);
+                conf.startDate = newStart;
+              }
+              break;
+            }
+          }
+        }
+      }
+      
+      // Extract location from common patterns
+      const locPatterns = [
+        /(?:held (?:at|in)|taking place (?:at|in)|•)\s+(?:the\s+)?([^.•<]{10,80})/i,
+        /(?:in\s+)([\w\s]+,\s*(?:[A-Z]{2}|[A-Za-z]+(?:\s+[A-Za-z]+)?))\s/,
+      ];
+      
+      await new Promise(r => setTimeout(r, 300));
+    }
+
+    // Phase 3: Fetch /Submissions pages for conferences missing deadlines
+    console.error(`\n--- Phase 3: Fetching deadlines from /Submissions pages ---`);
+    for (const conf of conferences) {
+      if (conf.deadline) continue; // already have one
+      const subUrl = conf.url + '/Submissions';
+      console.error(`  Checking ${subUrl}`);
+      const html = await fetchPage(subUrl);
+      if (html && !html.includes('Page not found')) {
+        const dl = extractDeadlineFromHtml(html);
+        if (dl) {
+          conf.deadline = dl;
+          console.error(`    → Found deadline: ${dl}`);
+        } else {
+          console.error(`    → Page exists but no deadline found`);
+        }
+      } else {
+        console.error(`    → No submissions page (404)`);
+      }
+      // Small delay to be polite
+      await new Promise(r => setTimeout(r, 500));
+    }
+    
     console.error(`\nTotal: ${conferences.length} AAA conferences`);
+    const withDl = conferences.filter(c => c.deadline).length;
+    console.error(`With deadlines: ${withDl} | Without: ${conferences.length - withDl}`);
     console.log(JSON.stringify(conferences, null, 2));
     
   } catch (err) {
