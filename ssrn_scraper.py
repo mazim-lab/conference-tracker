@@ -446,8 +446,49 @@ def scrape_listing_page(page, network_name, network_id):
     return conferences
 
 
-def scrape_deadline_from_page(page, url):
-    """Visit one SSRN announcement page and extract submission deadline."""
+CONF_DATE_PATTERNS = [
+    # "Conference Date(s): 11 Jul 2026" or "Conference Date: July 11-12, 2026"
+    r"[Cc]onference\s+[Dd]ates?\s*[:\-]\s*(\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4}(?:\s*[-–]\s*\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4})?)",
+    r"[Cc]onference\s+[Dd]ates?\s*[:\-]\s*(\w+\s+\d{1,2}(?:st|nd|rd|th)?(?:\s*[-–]\s*\d{1,2}(?:st|nd|rd|th)?)?,?\s+\d{4})",
+    # "Date(s) of Conference: ..."
+    r"[Dd]ates?\s+of\s+(?:the\s+)?[Cc]onference\s*[:\-]\s*(\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4}(?:\s*[-–]\s*\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4})?)",
+    r"[Dd]ates?\s+of\s+(?:the\s+)?[Cc]onference\s*[:\-]\s*(\w+\s+\d{1,2}(?:st|nd|rd|th)?(?:\s*[-–]\s*\d{1,2}(?:st|nd|rd|th)?)?,?\s+\d{4})",
+    # "Date: 11 Jul 2026" (standalone, typically at top of detail page)
+    r"(?:^|\n)\s*[Dd]ate\s*:\s*(\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4}(?:\s*[-–]\s*\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4})?)",
+    r"(?:^|\n)\s*[Dd]ate\s*:\s*(\w+\s+\d{1,2}(?:st|nd|rd|th)?(?:\s*[-–]\s*\d{1,2}(?:st|nd|rd|th)?)?,?\s+\d{4})",
+    # "will be held on 11 July 2026" / "takes place on July 11, 2026"
+    r"(?:held|take[s]?\s+place)\s+(?:on\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    r"(?:held|take[s]?\s+place)\s+(?:on\s+)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    # "will be held on DD-DD Month YYYY" / "Month DD-DD, YYYY"
+    r"(?:held|take[s]?\s+place)\s+(?:on\s+)?(\d{1,2}(?:st|nd|rd|th)?[-–]\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    r"(?:held|take[s]?\s+place)\s+(?:on\s+)?(\w+\s+\d{1,2}(?:st|nd|rd|th)?[-–]\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    # "scheduled for July 11, 2026"
+    r"scheduled\s+for\s+(\w+\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})",
+    r"scheduled\s+for\s+(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+]
+
+
+def extract_conf_date_from_text(text):
+    """Extract conference date from detail page text. Returns (startDate, displayDates) or (None, None)."""
+    for pattern in CONF_DATE_PATTERNS:
+        match = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
+        if match:
+            raw = match.group(1).strip()
+            start_date, display = parse_conf_dates(raw)
+            if not start_date:
+                # Try parse_date_flexible as fallback
+                start_date = parse_date_flexible(raw)
+                if start_date:
+                    display = raw
+            if start_date:
+                year = int(start_date[:4])
+                if 2025 <= year <= 2028:
+                    return (start_date, display)
+    return (None, None)
+
+
+def scrape_detail_page(page, url):
+    """Visit one SSRN announcement page and extract deadline + conference dates."""
     try:
         page.goto(url, wait_until="networkidle", timeout=30000)
         page.wait_for_load_state("networkidle")
@@ -463,15 +504,25 @@ def scrape_deadline_from_page(page, url):
             content = page.content()
             if "Cloudflare" in content or "security verification" in content:
                 log.error(f"    Cloudflare block persisted after retry on {url}")
-                return None
+                return {"deadline": None, "conf_date": (None, None)}
 
     except Exception as e:
         log.warning(f"    Page load failed for {url}: {e}")
-        return None
+        return {"deadline": None, "conf_date": (None, None)}
 
     full_text = page.evaluate("() => document.body ? document.body.innerText : ''")
     time.sleep(random.uniform(2, 5))
-    return extract_deadline_from_text(full_text)
+    
+    deadline = extract_deadline_from_text(full_text)
+    conf_date = extract_conf_date_from_text(full_text)
+    
+    return {"deadline": deadline, "conf_date": conf_date}
+
+
+def scrape_deadline_from_page(page, url):
+    """Legacy wrapper — returns just the deadline."""
+    result = scrape_detail_page(page, url)
+    return result["deadline"]
 
 
 # --- Main Pipeline ---
@@ -500,7 +551,15 @@ def merge_scraped_into_existing(existing, scraped):
                 ex["deadline"] = s["deadline"]
                 updated_count += 1
                 log.info(f"  Updated deadline: {ex['name'][:50]} -> {s['deadline']}")
-            if s.get("dates") and not ex.get("dates"):
+            # Update dates from detail page extraction (conf_start/conf_display) or listing dates
+            if s.get("conf_start"):
+                old_start = ex.get("startDate", "")
+                if not old_start or old_start.endswith("-01"):
+                    ex["startDate"] = s["conf_start"]
+                    if s.get("conf_display"):
+                        ex["dates"] = s["conf_display"]
+                    log.info(f"  Updated date from detail: {ex['name'][:50]} -> {s['conf_start']}")
+            elif s.get("dates") and not ex.get("dates"):
                 start_date, display = parse_conf_dates(s["dates"])
                 if display: ex["dates"] = display
                 if start_date and not ex.get("startDate"): ex["startDate"] = start_date
@@ -512,6 +571,10 @@ def merge_scraped_into_existing(existing, scraped):
                     ex.setdefault("disc", []).append(d)
         else:
             start_date, display_dates = parse_conf_dates(s.get("dates", ""))
+            # Prefer detail-page dates over listing dates
+            if s.get("conf_start"):
+                start_date = s["conf_start"]
+                display_dates = s.get("conf_display", display_dates)
             location = s.get("location", "")
             new_conf = {
                 "id": next_id,
@@ -596,10 +659,22 @@ def run_full_scrape():
             if sid in tbd_sids and c.get("ssrnLink"):
                 sid_to_url[sid] = c["ssrnLink"]
 
-        log.info(f"Pages to visit: {len(sids_to_visit)} ({len(new_sids)} new + {len(tbd_sids)} TBD)")
+        # Also visit pages for conferences with vague/missing dates
+        vague_date_sids = set()
+        for c in existing:
+            sid = str(c.get("sid", ""))
+            if not sid: continue
+            start = c.get("startDate", "")
+            # Vague = no startDate, or startDate ends in -01 (likely month-only guess)
+            if not start or start.endswith("-01"):
+                vague_date_sids.add(sid)
+        
+        sids_to_visit = sids_to_visit | vague_date_sids
+        log.info(f"Pages to visit: {len(sids_to_visit)} ({len(new_sids)} new + {len(tbd_sids)} TBD deadlines + {len(vague_date_sids)} vague dates)")
 
         visited = 0
         deadlines_found = 0
+        dates_found = 0
         
         for sid in sids_to_visit:
             url = sid_to_url.get(sid)
@@ -609,18 +684,38 @@ def run_full_scrape():
             if visited % 20 == 0:
                 log.info(f"  Progress: {visited}/{len(sids_to_visit)}...")
 
-            deadline = scrape_deadline_from_page(page, url)
-            if deadline:
+            result = scrape_detail_page(page, url)
+            
+            if result["deadline"]:
                 deadlines_found += 1
                 if sid in seen:
-                    seen[sid]["deadline"] = deadline
-                    log.info(f"  Deadline: {seen[sid]['name'][:50]} -> {deadline}")
+                    seen[sid]["deadline"] = result["deadline"]
+                    log.info(f"  Deadline: {seen[sid]['name'][:50]} -> {result['deadline']}")
                 for c in existing:
                     if str(c.get("sid", "")) == sid and (not c.get("deadline") or c["deadline"] == "TBD"):
-                        c["deadline"] = deadline
+                        c["deadline"] = result["deadline"]
+                        break
+            
+            conf_start, conf_display = result["conf_date"]
+            if conf_start:
+                dates_found += 1
+                # Update in seen dict
+                if sid in seen:
+                    seen[sid]["conf_start"] = conf_start
+                    seen[sid]["conf_display"] = conf_display
+                    log.info(f"  Conf date: {seen[sid]['name'][:50]} -> {conf_start} ({conf_display})")
+                # Update in existing entries (if vague)
+                for c in existing:
+                    if str(c.get("sid", "")) == sid:
+                        old_start = c.get("startDate", "")
+                        if not old_start or old_start.endswith("-01"):
+                            c["startDate"] = conf_start
+                            if conf_display:
+                                c["dates"] = conf_display
+                            log.info(f"  Updated existing: {c['name'][:50]} startDate -> {conf_start}")
                         break
 
-        log.info(f"\nPhase 2: visited {visited}, found {deadlines_found} deadlines")
+        log.info(f"\nPhase 2: visited {visited}, found {deadlines_found} deadlines, {dates_found} conference dates")
         browser.close()
 
     # Phase 3: Merge and save
