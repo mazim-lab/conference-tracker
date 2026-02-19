@@ -5613,27 +5613,10 @@
     "tier": ""
   },
   {
-    "id": 348,
-    "name": "The Graduate Programme in Economics and Finance (GPEF) at the University of St. Gallen is inviting applications",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "econ",
-      "fin"
-    ],
-    "sid": "18408",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18408",
-    "deadline": "2026-01-31",
-    "url": "",
-    "tier": ""
-  },
-  {
     "id": 352,
     "name": "4th Finance and Business Analytics Conference, 5th-7th September 2026, Rhodes, Greece",
     "dates": "",
-    "startDate": "",
+    "startDate": "2026-09-05",
     "location": "TBD",
     "country": "Unknown",
     "disc": [
@@ -5680,22 +5663,6 @@
     "tier": "3"
   },
   {
-    "id": 355,
-    "name": "2025 GSU-MS AI and FinTech Conference\u202c",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17722",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17722",
-    "deadline": "TBD",
-    "url": "",
-    "tier": "2"
-  },
-  {
     "id": 356,
     "name": "21st European Winter Finance Summit",
     "dates": "",
@@ -5726,55 +5693,6 @@
     "deadline": "2025-10-10",
     "url": "",
     "tier": ""
-  },
-  {
-    "id": 358,
-    "name": "2025 Accountability in a Sustainable World Conference",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "acct",
-      "fin"
-    ],
-    "sid": "17574",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17574",
-    "deadline": "TBD",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 359,
-    "name": "10th annual Business Valuation Challenge",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17531",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17531",
-    "deadline": "2026-11-15",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 360,
-    "name": "CICF 2025: Conference Registration",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17175",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17175",
-    "deadline": "2025-06-06",
-    "url": "",
-    "tier": "2"
   },
   {
     "id": 361,
@@ -5841,39 +5759,6 @@
     "tier": ""
   },
   {
-    "id": 367,
-    "name": "KCFR- Call for Research Proposals",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "econ",
-      "fin"
-    ],
-    "sid": "17977",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17977",
-    "deadline": "2025-12-01",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 368,
-    "name": "10th Annual Southeastern Hedge Fund Competition",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17819",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17819",
-    "deadline": "2026-03-06",
-    "url": "",
-    "tier": ""
-  },
-  {
     "id": 369,
     "name": "2026 University of Delaware/ECGI Corporate Governance Symposium and John L. Weinberg/IRRCi Research Paper Competition",
     "dates": "",
@@ -5925,7 +5810,7 @@
     "id": 372,
     "name": "17th Annual Hedge Fund Research Conference Paris, January 29-30, 2026",
     "dates": "",
-    "startDate": "",
+    "startDate": "2026-01-29",
     "location": "TBD",
     "country": "Unknown",
     "disc": [
@@ -5934,38 +5819,6 @@
     "sid": "17403",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17403",
     "deadline": "2025-09-15",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 373,
-    "name": "Chicago Quantitative Alliance - Call for Papers 2025",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17252",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17252",
-    "deadline": "2025-06-30",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 374,
-    "name": "Call for Job Market Paper - 8th Asset Pricing Conference by LTI@UniTO",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17148",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17148",
-    "deadline": "2026-09-23",
     "url": "",
     "tier": ""
   },
@@ -6016,87 +5869,6 @@
     "deadline": "2025-07-15",
     "url": "",
     "tier": "1"
-  },
-  {
-    "id": 381,
-    "name": "Pladifes Call for Projects: Carbon Data for Sustainable Finance Research",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "econ",
-      "fin"
-    ],
-    "sid": "17056",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17056",
-    "deadline": "2025-05-16",
-    "url": "",
-    "tier": "3"
-  },
-  {
-    "id": 382,
-    "name": "EUROFIDAI-ESSEC Paris December Finance Meeting 2025 \u2013 Program & Registration Now Available",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "18099",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18099",
-    "deadline": "2025-12-18",
-    "url": "",
-    "tier": "2"
-  },
-  {
-    "id": 383,
-    "name": "The 2025 Rising Stars Conference and the 2025 Trailblazer in Finance Keynote Lecture",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17237",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17237",
-    "deadline": "2025-05-09",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 384,
-    "name": "2025 CUHK Accounting Research Conference",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "acct"
-    ],
-    "sid": "18225",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18225",
-    "deadline": "2025-11-25",
-    "url": "",
-    "tier": "1"
-  },
-  {
-    "id": 385,
-    "name": "Bonn Graduate School of Economics (BGSE) Combined M.Sc. Economic Research / Doctoral Program",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "econ"
-    ],
-    "sid": "18107",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18107",
-    "deadline": "2026-01-15",
-    "url": "",
-    "tier": ""
   },
   {
     "id": 389,
@@ -6407,103 +6179,6 @@
     "tier": "2"
   },
   {
-    "id": 419,
-    "name": "2026 Edition of the Ieke van den Burg Prize for research on systemic risk",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "econ",
-      "fin"
-    ],
-    "sid": "18575",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18575",
-    "deadline": "2026-03-31",
-    "url": "",
-    "tier": "2"
-  },
-  {
-    "id": 422,
-    "name": "Call for Papers: PRI Research Awards at PRI in Person 2025",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17095",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17095",
-    "deadline": "TBD",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 423,
-    "name": "Call for Papers: Multinational Finance Journal (MFJ)",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "18800",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18800",
-    "deadline": "TBD",
-    "url": "",
-    "tier": "3"
-  },
-  {
-    "id": 424,
-    "name": "FARFE Awards Ninth Ross Prize to Lubos Pastor and Pietro Veronesi for Research on Effect of Technological Revolutions on Stock Prices",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17600",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17600",
-    "deadline": "TBD",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 435,
-    "name": "ICPM Research Award 2025",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "econ"
-    ],
-    "sid": "16886",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16886",
-    "deadline": "2025-03-31",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 436,
-    "name": "SBUR Collection on Responsible Innovation - Business Administration creates Future",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "econ"
-    ],
-    "sid": "18331",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18331",
-    "deadline": "TBD",
-    "url": "",
-    "tier": ""
-  },
-  {
     "id": 437,
     "name": "6th Annual Bristol Financial Markets Conference",
     "dates": "Jun 29-30",
@@ -6527,7 +6202,7 @@
     "tier": "A",
     "deadline": "2026-02-23",
     "id": 438,
-    "startDate": "",
+    "startDate": "2026-05-21",
     "country": "",
     "disc": [
       "acct"
@@ -6542,7 +6217,7 @@
     "url": "https://aaahq.org/Meetings/2026/Mid-Career",
     "tier": "B",
     "id": 439,
-    "startDate": "",
+    "startDate": "2026-06-03",
     "country": "",
     "disc": [
       "acct"
@@ -6574,7 +6249,7 @@
     "url": "https://eaa-online.org/congress-2026/",
     "tier": "A",
     "id": 442,
-    "startDate": "",
+    "startDate": "2026-05-27",
     "country": "",
     "disc": [
       "fin"
@@ -6607,7 +6282,7 @@
     "deadline": "2026-02-01",
     "tier": "A+",
     "id": 444,
-    "startDate": "",
+    "startDate": "2026-08-19",
     "country": "",
     "disc": [
       "fin"
@@ -6623,28 +6298,12 @@
     "deadline": "2026-03-15",
     "tier": "B",
     "id": 445,
-    "startDate": "",
+    "startDate": "2026-08-19",
     "country": "",
     "disc": [
       "fin"
     ],
     "sid": "ext-485",
-    "ssrnLink": ""
-  },
-  {
-    "name": "EFFAS Gasperini ESG Research Award 2026",
-    "dates": "TBD",
-    "location": "N/A",
-    "url": "https://effas.com/professional-certificates/gasperini-awards-2026/",
-    "deadline": "2026-05-04",
-    "tier": "C",
-    "id": 446,
-    "startDate": "",
-    "country": "",
-    "disc": [
-      "fin"
-    ],
-    "sid": "ext-486",
     "ssrnLink": ""
   },
   {
@@ -6655,7 +6314,7 @@
     "deadline": "2026-02-23",
     "tier": "B",
     "id": 447,
-    "startDate": "",
+    "startDate": "2026-05-21",
     "country": "",
     "disc": [
       "fin"
@@ -6687,7 +6346,7 @@
     "deadline": "TBD",
     "tier": "A",
     "id": 449,
-    "startDate": "",
+    "startDate": "2026-03-19",
     "country": "",
     "disc": [
       "fin"
@@ -6702,7 +6361,7 @@
     "url": "https://eaa-online.org/",
     "tier": "A+",
     "id": 450,
-    "startDate": "",
+    "startDate": "2027-05-20",
     "country": "",
     "disc": [
       "fin"
@@ -6750,7 +6409,7 @@
     "url": "https://www.caaa.ca/caaa-conference",
     "tier": "A",
     "id": 454,
-    "startDate": "",
+    "startDate": "2026-06-18",
     "country": "",
     "disc": [
       "acct"
