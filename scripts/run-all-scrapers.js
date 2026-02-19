@@ -83,6 +83,37 @@ async function run() {
     if (err.status !== 0) console.log(`   ❌ Merge error: ${err.message.substring(0, 200)}`);
   }
   
+  // Run filter (removes junk, normalizes dates)
+  console.log('🧹 Filtering non-conference items...');
+  try {
+    const filterOutput = execSync(`node "${path.join(SCRIPTS_DIR, 'filter-conferences.js')}"`, {
+      cwd: PROJECT_DIR,
+      timeout: 30000,
+      stdio: ['pipe', 'pipe', 'pipe'],
+      encoding: 'utf8'
+    });
+    console.log(filterOutput);
+  } catch (err) {
+    if (err.stdout) console.log(err.stdout);
+    if (err.status !== 0) console.log(`   ❌ Filter error: ${err.message.substring(0, 200)}`);
+  }
+
+  // Run enrichment (fills missing dates via web search)
+  console.log('🔎 Enriching missing dates (Pass 2)...');
+  try {
+    const enrichOutput = execSync(`node "${path.join(SCRIPTS_DIR, 'enrich-conferences.js')}"`, {
+      cwd: PROJECT_DIR,
+      timeout: 300000,  // 5 min — rate-limited web searches
+      stdio: ['pipe', 'pipe', 'pipe'],
+      encoding: 'utf8',
+      env: { ...process.env }
+    });
+    console.log(enrichOutput);
+  } catch (err) {
+    if (err.stdout) console.log(err.stdout);
+    if (err.status !== 0) console.log(`   ❌ Enrichment error: ${err.message.substring(0, 200)}`);
+  }
+
   console.log('\n=== Pipeline Complete ===');
   console.log('Results:');
   for (const [name, count] of Object.entries(results)) {
