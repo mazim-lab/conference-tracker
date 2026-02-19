@@ -1,247 +1,388 @@
 #!/usr/bin/env node
 /**
- * Pass 2: Enrich conferences with missing data by searching the web.
+ * Conference Enrichment Pipeline (Pass 2)
  * 
- * For each conference missing startDate (or with malformed data):
- * 1. If url exists → fetch that page, extract dates
- * 2. If no url or fetch fails → Brave search "{name} {year}" → fetch top result
- * 3. Extract dates via regex from page content
- * 4. Update conference record
+ * Fills missing data (deadlines, dates, locations) using:
+ *   1. Direct web_fetch of conference URL or SSRN link
+ *   2. Brave Search API for conferences without URLs
+ *   3. AAA-specific: fetch /Submissions pages for deadlines
  * 
- * Requires: BRAVE_API_KEY env var
- * Usage: node scripts/enrich-conferences.js [--dry-run]
+ * SSRN is Cloudflare-blocked for HTTP — those go to a "needs browser" queue.
+ * 
+ * Usage:
+ *   node scripts/enrich-conferences.js                    # enrich all gaps
+ *   node scripts/enrich-conferences.js --deadlines-only   # only fill deadlines
+ *   node scripts/enrich-conferences.js --dry-run          # show what would change
  */
 
 const fs = require('fs');
-const path = require('path');
 const https = require('https');
-const http = require('http');
+const path = require('path');
 
-const CONF_PATH = path.join(__dirname, '..', 'conferences.json');
-const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
-const DRY_RUN = process.argv.includes('--dry-run');
+const JSON_PATH = path.join(__dirname, '..', 'conferences.json');
+const BRAVE_KEY = process.env.BRAVE_API_KEY || '';
+const RATE_LIMIT_MS = 1100; // Brave free tier: 1 req/sec
 
-const MONTH_NAMES = {
-  january: '01', february: '02', march: '03', april: '04', may: '05', june: '06',
-  july: '07', august: '08', september: '09', october: '10', november: '11', december: '12',
-  jan: '01', feb: '02', mar: '03', apr: '04', jun: '06',
-  jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12'
-};
+// --- HTTP helpers ---
+
+function httpGet(url, headers = {}, _depth = 0) {
+  return new Promise((resolve) => {
+    if (!url || !url.startsWith('http') || _depth > 3) { resolve({ status: 0, body: '' }); return; }
+    const mod = url.startsWith('https') ? https : require('http');
+    const opts = {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)', ...headers },
+      timeout: 15000,
+    };
+    mod.get(url, opts, (res) => {
+      if (res.statusCode === 301 || res.statusCode === 302) {
+        const loc = res.headers.location;
+        if (!loc) { resolve({ status: res.statusCode, body: '' }); return; }
+        // Handle relative redirects
+        let redirectUrl = loc;
+        if (loc.startsWith('/')) {
+          try {
+            const u = new URL(url);
+            redirectUrl = `${u.protocol}//${u.host}${loc}`;
+          } catch { resolve({ status: 0, body: '' }); return; }
+        }
+        return httpGet(redirectUrl, headers, _depth + 1).then(resolve);
+      }
+      if (res.statusCode !== 200) { resolve({ status: res.statusCode, body: '' }); return; }
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => resolve({ status: 200, body }));
+    }).on('error', () => resolve({ status: 0, body: '' }));
+  });
+}
+
+function stripHtml(html) {
+  return html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#\d+;/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-function fetch(url, headers = {}) {
-  return new Promise((resolve, reject) => {
-    const mod = url.startsWith('https') ? https : http;
-    const req = mod.get(url, { headers: { 'User-Agent': 'Mozilla/5.0', ...headers } }, res => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        return fetch(res.headers.location, headers).then(resolve).catch(reject);
-      }
-      let body = '';
-      res.on('data', chunk => body += chunk);
-      res.on('end', () => resolve({ status: res.statusCode, body }));
-    });
-    req.on('error', reject);
-    req.setTimeout(10000, () => { req.destroy(); reject(new Error('timeout')); });
-  });
+// --- Date parsing ---
+
+const MONTHS = {
+  january:1, february:2, march:3, april:4, may:5, june:6,
+  july:7, august:8, september:9, october:10, november:11, december:12,
+  jan:1, feb:2, mar:3, apr:4, jun:6, jul:7, aug:8, sep:9, oct:10, nov:11, dec:12,
+};
+
+function parseToISO(monthStr, day, year) {
+  const m = MONTHS[monthStr.toLowerCase()];
+  if (!m || !day || !year || year < 2025 || year > 2030) return null;
+  return `${year}-${String(m).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
 }
 
-async function braveSearch(query) {
-  if (!BRAVE_API_KEY) return null;
-  const url = `https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(query)}&count=3`;
-  try {
-    const res = await fetch(url, { 'Accept': 'application/json', 'X-Subscription-Token': BRAVE_API_KEY });
-    if (res.status !== 200) return null;
-    const data = JSON.parse(res.body);
-    return data.web?.results || [];
-  } catch { return null; }
-}
+// --- Extractors ---
 
-/**
- * Extract dates from text content.
- * Returns { startDate, endDate, location } or null.
- */
-function extractDates(text, confName) {
-  if (!text) return null;
-  
-  // Common patterns:
-  // "March 19-20, 2026"
-  // "19-20 March 2026"  
-  // "May 21–22, 2026"
-  // "October 14 - 17, 2026"
-  // "June 4-5, 2026"
-  // "January 3-5, 2027"
-  
-  const monthPat = Object.keys(MONTH_NAMES).join('|');
+function extractDeadline(text) {
   const patterns = [
-    // "Month DD-DD, YYYY" or "Month DD–DD, YYYY"
-    new RegExp(`(${monthPat})\\s+(\\d{1,2})\\s*[-–—]\\s*\\d{1,2},?\\s*(\\d{4})`, 'gi'),
-    // "Month DD, YYYY"
-    new RegExp(`(${monthPat})\\s+(\\d{1,2}),?\\s*(\\d{4})`, 'gi'),
-    // "DD-DD Month YYYY"
-    new RegExp(`(\\d{1,2})\\s*[-–—]\\s*\\d{1,2}\\s+(${monthPat}),?\\s*(\\d{4})`, 'gi'),
-    // "DD Month YYYY"
-    new RegExp(`(\\d{1,2})\\s+(${monthPat}),?\\s*(\\d{4})`, 'gi'),
+    // "Submission Deadline: Month DD, YYYY" (with optional EXTENDED:)
+    /(?:submission\s+)?deadline[:\s]+.*?(?:EXTENDED[:\s]+)?(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    /(?:submission\s+)?deadline[:\s]+.*?(\d{1,2})(?:st|nd|rd|th)?\s+(\w+),?\s+(\d{4})/i,
+    // "submit by / due by"
+    /(?:submit|due|submitted?)\s+(?:papers?\s+)?(?:by|on)\s+(?:\w+,?\s+)?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    /(?:submit|due|submitted?)\s+(?:papers?\s+)?(?:by|on)\s+(?:\w+,?\s+)?(\d{1,2})(?:st|nd|rd|th)?\s+(\w+),?\s+(\d{4})/i,
+    // "deadline of"
+    /deadline\s+of\s+(?:\w+,?\s+)?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    // "no later than"
+    /no\s+later\s+than\s+(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    // "extended to"
+    /extended\s+to\s+(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    // "Closing date"
+    /closing.{0,20}?(\w+)\s+(\d{1,2}),?\s+(\d{4})/i,
   ];
   
-  // Try to find dates near the conference name or at the top of the page
-  // Prioritize dates in 2025-2029 range
-  const candidates = [];
-  
   for (const pat of patterns) {
-    let match;
-    while ((match = pat.exec(text)) !== null) {
-      try {
-        let month, day, year;
-        
-        if (/^\d/.test(match[1])) {
-          // DD-DD Month YYYY or DD Month YYYY
-          day = match[1];
-          month = MONTH_NAMES[match[2].toLowerCase()];
-          year = match[3];
-        } else {
-          // Month DD YYYY
-          month = MONTH_NAMES[match[1].toLowerCase()];
-          day = match[2];
-          year = match[3];
-        }
-        
-        if (!month) continue;
-        const y = parseInt(year);
-        if (y < 2025 || y > 2030) continue;
-        
-        const dateStr = `${year}-${month}-${day.padStart(2, '0')}`;
-        // Validate
-        const d = new Date(dateStr + 'T12:00:00Z');
-        if (isNaN(d.getTime())) continue;
-        
-        candidates.push({
-          date: dateStr,
-          year: y,
-          index: match.index,
-          raw: match[0]
-        });
-      } catch {}
+    const m = text.match(pat);
+    if (m) {
+      let iso;
+      if (/^\d+$/.test(m[1])) {
+        // DD Month YYYY
+        iso = parseToISO(m[2], parseInt(m[1]), parseInt(m[3]));
+      } else {
+        // Month DD YYYY
+        iso = parseToISO(m[1], parseInt(m[2]), parseInt(m[3]));
+      }
+      if (iso) return iso;
     }
   }
-  
-  if (candidates.length === 0) return null;
-  
-  // Prefer 2026, then closest future year
-  candidates.sort((a, b) => {
-    if (a.year === 2026 && b.year !== 2026) return -1;
-    if (b.year === 2026 && a.year !== 2026) return 1;
-    return a.index - b.index; // Earlier in text = more likely to be the main date
-  });
-  
-  return { startDate: candidates[0].date, raw: candidates[0].raw };
-}
-
-async function enrichConference(conf) {
-  const name = conf.name;
-  let text = null;
-  let sourceUrl = null;
-  
-  // Try 1: Fetch existing URL
-  if (conf.url && !conf.url.includes('conference-calendar')) {
-    try {
-      const res = await fetch(conf.url);
-      if (res.status === 200) {
-        text = res.body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-        sourceUrl = conf.url;
-      }
-    } catch {}
-  }
-  
-  // Try 2: Brave search
-  if (!text && BRAVE_API_KEY) {
-    const year = name.match(/20\d{2}/)?.[0] || '2026';
-    const results = await braveSearch(`"${name}" ${year} conference dates`);
-    if (results && results.length > 0) {
-      // Use snippet first (faster, no fetch needed)
-      for (const r of results) {
-        const snippet = r.description || '';
-        const extracted = extractDates(snippet, name);
-        if (extracted) {
-          return { ...extracted, source: r.url, method: 'brave-snippet' };
-        }
-      }
-      
-      // Try fetching top result
-      for (const r of results.slice(0, 2)) {
-        try {
-          const res = await fetch(r.url);
-          if (res.status === 200) {
-            text = res.body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-            sourceUrl = r.url;
-            break;
-          }
-        } catch {}
-      }
-    }
-  }
-  
-  if (!text) return null;
-  
-  const extracted = extractDates(text, name);
-  if (extracted) {
-    return { ...extracted, source: sourceUrl, method: 'web-fetch' };
-  }
-  
   return null;
 }
 
-async function main() {
-  console.log('=== Conference Enrichment (Pass 2) ===');
-  if (DRY_RUN) console.log('DRY RUN — no changes will be written');
-  if (!BRAVE_API_KEY) console.log('WARNING: No BRAVE_API_KEY — will only try existing URLs');
+function extractConfDate(text) {
+  const patterns = [
+    // "Conference Date(s): DD Month YYYY"
+    /conference\s+dates?\s*[:\-]\s*(\d{1,2})(?:st|nd|rd|th)?\s+(\w+)\s+(\d{4})/i,
+    /conference\s+dates?\s*[:\-]\s*(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})/i,
+    // "will be held on/takes place"
+    /(?:held|take[s]?\s+place)\s+(?:on\s+)?(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?(?:\s*[-–]\s*\d+)?,?\s+(\d{4})/i,
+    /(?:held|take[s]?\s+place)\s+(?:on\s+)?(\d{1,2})(?:st|nd|rd|th)?\s+(\w+),?\s+(\d{4})/i,
+    // "Month DD-DD, YYYY" standalone
+    /(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?[-–]\d+,?\s+(\d{4})/i,
+    // "DD-DD Month YYYY"
+    /(\d{1,2})(?:st|nd|rd|th)?[-–]\d+\s+(\w+),?\s+(\d{4})/i,
+    // "Date: Month DD, YYYY"
+    /\bdate\s*:\s*(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})/i,
+    /\bdate\s*:\s*(\d{1,2})(?:st|nd|rd|th)?\s+(\w+),?\s+(\d{4})/i,
+  ];
   
-  const data = JSON.parse(fs.readFileSync(CONF_PATH, 'utf8'));
-  
-  // Find conferences needing enrichment
-  const needsDate = data.filter(c => !c.startDate || !/^\d{4}-\d{2}-\d{2}$/.test(c.startDate));
-  console.log(`\n${needsDate.length} conferences need startDate enrichment\n`);
-  
-  let fixed = 0;
-  let failed = [];
-  
-  for (const conf of needsDate) {
-    console.log(`Enriching: ${conf.name.slice(0, 60)}...`);
-    
-    try {
-      const result = await enrichConference(conf);
-      
-      if (result) {
-        console.log(`  ✓ Found: ${result.startDate} (${result.method}) [${result.raw}]`);
-        if (!DRY_RUN) {
-          conf.startDate = result.startDate;
-          if (result.source && !conf.url) conf.url = result.source;
-        }
-        fixed++;
+  for (const pat of patterns) {
+    const m = text.match(pat);
+    if (m) {
+      let iso;
+      if (/^\d+$/.test(m[1])) {
+        iso = parseToISO(m[2], parseInt(m[1]), parseInt(m[3]));
       } else {
-        console.log(`  ✗ No dates found`);
-        failed.push(conf.name);
+        iso = parseToISO(m[1], parseInt(m[2]), parseInt(m[3]));
       }
-    } catch (e) {
-      console.log(`  ✗ Error: ${e.message}`);
-      failed.push(conf.name);
+      if (iso) return iso;
+    }
+  }
+  return null;
+}
+
+function extractLocation(text) {
+  // Look for "Location: <text>" pattern
+  const m = text.match(/location\s*:\s*([^\n.]{5,80})/i);
+  if (m) return m[1].trim();
+  return null;
+}
+
+// --- Brave Search ---
+
+async function braveSearch(query) {
+  if (!BRAVE_KEY) return [];
+  const url = `https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(query)}&count=3`;
+  const res = await httpGet(url, { 'X-Subscription-Token': BRAVE_KEY });
+  if (res.status !== 200) return [];
+  try {
+    const data = JSON.parse(res.body);
+    return (data.web?.results || []).map(r => ({
+      title: r.title,
+      url: r.url,
+      description: r.description || '',
+    }));
+  } catch { return []; }
+}
+
+// --- Main enrichment ---
+
+async function enrichConference(conf, opts = {}) {
+  const changes = {};
+  const needDeadline = !conf.deadline || conf.deadline === 'TBD';
+  const needDate = !conf.startDate || conf.startDate.endsWith('-01');
+  const needLocation = !conf.location || conf.location === 'TBD';
+  
+  if (opts.deadlinesOnly && !needDeadline) return changes;
+  if (!needDeadline && !needDate && !needLocation) return changes;
+  
+  // Strategy 1: AAA conferences — fetch /Submissions page
+  if (conf.url && conf.url.includes('aaahq.org') && needDeadline) {
+    const subUrl = conf.url + '/Submissions';
+    const res = await httpGet(subUrl);
+    if (res.status === 200 && !res.body.includes('Page not found')) {
+      const text = stripHtml(res.body);
+      const dl = extractDeadline(text);
+      if (dl) changes.deadline = dl;
+    }
+    await sleep(300);
+  }
+  
+  // Strategy 2: Fetch conference URL directly
+  if (conf.url && !conf.url.includes('ssrn.com')) {
+    const res = await httpGet(conf.url);
+    if (res.status === 200) {
+      const text = stripHtml(res.body);
+      if (needDeadline && !changes.deadline) {
+        const dl = extractDeadline(text);
+        if (dl) changes.deadline = dl;
+      }
+      if (needDate) {
+        const sd = extractConfDate(text);
+        if (sd) changes.startDate = sd;
+      }
+      if (needLocation) {
+        const loc = extractLocation(text);
+        if (loc) changes.location = loc;
+      }
+    }
+    await sleep(300);
+  }
+  
+  // Strategy 3: Brave search for conferences with only SSRN link or no URL
+  if ((!conf.url || conf.url.includes('ssrn.com')) && (needDeadline || needDate)) {
+    const query = `${conf.name} submission deadline ${new Date().getFullYear()}`;
+    const results = await braveSearch(query);
+    await sleep(RATE_LIMIT_MS);
+    
+    for (const r of results) {
+      // Skip SSRN results (Cloudflare blocked)
+      if (r.url.includes('ssrn.com')) continue;
+      if (!r.url.startsWith('http')) continue;
+      
+      // Relevance check: search result must clearly be about this conference
+      const stopWords = new Set(['conference','workshop','annual','international','call','papers','for','the',
+        'submission','deadline','research','meeting','finance','accounting','economics','economic','financial']);
+      const confWords = conf.name.toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .split(/\s+/)
+        .filter(w => w.length > 3 && !stopWords.has(w));
+      const resultText = (r.title + ' ' + r.description + ' ' + r.url).toLowerCase();
+      const matchCount = confWords.filter(w => resultText.includes(w)).length;
+      // Need at least 2 distinctive words matching, or >50% of distinctive words
+      const threshold = Math.max(2, Math.ceil(confWords.length * 0.4));
+      if (confWords.length > 0 && matchCount < Math.min(threshold, confWords.length)) {
+        continue; // Insufficient keyword overlap — likely wrong conference
+      }
+      
+      // Try to extract from search snippet first
+      if (needDeadline && !changes.deadline) {
+        const dl = extractDeadline(r.description);
+        if (dl) { changes.deadline = dl; changes.deadlineSource = r.url; }
+      }
+      
+      // Fetch the page for more data
+      if ((needDeadline && !changes.deadline) || needDate) {
+        const pageRes = await httpGet(r.url);
+        if (pageRes.status === 200) {
+          const text = stripHtml(pageRes.body);
+          
+          // Sanity: page should mention the conference (at least 2 keywords)
+          const pageLC = text.toLowerCase();
+          const pageMatches = confWords.filter(w => pageLC.includes(w)).length;
+          if (confWords.length > 0 && pageMatches < Math.min(2, confWords.length)) continue;
+          
+          if (needDeadline && !changes.deadline) {
+            const dl = extractDeadline(text);
+            if (dl) { changes.deadline = dl; changes.deadlineSource = r.url; }
+          }
+          if (needDate && !changes.startDate) {
+            const sd = extractConfDate(text);
+            if (sd) changes.startDate = sd;
+          }
+          if (needLocation && !changes.location) {
+            const loc = extractLocation(text);
+            // Validate location: should be short, no HTML garbage
+            if (loc && loc.length < 80 && !/[<>{}]/.test(loc) && !/var |function |-->/.test(loc)) {
+              changes.location = loc;
+            }
+          }
+        }
+        await sleep(500);
+      }
+      
+      if (changes.deadline || changes.startDate) break;
     }
     
-    // Rate limit: 1 req/sec for Brave
-    await sleep(1100);
+    // Final validation: deadline should be before conference start date
+    if (changes.deadline && conf.startDate) {
+      if (changes.deadline >= conf.startDate) {
+        console.error(`  ⚠️ Discarding deadline ${changes.deadline} (after startDate ${conf.startDate})`);
+        delete changes.deadline;
+        delete changes.deadlineSource;
+      }
+    }
   }
   
-  if (!DRY_RUN) {
-    fs.writeFileSync(CONF_PATH, JSON.stringify(data, null, 2));
+  return changes;
+}
+
+async function main() {
+  const args = process.argv.slice(2);
+  const dryRun = args.includes('--dry-run');
+  const deadlinesOnly = args.includes('--deadlines-only');
+  const upcomingOnly = !args.includes('--all');
+  
+  const data = JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
+  const today = new Date().toISOString().split('T')[0];
+  
+  // Filter to conferences that need enrichment
+  const candidates = data.filter(c => {
+    if (upcomingOnly && c.startDate && c.startDate < today) return false;
+    const needDl = !c.deadline || c.deadline === 'TBD';
+    const needDate = !c.startDate || c.startDate.endsWith('-01');
+    const needLoc = !c.location || c.location === 'TBD';
+    if (deadlinesOnly) return needDl;
+    return needDl || needDate || needLoc;
+  });
+  
+  console.error(`Enrichment pipeline: ${candidates.length} candidates (${dryRun ? 'DRY RUN' : 'LIVE'})`);
+  console.error(`Mode: ${deadlinesOnly ? 'deadlines only' : 'all fields'} | ${upcomingOnly ? 'upcoming only' : 'all'}`);
+  
+  let enriched = 0;
+  let needsBrowser = [];
+  
+  for (let i = 0; i < candidates.length; i++) {
+    const conf = candidates[i];
+    console.error(`\n[${i+1}/${candidates.length}] ${conf.name.substring(0, 55)}`);
+    
+    const changes = await enrichConference(conf, { deadlinesOnly });
+    
+    if (Object.keys(changes).length === 0) {
+      // If SSRN-only and still missing data, queue for browser
+      if (conf.ssrnLink && !conf.url && (!conf.deadline || conf.deadline === 'TBD')) {
+        needsBrowser.push(conf);
+        console.error(`  → Queued for browser (SSRN-only)`);
+      } else {
+        console.error(`  → No data found`);
+      }
+      continue;
+    }
+    
+    enriched++;
+    // Validate changes before applying
+    const validChanges = {};
+    for (const [key, val] of Object.entries(changes)) {
+      if (key === 'deadlineSource') continue;
+      if (key === 'startDate' || key === 'deadline') {
+        // Must be valid ISO date in reasonable range
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(val)) continue;
+        const year = parseInt(val.substring(0, 4));
+        if (year < 2025 || year > 2030) continue;
+      }
+      if (key === 'location') {
+        // No garbage
+        if (val.length > 80 || /[<>{}]|var |function |-->|\.js|\.css/.test(val)) continue;
+      }
+      validChanges[key] = val;
+    }
+    
+    for (const [key, val] of Object.entries(validChanges)) {
+      const old = conf[key] || '';
+      console.error(`  → ${key}: "${old}" -> "${val}"${changes.deadlineSource && key === 'deadline' ? ` (from ${changes.deadlineSource})` : ''}`);
+      if (!dryRun) conf[key] = val;
+    }
   }
   
-  console.log(`\n=== Results ===`);
-  console.log(`Fixed: ${fixed}/${needsDate.length}`);
-  console.log(`Failed: ${failed.length}`);
-  if (failed.length > 0) {
-    console.log(`\nStill need dates (queue for AI pass 3):`);
-    failed.forEach(n => console.log(`  - ${n.slice(0, 70)}`));
+  if (!dryRun && enriched > 0) {
+    fs.writeFileSync(JSON_PATH, JSON.stringify(data, null, 2));
+    console.error(`\nSaved. ${enriched} conferences enriched.`);
+  } else {
+    console.error(`\n${enriched} conferences would be enriched.`);
+  }
+  
+  if (needsBrowser.length > 0) {
+    console.error(`\n=== NEEDS BROWSER (Pass 3): ${needsBrowser.length} ===`);
+    const browserQueue = needsBrowser.map(c => ({
+      id: c.id, name: c.name, ssrnLink: c.ssrnLink, missing: []
+    }));
+    for (const c of needsBrowser) {
+      const missing = [];
+      if (!c.deadline || c.deadline === 'TBD') missing.push('deadline');
+      if (!c.startDate) missing.push('startDate');
+      if (!c.location || c.location === 'TBD') missing.push('location');
+      console.error(`  [${c.id}] ${c.name.substring(0, 50)} — missing: ${missing.join(', ')}`);
+    }
+    // Write browser queue for Pass 3
+    const queuePath = path.join(__dirname, '..', 'browser-queue.json');
+    fs.writeFileSync(queuePath, JSON.stringify(browserQueue, null, 2));
+    console.error(`\nBrowser queue saved to ${queuePath}`);
   }
 }
 
-main().catch(console.error);
+main().catch(err => { console.error('Fatal:', err); process.exit(1); });
