@@ -311,6 +311,13 @@
 
     function getDeadlineSortKey(c){return isTBD(c.deadline)?"9999-12-31":c.deadline;}
 
+    function getTravelInfo(conf, data) {
+      if (!data || !data.cities) return null;
+      let info = data.cities[conf.location];
+      if (!info) return null;
+      return info;
+    }
+
     /* ── Map Component ── */
     // Helper to get coords from location string (city name or "City, Country")
     const LOC_MAP={
