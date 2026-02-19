@@ -114,6 +114,22 @@ async function run() {
     if (err.status !== 0) console.log(`   ❌ Enrichment error: ${err.message.substring(0, 200)}`);
   }
 
+  // Run AI enrichment (Pass 3 — for whatever Pass 2 couldn't find)
+  console.log('🤖 AI enrichment for remaining gaps (Pass 3)...');
+  try {
+    const aiOutput = execSync(`node "${path.join(SCRIPTS_DIR, 'enrich-ai.js')}"`, {
+      cwd: PROJECT_DIR,
+      timeout: 400000,  // 6.5 min — AI agent may take a while
+      stdio: ['pipe', 'pipe', 'pipe'],
+      encoding: 'utf8',
+      env: { ...process.env }
+    });
+    console.log(aiOutput);
+  } catch (err) {
+    if (err.stdout) console.log(err.stdout);
+    if (err.status !== 0) console.log(`   ⚠️ AI enrichment error (non-fatal): ${err.message.substring(0, 200)}`);
+  }
+
   console.log('\n=== Pipeline Complete ===');
   console.log('Results:');
   for (const [name, count] of Object.entries(results)) {
