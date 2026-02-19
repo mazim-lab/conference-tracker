@@ -746,23 +746,6 @@
     "tier": ""
   },
   {
-    "id": 47,
-    "name": "Behavioral/Cognitive Finance Decision/Risk Sciences in the Age of Artificial Intelligence; Entrepreneurship & Economics-2025",
-    "dates": "Sep 24-26",
-    "startDate": "2025-09-24",
-    "location": "Santa Clara, CA, USA",
-    "country": "USA",
-    "disc": [
-      "fin",
-      "econ"
-    ],
-    "sid": "17265",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17265",
-    "deadline": "2025-06-27",
-    "url": "",
-    "tier": ""
-  },
-  {
     "id": 48,
     "name": "Emerging Global Financial Systems",
     "dates": "Sep 25-26",
@@ -919,22 +902,6 @@
     ],
     "sid": "17388",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17388",
-    "deadline": "2025-07-18",
-    "url": "",
-    "tier": ""
-  },
-  {
-    "id": 58,
-    "name": "Univ of Texas at Dallas 2025 Annual Finance Conference",
-    "dates": "Oct 3-4",
-    "startDate": "2025-10-03",
-    "location": "University of Texas at Dallas, Dallas, TX",
-    "country": "USA",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17276",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17276",
     "deadline": "2025-07-18",
     "url": "",
     "tier": ""
@@ -3293,22 +3260,6 @@
     "tier": "2"
   },
   {
-    "id": 204,
-    "name": "Inaugural Rutgers Finance Research Conference 2026",
-    "dates": "Apr 30 - May 1",
-    "startDate": "2026-04-30",
-    "location": "Rutgers Business School - Newark, NJ",
-    "country": "USA",
-    "disc": [
-      "fin"
-    ],
-    "sid": "18452",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18452",
-    "deadline": "TBD",
-    "url": "",
-    "tier": "2"
-  },
-  {
     "id": 205,
     "name": "Forensic Finance Conference",
     "dates": "Apr 30 - May 1",
@@ -3340,23 +3291,6 @@
     "deadline": "2026-01-15",
     "url": "",
     "tier": "2"
-  },
-  {
-    "id": 207,
-    "name": "Conference on Consumer Finance and Macroeconomics",
-    "dates": "May 1",
-    "startDate": "2026-05-01",
-    "location": "Federal Reserve Bank of Philadelphia, Philadelphia, PA",
-    "country": "USA",
-    "disc": [
-      "econ",
-      "fin"
-    ],
-    "sid": "18319",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18319",
-    "deadline": "2026-02-17",
-    "url": "",
-    "tier": ""
   },
   {
     "id": 208,
@@ -5663,22 +5597,6 @@
     "tier": "3"
   },
   {
-    "id": 356,
-    "name": "21st European Winter Finance Summit",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "17643",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17643",
-    "deadline": "2025-10-19",
-    "url": "",
-    "tier": "2"
-  },
-  {
     "id": 357,
     "name": "Inaugural Notre Dame Investment Management Conference",
     "dates": "",
@@ -5741,22 +5659,6 @@
     "deadline": "2025-05-31",
     "url": "",
     "tier": "2"
-  },
-  {
-    "id": 364,
-    "name": "Fintech and Financial Institutions Research Conference",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "Unknown",
-    "disc": [
-      "fin"
-    ],
-    "sid": "16857",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16857",
-    "deadline": "TBD",
-    "url": "",
-    "tier": ""
   },
   {
     "id": 369,
@@ -6454,23 +6356,6 @@
     "ssrnLink": ""
   },
   {
-    "name": "Call for Papers: The 11th FISF Economics and Finance Workshop on Financing Global Energy Transition",
-    "dates": "Feb 17",
-    "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar",
-    "id": 458,
-    "startDate": "2026-02-17",
-    "country": "China",
-    "disc": [
-      "fin"
-    ],
-    "deadline": "2026-03-15",
-    "location": "Shanghai, China",
-    "tier": "",
-    "sid": "ext-498",
-    "ssrnLink": ""
-  },
-  {
     "name": "2026 AFP FP&A Forum",
     "dates": "Mar 23",
     "url": "https://www.financialprofessionals.org/afp-fp-a--forum",
@@ -6485,23 +6370,6 @@
     "location": "JW Marriott",
     "tier": "",
     "sid": "ext-499",
-    "ssrnLink": ""
-  },
-  {
-    "name": "SGF Conference 2026",
-    "dates": "Mar 27",
-    "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar",
-    "id": 460,
-    "startDate": "2026-03-27",
-    "country": "Switzerland",
-    "disc": [
-      "fin"
-    ],
-    "deadline": "2025-10-31",
-    "location": "SIX ConventionPoint",
-    "tier": "",
-    "sid": "ext-500",
     "ssrnLink": ""
   },
   {
@@ -6536,40 +6404,6 @@
     "location": "Florida State University, Tallahassee, Florida, United States",
     "tier": "",
     "sid": "ext-502",
-    "ssrnLink": ""
-  },
-  {
-    "name": "International Conference on Sustainable Development, Social Responsibility & Business Ethics",
-    "dates": "May 11",
-    "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar",
-    "id": 463,
-    "startDate": "2026-05-11",
-    "country": "France",
-    "disc": [
-      "fin"
-    ],
-    "deadline": "2026-01-15",
-    "location": "Paris School of Business",
-    "tier": "",
-    "sid": "ext-503",
-    "ssrnLink": ""
-  },
-  {
-    "name": "Los Angeles Annual Business Research Conference (LABRC) 2026",
-    "dates": "May 15",
-    "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar",
-    "id": 464,
-    "startDate": "2026-05-15",
-    "country": "USA",
-    "disc": [
-      "fin"
-    ],
-    "deadline": "2024-12-20",
-    "location": "Embassy Suites by Hilton Los Angeles International Airport North.",
-    "tier": "",
-    "sid": "ext-504",
     "ssrnLink": ""
   },
   {
@@ -6672,23 +6506,6 @@
     "location": "Department of Management Studies, Indian Institute of Technology Madras, Chennai - 600036, India",
     "tier": "",
     "sid": "ext-510",
-    "ssrnLink": ""
-  },
-  {
-    "name": "WORLD FINANCE CONFERENCE - IRELAND",
-    "dates": "Jul 26",
-    "url": "https://afajof.org/conference-calendar/",
-    "source": "AFA Trumba Calendar",
-    "id": 471,
-    "startDate": "2026-07-26",
-    "country": "",
-    "disc": [
-      "fin"
-    ],
-    "deadline": "2026-01-03",
-    "location": "University of Limerick",
-    "tier": "",
-    "sid": "ext-511",
     "ssrnLink": ""
   },
   {
