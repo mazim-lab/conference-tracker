@@ -428,7 +428,8 @@
     "location": "Aristotle University of Thessaloniki - Thessaloniki - Greece",
     "country": "Greece",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "16970",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16970",
@@ -444,7 +445,8 @@
     "location": "Helsinki, Finland",
     "country": "Finland",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "16993",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16993",
@@ -1776,7 +1778,8 @@
     "location": "Nairobi, Kenya",
     "country": "Kenya",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "17825",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17825",
@@ -2245,7 +2248,8 @@
     "location": "Hefei, Anhui (China)",
     "country": "China",
     "disc": [
-      "acct"
+      "acct",
+      "econ"
     ],
     "sid": "17686",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17686",
@@ -2277,7 +2281,8 @@
     "location": "Philadelphia, University of Pennsylvania",
     "country": "USA",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "17514",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17514",
@@ -2635,7 +2640,8 @@
     "location": "ESSEC Business School, France",
     "country": "France",
     "disc": [
-      "acct"
+      "acct",
+      "fin"
     ],
     "sid": "17591",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17591",
@@ -2780,7 +2786,8 @@
     "location": "Leibniz Institute for Financial Research SAFE,  Goethe University Frankfurt",
     "country": "Germany",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18146",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18146",
@@ -3073,7 +3080,8 @@
     "location": "Santiago, Chile",
     "country": "Chile",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18559",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18559",
@@ -3219,7 +3227,8 @@
     "location": "Stanford University",
     "country": "USA",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18529",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18529",
@@ -3380,7 +3389,8 @@
     "location": "New York, NY",
     "country": "USA",
     "disc": [
-      "econ"
+      "econ",
+      "fin"
     ],
     "sid": "18104",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18104",
@@ -5636,6 +5646,7 @@
     "location": "TBD",
     "country": "Unknown",
     "disc": [
+      "acct",
       "fin"
     ],
     "sid": "17164",
@@ -6122,6 +6133,7 @@
     "startDate": "2026-05-27",
     "country": "Czech Republic",
     "disc": [
+      "acct",
       "fin"
     ],
     "deadline": "2025-12-01",
@@ -6203,6 +6215,7 @@
     "startDate": "2026-03-19",
     "country": "Germany",
     "disc": [
+      "acct",
       "fin"
     ],
     "sid": "ext-489",
@@ -6218,6 +6231,7 @@
     "startDate": "2027-05-20",
     "country": "Italy",
     "disc": [
+      "acct",
       "fin"
     ],
     "deadline": "",
@@ -6349,6 +6363,7 @@
     "startDate": "2026-04-04",
     "country": "Thailand",
     "disc": [
+      "econ",
       "fin"
     ],
     "deadline": "2026-01-16",
@@ -6451,6 +6466,7 @@
     "startDate": "2026-06-27",
     "country": "Cyprus",
     "disc": [
+      "acct",
       "fin"
     ],
     "deadline": "2026-01-26",
@@ -6743,6 +6759,7 @@
     "location": "310 Mount Washington Hotel Road",
     "country": "USA",
     "disc": [
+      "acct",
       "fin"
     ],
     "sid": "afa-529",
