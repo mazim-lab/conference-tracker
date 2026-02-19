@@ -7461,7 +7461,7 @@
     ],
     "deadline": "2025-31-10",
     "location": "SIX ConventionPoint",
-    "tier": "",
+    "tier": "2",
     "sid": "ext-500",
     "ssrnLink": ""
   },
@@ -7546,7 +7546,7 @@
     ],
     "deadline": "2026-01-31",
     "location": "Badia Fiesolana, Via dei Roccettini 9, Florence",
-    "tier": "",
+    "tier": "3",
     "sid": "ext-505",
     "ssrnLink": ""
   },
@@ -7614,7 +7614,7 @@
     ],
     "deadline": "",
     "location": "Ayia Napa, Cyprus",
-    "tier": "",
+    "tier": "1",
     "sid": "ext-509",
     "ssrnLink": ""
   },
@@ -7648,7 +7648,7 @@
     ],
     "deadline": "2026-01-03",
     "location": "University of Limerick",
-    "tier": "",
+    "tier": "2",
     "sid": "ext-511",
     "ssrnLink": ""
   },
@@ -7682,7 +7682,7 @@
     "ssrnLink": "",
     "deadline": "",
     "url": "https://aaahq.org/Meetings/2026/Leadership",
-    "tier": ""
+    "tier": "2"
   },
   {
     "id": 474,
@@ -7714,7 +7714,7 @@
     "ssrnLink": "",
     "deadline": "2025-11-17",
     "url": "https://aaahq.org/Meetings/2026/Forensic-Accounting-Section-Research-Conference",
-    "tier": ""
+    "tier": "1"
   },
   {
     "id": 476,
@@ -7762,7 +7762,7 @@
     "ssrnLink": "",
     "deadline": "",
     "url": "https://aaahq.org/Meetings/2026/ABO-Research-Conference",
-    "tier": ""
+    "tier": "2"
   },
   {
     "id": 479,
@@ -7778,7 +7778,7 @@
     "ssrnLink": "",
     "deadline": "2026-02-15",
     "url": "https://aaahq.org/Meetings/2026/JIAR",
-    "tier": ""
+    "tier": "1"
   },
   {
     "id": 480,
@@ -7810,7 +7810,7 @@
     "ssrnLink": "",
     "deadline": "",
     "url": "https://aaahq.org/Meetings/2027/FARS-Midyear-Meeting",
-    "tier": ""
+    "tier": "2"
   },
   {
     "id": 482,
@@ -7908,7 +7908,7 @@
     "ssrnLink": "",
     "deadline": "2026-04-01",
     "url": "https://www.fma.org/tampa",
-    "tier": "",
+    "tier": "2",
     "source": "AFA Trumba Calendar"
   },
   {
@@ -8041,5 +8041,22 @@
     "deadline": "",
     "url": "https://eaa-online.org/arc/events/the-thirteenth-accounting-history-international-conference",
     "tier": "2"
+  },
+  {
+    "id": 496,
+    "name": "Call for Academic Research Papers: Private Capital Symposium 2026",
+    "dates": "May 19-20",
+    "startDate": "2026-05-19",
+    "location": "London Business School, London",
+    "country": "UK",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18831",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18831",
+    "deadline": "2026-03-01",
+    "url": "",
+    "tier": ""
   }
 ]
