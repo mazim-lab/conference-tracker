@@ -300,7 +300,7 @@
     function getDeadlineStatus(dl,isDark){
       if(isTBD(dl))return{label:"TBD",color:"#6b7280",bg:isDark?"rgba(107,114,128,0.12)":"rgba(107,114,128,0.08)",isTBD:true};
       const d=getDaysUntil(dl);
-      if(d<0)return{label:"CLOSED",color:"#6b7280",bg:"rgba(107,114,128,0.1)",isTBD:false};
+      if(isNaN(d)||d<0)return{label:"CLOSED",color:"#6b7280",bg:"rgba(107,114,128,0.1)",isTBD:false};
       if(d<=7)return{label:d+"d LEFT",color:"#ef4444",bg:isDark?"rgba(239,68,68,0.18)":"rgba(239,68,68,0.1)",isTBD:false};
       if(d<=30)return{label:d+"d",color:isDark?"#f59e0b":"#d97706",bg:isDark?"rgba(245,158,11,0.14)":"rgba(245,158,11,0.08)",isTBD:false};
       if(d<=90)return{label:d+"d",color:isDark?"#10b981":"#059669",bg:isDark?"rgba(16,185,129,0.1)":"rgba(16,185,129,0.08)",isTBD:false};
