@@ -272,7 +272,7 @@
     }
 
     /* ── Helpers ── */
-    function getDaysUntil(ds) { const v=Math.ceil((new Date(ds+"T23:59:59")-new Date(TODAY_STR+"T00:00:00"))/86400000); return isNaN(v)?null:v; }
+    function getDaysUntil(ds) { return Math.ceil((new Date(ds+"T23:59:59")-new Date(TODAY_STR+"T00:00:00"))/86400000); }
     function fmtShort(s) { return new Date(s+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric"}); }
     function fmtDeadline(s) { return new Date(s+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}); }
     function isTBD(dl) { return !dl||dl==="TBD"||dl===""||dl==="tbd"; }
@@ -300,7 +300,6 @@
     function getDeadlineStatus(dl,isDark){
       if(isTBD(dl))return{label:"TBD",color:"#6b7280",bg:isDark?"rgba(107,114,128,0.12)":"rgba(107,114,128,0.08)",isTBD:true};
       const d=getDaysUntil(dl);
-      if(d===null)return{label:"TBD",color:"#6b7280",bg:isDark?"rgba(107,114,128,0.12)":"rgba(107,114,128,0.08)",isTBD:true};
       if(d<0)return{label:"CLOSED",color:"#6b7280",bg:"rgba(107,114,128,0.1)",isTBD:false};
       if(d<=7)return{label:d+"d LEFT",color:"#ef4444",bg:isDark?"rgba(239,68,68,0.18)":"rgba(239,68,68,0.1)",isTBD:false};
       if(d<=30)return{label:d+"d",color:isDark?"#f59e0b":"#d97706",bg:isDark?"rgba(245,158,11,0.14)":"rgba(245,158,11,0.08)",isTBD:false};
