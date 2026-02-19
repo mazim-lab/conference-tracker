@@ -5881,23 +5881,6 @@
     "tier": ""
   },
   {
-    "id": 401,
-    "name": "Sustainability, Technology, and the Transformation of Accounting and Finance (STTAF26)",
-    "dates": "Apr 8-9",
-    "startDate": "2026-04-08",
-    "location": "Bahrain",
-    "country": "Bahrain",
-    "disc": [
-      "acct",
-      "fin"
-    ],
-    "sid": "18796",
-    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18796",
-    "deadline": "2026-02-28",
-    "url": "",
-    "tier": ""
-  },
-  {
     "id": 402,
     "name": "Call for Papers: CityUHK–CJAR Joint Accounting Research Conference",
     "dates": "Jul 11",
@@ -6701,23 +6684,6 @@
     "tier": ""
   },
   {
-    "id": 485,
-    "name": "Irish Academy of Finance Annual Conference",
-    "dates": "May 21-22",
-    "startDate": "2026-05-21",
-    "location": "Enfield, Co. Meath",
-    "country": "Ireland",
-    "disc": [
-      "fin"
-    ],
-    "sid": "afa-525",
-    "ssrnLink": "",
-    "deadline": "2026-02-23",
-    "url": "https://iafireland.ie/7th-iaf-conference/",
-    "tier": "",
-    "source": "AFA Trumba Calendar"
-  },
-  {
     "id": 486,
     "name": "The 40th Mitsui Symposium: Private Capital Markets",
     "dates": "Jun 3-5",
@@ -6748,24 +6714,6 @@
     "ssrnLink": "",
     "deadline": "2026-04-01",
     "url": "https://www.fma.org/tampa",
-    "tier": "",
-    "source": "AFA Trumba Calendar"
-  },
-  {
-    "id": 489,
-    "name": "Bretton Woods Accounting & Finance Ski Conference",
-    "dates": "",
-    "startDate": "2026-03-04",
-    "location": "310 Mount Washington Hotel Road",
-    "country": "USA",
-    "disc": [
-      "acct",
-      "fin"
-    ],
-    "sid": "afa-529",
-    "ssrnLink": "",
-    "deadline": "2025-11-01",
-    "url": "https://www.brettonwoodsskiconference.com/",
     "tier": "",
     "source": "AFA Trumba Calendar"
   }
