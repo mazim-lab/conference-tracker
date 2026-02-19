@@ -13,6 +13,8 @@
   <script defer src="/_vercel/insights/script.js"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -309,16 +311,166 @@
 
     function getDeadlineSortKey(c){return isTBD(c.deadline)?"9999-12-31":c.deadline;}
 
-    function getTravelInfo(conf, data) {
-      if (!data || !data.cities) return null;
-      // Try exact match
-      let info = data.cities[conf.location];
-      if (!info) {
-        // Try fuzzy match? Or just return null.
-        // My generator used exact strings from conferences.json so it should match.
-        return null;
+    /* ── Map Component ── */
+    // Helper to get coords from location string (city name or "City, Country")
+    const LOC_MAP={
+      "Atlanta":[33.7490,-84.3880],"London":[51.5074,-0.1278],"New York":[40.7128,-74.0060],"Chicago":[41.8781,-87.6298],
+      "Frankfurt":[50.1109,8.6821],"Paris":[48.8566,2.3522],"Singapore":[1.3521,103.8198],"Hong Kong":[22.3193,114.1694],
+      "Toronto":[43.6532,-79.3832],"Seoul":[37.5665,126.9780],"Sydney":[-33.8688,151.2093],"Tokyo":[35.6762,139.6503],
+      "Amsterdam":[52.3676,4.9041],"Zurich":[47.3769,8.5417],"Edinburgh":[55.9533,-3.1883],"Milan":[45.4642,9.1900],
+      "Washington DC":[38.9072,-77.0369],"Boston":[42.3601,-71.0589],"Philadelphia":[39.9526,-75.1652],"Nashville":[36.1627,-86.7816],
+      "Dallas":[32.7767,-96.7970],"Denver":[39.7392,-104.9903],"Helsinki":[60.1695,24.9354],"Copenhagen":[55.6761,12.5683],
+      "Stockholm":[59.3293,18.0686],"Barcelona":[41.3851,2.1734],"Madrid":[40.4168,-3.7038],"Vienna":[48.2082,16.3738],
+      "Brussels":[50.8503,4.3517],"Dublin":[53.3498,-6.2603],"Prague":[50.0755,14.4378],"Munich":[48.1351,11.5820],
+      "Hanoi":[21.0285,105.8542],"Shanghai":[31.2304,121.4737],"Shenzhen":[22.5431,114.0579],"Brisbane":[-27.4698,153.0251],
+      "Melbourne":[-37.8136,144.9631],"San Francisco":[37.7749,-122.4194],"Los Angeles":[34.0522,-118.2437],"Seattle":[47.6062,-122.3321],
+      "Miami":[25.7617,-80.1918],"Austin":[30.2672,-97.7431],"Houston":[29.7604,-95.3698],"Phoenix":[33.4484,-112.0740],
+      "San Diego":[32.7157,-117.1611],"Vancouver":[49.2827,-123.1207],"Montreal":[45.5017,-73.5673],"Berlin":[52.5200,13.4050],
+      "Hamburg":[53.5511,9.9937],"Rome":[41.9028,12.4964],"Lisbon":[38.7223,-9.1393],"Warsaw":[52.2297,21.0122],
+      "Budapest":[47.4979,19.0402],"Athens":[37.9838,23.7275],"Istanbul":[41.0082,28.9784],"Dubai":[25.2048,55.2708],
+      "Bangkok":[13.7563,100.5018],"Kuala Lumpur":[3.1390,101.6869],"Taipei":[25.0330,121.5654],"Beijing":[39.9042,116.4074],
+      "Osaka":[34.6937,135.5023],"Auckland":[-36.8485,174.7633],"Cape Town":[-33.9249,18.4241],"Sao Paulo":[-23.5505,-46.6333],
+      "Mexico City":[19.4326,-99.1332],"Oslo":[59.9139,10.7522],"Geneva":[46.2044,6.1432],"Luxembourg":[49.6116,6.1319],
+      "Oxford":[51.7520,-1.2577],"Cambridge":[52.2053,0.1218],"Rotterdam":[51.9244,4.4777],"Manchester":[53.4808,-2.2426],
+      "San Antonio":[29.4241,-98.4936],"Honolulu":[21.3069,-157.8583],"New Orleans":[29.9511,-90.0715],"Tel Aviv":[32.0853,34.7818]
+    };
+
+    // Additional city aliases for locations that don't match directly
+    const CITY_ALIASES={"Washington, DC":"Washington DC","Washington, D.C.":"Washington DC","Washington DC, USA":"Washington DC",
+      "Hong Kong SAR":"Hong Kong","Hong Kong, China":"Hong Kong","Honolulu":"Honolulu","Big Island, Hawaii":"Honolulu",
+      "St. Louis, MO":"St. Louis","St. Louis":"St. Louis","Durham, United Kingdom":"Durham UK","Durham, UK":"Durham UK",
+      "Chapel Hill, NC":"Chapel Hill","Chapel Hill":"Chapel Hill","Ann Arbor, Michigan":"Ann Arbor","Ann Arbor":"Ann Arbor",
+      "Scottsdale, Arizona":"Phoenix","Scottsdale":"Phoenix","Evanston, IL":"Chicago","Storrs, CT":"Hartford",
+      "Newark, Delaware":"Philadelphia","Villanova, PA":"Philadelphia","State College, PA":"Pittsburgh",
+      "Clemson, SC":"Atlanta","Tallahassee":"Miami","Asheville, NC":"Atlanta","Palm Springs":"Los Angeles",
+      "Bretton Woods":"Boston","San Destin, Fl":"Miami","Vail, Colorado":"Denver","Boulder, Colorado":"Denver",
+      "ESSEC":"Paris","Stanford":"San Francisco","Yale":"New York","Duke University":"Durham NC",
+      "Loyola University Maryland":"Baltimore","Rutgers":"New York","Darden":"Charlottesville",
+      "University of North Carolina":"Chapel Hill","University of Kentucky":"Lexington",
+      "Krea University":"Chennai","Alicante":"Barcelona","Zion National Park":"Las Vegas",
+      "Saariselkä":"Helsinki","Lapland":"Helsinki","Arlington, VA":"Washington DC","Arlington":"Washington DC",
+      "Limoges":"Paris","Düsseldorf":"Frankfurt","Montclair":"New York","Durham, NH":"Boston",
+      "Baltimore":"Baltimore","Las Vegas":"Las Vegas","Tampa":"Miami","Ayia Napa":"Athens",
+      "St. Kitts":"Miami","Meath":"Dublin","JW Marriott":"Washington DC","Azores":"Lisbon",
+      "Ghent":"Brussels","Nice":"Nice","Mannheim":"Frankfurt","Eltville am Rhein":"Frankfurt","Halle":"Berlin",
+      "Hagen":"Berlin","Siegen":"Frankfurt","Odense":"Copenhagen","Lund":"Stockholm","Liège":"Brussels",
+      "Limerick":"Dublin","Cagliari":"Rome","Padua":"Milan","Pavia":"Milan","Naples":"Naples","Capri":"Naples",
+      "Turin":"Turin","Florence":"Florence","Braga":"Lisbon","Krakow":"Warsaw","Marseille":"Marseille",
+      "Toulouse":"Paris","Clermont-Ferrand":"Paris","Windermere":"Manchester","Bristol":"Bristol","Lancaster":"Manchester",
+      "Exeter":"London","Garmisch-Partenkirchen":"Munich","Bern":"Geneva","Lausanne":"Geneva","Weggis":"Zurich",
+      "Saas-Fee":"Geneva","Gerzensee":"Geneva","Ischgl":"Vienna","Zakynthos":"Athens","Crete":"Athens","Chania":"Athens",
+      "Bali":"Jakarta","Danang":"Hanoi","Busan":"Seoul","Sharjah":"Dubai","Bahrain":"Dubai",
+      "Niagara Falls":"Toronto","Quebec City":"Montreal","Whistler":"Vancouver","Edmonton":"Vancouver","Banff":"Vancouver",
+      "College Station":"Dallas","Amherst":"Boston","Notre Dame":"Chicago","Vaduz":"Zurich","Sardinia":"Rome",
+      "Sophia Antipolis":"Nice","Tilburg":"Amsterdam","Maastricht":"Amsterdam","Rotterdam":"Rotterdam"};
+    // Extra cities not in LOC_MAP
+    const EXTRA_COORDS={"Durham UK":[54.7753,-1.5849],"Chapel Hill":[35.9132,-79.0558],"Ann Arbor":[42.2808,-83.7430],
+      "St. Louis":[38.6270,-90.1994],"Nice":[43.7102,7.2620],"Naples":[40.8518,14.2681],"Turin":[45.0703,7.6869],
+      "Florence":[43.7696,11.2558],"Marseille":[43.2965,5.3698],"Bristol":[51.4545,-2.5879],"Hartford":[41.7658,-72.6734],
+      "Pittsburgh":[40.4406,-79.9959],"Jakarta":[-6.2088,106.8456],"Taipei":[25.0330,121.5654],"Chennai":[13.0827,80.2707],
+      "Tallinn":[59.4370,24.7536],"Santiago":[-33.4489,-70.6693],
+      "Durham NC":[35.9940,-78.8986],"Baltimore":[39.2904,-76.6122],"Charlottesville":[38.0293,-78.4767],
+      "Lexington":[38.0406,-84.5037],"Las Vegas":[36.1699,-115.1398]};
+
+    function getCoords(loc){
+      if(!loc)return null;
+      // 1. Exact match
+      if(LOC_MAP[loc])return LOC_MAP[loc];
+      // 2. Check aliases
+      for(const[alias,city] of Object.entries(CITY_ALIASES)){
+        if(loc.includes(alias)){
+          if(LOC_MAP[city])return LOC_MAP[city];
+          if(EXTRA_COORDS[city])return EXTRA_COORDS[city];
+        }
       }
-      return info;
+      // 3. Split by comma, check each part
+      const parts=loc.split(",").map(p=>p.trim());
+      for(const p of parts){
+        if(LOC_MAP[p])return LOC_MAP[p];
+        if(EXTRA_COORDS[p])return EXTRA_COORDS[p];
+      }
+      // 4. Search for any known city name within the full string
+      const locLower=loc.toLowerCase();
+      for(const[city,coords] of Object.entries(LOC_MAP)){
+        if(city.length>3&&locLower.includes(city.toLowerCase()))return coords;
+      }
+      for(const[city,coords] of Object.entries(EXTRA_COORDS)){
+        if(city.length>3&&locLower.includes(city.toLowerCase()))return coords;
+      }
+      return null;
+    }
+
+    function MapView({conferences,T,isDark}){
+      const mapContainer=React.useRef(null);
+      const mapInstance=React.useRef(null);
+      const markerGroup=React.useRef(null);
+      const tileLayer=React.useRef(null);
+
+      useEffect(()=>{
+        if(!mapContainer.current)return;
+        if(!mapInstance.current){
+          mapInstance.current=L.map(mapContainer.current,{zoomControl:false,attributionControl:false}).setView([20,0],2);
+          L.control.zoom({position:"topright"}).addTo(mapInstance.current);
+          L.control.attribution({position:"bottomright",prefix:false}).addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>').addTo(mapInstance.current);
+          markerGroup.current=L.layerGroup().addTo(mapInstance.current);
+        }
+        
+        const map=mapInstance.current;
+        const tileUrl=isDark?'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png':'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+        
+        if(tileLayer.current)map.removeLayer(tileLayer.current);
+        tileLayer.current=L.tileLayer(tileUrl,{subdomains:"abcd",maxZoom:19}).addTo(map);
+
+        markerGroup.current.clearLayers();
+
+        const clusters={};
+        conferences.forEach(c=>{
+          if(!c.location||c.location==="Virtual"||c.location==="TBD"||c.location.includes("Virtual"))return;
+          const coords=getCoords(c.location);
+          if(!coords)return;
+          const k=coords.join(",");
+          if(!clusters[k])clusters[k]={coords,confs:[]};
+          clusters[k].confs.push(c);
+        });
+
+        Object.values(clusters).forEach(({coords,confs})=>{
+          const discCounts={fin:0,acct:0,econ:0,multi:0};
+          confs.forEach(c=>c.disc.forEach(d=>{if(discCounts[d]!==undefined)discCounts[d]++;else discCounts.multi++;}));
+          
+          let color="#a855f7"; // purple (mixed/multi)
+          const total=confs.length;
+          // Simple majority logic
+          if(discCounts.fin===total)color="#3b82f6"; // blue
+          else if(discCounts.acct===total)color="#10b981"; // green
+          else if(discCounts.econ===total)color="#f59e0b"; // orange
+
+          const radius=Math.max(6,Math.min(25,6+Math.sqrt(total)*3));
+          
+          const m=L.circleMarker(coords,{radius,fillColor:color,color:"#fff",weight:1,opacity:0.9,fillOpacity:0.75});
+          
+          const popupContent=`
+            <div style="font-family:'Newsreader',serif;min-width:200px;color:#333">
+              <div style="font-weight:700;margin-bottom:6px;border-bottom:1px solid #eee;padding-bottom:4px;font-size:13px">
+                ${confs[0].location} (${total})
+              </div>
+              <div style="max-height:200px;overflow-y:auto">
+                ${confs.map(c=>`
+                  <div style="margin-bottom:8px;font-size:11px;line-height:1.35;border-bottom:1px dashed #eee;padding-bottom:4px">
+                    <div style="font-weight:600;color:#111;margin-bottom:1px"><a href="${c.url||c.ssrnLink}" target="_blank" style="text-decoration:none;color:inherit">${c.name}</a></div>
+                    <div style="color:#666;font-family:'JetBrains Mono',monospace;font-size:10px">${c.dates}</div>
+                    <div style="color:${c.deadline&&!c.deadline.includes("TBD")?"#d32f2f":"#666"};font-size:10px">DL: ${c.deadline||"TBD"}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>`;
+          
+          m.bindPopup(popupContent);
+          markerGroup.current.addLayer(m);
+        });
+
+      },[conferences,isDark]); // Re-run when data or theme changes
+
+      return <div ref={mapContainer} style={{height:500,width:"100%",borderRadius:12,overflow:"hidden",zIndex:0,border:"1px solid "+T.cardBorder,background:T.cardBg}} />;
     }
 
     /* ── ICS Generation ── */
@@ -952,7 +1104,7 @@
               <input type="text" placeholder="Search name, location, country..." value={search} onChange={e=>setSearch(e.target.value)}
                 style={{flex:1,minWidth:170,padding:"7px 11px",borderRadius:6,border:"1px solid "+T.inputBorder,background:T.inputBg,color:T.text,fontSize:12,outline:"none",fontFamily:"'JetBrains Mono',monospace"}} />
               <div style={{display:"flex",gap:2,background:T.switchBg,borderRadius:5,padding:2}}>
-                {["list","timeline"].map(v=><button key={v} onClick={()=>setView(v)} style={{padding:"5px 10px",borderRadius:4,border:"none",background:view===v?T.viewBtnBg:T.viewBtnOffBg,color:view===v?T.viewBtnColor:T.viewBtnOffColor,fontSize:10.5,cursor:"pointer",textTransform:"capitalize",fontFamily:"'JetBrains Mono',monospace"}}>{v}</button>)}
+                {["list","timeline","map"].map(v=><button key={v} onClick={()=>setView(v)} style={{padding:"5px 10px",borderRadius:4,border:"none",background:view===v?T.viewBtnBg:T.viewBtnOffBg,color:view===v?T.viewBtnColor:T.viewBtnOffColor,fontSize:10.5,cursor:"pointer",textTransform:"capitalize",fontFamily:"'JetBrains Mono',monospace"}}>{v}</button>)}
               </div>
 
             </div>
@@ -989,6 +1141,14 @@
               <div style={{display:"flex",flexDirection:"column",gap:4,marginTop:4}}>
                 {filtered.length===0?<div style={{textAlign:"center",padding:36,color:T.textDim,fontSize:13}}>No upcoming conferences match your filters.</div>
                 :filtered.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} isSelected={comparisonList.includes(c.id)} onCompareToggle={handleCompareToggle} travelData={travelData} />)}
+              </div>
+            ):view==="map"?(
+              <div style={{marginTop:10}}>
+                <MapView conferences={filtered} T={T} isDark={isDark} />
+                <div style={{marginTop:12,fontSize:11,color:T.textDim,textAlign:"center"}}>
+                  Showing {filtered.filter(c=>c.location!=="Virtual"&&c.location!=="TBD"&&getCoords(c.location)).length} mapped conferences.
+                  Colors: <span style={{color:"#3b82f6"}}>Finance</span>, <span style={{color:"#10b981"}}>Accounting</span>, <span style={{color:"#f59e0b"}}>Economics</span>, <span style={{color:"#a855f7"}}>Mixed</span>.
+                </div>
               </div>
             ):(
               <div style={{marginTop:10}}>
