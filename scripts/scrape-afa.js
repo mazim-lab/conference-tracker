@@ -53,9 +53,13 @@ function parseDescription(description) {
 function formatDate(dateStr) {
   if (!dateStr) return '';
   try {
-    const date = new Date(dateStr);
+    // Force UTC parsing to avoid timezone/locale day-month swaps
+    const date = new Date(dateStr + (dateStr.includes('T') ? '' : 'T12:00:00Z'));
     if (isNaN(date.getTime())) return '';
-    return date.toISOString().split('T')[0];
+    const y = date.getUTCFullYear();
+    const m = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const d = String(date.getUTCDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
   } catch (e) {
     return '';
   }

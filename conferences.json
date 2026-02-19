@@ -6259,22 +6259,6 @@
     "ssrnLink": ""
   },
   {
-    "name": "EAR Conference (European Accounting Review)",
-    "dates": "TBD 2026",
-    "location": "TBD",
-    "url": "https://eaa-online.org/ear-conference/",
-    "tier": "A",
-    "id": 443,
-    "startDate": "",
-    "country": "",
-    "disc": [
-      "fin"
-    ],
-    "deadline": "",
-    "sid": "ext-483",
-    "ssrnLink": ""
-  },
-  {
     "name": "53rd EFA Annual Meeting 2026",
     "dates": "Aug 19-22",
     "location": "Vlerick Business School, Ghent, Belgium",
@@ -6324,14 +6308,14 @@
   },
   {
     "name": "LAPE-FINEST Spring Workshop: Sustainability, Bank Performance and Financial Stability",
-    "dates": "TBD 2026",
-    "location": "Universit\u00e9 de Limoges, France",
+    "dates": "Jun 4-5",
+    "location": "Limoges",
     "url": "https://www.unilim.fr/lape/",
     "deadline": "2026-03-29",
     "tier": "B",
     "id": 448,
-    "startDate": "",
-    "country": "",
+    "startDate": "2026-06-04",
+    "country": "France",
     "disc": [
       "fin"
     ],
@@ -6514,7 +6498,7 @@
     "disc": [
       "fin"
     ],
-    "deadline": "2025-31-10",
+    "deadline": "2025-10-31",
     "location": "SIX ConventionPoint",
     "tier": "",
     "sid": "ext-500",
@@ -6633,7 +6617,7 @@
     "disc": [
       "fin"
     ],
-    "deadline": "2026-30-01",
+    "deadline": "2026-01-30",
     "location": "TBD",
     "tier": "",
     "sid": "ext-507",
@@ -6918,9 +6902,9 @@
   {
     "id": 485,
     "name": "Irish Academy of Finance Annual Conference",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
+    "dates": "May 21-22",
+    "startDate": "2026-05-21",
+    "location": "Enfield, Co. Meath",
     "country": "Ireland",
     "disc": [
       "fin"
@@ -6952,9 +6936,9 @@
   {
     "id": 487,
     "name": "2026 FMA Annual Meeting",
-    "dates": "",
-    "startDate": "",
-    "location": "JW Marriott Tampa Water Street",
+    "dates": "Oct 14-17",
+    "startDate": "2026-10-14",
+    "location": "Tampa, FL",
     "country": "USA",
     "disc": [
       "fin"
