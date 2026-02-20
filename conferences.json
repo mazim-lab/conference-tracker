@@ -6385,7 +6385,7 @@
     ],
     "deadline": "2026-01-31",
     "location": "Badia Fiesolana, Via dei Roccettini 9, Florence",
-    "tier": "",
+    "tier": "3",
     "sid": "ext-505",
     "ssrnLink": ""
   },
@@ -6454,7 +6454,7 @@
     ],
     "deadline": "2026-01-26",
     "location": "Ayia Napa, Cyprus",
-    "tier": "",
+    "tier": "1",
     "sid": "ext-509",
     "ssrnLink": ""
   },
@@ -6505,7 +6505,7 @@
     "ssrnLink": "",
     "deadline": "",
     "url": "https://aaahq.org/Meetings/2026/Leadership",
-    "tier": ""
+    "tier": "2"
   },
   {
     "id": 474,
@@ -6537,7 +6537,7 @@
     "ssrnLink": "",
     "deadline": "2025-11-17",
     "url": "https://aaahq.org/Meetings/2026/Forensic-Accounting-Section-Research-Conference",
-    "tier": ""
+    "tier": "1"
   },
   {
     "id": 476,
@@ -6585,7 +6585,7 @@
     "ssrnLink": "",
     "deadline": "",
     "url": "https://aaahq.org/Meetings/2026/ABO-Research-Conference",
-    "tier": ""
+    "tier": "2"
   },
   {
     "id": 479,
@@ -6601,7 +6601,7 @@
     "ssrnLink": "",
     "deadline": "2026-02-15",
     "url": "https://aaahq.org/Meetings/2026/JIAR",
-    "tier": ""
+    "tier": "1"
   },
   {
     "id": 480,
@@ -6633,7 +6633,7 @@
     "ssrnLink": "",
     "deadline": "",
     "url": "https://aaahq.org/Meetings/2027/FARS-Midyear-Meeting",
-    "tier": ""
+    "tier": "2"
   },
   {
     "id": 482,
@@ -6714,7 +6714,1084 @@
     "ssrnLink": "",
     "deadline": "2026-04-01",
     "url": "https://www.fma.org/tampa",
-    "tier": "",
+    "tier": "2",
     "source": "AFA Trumba Calendar"
+  },
+  {
+    "id": 488,
+    "name": "Call for Proposals - The 11th (2026) Cross Country Perspectives in Finance (CCPF) Conference",
+    "dates": "Jun 26-28",
+    "startDate": "2026-06-26",
+    "location": "both online and on-site (location Nanjing, China)",
+    "country": "China",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18837",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18837",
+    "deadline": "2027-03-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 489,
+    "name": "Call for Academic Research Papers: Private Capital Symposium 2026",
+    "dates": "May 19-20",
+    "startDate": "2026-05-19",
+    "location": "London Business School, London",
+    "country": "UK",
+    "disc": [
+      "acct",
+      "econ",
+      "fin"
+    ],
+    "sid": "18831",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18831",
+    "deadline": "2026-03-01",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 490,
+    "name": "Sustainability, Technology, and the Transformation of Accounting and Finance (STTAF26)",
+    "dates": "Apr 8-9",
+    "startDate": "2026-04-08",
+    "location": "Bahrain",
+    "country": "Unknown",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18796",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18796",
+    "deadline": "2026-02-28",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 491,
+    "name": "Inaugural Rutgers Finance Research Conference, 2026",
+    "dates": "Apr 30 - May 1",
+    "startDate": "2026-04-30",
+    "location": "Rutgers Business School - Newark, NJ",
+    "country": "USA",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18452",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18452",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 492,
+    "name": "Call for Papers - Univ of Texas at Dallas 2025 Annual Finance Conference",
+    "dates": "Oct 3-4",
+    "startDate": "2025-10-03",
+    "location": "University of Texas at Dallas, Dallas, TX",
+    "country": "USA",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17276",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17276",
+    "deadline": "2025-07-18",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 493,
+    "name": "Behavioral/Cognitive Finance, Decision/Risk Sciences in the Age of Artificial Intelligence; Entrepreneurship & Economics-2025; Submission Deadline:: June 27, 2025",
+    "dates": "Sep 24-26",
+    "startDate": "2025-09-24",
+    "location": "Santa Clara, CA, USA",
+    "country": "USA",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17265",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17265",
+    "deadline": "2025-06-27",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 494,
+    "name": "Call for Applications: Tinbergen Institute Summer School 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18807",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18807",
+    "deadline": "2026-04-13",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 495,
+    "name": "HKIMR Monetary Research Programmes and Doctoral Internship Programme - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18783",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18783",
+    "deadline": "2026-03-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 496,
+    "name": "HKIMR Monetary Research Programmes - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18106",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18106",
+    "deadline": "2025-12-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 497,
+    "name": "The Graduate Programme in Economics and Finance (GPEF) at the University of St. Gallen is inviting applications",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18408",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18408",
+    "deadline": "2026-01-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 498,
+    "name": "Summer School on Market Microstructure",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18012",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18012",
+    "deadline": "2025-12-01",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 499,
+    "name": "HKIMR Monetary Research Programmes - Call For Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17503",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17503",
+    "deadline": "2025-09-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 500,
+    "name": "HKIMR Monetary Research Programmes and Doctoral Internship Programme - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17126",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17126",
+    "deadline": "2025-06-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 501,
+    "name": "CEMFI Summer School 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17035",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17035",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 502,
+    "name": "Tinbergen Institute Summer School 2025 - Economics & Business Data Science – Call for Applications",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "16960",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16960",
+    "deadline": "2025-04-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 503,
+    "name": "HKIMR Monetary Research Programmes - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "16692",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16692",
+    "deadline": "2025-03-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 504,
+    "name": "2025 Summer School on Structural Estimation in Corporate Finance at the Wharton School",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "16860",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16860",
+    "deadline": "2025-03-17",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 505,
+    "name": "2025 GSU-MS AI and FinTech Conference‬",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17722",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17722",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 506,
+    "name": "21st European Winter Finance Summit",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17643",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17643",
+    "deadline": "2025-10-19",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 507,
+    "name": "CALLING SCHOLARS INTERESTED IN COLLABORATING WITH FINTECHS – FUTURE FINANCE FEST (3f), VILNIUS, LITHUANIA, 25-27 AUGUST 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17538",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17538",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 508,
+    "name": "10th annual Business Valuation Challenge",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17531",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17531",
+    "deadline": "2026-11-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 509,
+    "name": "Call for Registration Vitznau FRR Inaugural Conference June 28-29th July",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17279",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17279",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 510,
+    "name": "CICF 2025: Conference Registration",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17175",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17175",
+    "deadline": "2025-06-06",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 511,
+    "name": "Fintech and Financial Institutions Research Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "16857",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16857",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 512,
+    "name": "Call for Papers for the Corporate Governance Academic Forum at the University of Toronto – Due May 10, 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18835",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18835",
+    "deadline": "2026-05-10",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 513,
+    "name": "6th Annual FIASI-Gabelli School Student Research Competition",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18200",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18200",
+    "deadline": "2026-02-03",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 514,
+    "name": "2026 Edition of the Ieke van den Burg Prize for research on systemic risk",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18575",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18575",
+    "deadline": "2026-03-31",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 515,
+    "name": "Call for papers! FESE De la Vega Prize 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18476",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18476",
+    "deadline": "2026-02-27",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 516,
+    "name": "Fintech Chair. 6th Call for Research Projects 2024",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18078",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18078",
+    "deadline": "2025-11-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 517,
+    "name": "KCFR- Call for Research Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17977",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17977",
+    "deadline": "2025-12-01",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 518,
+    "name": "Call for Applications and Nominations: Philipp Sandner Memorial Award in Digital Finance Research 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17922",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17922",
+    "deadline": "2025-12-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 519,
+    "name": "10th Annual Southeastern Hedge Fund Competition",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17819",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17819",
+    "deadline": "2026-03-06",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 520,
+    "name": "Chicago Quantitative Alliance - Call for Papers 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17252",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17252",
+    "deadline": "2025-06-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 521,
+    "name": "Call for Job Market Paper - 8th Asset Pricing Conference by LTI@UniTO",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17148",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17148",
+    "deadline": "2026-09-23",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 522,
+    "name": "Call for Papers: PRI Research Awards at PRI in Person 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17095",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17095",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 523,
+    "name": "Business for a Better World Dissertation Proposal Competition – Colorado State University, College of Business",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "16885",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16885",
+    "deadline": "2025-06-03",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 524,
+    "name": "Call for Papers: Multinational Finance Journal (MFJ)",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18800",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18800",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "3"
+  },
+  {
+    "id": 525,
+    "name": "Call for Papers: Nature-Inspired Finance: Innovations in Biodiversity Finance An edited collection to be published by Palgrave Macmillan",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18144",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18144",
+    "deadline": "2026-02-28",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 526,
+    "name": "Call for Papers: Transition Finance: Designing Credible Pathways to Net-Zero Emissions An edited collection to be published by Palgrave Macmillan",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18143",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18143",
+    "deadline": "2025-11-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 527,
+    "name": "HKIMR Open-bid Applied Research Programme - Call for Proposals",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18383",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18383",
+    "deadline": "2026-02-23",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 528,
+    "name": "RESEARCH GRANTS PROVIDED BY INQUIRE EUROPE, MARCH 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18210",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18210",
+    "deadline": "2026-01-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 529,
+    "name": "FARFE Awards Ninth Ross Prize to Lubos Pastor and Pietro Veronesi for Research on Effect of Technological Revolutions on Stock Prices",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17600",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17600",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 530,
+    "name": "DEWEY Research Data Grants 2025 - Now Accepting Submissions",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17480",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17480",
+    "deadline": "2026-07-18",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 531,
+    "name": "Pladifes Call for Projects: Carbon Data for Sustainable Finance Research",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "17056",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17056",
+    "deadline": "2025-05-16",
+    "url": "",
+    "tier": "3"
+  },
+  {
+    "id": 532,
+    "name": "Ph.D. in Finance, fully funded",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18585",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18585",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 533,
+    "name": "Pre-Announcments: Assistant Professorship in Finance (W1 TT) and Postdoctoral Researcher in Financial Intermediation or Household Finance",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18132",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18132",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 534,
+    "name": "EUROFIDAI-ESSEC Paris December Finance Meeting 2025 – Program & Registration Now Available",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18099",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18099",
+    "deadline": "2025-12-18",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 535,
+    "name": "Finance Theory Insights: Surprising implications of regulations and technological advancement",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17467",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17467",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 536,
+    "name": "The 2025 Rising Stars Conference and the 2025 Trailblazer in Finance Keynote Lecture",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17237",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17237",
+    "deadline": "2025-05-09",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 537,
+    "name": "2025 SoFiE Financial Econometrics Summer School",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "17100",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17100",
+    "deadline": "2025-06-16",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 538,
+    "name": "Finance Theory Insights: Regulatory Implications of Corporate Financing and Payout Policies",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18044",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18044",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 539,
+    "name": "The Glen McLaughlin (Endowed) Prize for Research in Accounting and Ethics - CALL FOR PAPERS (2025-2026)",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct"
+    ],
+    "sid": "17834",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17834",
+    "deadline": "2025-12-05",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 540,
+    "name": "Ph.D. in Accounting (financial/managerial) - Frankfurt School of Finance and Management",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18424",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18424",
+    "deadline": "2026-01-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 541,
+    "name": "2025 CUHK Accounting Research Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18225",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18225",
+    "deadline": "2025-11-25",
+    "url": "",
+    "tier": "1"
+  },
+  {
+    "id": 542,
+    "name": "Call for Papers: Conference on Consumer Finance and Macroeconomics",
+    "dates": "",
+    "startDate": "",
+    "location": "Federal Reserve Bank of Philadelphia, Philadelphia, PA - 10 N Independence Mall W, Philadelphia, PA 19106",
+    "country": "USA",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18319",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18319",
+    "deadline": "2026-02-17",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 543,
+    "name": "Bonn Graduate School of Economics (BGSE) Combined M.Sc. Economic Research / Doctoral Program",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18107",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18107",
+    "deadline": "2026-01-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 544,
+    "name": "EcoMod School of Modeling and Data Science Summer School - Registrations open",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "16930",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16930",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 545,
+    "name": "Call for Papers for David Dollar Memorial Prize 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17868",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17868",
+    "deadline": "2026-01-15",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 546,
+    "name": "2025 Huebner-ARIA Doctoral Colloquium",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17227",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17227",
+    "deadline": "2025-06-27",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 547,
+    "name": "ICPM Research Award 2025",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "16886",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=16886",
+    "deadline": "2025-03-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 548,
+    "name": "American Bankers Association Banking Research Dissertation Grant",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18650",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18650",
+    "deadline": "2026-04-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 549,
+    "name": "Call for Research Projects 2025 “Women and Science”",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17383",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17383",
+    "deadline": "2025-09-26",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 550,
+    "name": "SBUR Collection on Responsible Innovation - Business Administration creates Future",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18331",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18331",
+    "deadline": "TBD",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 551,
+    "name": "Advances in Econometrics volume: Bayesian Macroeconometrics",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18216",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18216",
+    "deadline": "2026-02-28",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 552,
+    "name": "Estimating the Impact of Natural Disasters on U.S. Communities",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "17084",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17084",
+    "deadline": "2025-05-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 553,
+    "name": "Call for applications: Gateway education policy hackathon",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18704",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18704",
+    "deadline": "2026-04-17",
+    "url": "",
+    "tier": ""
   }
 ]
