@@ -7793,5 +7793,54 @@
     "deadline": "2026-04-17",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 554,
+    "name": "Vienna Festival of Finance Theory 2026",
+    "dates": "Aug 23-25",
+    "startDate": "2026-08-23",
+    "location": "Vienna, Austria",
+    "country": "Austria",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18843",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18843",
+    "deadline": "2026-03-25",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 555,
+    "name": "CALL FOR PAPERS 5th SARAC – Swiss Accounting Research Alpine Camp",
+    "dates": "Feb 17-19",
+    "startDate": "2027-02-17",
+    "location": "Crans-Montana, Switzerland",
+    "country": "Switzerland",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18844",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18844",
+    "deadline": "2027-02-17",
+    "url": "",
+    "tier": "1"
+  },
+  {
+    "id": 556,
+    "name": "Call for Papers: 9th CEIBS Finance/Accounting Symposium",
+    "dates": "",
+    "startDate": "",
+    "location": "Shanghai, China",
+    "country": "China",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18845",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18845",
+    "deadline": "2026-03-15",
+    "url": "",
+    "tier": "1"
   }
 ]
