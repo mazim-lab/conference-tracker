@@ -1,43 +1,43 @@
-07:51:15  ===========================================
-07:51:15    Conference Tier Assigner
-07:51:15  ===========================================
-07:51:15  Loaded 482 conferences
-07:51:15  Conferences without tiers: 241
-07:51:15  
+08:06:24  ===========================================
+08:06:24    Conference Tier Assigner
+08:06:24  ===========================================
+08:06:24  Loaded 482 conferences
+08:06:24  Conferences without tiers: 241
+08:06:24  
 === Phase 1: Reference dictionary matching ===
-07:51:20  
+08:06:30  
 Matched: 0/241 | Unmatched: 241
-07:51:20  
+08:06:30  
 === Skipping API (--no-api flag) ===
-07:51:20  241 conferences left untiered:
-07:51:20    ? 2nd Knut Wicksell Conference on Crypto and Fintech
-07:51:20    ? Financial Regulation and RegTech Forum
-07:51:20    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
-07:51:20    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
-07:51:20    ? 2025 International Symposium on Climate Finance and Sustaina
-07:51:20    ? International Society for the Advancement of Financial Econo
-07:51:20    ? Economic Governance of Social Media
-07:51:20    ? Conference on “Climate Policy Commodity Markets and Economic
-07:51:20    ? Symposium on Financial Markets in the Era of Climate Change
-07:51:20    ? 21st Annual Conference of the Asia-Pacific Association of De
-07:51:20    ? Conference on Sustainable Financial Intermediation
-07:51:20    ? Hybrid Conference on Islamic Law and Finance
-07:51:20    ? Sustainability at Crossroads: The Edinburgh and Internationa
-07:51:20    ? Conference on Digital Transformation for Social Impacts and 
-07:51:20    ? Future Finance Fest (3f )
-07:51:20    ? Bayesian Macroeconometric Modelling Workshop
-07:51:20    ? Warwick Business School Gillmore Centre Conference on DeFi &
-07:51:20    ? 2025 Conference Accounting and Finance Research and Educatio
-07:51:20    ? Rice University’s Conference on Accounting & Information Fri
-07:51:20    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
-07:51:20    ... and 221 more
-07:51:20  
+08:06:30  241 conferences left untiered:
+08:06:30    ? 2nd Knut Wicksell Conference on Crypto and Fintech
+08:06:30    ? Financial Regulation and RegTech Forum
+08:06:30    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
+08:06:30    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
+08:06:30    ? 2025 International Symposium on Climate Finance and Sustaina
+08:06:30    ? International Society for the Advancement of Financial Econo
+08:06:30    ? Economic Governance of Social Media
+08:06:30    ? Conference on “Climate Policy Commodity Markets and Economic
+08:06:30    ? Symposium on Financial Markets in the Era of Climate Change
+08:06:30    ? 21st Annual Conference of the Asia-Pacific Association of De
+08:06:30    ? Conference on Sustainable Financial Intermediation
+08:06:30    ? Hybrid Conference on Islamic Law and Finance
+08:06:30    ? Sustainability at Crossroads: The Edinburgh and Internationa
+08:06:30    ? Conference on Digital Transformation for Social Impacts and 
+08:06:30    ? Future Finance Fest (3f )
+08:06:30    ? Bayesian Macroeconometric Modelling Workshop
+08:06:30    ? Warwick Business School Gillmore Centre Conference on DeFi &
+08:06:30    ? 2025 Conference Accounting and Finance Research and Educatio
+08:06:30    ? Rice University’s Conference on Accounting & Information Fri
+08:06:30    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
+08:06:30    ... and 221 more
+08:06:30  
 === SUMMARY ===
-07:51:20  Tier 1: 45
-07:51:20  Tier 2: 122
-07:51:20  Tier 3: 61
-07:51:20  No tier: 241
-07:51:20  
+08:06:30  Tier 1: 45
+08:06:30  Tier 2: 122
+08:06:30  Tier 3: 61
+08:06:30  No tier: 241
+08:06:30  
 Saved to conferences.json
-07:51:20  
+08:06:30  
 Done! Check tier_log.txt for details.
