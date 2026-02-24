@@ -7842,5 +7842,69 @@
     "deadline": "2026-03-15",
     "url": "",
     "tier": "1"
+  },
+  {
+    "id": 557,
+    "name": "2026 Summer Research Conference, Center for Analytical Finance, Indian School of Business",
+    "dates": "Jul 30-31",
+    "startDate": "2026-07-30",
+    "location": "Indian School of Business, Hyderabad Campus",
+    "country": "India",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18851",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18851",
+    "deadline": "2026-03-25",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 558,
+    "name": "2026 MRS International Risk Conference",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18849",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18849",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": "3"
+  },
+  {
+    "id": 559,
+    "name": "Emerging Financial Reporting Issues Research Symposium",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18847",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18847",
+    "deadline": "2026-04-03",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 560,
+    "name": "Workshop on Uncertainty, Economic Activity, and Policy (NEUR2026)",
+    "dates": "Jun 19-20",
+    "startDate": "2026-06-19",
+    "location": "SGH Warsaw School of Economics, Warsaw, Poland",
+    "country": "Poland",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18850",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18850",
+    "deadline": "2026-03-31",
+    "url": "",
+    "tier": ""
   }
 ]
