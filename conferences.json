@@ -7906,5 +7906,54 @@
     "deadline": "2026-03-31",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 561,
+    "name": "12th Annual ICGS Conference - Call for Papers",
+    "dates": "Oct 2-4",
+    "startDate": "2026-10-02",
+    "location": "HEC Montréal (Quebec, Canada)",
+    "country": "Canada",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18855",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18855",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 562,
+    "name": "LSE Corporate Governance Summer School 2026",
+    "dates": "",
+    "startDate": "",
+    "location": "",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18861",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18861",
+    "deadline": "2026-03-26",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 563,
+    "name": "2027 JAE Call for Papers",
+    "dates": "Oct 15-16",
+    "startDate": "2027-10-15",
+    "location": "Simon Business School, University of Rochester, Rochester NY",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18856",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18856",
+    "deadline": "2027-02-26",
+    "url": "",
+    "tier": ""
   }
 ]
