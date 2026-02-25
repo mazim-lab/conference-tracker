@@ -50,14 +50,37 @@ LOG_PATH = Path("scrape_log.txt")
 
 # Non-conference items to filter out (prizes, PhD programs, summer schools, job posts, etc.)
 NON_CONFERENCE_KEYWORDS = [
-    'prize', 'award', 'ph.d. in finance', 'ph.d. in accounting', 'professorship',
+    'prize', 'award', 'ph.d.', 'phd in ', 'professorship', 'assistant professor',
     'finance theory insights', 'data grant', 'sbur collection',
     'farfe awards', 'pre-announcments:', 'ecomod school',
     'calling scholars interested', 'call for registration',
-    'multinational finance journal', 'assistant professor',
+    'multinational finance journal', 'fully funded',
+    'research programme', 'research program', 'monetary research',
+    'call for proposals', 'call for applications', 'call for nominations',
+    'call for research projects', 'dissertation proposal', 'dissertation grant',
+    'doctoral internship', 'doctoral colloquium',
+    'hackathon', 'webinar', 'student research competition',
+    'postdoctoral', 'postdoc ', 'research associate',
+    'memorial prize', 'memorial award',
+    'graduate programme', 'graduate program',
+    'advances in econometrics volume', 'bayesian macroeconometrics',
+    'estimating the impact of', 'education policy hackathon',
+    'open-bid applied research', 'data science summer school',
+    'corporate governance summer school', 'lse corporate governance summer',
+    'call for papers:', 'call for papers!',  # standalone CFP announcements (not conf titles)
+    'now accepting submissions', 'research grants provided by',
 ]
 NON_CONFERENCE_EXACT = [
     'summer school',  # filter unless "conference" also in name
+    'call for job market paper',
+]
+
+# Safelist: items matching junk keywords but are real conferences
+CONFERENCE_SAFELIST = [
+    'annual meeting', 'annual conference', 'midyear meeting',
+    'finance conference', 'accounting conference', 'economics conference',
+    'annual congress', 'winter finance', 'research conference',
+    'workshop', 'symposium', 'forum', 'summit',
 ]
 
 def is_non_conference(name):
@@ -65,6 +88,10 @@ def is_non_conference(name):
     name_lower = name.lower()
     for kw in NON_CONFERENCE_KEYWORDS:
         if kw in name_lower:
+            # Check safelist — real conferences that happen to match a junk keyword
+            for safe in CONFERENCE_SAFELIST:
+                if safe in name_lower:
+                    return False
             return True
     for kw in NON_CONFERENCE_EXACT:
         if kw in name_lower and 'conference' not in name_lower:

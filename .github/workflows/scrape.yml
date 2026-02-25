@@ -30,6 +30,21 @@ jobs:
       - name: Assign tiers to new conferences
         run: python assign_tiers.py --no-api
 
+      - name: Remove entries without conference dates
+        run: |
+          python3 -c "
+          import json
+          data = json.load(open('conferences.json'))
+          before = len(data)
+          clean = [c for c in data if c.get('startDate') and c['startDate'].strip()]
+          removed = before - len(clean)
+          if removed > 0:
+              json.dump(clean, open('conferences.json', 'w'), indent=2)
+              print(f'Removed {removed} entries without startDate (kept {len(clean)})')
+          else:
+              print(f'All {before} entries have startDate — no cleanup needed')
+          "
+
       - name: Commit and push changes
         run: |
           git config user.name "SSRN Scraper Bot"
