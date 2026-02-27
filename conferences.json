@@ -6897,5 +6897,54 @@
     "deadline": "2027-02-26",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 564,
+    "name": "5th Conference in Sustainable Finance at the University of Luxembourg",
+    "dates": "Jul 1-2",
+    "startDate": "2026-07-01",
+    "location": "University of Luxembourg",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18878",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18878",
+    "deadline": "2026-04-07",
+    "url": "",
+    "tier": "3"
+  },
+  {
+    "id": 565,
+    "name": "Call for Papers: 2026 International Symposium on Climate, Finance, and Sustainability (ISCFS-2026)",
+    "dates": "Jun 25-26",
+    "startDate": "2026-06-25",
+    "location": "House of Management Science, Paris Pantheon-Assas University (1 rue Guy-de-la-Brosse 75005 Paris, France)",
+    "country": "France",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18877",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18877",
+    "deadline": "2026-04-30",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 566,
+    "name": "Call for Papers: 7th CEAR-RSI Household Finance Workshop",
+    "dates": "Nov 13-14",
+    "startDate": "2026-11-13",
+    "location": "HEC Montr\u00e9al",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18868",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18868",
+    "deadline": "2026-06-12",
+    "url": "",
+    "tier": "2"
   }
 ]
