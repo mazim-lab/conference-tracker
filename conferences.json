@@ -7020,7 +7020,7 @@
     "dates": "Mar 20, 2026",
     "startDate": "2026-03-20",
     "location": "TBD",
-    "country": "",
+    "country": "United States",
     "disc": [
       "acct"
     ],
@@ -7036,7 +7036,7 @@
     "dates": "14–16 April 2026",
     "startDate": "2026-04-14",
     "location": "TBD",
-    "country": "",
+    "country": "United Kingdom",
     "disc": [
       "acct"
     ],
@@ -7052,7 +7052,7 @@
     "dates": "Jun 01, 2026",
     "startDate": "2026-06-01",
     "location": "Bucuresti",
-    "country": "",
+    "country": "United Kingdom",
     "disc": [
       "acct"
     ],
@@ -7068,7 +7068,7 @@
     "dates": "8-11 July 2026",
     "startDate": "2026-07-08",
     "location": "TBD",
-    "country": "",
+    "country": "Australia",
     "disc": [
       "acct"
     ],
@@ -7082,9 +7082,9 @@
     "id": 620,
     "name": "lape.finestworkshop2026@unilim.fr",
     "dates": "",
-    "startDate": "",
+    "startDate": "2026-06-01",
     "location": "TBD",
-    "country": "",
+    "country": "France",
     "disc": [
       "fin"
     ],
@@ -7092,22 +7092,6 @@
     "ssrnLink": "",
     "deadline": "",
     "url": "mailto:lape.finestworkshop2026@unilim.fr",
-    "tier": "2"
-  },
-  {
-    "id": 621,
-    "name": "Finance Events, Calls for Papers, Research Initiatives and Announcements",
-    "dates": "September 2026",
-    "startDate": "",
-    "location": "Online Conference",
-    "country": "",
-    "disc": [
-      "fin"
-    ],
-    "sid": "efa-831391e7",
-    "ssrnLink": "",
-    "deadline": "2026-04-03",
-    "url": "#Event",
     "tier": "2"
   }
 ]

@@ -1,0 +1,26 @@
+You are a research assistant. Your job is to find the EXACT conference dates for these academic conferences.
+
+For each conference below, do the following:
+1. If a URL is provided, use the browser to visit it and extract the conference dates
+2. If no URL or the URL doesn't work, search the web for the conference name + year
+3. If you find the dates, extract: startDate (YYYY-MM-DD), dates (human readable like "Mar 19-20"), location, country
+4. If this is clearly NOT a conference (it's a journal call, research project, prize, etc.), mark it as "remove"
+5. If you genuinely cannot find dates after searching, mark as "unknown"
+
+IMPORTANT:
+- Use web_search and web_fetch tools to find information
+- For Cloudflare-blocked sites (like SSRN), use web_search instead
+- Be precise with dates — don't guess
+- Output ONLY a JSON array of results, one per conference, in this format:
+[
+  {"index": 1, "action": "fix", "startDate": "2026-03-19", "dates": "Mar 19-20", "location": "City", "country": "Country", "url": "https://..."},
+  {"index": 2, "action": "remove", "reason": "Not a conference - journal call for papers"},
+  {"index": 3, "action": "unknown", "reason": "No dates found after searching"}
+]
+
+Here are the conferences:
+
+1. "Atlanta Fed's 29th Annual Financial Markets Conference" | SSRN: https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17215 | Deadline: 2026-05-19 | Location: TBD
+2. "100 Years of the Ramsey Model" | SSRN: https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18713 | Location: TBD
+
+Output ONLY the JSON array. No other text.
