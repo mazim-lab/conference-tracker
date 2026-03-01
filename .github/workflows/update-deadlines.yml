@@ -36,6 +36,8 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update deadlines $(date +%Y-%m-%d)"
+            git stash --include-untracked || true
             git pull --rebase origin main
+            git stash pop || true
             git push origin main
           fi
