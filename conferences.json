@@ -6946,5 +6946,38 @@
     "deadline": "2026-06-12",
     "url": "",
     "tier": "2"
+  },
+  {
+    "id": 567,
+    "name": "India Finance Conference (IFC) 2026",
+    "dates": "Dec 21-23",
+    "startDate": "2026-12-21",
+    "location": "Indian Institute of Management Bangalore",
+    "country": "India",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18882",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18882",
+    "deadline": "2026-08-16",
+    "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 613,
+    "name": "India Finance Conference (IFC) 2026",
+    "dates": "Dec 21-23",
+    "startDate": "2026-12-21",
+    "location": "Indian Institute of Management Bangalore",
+    "country": "India",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18883",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18883",
+    "deadline": "2026-08-16",
+    "url": "",
+    "tier": "2"
   }
 ]
