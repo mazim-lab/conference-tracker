@@ -549,7 +549,7 @@
     "sid": "17389",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17389",
     "deadline": "2025-07-31",
-    "url": "",
+    "url": "https://mf-conference.com/",
     "tier": "2"
   },
   {
@@ -1264,7 +1264,7 @@
     "sid": "17192",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17192",
     "deadline": "2025-09-15",
-    "url": "",
+    "url": "https://tu-dresden.de/bu/wirtschaft/bwl/finance/events/ai-in-corporate-finance-pdw-2025",
     "tier": ""
   },
   {
@@ -2123,7 +2123,7 @@
     "sid": "17695",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17695",
     "deadline": "2025-09-30",
-    "url": "",
+    "url": "https://www.cicfconf.org/",
     "tier": "2"
   },
   {
@@ -2579,7 +2579,7 @@
     "sid": "17451",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17451",
     "deadline": "2025-11-01",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-journal-of-business-finance-and-accounting-jbfa-conference",
     "tier": "2"
   },
   {
@@ -2629,7 +2629,7 @@
     "sid": "17884",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17884",
     "deadline": "2025-11-18",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-baruch-jfqa-climate-finance-and-sustainability-conference",
     "tier": "2"
   },
   {
@@ -4579,7 +4579,7 @@
     "sid": "18197",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18197",
     "deadline": "2026-04-07",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/accounting-summer-camp-2026-ix-edition",
     "tier": "1"
   },
   {
@@ -4710,7 +4710,7 @@
     "sid": "18112",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18112",
     "deadline": "2026-06-26",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-journal-of-accounting-and-public-policy-conference",
     "tier": "2"
   },
   {
@@ -5173,14 +5173,14 @@
     "dates": "Sep 10-12",
     "startDate": "2026-09-10",
     "location": "Zion National Park",
-    "country": "USA",
+    "country": "Switzerland",
     "disc": [
       "fin"
     ],
     "sid": "18506",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18506",
     "deadline": "2026-03-22",
-    "url": "",
+    "url": "https://afajof.org/conference-calendar/?trumbaEmbed=view%3devent%26eventid%3d194654373",
     "tier": "1"
   },
   {
@@ -5374,7 +5374,7 @@
     "sid": "18137",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18137",
     "deadline": "2026-03-27",
-    "url": "",
+    "url": "https://www.unilim.fr/lape/wp-content/uploads/sites/21/2026/01/2026-Finest-Spring-WorkShop-Call_FINAL.pdf",
     "tier": "1"
   },
   {
@@ -5909,7 +5909,7 @@
     "sid": "18806",
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18806",
     "deadline": "2026-09-04",
-    "url": "",
+    "url": "https://eaa-online.org/arc/events/2026-caaa-annual-conference-call-for-papers",
     "tier": "2"
   },
   {
@@ -6978,6 +6978,136 @@
     "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18883",
     "deadline": "2026-08-16",
     "url": "",
+    "tier": "2"
+  },
+  {
+    "id": 614,
+    "name": "2026 MAS/IMA Teaching Case Conference",
+    "dates": "Jun 12-13",
+    "startDate": "2026-06-12",
+    "location": "Tampa, FL",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-83ed4a6d",
+    "ssrnLink": "",
+    "deadline": "2026-04-03",
+    "url": "https://aaahq.org/Meetings/2026/MAS-IMA-Teaching-Case-Conference",
+    "tier": "2",
+    "source": "aaa"
+  },
+  {
+    "id": 615,
+    "name": "Audit Educators' Bootcamp",
+    "dates": "Jun 23-25",
+    "startDate": "2026-06-23",
+    "location": "Chicago, IL",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-e3e6f13a",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://aaahq.org/Meetings/2026/Audit-Educators-Bootcamp",
+    "tier": "2",
+    "source": "aaa"
+  },
+  {
+    "id": 616,
+    "name": "AAA GOVERNMENT AND NONPROFIT (GNP) SECTION MIDYEAR MEETING – IN PARTNERSHIP WITH THE PUBLIC INTEREST, ETHICS, AND SUSTAINABILITY (PIES) SECTION",
+    "dates": "Mar 20, 2026",
+    "startDate": "2026-03-20",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-a76ec83e",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/aaa-government-and-nonprofit-gnp-section-midyear-meeting-in-partnership-with-the-public-interest-ethics-and-sustainability-pies-section",
+    "tier": "2"
+  },
+  {
+    "id": 617,
+    "name": "Annual Conference with Doctoral Masterclasses 2026",
+    "dates": "14–16 April 2026",
+    "startDate": "2026-04-14",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-a45c813f",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/annual-conference-with-doctoral-masterclasses-2026",
+    "tier": "2"
+  },
+  {
+    "id": 618,
+    "name": "EMERGING SCHOLARS’ COLLOQUIUM at 2nd ACCOUNTING FORUM CONFERENCE",
+    "dates": "Jun 01, 2026",
+    "startDate": "2026-06-01",
+    "location": "Bucuresti",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-32db491d",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/emerging-scholars-colloquium-at-2nd-accounting-forum-conference",
+    "tier": "2"
+  },
+  {
+    "id": 619,
+    "name": "The Thirteenth Accounting History International Conference",
+    "dates": "8-11 July 2026",
+    "startDate": "2026-07-08",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "acct"
+    ],
+    "sid": "eaa-d0e55fa0",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "https://eaa-online.org/arc/events/the-thirteenth-accounting-history-international-conference",
+    "tier": "2"
+  },
+  {
+    "id": 620,
+    "name": "lape.finestworkshop2026@unilim.fr",
+    "dates": "",
+    "startDate": "",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "efa-16cb2fff",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "mailto:lape.finestworkshop2026@unilim.fr",
+    "tier": "2"
+  },
+  {
+    "id": 621,
+    "name": "Finance Events, Calls for Papers, Research Initiatives and Announcements",
+    "dates": "September 2026",
+    "startDate": "",
+    "location": "Online Conference",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "efa-831391e7",
+    "ssrnLink": "",
+    "deadline": "2026-04-03",
+    "url": "#Event",
     "tier": "2"
   }
 ]
