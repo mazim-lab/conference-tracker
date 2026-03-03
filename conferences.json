@@ -7093,5 +7093,21 @@
     "deadline": "2026-04-03",
     "url": "",
     "tier": "2"
+  },
+  {
+    "id": 668,
+    "name": "2026 Financial Stability Conference Call for Papers",
+    "dates": "Nov 19-20",
+    "startDate": "2026-11-19",
+    "location": "Federal Reserve Bank of Cleveland",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18886",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18886",
+    "deadline": "2026-07-07",
+    "url": "",
+    "tier": "2"
   }
 ]
