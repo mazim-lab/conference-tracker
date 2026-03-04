@@ -7091,7 +7091,23 @@
     "sid": "efa-831391e7",
     "ssrnLink": "",
     "deadline": "2026-04-03",
-    "url": "",
+    "url": "#Event",
+    "tier": "2"
+  },
+  {
+    "id": 622,
+    "name": "lape.finestworkshop2026@unilim.fr",
+    "dates": "",
+    "startDate": "",
+    "location": "TBD",
+    "country": "",
+    "disc": [
+      "fin"
+    ],
+    "sid": "efa-16cb2fff",
+    "ssrnLink": "",
+    "deadline": "",
+    "url": "mailto:lape.finestworkshop2026@unilim.fr",
     "tier": "2"
   },
   {
