@@ -1,55 +1,55 @@
-08:04:49  ===========================================
-08:04:49    Conference Tier Assigner
-08:04:49  ===========================================
-08:04:49  Loaded 491 conferences
-08:04:49  Conferences without tiers: 248
-08:04:49  
+08:02:09  ===========================================
+08:02:09    Conference Tier Assigner
+08:02:09  ===========================================
+08:02:09  Loaded 493 conferences
+08:02:09  Conferences without tiers: 251
+08:02:09  
 === Phase 1: Reference dictionary matching ===
-08:04:53    [3] 2026 MRS International Risk Conference (fuzzy(78%):Annual International Conference)
-08:04:53    [2] 2025 GSU-MS AI and FinTech Conference‬ (exact:FinTech Conference)
-08:04:53    [2] 21st European Winter Finance Summit (exact:European Winter Finance Summit)
-08:04:53    [2] CICF 2025: Conference Registration (exact:CICF)
-08:04:53    [3] Call for Papers: Multinational Finance Journal (MFJ) (exact:Multinational Finance)
-08:04:53    [2] 2026 Edition of the Ieke van den Burg Prize for research on  (exact:Systemic Risk)
-08:04:53    [2] 2026 SoFiE Financial Econometrics Summer School (exact:Financial Econometrics)
-08:04:54    [2] EUROFIDAI-ESSEC Paris December Finance Meeting 2025 – Progra (exact:Paris December Finance Meeting)
-08:04:54    [2] 2025 SoFiE Financial Econometrics Summer School (exact:Financial Econometrics)
-08:04:54    [2] Summer School on Market Microstructure (exact:Market Microstructure)
-08:04:54    [1] Call for Papers: 9th CEIBS Finance/Accounting Symposium (fuzzy(79%):LBS Accounting Symposium)
-08:04:54    [1] 2025 CUHK Accounting Research Conference (fuzzy(88%):Dartmouth Accounting Research Conference)
-08:04:54  
-Matched: 12/248 | Unmatched: 236
-08:04:54  
+08:02:14    [3] 2026 MRS International Risk Conference (fuzzy(78%):Annual International Conference)
+08:02:14    [2] 2025 GSU-MS AI and FinTech Conference‬ (exact:FinTech Conference)
+08:02:14    [2] 21st European Winter Finance Summit (exact:European Winter Finance Summit)
+08:02:14    [2] CICF 2025: Conference Registration (exact:CICF)
+08:02:14    [3] Call for Papers: Multinational Finance Journal (MFJ) (exact:Multinational Finance)
+08:02:14    [2] 2026 Edition of the Ieke van den Burg Prize for research on  (exact:Systemic Risk)
+08:02:14    [2] 2026 SoFiE Financial Econometrics Summer School (exact:Financial Econometrics)
+08:02:14    [2] EUROFIDAI-ESSEC Paris December Finance Meeting 2025 – Progra (exact:Paris December Finance Meeting)
+08:02:14    [2] 2025 SoFiE Financial Econometrics Summer School (exact:Financial Econometrics)
+08:02:15    [2] Summer School on Market Microstructure (exact:Market Microstructure)
+08:02:15    [1] Call for Papers: 9th CEIBS Finance/Accounting Symposium (fuzzy(79%):LBS Accounting Symposium)
+08:02:15    [1] 2025 CUHK Accounting Research Conference (fuzzy(88%):Dartmouth Accounting Research Conference)
+08:02:15  
+Matched: 12/251 | Unmatched: 239
+08:02:15  
 === Skipping API (--no-api flag) ===
-08:04:54  236 conferences left untiered:
-08:04:54    ? 2nd Knut Wicksell Conference on Crypto and Fintech
-08:04:54    ? Financial Regulation and RegTech Forum
-08:04:54    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
-08:04:54    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
-08:04:54    ? 2025 International Symposium on Climate Finance and Sustaina
-08:04:54    ? International Society for the Advancement of Financial Econo
-08:04:54    ? Economic Governance of Social Media
-08:04:54    ? Conference on “Climate Policy Commodity Markets and Economic
-08:04:54    ? Symposium on Financial Markets in the Era of Climate Change
-08:04:54    ? 21st Annual Conference of the Asia-Pacific Association of De
-08:04:54    ? Conference on Sustainable Financial Intermediation
-08:04:54    ? Hybrid Conference on Islamic Law and Finance
-08:04:54    ? Sustainability at Crossroads: The Edinburgh and Internationa
-08:04:54    ? Conference on Digital Transformation for Social Impacts and 
-08:04:54    ? Future Finance Fest (3f )
-08:04:54    ? Bayesian Macroeconometric Modelling Workshop
-08:04:54    ? Warwick Business School Gillmore Centre Conference on DeFi &
-08:04:54    ? 2025 Conference Accounting and Finance Research and Educatio
-08:04:54    ? Rice University’s Conference on Accounting & Information Fri
-08:04:54    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
-08:04:54    ... and 216 more
-08:04:54  
+08:02:15  239 conferences left untiered:
+08:02:15    ? 2nd Knut Wicksell Conference on Crypto and Fintech
+08:02:15    ? Financial Regulation and RegTech Forum
+08:02:15    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
+08:02:15    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
+08:02:15    ? 2025 International Symposium on Climate Finance and Sustaina
+08:02:15    ? International Society for the Advancement of Financial Econo
+08:02:15    ? Economic Governance of Social Media
+08:02:15    ? Conference on “Climate Policy Commodity Markets and Economic
+08:02:15    ? Symposium on Financial Markets in the Era of Climate Change
+08:02:15    ? 21st Annual Conference of the Asia-Pacific Association of De
+08:02:15    ? Conference on Sustainable Financial Intermediation
+08:02:15    ? Hybrid Conference on Islamic Law and Finance
+08:02:15    ? Sustainability at Crossroads: The Edinburgh and Internationa
+08:02:15    ? Conference on Digital Transformation for Social Impacts and 
+08:02:15    ? Future Finance Fest (3f )
+08:02:15    ? Bayesian Macroeconometric Modelling Workshop
+08:02:15    ? Warwick Business School Gillmore Centre Conference on DeFi &
+08:02:15    ? 2025 Conference Accounting and Finance Research and Educatio
+08:02:15    ? Rice University’s Conference on Accounting & Information Fri
+08:02:15    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
+08:02:15    ... and 219 more
+08:02:15  
 === SUMMARY ===
-08:04:54  Tier 1: 45
-08:04:54  Tier 2: 135
-08:04:54  Tier 3: 62
-08:04:54  No tier: 236
-08:04:54  
+08:02:15  Tier 1: 45
+08:02:15  Tier 2: 134
+08:02:15  Tier 3: 62
+08:02:15  No tier: 239
+08:02:15  
 Saved to conferences.json
-08:04:54  
+08:02:15  
 Done! Check tier_log.txt for details.
