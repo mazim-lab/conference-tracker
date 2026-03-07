@@ -7125,5 +7125,21 @@
     "deadline": "2026-10-09",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 718,
+    "name": "Call for Papers: Inflation: Drivers and Dynamics 2026 Conference",
+    "dates": "Sep 24-25",
+    "startDate": "2026-09-24",
+    "location": "Federal Reserve Bank of Cleveland",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18906",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18906",
+    "deadline": "2026-09-24",
+    "url": "",
+    "tier": ""
   }
 ]
