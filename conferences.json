@@ -7141,5 +7141,70 @@
     "deadline": "2026-09-24",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 719,
+    "name": "International Conference in Venice - Artificial Intelligence, Financial Innovation and Credit Risk - CALL FOR PAPERS",
+    "dates": "Sep 24-25",
+    "startDate": "2026-09-24",
+    "location": "Venice, Italy",
+    "country": "Italy",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18913",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18913",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": ""
+  },
+  {
+    "id": 720,
+    "name": "Conference on CSR, the Economy and Financial Markets",
+    "dates": "Nov 5-6",
+    "startDate": "2026-11-05",
+    "location": "D\u00fcsseldorf, Germany",
+    "country": "Germany",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18912",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18912",
+    "deadline": "2026-08-15",
+    "url": "",
+    "tier": "1"
+  },
+  {
+    "id": 721,
+    "name": "Inaugural Annual Conference on Insurance",
+    "dates": "Oct 22-23",
+    "startDate": "2026-10-22",
+    "location": "Federal Reserve Bank of Chicago",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18911",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18911",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": "3"
+  },
+  {
+    "id": 722,
+    "name": "Call for Papers: 2026 Vietnam Symposium on Global Economy (VSGE2026)",
+    "dates": "Jul 27-28",
+    "startDate": "2026-07-27",
+    "location": "Ho Chi Minh City, Vietnam",
+    "country": "Vietnam",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18894",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18894",
+    "deadline": "2026-05-15",
+    "url": "",
+    "tier": "3"
   }
 ]
