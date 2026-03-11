@@ -7206,5 +7206,21 @@
     "deadline": "2026-05-15",
     "url": "",
     "tier": "3"
+  },
+  {
+    "id": 723,
+    "name": "15th CDI Conference on Derivatives",
+    "dates": "Sep 17-18",
+    "startDate": "2026-09-17",
+    "location": "Montreal, Canada",
+    "country": "Canada",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18919",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18919",
+    "deadline": "2026-05-03",
+    "url": "",
+    "tier": ""
   }
 ]
