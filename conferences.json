@@ -7222,5 +7222,21 @@
     "deadline": "2026-05-03",
     "url": "",
     "tier": ""
+  },
+  {
+    "id": 724,
+    "name": "Aarhus Finance Forum 2026",
+    "dates": "Aug 2-4",
+    "startDate": "2026-08-02",
+    "location": "Aarhus, Denmark",
+    "country": "Denmark",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18925",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18925",
+    "deadline": "2026-04-30",
+    "url": "",
+    "tier": "2"
   }
 ]
