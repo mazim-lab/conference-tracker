@@ -1007,6 +1007,8 @@
       const[showArchive,setShowArchive]=useState(false);
       const[showTBD,setShowTBD]=useState(false);
       const[comparisonList,setComparisonList]=useState([]);
+      const[showAddedToday,setShowAddedToday]=useState(true);
+      const[showAddedThisWeek,setShowAddedThisWeek]=useState(false);
       const[showComparisonModal,setShowComparisonModal]=useState(false);
 
       const handleCompareToggle=useCallback((id)=>{
@@ -1034,6 +1036,8 @@
       },[]);
 
       const recentlyAdded=useMemo(()=>conferences.filter(c=>c.dateAdded===TODAY_STR).sort((a,b)=>a.name.localeCompare(b.name)),[conferences]);
+      const WEEK_AGO_STR=useMemo(()=>{const d=new Date(TODAY);d.setDate(d.getDate()-7);return d.toISOString().split("T")[0];},[]);
+      const addedThisWeek=useMemo(()=>conferences.filter(c=>c.dateAdded&&c.dateAdded!==TODAY_STR&&c.dateAdded>=WEEK_AGO_STR).sort((a,b)=>b.dateAdded.localeCompare(a.dateAdded)||a.name.localeCompare(b.name)),[conferences,WEEK_AGO_STR]);
       const upcoming=useMemo(()=>conferences.filter(c=>{const d=getDaysUntil(c.startDate);return d!==null&&d>=0;}),[conferences]);
       const datesTBD=useMemo(()=>conferences.filter(c=>getDaysUntil(c.startDate)===null),[conferences]);
       const pastConfs=useMemo(()=>conferences.filter(c=>{const d=getDaysUntil(c.startDate);return d!==null&&d<0;}).sort((a,b)=>new Date(b.startDate)-new Date(a.startDate)),[conferences]);
@@ -1139,18 +1143,36 @@
 
           </div>
 
-          {/* RECENTLY ADDED */}
+          {/* ADDED TODAY */}
           {recentlyAdded.length>0&&(
             <div style={{maxWidth:980,margin:"0 auto",padding:"0 20px 16px"}}>
               <div style={{padding:"16px 18px",borderRadius:10,background:isDark?"rgba(16,185,129,0.06)":"rgba(16,185,129,0.04)",border:"1px solid "+(isDark?"rgba(16,185,129,0.2)":"rgba(16,185,129,0.15)")}}>
-                <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                <div onClick={()=>setShowAddedToday(!showAddedToday)} style={{display:"flex",alignItems:"center",gap:8,cursor:"pointer",userSelect:"none"}}>
+                  <span style={{fontSize:10,color:T.textDim,transition:"transform 0.2s",transform:showAddedToday?"rotate(90deg)":"rotate(0deg)"}}>▶</span>
                   <span style={{fontSize:14}}>🆕</span>
                   <span style={{fontSize:13,fontWeight:600,color:isDark?"#34d399":"#059669"}}>Added Today</span>
                   <span style={{fontSize:10,color:T.textDim,fontFamily:"'JetBrains Mono',monospace"}}>{recentlyAdded.length} conference{recentlyAdded.length!==1?"s":""}</span>
                 </div>
-                <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                {showAddedToday&&(<div style={{display:"flex",flexDirection:"column",gap:4,marginTop:10}}>
                   {recentlyAdded.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} isSelected={comparisonList.includes(c.id)} onCompareToggle={handleCompareToggle} travelData={travelData} />)}
+                </div>)}
+              </div>
+            </div>
+          )}
+
+          {/* ADDED THIS WEEK */}
+          {addedThisWeek.length>0&&(
+            <div style={{maxWidth:980,margin:"0 auto",padding:"0 20px 16px"}}>
+              <div style={{padding:"16px 18px",borderRadius:10,background:isDark?"rgba(59,130,246,0.06)":"rgba(59,130,246,0.04)",border:"1px solid "+(isDark?"rgba(59,130,246,0.2)":"rgba(59,130,246,0.15)")}}>
+                <div onClick={()=>setShowAddedThisWeek(!showAddedThisWeek)} style={{display:"flex",alignItems:"center",gap:8,cursor:"pointer",userSelect:"none"}}>
+                  <span style={{fontSize:10,color:T.textDim,transition:"transform 0.2s",transform:showAddedThisWeek?"rotate(90deg)":"rotate(0deg)"}}>▶</span>
+                  <span style={{fontSize:14}}>📅</span>
+                  <span style={{fontSize:13,fontWeight:600,color:isDark?"#60a5fa":"#2563eb"}}>Added This Week</span>
+                  <span style={{fontSize:10,color:T.textDim,fontFamily:"'JetBrains Mono',monospace"}}>{addedThisWeek.length} conference{addedThisWeek.length!==1?"s":""}</span>
                 </div>
+                {showAddedThisWeek&&(<div style={{display:"flex",flexDirection:"column",gap:4,marginTop:10}}>
+                  {addedThisWeek.map(c=><Card key={c.id} conf={c} expanded={expandedId===c.id} onToggle={()=>setExpandedId(expandedId===c.id?null:c.id)} sortBy={sortBy} T={T} isDark={isDark} isSelected={comparisonList.includes(c.id)} onCompareToggle={handleCompareToggle} travelData={travelData} />)}
+                </div>)}
               </div>
             </div>
           )}
