@@ -187,6 +187,13 @@ DEADLINE_PATTERNS = [
     # Allow optional timezone / filler words (e.g., "PST,", "11:59 PM EST,", "midnight") between keyword and date
     # The (?:.*?) bridges up to ~40 chars of filler between the keyword and the date
 
+    # "Submission Period: ... closes on April 30, 2026" / "closes on 30 April 2026"
+    r"closes\s+on\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"closes\s+on\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+    # "closes [date]" without "on"
+    r"closes\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\w+\s+\d{1,2},?\s+\d{4})",
+    r"closes\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?(\d{1,2}(?:st|nd|rd|th)?\s+\w+,?\s+\d{4})",
+
     # "Submission Deadline: [optional filler] February 25, 2026" (Month DD, YYYY)
     r"[Ss]ubmission\s+[Dd]eadline[:\s]+(?:[^,\n]{0,40}?,\s*)?(\w+\s+\d{1,2},?\s+\d{4})",
     # "Submission deadline: [optional filler] 30 April, 2026" (DD Month, YYYY)
