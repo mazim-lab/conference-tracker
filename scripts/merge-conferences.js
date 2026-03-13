@@ -149,6 +149,7 @@ async function run() {
         newConf.ssrnLink = newConf.ssrnLink || '';
         newConf.tier = newConf.tier || '2';
         newConf.disc = newConf.disc || ['acct'];
+        newConf.dateAdded = new Date().toISOString().split('T')[0];
         
         existing.push(newConf);
         added++;
