@@ -7531,23 +7531,6 @@
     "dateAdded": null
   },
   {
-    "id": 622,
-    "name": "lape.finestworkshop2026@unilim.fr",
-    "dates": "",
-    "startDate": "",
-    "location": "TBD",
-    "country": "",
-    "disc": [
-      "fin"
-    ],
-    "sid": "efa-16cb2fff",
-    "ssrnLink": "",
-    "deadline": "",
-    "url": "mailto:lape.finestworkshop2026@unilim.fr",
-    "tier": "2",
-    "dateAdded": null
-  },
-  {
     "id": 668,
     "name": "2026 Financial Stability Conference Call for Papers",
     "dates": "Nov 19-20",
@@ -7563,5 +7546,177 @@
     "url": "",
     "tier": "2",
     "dateAdded": null
+  },
+  {
+    "id": 669,
+    "name": "Call for Papers: The Second USTC Frontiers in Finance Conference",
+    "dates": "Jun 30 - Jul 1",
+    "startDate": "2026-06-30",
+    "location": "International Finance Institute, University of Science and Technology of China, No. 1789 Guangxi Road, Binhu New District, Hefei City, Anhui Province, P.R.China",
+    "country": "China",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18933",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18933",
+    "deadline": "2025-05-31",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 670,
+    "name": "7th Annual RCF-ECGI Corporate Finance and Governance Conference",
+    "dates": "Oct 9-11",
+    "startDate": "2026-10-09",
+    "location": "Madrid, Spain, and virtually",
+    "country": "Spain",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18930",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18930",
+    "deadline": "2026-05-01",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 671,
+    "name": "Aarhus Finance Forum 2026",
+    "dates": "Aug 2-4",
+    "startDate": "2026-08-02",
+    "location": "Aarhus, Denmark",
+    "country": "Denmark",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18925",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18925",
+    "deadline": "2026-04-30",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 672,
+    "name": "15th CDI Conference on Derivatives",
+    "dates": "Sep 17-18",
+    "startDate": "2026-09-17",
+    "location": "Montreal, Canada",
+    "country": "Canada",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18919",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18919",
+    "deadline": "2026-05-03",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 673,
+    "name": "International Conference in Venice - Artificial Intelligence, Financial Innovation and Credit Risk - CALL FOR PAPERS",
+    "dates": "Sep 24-25",
+    "startDate": "2026-09-24",
+    "location": "Venice, Italy",
+    "country": "Italy",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18913",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18913",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 674,
+    "name": "Conference on CSR, the Economy and Financial Markets",
+    "dates": "Nov 5-6",
+    "startDate": "2026-11-05",
+    "location": "D\u00fcsseldorf, Germany",
+    "country": "Germany",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "18912",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18912",
+    "deadline": "2026-08-15",
+    "url": "",
+    "tier": "1",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 675,
+    "name": "Inaugural Annual Conference on Insurance",
+    "dates": "Oct 22-23",
+    "startDate": "2026-10-22",
+    "location": "Federal Reserve Bank of Chicago",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18911",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18911",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 676,
+    "name": "Call for Papers: 2026 Vietnam Symposium on Global Economy (VSGE2026)",
+    "dates": "Jul 27-28",
+    "startDate": "2026-07-27",
+    "location": "Ho Chi Minh City, Vietnam",
+    "country": "Vietnam",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18894",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18894",
+    "deadline": "2026-05-15",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 677,
+    "name": "CALL FOR PAPERS The 21st Annual Conference on Asia-Pacific Financial Markets (CAFM) Seoul, Korea, December 10-11, 2026",
+    "dates": "Dec 10-11",
+    "startDate": "2026-12-10",
+    "location": "CONRAD Seoul",
+    "country": "South Korea",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18892",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18892",
+    "deadline": "2026-10-09",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-13"
+  },
+  {
+    "id": 728,
+    "name": "Call for Papers: Inflation: Drivers and Dynamics 2026 Conference",
+    "dates": "Sep 24-25",
+    "startDate": "2026-09-24",
+    "location": "Federal Reserve Bank of Cleveland",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "18906",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18906",
+    "deadline": "2026-09-24",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-13"
   }
 ]
