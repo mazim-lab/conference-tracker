@@ -616,6 +616,7 @@ def merge_scraped_into_existing(existing, scraped):
                 "deadline": s.get("deadline", "TBD"),
                 "url": "",
                 "tier": "",
+                "dateAdded": datetime.now().strftime("%Y-%m-%d"),
             }
             existing.append(new_conf)
             existing_by_sid[sid] = new_conf
