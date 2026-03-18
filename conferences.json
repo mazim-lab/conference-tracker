@@ -7718,5 +7718,57 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-03-07"
+  },
+  {
+    "id": 729,
+    "name": "Call for Papers: ECB Money Market Conference 2026",
+    "dates": "Nov 5-6",
+    "startDate": "2026-11-05",
+    "location": "European Central Bank, Frankfurt am Main, Germany",
+    "country": "Germany",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18948",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18948",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-18"
+  },
+  {
+    "id": 730,
+    "name": "Finance in the Digital Age (FiDA) Workshop",
+    "dates": "May 26-27",
+    "startDate": "2026-05-26",
+    "location": "Calgary, Canada",
+    "country": "Canada",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18945",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18945",
+    "deadline": "2026-05-26",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-18"
+  },
+  {
+    "id": 775,
+    "name": "23rd Asian Academic Accounting Association Annual Conference 2026: Call for Papers",
+    "dates": "Nov 27-28",
+    "startDate": "2026-11-27",
+    "location": "Saint Francis University, Hong Kong",
+    "country": "Hong Kong",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18941",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18941",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-03-18"
   }
 ]
