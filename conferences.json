@@ -7770,5 +7770,22 @@
     "url": "",
     "tier": "3",
     "dateAdded": "2026-03-18"
+  },
+  {
+    "id": 822,
+    "name": "Call for Papers - 41st Annual Contemporary Accounting Research (CAR) Conference / Appel \u00e0 communications - 41e colloque annuel Recherche comptable contemporaine (RCC)",
+    "dates": "Oct 23-24",
+    "startDate": "2026-10-23",
+    "location": "Montr\u00e9al, Qu\u00e9bec, Canada",
+    "country": "Canada",
+    "disc": [
+      "acct"
+    ],
+    "sid": "18955",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18955",
+    "deadline": "2026-04-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-19"
   }
 ]
