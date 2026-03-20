@@ -7787,5 +7787,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-03-19"
+  },
+  {
+    "id": 823,
+    "name": "Call for Papers: The Second USTC Frontiers in Finance Conference",
+    "dates": "Jun 30 - Jul 1",
+    "startDate": "2026-06-30",
+    "location": "International Finance Institute, University of Science and Technology of China, No. 1789 Guangxi Road, Binhu New District, Hefei City, Anhui Province, P.R.China",
+    "country": "China",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18931",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18931",
+    "deadline": "2026-04-30",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-03-20"
   }
 ]
