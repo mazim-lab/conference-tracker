@@ -7804,5 +7804,73 @@
     "url": "",
     "tier": "2",
     "dateAdded": "2026-03-20"
+  },
+  {
+    "id": 824,
+    "name": "Call for Papers Inquire Europe Autumn Conference: \u201cExpectations and Asset Prices\u201d",
+    "dates": "Sep 27-29",
+    "startDate": "2026-09-27",
+    "location": "Prague, Czech Republic",
+    "country": "Czech Republic",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18965",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18965",
+    "deadline": "2026-04-17",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-21"
+  },
+  {
+    "id": 825,
+    "name": "Call for Papers: The WFE\u2019s Sustainability Conference 2026",
+    "dates": "Jun 3-4",
+    "startDate": "2026-06-03",
+    "location": "Luxembourg",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18960",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18960",
+    "deadline": "2026-04-06",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-21"
+  },
+  {
+    "id": 826,
+    "name": "2026 FMA Annual Meeting",
+    "dates": "Oct 14-17",
+    "startDate": "2026-10-14",
+    "location": "Tampa, FL",
+    "country": "USA",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18959",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18959",
+    "deadline": "2026-04-01",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-03-21"
+  },
+  {
+    "id": 827,
+    "name": "3rd AI in Finance Conference | Montr\u00e9al, Canada",
+    "dates": "Oct 13-15",
+    "startDate": "2026-10-13",
+    "location": "Montr\u00e9al, QC, Canada",
+    "country": "Canada",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18962",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18962",
+    "deadline": "2026-05-31",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-03-21"
   }
 ]
