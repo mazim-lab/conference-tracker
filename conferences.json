@@ -7889,5 +7889,22 @@
     "url": "",
     "tier": "3",
     "dateAdded": "2026-03-23"
+  },
+  {
+    "id": 829,
+    "name": "The 39th Australasian Finance and Banking Conference, Sydney, Australia, 10 to 12 December",
+    "dates": "Dec 10-12",
+    "startDate": "2026-12-10",
+    "location": "AGSM and the UNSW Business School",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18982",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18982",
+    "deadline": "2026-08-10",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-03-25"
   }
 ]
