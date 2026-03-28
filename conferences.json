@@ -7974,5 +7974,23 @@
     "url": "",
     "tier": "3",
     "dateAdded": "2026-03-27"
+  },
+  {
+    "id": 877,
+    "name": "Higher Education Finance Research Conference: Call for Papers",
+    "dates": "Sep 10-11",
+    "startDate": "2026-09-10",
+    "location": "Federal Reserve Bank of Philadelphia",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "18988",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18988",
+    "deadline": "2026-04-27",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-03-28"
   }
 ]
