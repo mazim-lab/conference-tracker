@@ -7992,5 +7992,73 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-03-28"
+  },
+  {
+    "id": 878,
+    "name": "2026 New Zealand Finance Meeting",
+    "dates": "Dec 14-16",
+    "startDate": "2026-12-14",
+    "location": "Auckland, New Zealand",
+    "country": "New Zealand",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19016",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19016",
+    "deadline": "2026-08-15",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-04-01"
+  },
+  {
+    "id": 879,
+    "name": "Stigler Center-CEPR Political Economy of Finance Conference 2026: Crony Capitalism in 21st Century America",
+    "dates": "Nov 6-7",
+    "startDate": "2026-11-06",
+    "location": "Gleacher Center - Chicago",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19006",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19006",
+    "deadline": "2026-06-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-01"
+  },
+  {
+    "id": 880,
+    "name": "CALL FOR PAPERS 15th Fixed Income and Financial Institutions (FIFI) Conference",
+    "dates": "Oct 30-31",
+    "startDate": "2026-10-30",
+    "location": "University of South Carolina in Columbia, SC",
+    "country": "USA",
+    "disc": [
+      "fin"
+    ],
+    "sid": "18999",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18999",
+    "deadline": "2026-06-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-01"
+  },
+  {
+    "id": 925,
+    "name": "45th Columbia Burton Accounting Conference - Paper Submission",
+    "dates": "Nov 6-7",
+    "startDate": "2026-11-06",
+    "location": "New York, NY",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "19012",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19012",
+    "deadline": "2026-06-17",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-01"
   }
 ]
