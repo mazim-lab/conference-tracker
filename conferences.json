@@ -8163,5 +8163,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-02"
+  },
+  {
+    "id": 935,
+    "name": "Call for Papers: The 22nd Annual Conference of the Asia-Pacific Association of Derivatives July 13-14, 2026, Busan, Korea",
+    "dates": "Jul 13-14",
+    "startDate": "2026-07-13",
+    "location": "Park Hyatt Busan in Busan, Korea",
+    "country": "South Korea",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19023",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19023",
+    "deadline": "2026-05-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-03"
   }
 ]
