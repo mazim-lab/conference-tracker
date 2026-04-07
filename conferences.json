@@ -8180,5 +8180,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-03"
+  },
+  {
+    "id": 936,
+    "name": "Institute for Quantitative Investment Research Autumn Residential Seminar 2026",
+    "dates": "Oct 4-6",
+    "startDate": "2026-10-04",
+    "location": "Ashdown Park Hotel & Country Club, Wych Cross, East Sussex, UK",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19030",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19030",
+    "deadline": "2026-06-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-07"
   }
 ]
