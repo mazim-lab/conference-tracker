@@ -8197,5 +8197,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-07"
+  },
+  {
+    "id": 981,
+    "name": "Eighteenth ISB Accounting Research Conference",
+    "dates": "Dec 21-22",
+    "startDate": "2026-12-21",
+    "location": "Indian School of Business, Hyderabad",
+    "country": "India",
+    "disc": [
+      "acct"
+    ],
+    "sid": "19052",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19052",
+    "deadline": "2026-06-15",
+    "url": "",
+    "tier": "1",
+    "dateAdded": "2026-04-11"
   }
 ]
