@@ -8214,5 +8214,39 @@
     "url": "",
     "tier": "1",
     "dateAdded": "2026-04-11"
+  },
+  {
+    "id": 982,
+    "name": "Call for Papers: 17th Emerging Markets Conference, 13th to 16th December, 2026",
+    "dates": "Dec 13-16",
+    "startDate": "2026-12-13",
+    "location": "Mumbai, India",
+    "country": "India",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19057",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19057",
+    "deadline": "2026-08-24",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-14"
+  },
+  {
+    "id": 983,
+    "name": "Call for Papers: 2026 International Forum on Financial Regulation and RegTech",
+    "dates": "Jun 13-14",
+    "startDate": "2026-06-13",
+    "location": "Beihang University, Beijing, China",
+    "country": "China",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19055",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19055",
+    "deadline": "2026-04-30",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-14"
   }
 ]
