@@ -8248,5 +8248,40 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-14"
+  },
+  {
+    "id": 984,
+    "name": "CALL FOR PAPERS, WORKSHOPS & PARTICIPATION: THE FUTURE OF DECISION-MAKING AND RISK-TAKING: Bridging Finance, Economics, Brain, and Behavior",
+    "dates": "Aug 12-14",
+    "startDate": "2026-08-12",
+    "location": "Santa Monica, California, USA",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19060",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19060",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-15"
+  },
+  {
+    "id": 1030,
+    "name": "Hawaii Accounting Research Conference",
+    "dates": "Jan 2-5",
+    "startDate": "2027-01-02",
+    "location": "Hilo (Big Island), Hawaii",
+    "country": "Unknown",
+    "disc": [
+      "acct"
+    ],
+    "sid": "17067",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17067",
+    "deadline": "2026-07-31",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-04-15"
   }
 ]
