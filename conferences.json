@@ -8283,5 +8283,22 @@
     "url": "",
     "tier": "2",
     "dateAdded": "2026-04-15"
+  },
+  {
+    "id": 1031,
+    "name": "CHICAGO FED/UNIVERSITY OF CHICAGO CONFERENCE ON MUNICIPAL BOND MARKETS",
+    "dates": "Sep 29-30",
+    "startDate": "2026-09-29",
+    "location": "Federal Reserve Bank of Chicago",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19072",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19072",
+    "deadline": "2026-06-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-16"
   }
 ]
