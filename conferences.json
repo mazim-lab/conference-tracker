@@ -8300,5 +8300,23 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-16"
+  },
+  {
+    "id": 1033,
+    "name": "25th Annual Bank Research Conference Call for Papers and Posters",
+    "dates": "Sep 24-25",
+    "startDate": "2026-09-24",
+    "location": "Arlington, VA",
+    "country": "USA",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19077",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19077",
+    "deadline": "2026-04-24",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-04-17"
   }
 ]
