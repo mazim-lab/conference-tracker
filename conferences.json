@@ -8318,5 +8318,22 @@
     "url": "",
     "tier": "2",
     "dateAdded": "2026-04-17"
+  },
+  {
+    "id": 1081,
+    "name": "2026 HKUST Accounting Research Symposium",
+    "dates": "Dec 14-15",
+    "startDate": "2026-12-14",
+    "location": "HKUST, Clearwater Bay, Kowloon, HONG KONG.",
+    "country": "Hong Kong",
+    "disc": [
+      "acct"
+    ],
+    "sid": "19085",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19085",
+    "deadline": "2026-09-15",
+    "url": "",
+    "tier": "1",
+    "dateAdded": "2026-04-18"
   }
 ]
