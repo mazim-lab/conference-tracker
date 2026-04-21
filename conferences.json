@@ -8335,5 +8335,22 @@
     "url": "",
     "tier": "1",
     "dateAdded": "2026-04-18"
+  },
+  {
+    "id": 1082,
+    "name": "Call for papers for EBA's 15th Policy Research Workshop: Efficient and proportionate regulation for a competitive financial sector",
+    "dates": "Nov 18-19",
+    "startDate": "2026-11-18",
+    "location": "EBA premises (Paris, France) and remotely",
+    "country": "France",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19007",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19007",
+    "deadline": "2026-06-19",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-21"
   }
 ]
