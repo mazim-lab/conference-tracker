@@ -8352,5 +8352,23 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-21"
+  },
+  {
+    "id": 1083,
+    "name": "2026 Federal Reserve Stress Testing Research Conference: Call for Papers",
+    "dates": "Nov 5-6",
+    "startDate": "2026-11-05",
+    "location": "Boston, Massachusetts",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19092",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19092",
+    "deadline": "2026-06-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-22"
   }
 ]
