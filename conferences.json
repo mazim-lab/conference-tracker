@@ -8370,5 +8370,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-22"
+  },
+  {
+    "id": 1084,
+    "name": "Call for Abstracts: Prototypes for Humanity 2026 Short Papers Platform",
+    "dates": "Nov 15-19",
+    "startDate": "2026-11-15",
+    "location": "Dubai, UAE",
+    "country": "UAE",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19101",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19101",
+    "deadline": "2026-07-08",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-04-25"
   }
 ]
