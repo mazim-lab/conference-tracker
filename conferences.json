@@ -8387,5 +8387,57 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-04-25"
+  },
+  {
+    "id": 1085,
+    "name": "2026 Wharton Conference on Liquidity and Financial Fragility",
+    "dates": "Oct 9-10",
+    "startDate": "2026-10-09",
+    "location": "University of Pennsylvania, Philadelphia, PA",
+    "country": "USA",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19123",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19123",
+    "deadline": "2026-07-01",
+    "url": "",
+    "tier": "1",
+    "dateAdded": "2026-05-05"
+  },
+  {
+    "id": 1087,
+    "name": "74th Meeting of the EURO Working Group for Commodities and Financial Modelling (EWGCFM)",
+    "dates": "Nov 22-24",
+    "startDate": "2026-11-22",
+    "location": "Casa de Campo, La Romana, Dominican Republic",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19122",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19122",
+    "deadline": "2026-07-31",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-05"
+  },
+  {
+    "id": 1142,
+    "name": "27th Symposium on Auditing Research and 7th Illinois Audit Doctoral Consortium",
+    "dates": "Oct 8-9",
+    "startDate": "2026-10-08",
+    "location": "University of Illinois Urbana-Champaign campus",
+    "country": "Unknown",
+    "disc": [
+      "acct"
+    ],
+    "sid": "19127",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19127",
+    "deadline": "2026-06-05",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-05"
   }
 ]
