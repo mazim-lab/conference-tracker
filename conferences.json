@@ -8439,5 +8439,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-05"
+  },
+  {
+    "id": 1143,
+    "name": "Call for Papers for the 2026 AIM Investment Conference",
+    "dates": "Oct 9-10",
+    "startDate": "2026-10-09",
+    "location": "Austin, Texas",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19133",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19133",
+    "deadline": "2026-06-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-06"
   }
 ]
