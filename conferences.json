@@ -8456,5 +8456,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-06"
+  },
+  {
+    "id": 1198,
+    "name": "34th Annual PBFEAM and 20th NYCU International conferences",
+    "dates": "Nov 27-28",
+    "startDate": "2026-11-27",
+    "location": "National Yang Ming Chiao Tung University, Hsinchu, Taiwan",
+    "country": "Taiwan",
+    "disc": [
+      "acct"
+    ],
+    "sid": "19136",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19136",
+    "deadline": "2026-10-31",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-05-07"
   }
 ]
