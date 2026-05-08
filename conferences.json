@@ -8473,5 +8473,22 @@
     "url": "",
     "tier": "3",
     "dateAdded": "2026-05-07"
+  },
+  {
+    "id": 1199,
+    "name": "Call for Papers: 2026 Conference on Real-Time Data Analysis, Methods, and Applications",
+    "dates": "Oct 9-10",
+    "startDate": "2026-10-09",
+    "location": "Federal Reserve Bank of Philadelphia",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19144",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19144",
+    "deadline": "2026-06-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-08"
   }
 ]
