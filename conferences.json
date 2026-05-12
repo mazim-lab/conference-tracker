@@ -8490,5 +8490,56 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-08"
+  },
+  {
+    "id": 1200,
+    "name": "2026 FMA Asia/Pacific Conference",
+    "dates": "Dec 2-4",
+    "startDate": "2026-12-02",
+    "location": "Massey University, Auckland, New Zealand",
+    "country": "New Zealand",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19159",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19159",
+    "deadline": "2026-05-22",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-05-12"
+  },
+  {
+    "id": 1201,
+    "name": "The Sixth Biennial Conference on Auto Lending: Call for Papers",
+    "dates": "Oct 29-30",
+    "startDate": "2026-10-29",
+    "location": "Federal Reserve Bank of Philadelphia",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19158",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19158",
+    "deadline": "2026-07-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-12"
+  },
+  {
+    "id": 1270,
+    "name": "The Sixth Biennial Conference on Auto Lending: Call for Papers",
+    "dates": "Oct 29-30",
+    "startDate": "2026-10-29",
+    "location": "Federal Reserve Bank of Philadelphia",
+    "country": "Unknown",
+    "disc": [
+      "econ"
+    ],
+    "sid": "19157",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19157",
+    "deadline": "2026-07-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-12"
   }
 ]
