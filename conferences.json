@@ -8541,5 +8541,39 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-12"
+  },
+  {
+    "id": 1271,
+    "name": "4th International Conference on Circular Economy, Business Strategy & Management",
+    "dates": "Oct 5-6",
+    "startDate": "2026-10-05",
+    "location": "Monday 5th and Tuesday 6th October EM Normandie Business School, Caen campus France",
+    "country": "France",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19165",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19165",
+    "deadline": "2026-06-30",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-14"
+  },
+  {
+    "id": 1272,
+    "name": "Climate Finance & Sustainability Conference | Montr\u00e9al, Canada",
+    "dates": "Sep 27-28",
+    "startDate": "2026-09-27",
+    "location": "Montr\u00e9al, QC, Canada",
+    "country": "Canada",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19164",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19164",
+    "deadline": "2026-08-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-14"
   }
 ]
