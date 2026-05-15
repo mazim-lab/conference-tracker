@@ -8575,5 +8575,77 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-14"
+  },
+  {
+    "id": 1273,
+    "name": "Call for Papers for 36th Annual Conference on Financial Economics and Accounting (CFEA)",
+    "dates": "Nov 20-21",
+    "startDate": "2026-11-20",
+    "location": "Toronto, Ontario (Canada)",
+    "country": "Canada",
+    "disc": [
+      "acct",
+      "econ",
+      "fin"
+    ],
+    "sid": "19178",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19178",
+    "deadline": "2026-07-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-15"
+  },
+  {
+    "id": 1274,
+    "name": "2026 Lugano Real Estate and Urban Economics Conference",
+    "dates": "Sep 23-24",
+    "startDate": "2026-09-23",
+    "location": "Lugano, Switzerland",
+    "country": "Switzerland",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19173",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19173",
+    "deadline": "2026-06-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-15"
+  },
+  {
+    "id": 1275,
+    "name": "Santiago Finance Workshop 2026 Call For Papers",
+    "dates": "Dec 14-15",
+    "startDate": "2026-12-14",
+    "location": "Universidad de Chile, Diag. Paraguay 257, Santiago, Chile",
+    "country": "Chile",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19162",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19162",
+    "deadline": "2026-07-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-15"
+  },
+  {
+    "id": 1346,
+    "name": "Call for Papers for the Seventh Joint BoC\u2013ECB\u2013New York Fed - Banxico Conference on Expectations Surveys: Expectations Measurement in Advanced and Emerging Economies",
+    "dates": "Nov 13-14",
+    "startDate": "2026-11-13",
+    "location": "Mexico City",
+    "country": "Mexico",
+    "disc": [
+      "econ"
+    ],
+    "sid": "19176",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19176",
+    "deadline": "2026-08-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-15"
   }
 ]
