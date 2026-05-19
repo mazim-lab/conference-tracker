@@ -8647,5 +8647,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-15"
+  },
+  {
+    "id": 1347,
+    "name": "2026 UNSW Asset Pricing Workshop",
+    "dates": "Dec 3-4",
+    "startDate": "2026-12-03",
+    "location": "Sydney (NSW, Australia)",
+    "country": "Australia",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19181",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19181",
+    "deadline": "2026-08-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-19"
   }
 ]
