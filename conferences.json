@@ -8664,5 +8664,39 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-19"
+  },
+  {
+    "id": 1348,
+    "name": "Colorado Finance Summit 2026 - Call for Papers",
+    "dates": "Dec 10-13",
+    "startDate": "2026-12-10",
+    "location": "Vail, Colorado",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19182",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19182",
+    "deadline": "2026-07-01",
+    "url": "",
+    "tier": "1",
+    "dateAdded": "2026-05-20"
+  },
+  {
+    "id": 1420,
+    "name": "Call for Papers: 2026 Vietnam Symposium in Supply Chain Management (VSSCM-2026)",
+    "dates": "Oct 21-23",
+    "startDate": "2026-10-21",
+    "location": "VinUniversity, Vinhomes Ocean Park, Gia Lam, Hanoi, Vietnam",
+    "country": "Vietnam",
+    "disc": [
+      "econ"
+    ],
+    "sid": "19180",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19180",
+    "deadline": "2026-07-31",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-05-20"
   }
 ]
