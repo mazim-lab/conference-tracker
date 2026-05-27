@@ -8698,5 +8698,40 @@
     "url": "",
     "tier": "3",
     "dateAdded": "2026-05-20"
+  },
+  {
+    "id": 1421,
+    "name": "Call for Papers for 2026 Global AI Finance Research Conference",
+    "dates": "Dec 14-15",
+    "startDate": "2026-12-14",
+    "location": "Taipei, Taiwan",
+    "country": "Taiwan",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19192",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19192",
+    "deadline": "2026-08-31",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-05-27"
+  },
+  {
+    "id": 1422,
+    "name": "THE FUTURE OF DECISION-MAKING AND RISK-TAKING: Bridging Finance, Economics, Brain, and Behavior:",
+    "dates": "Aug 12-14",
+    "startDate": "2026-08-12",
+    "location": "Santa Monica, California, USA",
+    "country": "Unknown",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19188",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19188",
+    "deadline": "2026-07-01",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-27"
   }
 ]
