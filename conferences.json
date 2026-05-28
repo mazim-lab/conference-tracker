@@ -8733,5 +8733,23 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-27"
+  },
+  {
+    "id": 1483,
+    "name": "Call For 10th Rutgers - ATP India Accounting & Finance Symposium",
+    "dates": "Jan 7-8",
+    "startDate": "2027-01-07",
+    "location": "Chennai, India",
+    "country": "India",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "19200",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19200",
+    "deadline": "2026-12-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-28"
   }
 ]
