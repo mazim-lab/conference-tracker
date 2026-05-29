@@ -8751,5 +8751,23 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-28"
+  },
+  {
+    "id": 1546,
+    "name": "Call for Papers: 2026 CLIMATE FINANCE & POLICY (CFP-2026)",
+    "dates": "Oct 8-9",
+    "startDate": "2026-10-08",
+    "location": "Bari, Italy",
+    "country": "Italy",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19190",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19190",
+    "deadline": "2026-09-10",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-05-29"
   }
 ]
