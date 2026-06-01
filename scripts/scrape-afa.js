@@ -2,7 +2,7 @@ const https = require('https');
 const xml2js = require('xml2js');
 const crypto = require('crypto');
 
-const RSS_URL = 'https://trumba.com/calendars/afa-conferences.rss';
+const RSS_URL = 'https://www.trumba.com/calendars/afa-conferences.rss';
 
 // Helper to parse description HTML for metadata
 function parseDescription(description) {
@@ -109,9 +109,17 @@ function extractStartDate(dateStr) {
   return '';
 }
 
-function fetchRSS(url) {
+function fetchRSS(url, maxRedirects = 5) {
   return new Promise((resolve, reject) => {
+    if (maxRedirects <= 0) return reject(new Error('Too many redirects'));
     https.get(url, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        const redirectUrl = res.headers.location.startsWith('http')
+          ? res.headers.location
+          : new URL(res.headers.location, url).href;
+        console.error(`  Following redirect ${res.statusCode} -> ${redirectUrl}`);
+        return fetchRSS(redirectUrl, maxRedirects - 1).then(resolve, reject);
+      }
       let data = '';
       res.on('data', (chunk) => data += chunk);
       res.on('end', () => resolve(data));

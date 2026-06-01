@@ -1,9 +1,16 @@
 const https = require('https');
 const { parseStringPromise } = require('xml2js');
 
-async function fetchFull(url) {
+async function fetchFull(url, maxRedirects = 5) {
   return new Promise((resolve, reject) => {
+    if (maxRedirects <= 0) return reject(new Error('Too many redirects'));
     https.get(url, res => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        const redirectUrl = res.headers.location.startsWith('http')
+          ? res.headers.location
+          : new URL(res.headers.location, url).href;
+        return fetchFull(redirectUrl, maxRedirects - 1).then(resolve, reject);
+      }
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
@@ -55,7 +62,7 @@ function extractEventDate(desc) {
 }
 
 (async () => {
-  const xml = await fetchFull('https://trumba.com/calendars/afa-conferences.rss');
+  const xml = await fetchFull('https://www.trumba.com/calendars/afa-conferences.rss');
   const parsed = await parseStringPromise(xml);
   const items = parsed.rss.channel[0].item || [];
   

@@ -2,22 +2,40 @@ const https = require('https');
 const cheerio = require('cheerio');
 const crypto = require('crypto');
 
-const URL = 'https://european-finance.org/r/news';
+const URLS = [
+  'https://european-finance.org/r/news',
+  'https://www.efa-online.org/r/default.asp?iPage=2',
+];
+const FETCH_TIMEOUT_MS = 15000;
 
 function fetchHTML(url) {
   return new Promise((resolve, reject) => {
     const options = {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-      }
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+      },
+      timeout: FETCH_TIMEOUT_MS
     };
     
-    https.get(url, options, (res) => {
+    const req = https.get(url, options, (res) => {
+      // Follow redirects
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        const redirectUrl = res.headers.location.startsWith('http')
+          ? res.headers.location
+          : new URL(res.headers.location, url).href;
+        console.error(`  Following redirect ${res.statusCode} -> ${redirectUrl}`);
+        return fetchHTML(redirectUrl).then(resolve, reject);
+      }
       let data = '';
       res.on('data', (chunk) => data += chunk);
       res.on('end', () => resolve(data));
       res.on('error', reject);
-    }).on('error', reject);
+    });
+    req.on('error', reject);
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error(`Timeout after ${FETCH_TIMEOUT_MS}ms fetching ${url}`));
+    });
   });
 }
 
@@ -80,8 +98,22 @@ function isConferenceAnnouncement(text) {
 
 async function run() {
   try {
-    console.error("Fetching EFA news page...");
-    const html = await fetchHTML(URL);
+    let html = null;
+    for (const url of URLS) {
+      try {
+        console.error(`Trying EFA URL: ${url}`);
+        html = await fetchHTML(url);
+        console.error(`  Success from ${url}`);
+        break;
+      } catch (urlErr) {
+        console.error(`  Failed: ${urlErr.message}`);
+      }
+    }
+    if (!html) {
+      console.error('All EFA URLs failed — site may be down');
+      console.log(JSON.stringify([], null, 2));
+      return;
+    }
     const $ = cheerio.load(html);
     
     const conferences = [];

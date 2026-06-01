@@ -7021,7 +7021,7 @@
     ],
     "sid": "aaa-521",
     "ssrnLink": "",
-    "deadline": "",
+    "deadline": "2026-09-14",
     "url": "https://aaahq.org/Meetings/2027/FARS-Midyear-Meeting",
     "tier": "2",
     "dateAdded": null
@@ -8073,7 +8073,7 @@
     ],
     "sid": "aaa-93d209c6",
     "ssrnLink": "",
-    "deadline": "",
+    "deadline": "2026-08-24",
     "url": "https://aaahq.org/Meetings/2027/IA-Midyear-Meeting",
     "tier": "2",
     "source": "aaa",
@@ -8769,5 +8769,23 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-05-29"
+  },
+  {
+    "id": 1547,
+    "name": "2027 Joint Midyear Meeting of the AIS and SET Sections",
+    "dates": "Feb 4-6",
+    "startDate": "2027-02-04",
+    "location": "New Brunswick, NJ",
+    "country": "USA",
+    "disc": [
+      "acct"
+    ],
+    "sid": "aaa-83530574",
+    "ssrnLink": "",
+    "deadline": "2026-09-14",
+    "url": "https://aaahq.org/Meetings/2027/AIS-SET",
+    "tier": "2",
+    "source": "aaa",
+    "dateAdded": "2026-06-01"
   }
 ]
