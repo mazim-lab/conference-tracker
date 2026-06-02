@@ -8787,5 +8787,39 @@
     "tier": "2",
     "source": "aaa",
     "dateAdded": "2026-06-01"
+  },
+  {
+    "id": 1562,
+    "name": "Call for Papers: SFS Cavalcade Asia-Pacific 2026",
+    "dates": "Dec 7-9",
+    "startDate": "2026-12-07",
+    "location": "City University of Hong Kong",
+    "country": "Hong Kong",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19203",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19203",
+    "deadline": "2026-06-30",
+    "url": "",
+    "tier": "1",
+    "dateAdded": "2026-06-02"
+  },
+  {
+    "id": 1610,
+    "name": "MIT GCFP 13th Annual Conference | \"Financial Regulation in an Era of Innovation and Disruption\"",
+    "dates": "Oct 29-30",
+    "startDate": "2026-10-29",
+    "location": "Cambridge, MA",
+    "country": "UK",
+    "disc": [
+      "econ"
+    ],
+    "sid": "19212",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19212",
+    "deadline": "2026-07-17",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-02"
   }
 ]
