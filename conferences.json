@@ -8821,5 +8821,74 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-02"
+  },
+  {
+    "id": 1624,
+    "name": "CALL FOR PAPERS: The CUHK-RAPS-RCFS Conference on Asset Pricing and Corporate Finance",
+    "dates": "Dec 13-15",
+    "startDate": "2026-12-13",
+    "location": "Hong Kong",
+    "country": "Hong Kong",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19225",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19225",
+    "deadline": "2026-08-15",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-05"
+  },
+  {
+    "id": 1625,
+    "name": "International Conference in Banking and Financial Studies 2026 (ICBFS 2026)",
+    "dates": "Sep 10-11",
+    "startDate": "2026-09-10",
+    "location": "Parma, Itally",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19224",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19224",
+    "deadline": "2026-06-30",
+    "url": "",
+    "tier": "3",
+    "dateAdded": "2026-06-05"
+  },
+  {
+    "id": 1626,
+    "name": "Call for Papers: 2026 ABFER-JFDS Conference on AI for Finance",
+    "dates": "Aug 18-19",
+    "startDate": "2026-08-18",
+    "location": "International Institute of Finance. No. 1789 Guangxi Road, Hefei, Anhui, China",
+    "country": "China",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19223",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19223",
+    "deadline": "2026-06-30",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-06-05"
+  },
+  {
+    "id": 1627,
+    "name": "Financial Economic Meeting- 14-16 December 2026 in Paris",
+    "dates": "Dec 14-16",
+    "startDate": "2026-12-14",
+    "location": "Paris",
+    "country": "France",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19222",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19222",
+    "deadline": "2026-09-30",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-05"
   }
 ]
