@@ -8941,5 +8941,24 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-10"
+  },
+  {
+    "id": 1646,
+    "name": "Call for Papers: Sustainable Accounting, Finance and Economics International Conference 2026 (SAFE2026)",
+    "dates": "Nov 18-21",
+    "startDate": "2026-11-18",
+    "location": "Bandar Sunway, Malaysia",
+    "country": "Unknown",
+    "disc": [
+      "acct",
+      "econ",
+      "fin"
+    ],
+    "sid": "19210",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19210",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-11"
   }
 ]
