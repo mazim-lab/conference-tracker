@@ -8960,5 +8960,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-11"
+  },
+  {
+    "id": 1654,
+    "name": "6th Conference on Corporate Policies and Asset Prices (COAP)",
+    "dates": "Dec 9-10",
+    "startDate": "2026-12-09",
+    "location": "Nice, France, EDHEC Business School",
+    "country": "France",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19258",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19258",
+    "deadline": "2026-12-09",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-14"
   }
 ]
