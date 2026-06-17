@@ -1,7 +1,13 @@
 {
+  "scripts": {
+    "build": "esbuild src/app.jsx --jsx=transform --target=es2019 --minify --outfile=app.js"
+  },
   "dependencies": {
     "cheerio": "^1.2.0",
     "playwright": "^1.58.2",
     "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
   }
 }
