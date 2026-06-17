@@ -1203,7 +1203,7 @@
                 <a href="/conferences.html" style={{color:T.textMuted}}>Browse all conferences as a plain list →</a>
               </div>
               <div style={{fontSize:11.5,color:T.textMuted,marginTop:10,paddingTop:8,borderTop:"1px solid "+T.dividerLight}}>
-                Created by Muhammad Azim. For any issues, email <a href="mailto:muhammad.azim@uwaterloo.ca" style={{color:T.btnActiveColor,textDecoration:"underline"}}>muhammad.azim@uwaterloo.ca</a>
+                Created by Muhammad Azim. For any issues or queries, email <a href="mailto:muhammad.azim@uwaterloo.ca" style={{color:T.btnActiveColor,textDecoration:"underline"}}>muhammad.azim@uwaterloo.ca</a>
               </div>
             </div>
           </div>
