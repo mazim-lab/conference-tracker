@@ -1200,7 +1200,10 @@
                 {"Sources: SSRN FEN, ARN & ERN \u00b7 "+counts.total+" conferences ("+counts.upcoming+" upcoming, "+counts.past+" past) \u00b7 "+counts.countries+" countries"}
               </div>
               <div style={{fontSize:9.5,marginTop:5}}>
-                <a href="/conferences.html" style={{color:T.textMuted}}>Browse all conferences as a plain list \u2192</a>
+                <a href="/conferences.html" style={{color:T.textMuted}}>Browse all conferences as a plain list →</a>
+              </div>
+              <div style={{fontSize:11.5,color:T.textMuted,marginTop:10,paddingTop:8,borderTop:"1px solid "+T.dividerLight}}>
+                Created by Muhammad Azim. For any issues, email <a href="mailto:muhammad.azim@uwaterloo.ca" style={{color:T.btnActiveColor,textDecoration:"underline"}}>muhammad.azim@uwaterloo.ca</a>
               </div>
             </div>
           </div>
