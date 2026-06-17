@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "esbuild src/app.jsx --jsx=transform --target=es2019 --minify --outfile=app.js",
+    "compile": "esbuild src/app.jsx --jsx=transform --target=es2019 --minify --outfile=app.js",
     "seo": "node scripts/generate-seo.js"
   },
   "dependencies": {

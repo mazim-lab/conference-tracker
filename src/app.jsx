@@ -1,4 +1,4 @@
-/* Source for app.js — edit here, then run: npm run build */
+/* Source for app.js — edit here, then run: npm run compile */
     const { useState, useMemo, useEffect, useCallback } = React;
 
     /* ── Theme system ── */
