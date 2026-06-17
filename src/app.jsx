@@ -245,14 +245,41 @@
       return null;
     }
 
+    /* Lazy-load Leaflet only when the map is actually opened */
+    let leafletPromise=null;
+    function ensureLeaflet(){
+      if(window.L)return Promise.resolve();
+      if(leafletPromise)return leafletPromise;
+      leafletPromise=new Promise((resolve,reject)=>{
+        const css=document.createElement("link");
+        css.rel="stylesheet"; css.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+        css.integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="; css.crossOrigin="";
+        document.head.appendChild(css);
+        const s=document.createElement("script");
+        s.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+        s.integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="; s.crossOrigin="";
+        s.onload=()=>resolve(); s.onerror=()=>reject(new Error("leaflet load failed"));
+        document.head.appendChild(s);
+      });
+      return leafletPromise;
+    }
+
     function MapView({conferences,T,isDark}){
       const mapContainer=React.useRef(null);
       const mapInstance=React.useRef(null);
       const markerGroup=React.useRef(null);
       const tileLayer=React.useRef(null);
+      const [mapReady,setMapReady]=useState(false);
+      const [mapFailed,setMapFailed]=useState(false);
 
       useEffect(()=>{
-        if(!mapContainer.current)return;
+        let active=true;
+        ensureLeaflet().then(()=>{if(active)setMapReady(true);}).catch(()=>{if(active)setMapFailed(true);});
+        return ()=>{active=false;};
+      },[]);
+
+      useEffect(()=>{
+        if(!mapReady||!mapContainer.current)return;
         if(!mapInstance.current){
           mapInstance.current=L.map(mapContainer.current,{zoomControl:false,attributionControl:false}).setView([20,0],2);
           L.control.zoom({position:"topright"}).addTo(mapInstance.current);
@@ -313,9 +340,12 @@
           markerGroup.current.addLayer(m);
         });
 
-      },[conferences,isDark]); // Re-run when data or theme changes
+      },[conferences,isDark,mapReady]); // Re-run when data, theme, or map readiness changes
 
-      return <div ref={mapContainer} style={{height:500,width:"100%",borderRadius:12,overflow:"hidden",zIndex:0,border:"1px solid "+T.cardBorder,background:T.cardBg}} />;
+      const shell={height:500,width:"100%",borderRadius:12,overflow:"hidden",zIndex:0,border:"1px solid "+T.cardBorder,background:T.cardBg};
+      if(mapFailed)return <div style={{...shell,display:"flex",alignItems:"center",justifyContent:"center",color:T.textMuted,fontSize:13}}>Couldn't load the map. Please check your connection and try again.</div>;
+      if(!mapReady)return <div style={{...shell,display:"flex",alignItems:"center",justifyContent:"center",color:T.textDim,fontSize:13,fontFamily:"'JetBrains Mono',monospace"}}>Loading map…</div>;
+      return <div ref={mapContainer} style={shell} />;
     }
 
     /* ── ICS Generation ── */
