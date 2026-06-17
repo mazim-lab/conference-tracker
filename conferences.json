@@ -8977,5 +8977,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-14"
+  },
+  {
+    "id": 1662,
+    "name": "16th Workshop on Exchange Rates",
+    "dates": "Dec 10-11",
+    "startDate": "2026-12-10",
+    "location": "Hong Kong",
+    "country": "Hong Kong",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19267",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19267",
+    "deadline": "2026-09-13",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-17"
   }
 ]
