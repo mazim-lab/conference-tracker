@@ -15,7 +15,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const SITE = "https://faeconf.com";
+const SITE = "https://www.faeconf.com";
 const OUT_DIR = path.join(ROOT, "c");
 
 const DISC = { fin: "Finance", acct: "Accounting", econ: "Economics" };

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://faeconf.com/sitemap.xml
+Sitemap: https://www.faeconf.com/sitemap.xml
