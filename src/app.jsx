@@ -1169,6 +1169,9 @@
               <div style={{fontSize:9.5,color:T.textDimmer,marginTop:5}}>
                 {"Sources: SSRN FEN, ARN & ERN \u00b7 "+counts.total+" conferences ("+counts.upcoming+" upcoming, "+counts.past+" past) \u00b7 "+counts.countries+" countries"}
               </div>
+              <div style={{fontSize:9.5,marginTop:5}}>
+                <a href="/conferences.html" style={{color:T.textMuted}}>Browse all conferences as a plain list \u2192</a>
+              </div>
             </div>
           </div>
           <ComparisonFloater count={comparisonList.length} onOpen={()=>setShowComparisonModal(true)} onClear={()=>setComparisonList([])} T={T} isDark={isDark} />
