@@ -100,6 +100,23 @@
     const TODAY = new Date();
     const TODAY_STR = TODAY.toISOString().split("T")[0];
 
+    /* ── Travelpayouts affiliate (one place to change the marker) ── */
+    const TP_MARKER = "740867";
+    function hotelSearchUrl(loc){
+      const dest=encodeURIComponent(loc||"");
+      return "https://search.hotellook.com/?marker="+TP_MARKER+"&destination="+dest;
+    }
+    function flightSearchUrl(loc){
+      const dest=encodeURIComponent(loc||"");
+      return "https://www.aviasales.com/?marker="+TP_MARKER+"&destination="+dest;
+    }
+    function cityLabel(loc){
+      const parts=(loc||"").split(",").map(s=>s.trim()).filter(Boolean);
+      let c=parts[0]||loc||"";
+      if(parts.length>1 && /\b(University|School|Business|Center|Centre|Institute|College|Hotel|Faculty|Campus)\b/i.test(parts[0])) c=parts[1];
+      return c.split("/")[0].trim();
+    }
+
     function expandRaw(r) {
       return {
         id: r.id, name: r.name || r.n, dates: r.dates || r.d,
@@ -813,6 +830,17 @@
                          <div style={{fontSize:9,fontWeight:600,color:T.textDim,marginBottom:1}}>TOURIST INFO</div>
                          <div style={{fontSize:10,color:T.text}}>{travel.tourist_highlights}</div>
                        </div>
+                    </div>
+                    <div style={{gridColumn:"1 / -1",borderTop:"1px solid "+(isDark?"rgba(16,185,129,0.1)":"rgba(16,185,129,0.08)"),paddingTop:8,display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
+                      <a href={hotelSearchUrl(conf.location)} target="_blank" rel="noopener noreferrer sponsored" onClick={e=>e.stopPropagation()}
+                        style={{display:"inline-flex",alignItems:"center",gap:5,padding:"6px 12px",borderRadius:6,background:isDark?"rgba(16,185,129,0.16)":"rgba(16,185,129,0.12)",color:isDark?"#34d399":"#047857",fontSize:11,fontWeight:600,textDecoration:"none"}}>
+                        {"🏨 Find hotels in "+cityLabel(conf.location)}
+                      </a>
+                      <a href={flightSearchUrl(conf.location)} target="_blank" rel="noopener noreferrer sponsored" onClick={e=>e.stopPropagation()}
+                        style={{display:"inline-flex",alignItems:"center",gap:5,padding:"6px 12px",borderRadius:6,background:isDark?"rgba(99,102,241,0.16)":"rgba(99,102,241,0.1)",color:isDark?"#a5b4fc":"#4338ca",fontSize:11,fontWeight:600,textDecoration:"none"}}>
+                        {"✈️ Search flights"}
+                      </a>
+                      <span style={{fontSize:9,color:T.textDimmer}}>Affiliate links — booking supports this site at no extra cost.</span>
                     </div>
                   </div>
                 </div>
