@@ -722,20 +722,20 @@
         <div onClick={onToggle} style={{background:T.cardBg,border:"1px solid "+T.cardBorder,borderRadius:10,cursor:"pointer",transition:"all 0.15s"}}
           onMouseEnter={e=>{e.currentTarget.style.background=T.cardHover;e.currentTarget.style.borderColor=T.cardBorderHover;}}
           onMouseLeave={e=>{e.currentTarget.style.background=T.cardBg;e.currentTarget.style.borderColor=T.cardBorder;}}>
-          <div style={{padding:"13px 16px",display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+          <div style={{padding:"15px 18px",display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
             <div onClick={handleCheckbox} style={{display:"flex",alignItems:"center",justifyContent:"center",width:18,height:18,borderRadius:4,border:"1px solid "+(isSelected?isDark?"#6366f1":"#4f46e5":T.cardBorder),background:isSelected?(isDark?"#6366f1":"#4f46e5"):"transparent",cursor:"pointer",transition:"all 0.1s",marginRight:2}}>
               {isSelected&&<span style={{color:"white",fontSize:12,fontWeight:700,lineHeight:1}}>✓</span>}
             </div>
             <div style={{minWidth:62,padding:"3px 7px",borderRadius:5,background:primaryBadge.bg,color:primaryBadge.color,fontSize:10,fontWeight:700,letterSpacing:"0.04em",textAlign:"center",fontFamily:"'JetBrains Mono',monospace",border:primaryBadge.isTBD?"1px dashed rgba(107,114,128,0.4)":"1px solid transparent"}}>{primaryBadge.label}</div>
             <div style={{flex:1,minWidth:170}}>
               <div style={{display:"flex",alignItems:"center",gap:5,flexWrap:"wrap"}}>
-                <span style={{fontWeight:600,color:T.textBright,fontSize:13,letterSpacing:"-0.01em"}}>{conf.name}</span>
+                <span style={{fontWeight:600,color:T.textBright,fontSize:15.5,lineHeight:1.3,letterSpacing:"-0.01em"}}>{conf.name}</span>
                 {tier&&<span style={{padding:"1px 5px",borderRadius:3,background:tier.b,color:tier.c,fontSize:7.5,fontWeight:700,letterSpacing:"0.06em",fontFamily:"'JetBrains Mono',monospace"}}>{tier.l}</span>}
                 {conf.disc.map(d=>{const dc=disc[d];return dc?<span key={d} style={{padding:"1px 5px",borderRadius:3,background:dc.b,color:dc.c,fontSize:7.5,fontWeight:700,letterSpacing:"0.06em"}}>{dc.l}</span>:null;})}
               </div>
             </div>
-            <div style={{minWidth:90,textAlign:"right"}}><div style={{color:T.textDim,fontSize:9,fontWeight:500}}>Date</div><div style={{color:T.text,fontSize:11,fontWeight:600,fontFamily:"'JetBrains Mono',monospace"}}>{conf.dates}</div></div>
-            <div style={{minWidth:95,textAlign:"right"}}><span style={{color:T.textMuted,fontSize:10.5}}>{conf.location.length>22?conf.location.slice(0,20)+"...":conf.location}</span></div>
+            <div style={{minWidth:90,textAlign:"right"}}><div style={{color:T.textDim,fontSize:9,fontWeight:500}}>Date</div><div style={{color:T.text,fontSize:11.5,fontWeight:600,fontFamily:"'JetBrains Mono',monospace"}}>{conf.dates}</div></div>
+            <div style={{minWidth:95,textAlign:"right"}}><span style={{color:T.textMuted,fontSize:12}}>{conf.location.length>22?conf.location.slice(0,20)+"...":conf.location}</span></div>
             <div style={{color:T.textDim,fontSize:13,transition:"transform 0.2s",transform:expanded?"rotate(180deg)":"none"}}>&#9662;</div>
           </div>
           {expanded&&(
@@ -985,7 +985,7 @@
           <div style={{maxWidth:980,margin:"0 auto",padding:"14px 20px"}}>
             <div style={{display:"flex",gap:6,alignItems:"center",flexWrap:"wrap",marginBottom:10}}>
               <input type="text" placeholder="Search name, location, country..." value={search} onChange={e=>setSearch(e.target.value)}
-                style={{flex:1,minWidth:170,padding:"7px 11px",borderRadius:6,border:"1px solid "+T.inputBorder,background:T.inputBg,color:T.text,fontSize:12,outline:"none",fontFamily:"'JetBrains Mono',monospace"}} />
+                style={{flex:1,minWidth:170,padding:"9px 13px",borderRadius:7,border:"1px solid "+T.inputBorder,background:T.inputBg,color:T.text,fontSize:14,outline:"none",fontFamily:"'Newsreader',Georgia,serif"}} />
               <div style={{display:"flex",gap:2,background:T.switchBg,borderRadius:5,padding:2}}>
                 {["list","timeline","map"].map(v=><button key={v} onClick={()=>setView(v)} style={{padding:"5px 10px",borderRadius:4,border:"none",background:view===v?T.viewBtnBg:T.viewBtnOffBg,color:view===v?T.viewBtnColor:T.viewBtnOffColor,fontSize:10.5,cursor:"pointer",textTransform:"capitalize",fontFamily:"'JetBrains Mono',monospace"}}>{v}</button>)}
               </div>
@@ -1050,7 +1050,7 @@
           {/* MAIN LIST */}
           <div style={{maxWidth:980,margin:"0 auto",padding:"0 20px 36px"}}>
             <UpdateBanner T={T} isDark={isDark} />
-            <div style={{fontSize:10,color:T.textDim,marginBottom:8,fontFamily:"'JetBrains Mono',monospace"}}>
+            <div style={{fontSize:13,fontStyle:"italic",color:T.textMuted,marginBottom:10}}>
               {"Showing "+filtered.length+" upcoming"+(sortBy==="deadline"?" \u00b7 sorted by deadline":" \u00b7 sorted by conference date")}
             </div>
 
