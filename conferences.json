@@ -8994,5 +8994,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-17"
+  },
+  {
+    "id": 1670,
+    "name": "Call for Submissions: FAE Track, IMRC 2026 at IIM Ahmedabad",
+    "dates": "Dec 4-6",
+    "startDate": "2026-12-04",
+    "location": "IIM Ahmedabad",
+    "country": "Unknown",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19244",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19244",
+    "deadline": "TBD",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-18"
   }
 ]
