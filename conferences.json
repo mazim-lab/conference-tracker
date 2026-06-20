@@ -9011,5 +9011,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-18"
+  },
+  {
+    "id": 1679,
+    "name": "Call for Papers: Private Equity Research Consortium (PERC) Symposium",
+    "dates": "Nov 5-6",
+    "startDate": "2026-11-05",
+    "location": "Chapel Hill, NC",
+    "country": "USA",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19270",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19270",
+    "deadline": "2026-08-07",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-20"
   }
 ]
