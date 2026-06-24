@@ -9028,5 +9028,22 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-20"
+  },
+  {
+    "id": 1688,
+    "name": "Call for Papers - 18th\u00a0Annual Hedge Fund Research Conference",
+    "dates": "Jan 21-22",
+    "startDate": "2027-01-21",
+    "location": "Universit\u00e9 Paris Dauphine - PSL, Paris",
+    "country": "France",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19276",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19276",
+    "deadline": "2026-09-15",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-06-24"
   }
 ]
