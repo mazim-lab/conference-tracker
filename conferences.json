@@ -9045,5 +9045,23 @@
     "url": "",
     "tier": "2",
     "dateAdded": "2026-06-24"
+  },
+  {
+    "id": 1697,
+    "name": "Conference on CSR, the Economy and Financial Markets",
+    "dates": "Nov 5-6",
+    "startDate": "2026-11-05",
+    "location": "D\u00fcsseldorf, Germany",
+    "country": "Germany",
+    "disc": [
+      "acct",
+      "fin"
+    ],
+    "sid": "19283",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19283",
+    "deadline": "2026-08-31",
+    "url": "",
+    "tier": "1",
+    "dateAdded": "2026-06-25"
   }
 ]
