@@ -1,58 +1,57 @@
-08:53:46  ===========================================
-08:53:46    Conference Tier Assigner
-08:53:46  ===========================================
-08:53:46  Loaded 593 conferences
-08:53:46  Conferences without tiers: 317
-08:53:46  
+08:54:38  ===========================================
+08:54:38    Conference Tier Assigner
+08:54:38  ===========================================
+08:54:38  Loaded 593 conferences
+08:54:38  Conferences without tiers: 316
+08:54:38  
 === Phase 1: Reference dictionary matching ===
-08:53:51    [1] 13th Annual Conference on Financial Market Regulation (CFMR  (fuzzy(72%):Napa Conference on Financial Markets)
-08:53:51    [3] 2026 MRS International Risk Conference (fuzzy(78%):Annual International Conference)
-08:53:51    [1] Conference on CSR, the Economy and Financial Markets (fuzzy(70%):Napa Conference on Financial Markets)
-08:53:51    [2] Last reminder: Call for papers - EUROFIDAI-ESSEC Paris Decem (exact:Paris December Finance Meeting)
-08:53:52    [3] Towards a New Synthesis in Islamic Finance: Law, Economics a (exact:Islamic Finance)
-08:53:52    [2] 2026 Future Scholars in Finance Forum (exact:Finance Forum)
-08:53:52    [3] 10th Shanghai-Edinburgh-London Finance Conference On Sustain (exact:Sustainable Finance)
-08:53:52    [2] Finance and Real Estate Conference 2026 (fuzzy(75%):Financial Stability Conference)
-08:53:52    [2] 2026 Edition of the Ieke van den Burg Prize for research on  (exact:Systemic Risk)
-08:53:52    [2] Call for expressions of interest from external experts to be (exact:Systemic Risk)
-08:53:52    [2] 2026 SoFiE Financial Econometrics Summer School (exact:Financial Econometrics)
-08:53:52    [3] Call for Papers: 2026 Vietnam Symposium in Banking and Finan (exact:Vietnam Symposium)
-08:53:52    [3] Call for Papers: Multinational Finance Journal (MFJ) (exact:Multinational Finance)
-08:53:52    [1] Call for Papers: 9th CEIBS Finance/Accounting Symposium (fuzzy(79%):LBS Accounting Symposium)
-08:53:53    [2] Call for Papers - New York Fed-ECB Conference on Nonbank Fin (exact:ECB Conference)
-08:53:53  
-Matched: 15/317 | Unmatched: 302
-08:53:53  
+08:54:44    [1] 13th Annual Conference on Financial Market Regulation (CFMR  (fuzzy(72%):Napa Conference on Financial Markets)
+08:54:44    [3] 2026 MRS International Risk Conference (fuzzy(78%):Annual International Conference)
+08:54:45    [2] Last reminder: Call for papers - EUROFIDAI-ESSEC Paris Decem (exact:Paris December Finance Meeting)
+08:54:45    [3] Towards a New Synthesis in Islamic Finance: Law, Economics a (exact:Islamic Finance)
+08:54:45    [2] 2026 Future Scholars in Finance Forum (exact:Finance Forum)
+08:54:45    [3] 10th Shanghai-Edinburgh-London Finance Conference On Sustain (exact:Sustainable Finance)
+08:54:45    [2] Finance and Real Estate Conference 2026 (fuzzy(75%):Financial Stability Conference)
+08:54:45    [2] 2026 Edition of the Ieke van den Burg Prize for research on  (exact:Systemic Risk)
+08:54:45    [2] Call for expressions of interest from external experts to be (exact:Systemic Risk)
+08:54:45    [2] 2026 SoFiE Financial Econometrics Summer School (exact:Financial Econometrics)
+08:54:45    [3] Call for Papers: 2026 Vietnam Symposium in Banking and Finan (exact:Vietnam Symposium)
+08:54:45    [3] Call for Papers: Multinational Finance Journal (MFJ) (exact:Multinational Finance)
+08:54:45    [1] Call for Papers: 9th CEIBS Finance/Accounting Symposium (fuzzy(79%):LBS Accounting Symposium)
+08:54:46    [2] Call for Papers - New York Fed-ECB Conference on Nonbank Fin (exact:ECB Conference)
+08:54:46  
+Matched: 14/316 | Unmatched: 302
+08:54:46  
 === Skipping API (--no-api flag) ===
-08:53:53  302 conferences left untiered:
-08:53:53    ? 2nd Knut Wicksell Conference on Crypto and Fintech
-08:53:53    ? Financial Regulation and RegTech Forum
-08:53:53    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
-08:53:53    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
-08:53:53    ? 2025 International Symposium on Climate Finance and Sustaina
-08:53:53    ? International Society for the Advancement of Financial Econo
-08:53:53    ? Economic Governance of Social Media
-08:53:53    ? Conference on “Climate Policy Commodity Markets and Economic
-08:53:53    ? Symposium on Financial Markets in the Era of Climate Change
-08:53:53    ? 21st Annual Conference of the Asia-Pacific Association of De
-08:53:53    ? Conference on Sustainable Financial Intermediation
-08:53:53    ? Hybrid Conference on Islamic Law and Finance
-08:53:53    ? Sustainability at Crossroads: The Edinburgh and Internationa
-08:53:53    ? Conference on Digital Transformation for Social Impacts and 
-08:53:53    ? Future Finance Fest (3f )
-08:53:53    ? Bayesian Macroeconometric Modelling Workshop
-08:53:53    ? Warwick Business School Gillmore Centre Conference on DeFi &
-08:53:53    ? 2025 Conference Accounting and Finance Research and Educatio
-08:53:53    ? Rice University’s Conference on Accounting & Information Fri
-08:53:53    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
-08:53:53    ... and 282 more
-08:53:53  
+08:54:46  302 conferences left untiered:
+08:54:46    ? 2nd Knut Wicksell Conference on Crypto and Fintech
+08:54:46    ? Financial Regulation and RegTech Forum
+08:54:46    ? Research Symposium on Finance and Economics (RSFE) 2025 (Vir
+08:54:46    ? 6th LTI@UniTO/Bank of Italy Workshop on Long-term investors’
+08:54:46    ? 2025 International Symposium on Climate Finance and Sustaina
+08:54:46    ? International Society for the Advancement of Financial Econo
+08:54:46    ? Economic Governance of Social Media
+08:54:46    ? Conference on “Climate Policy Commodity Markets and Economic
+08:54:46    ? Symposium on Financial Markets in the Era of Climate Change
+08:54:46    ? 21st Annual Conference of the Asia-Pacific Association of De
+08:54:46    ? Conference on Sustainable Financial Intermediation
+08:54:46    ? Hybrid Conference on Islamic Law and Finance
+08:54:46    ? Sustainability at Crossroads: The Edinburgh and Internationa
+08:54:46    ? Conference on Digital Transformation for Social Impacts and 
+08:54:46    ? Future Finance Fest (3f )
+08:54:46    ? Bayesian Macroeconometric Modelling Workshop
+08:54:46    ? Warwick Business School Gillmore Centre Conference on DeFi &
+08:54:46    ? 2025 Conference Accounting and Finance Research and Educatio
+08:54:46    ? Rice University’s Conference on Accounting & Information Fri
+08:54:46    ? Lancaster University- 2nd Financial Fraud Misconduct and Mar
+08:54:46    ... and 282 more
+08:54:46  
 === SUMMARY ===
-08:53:53  Tier 1: 53
-08:53:53  Tier 2: 150
-08:53:53  Tier 3: 75
-08:53:53  No tier: 302
-08:53:53  
+08:54:46  Tier 1: 53
+08:54:46  Tier 2: 150
+08:54:46  Tier 3: 75
+08:54:46  No tier: 302
+08:54:46  
 Saved to conferences.json
-08:53:53  
+08:54:46  
 Done! Check tier_log.txt for details.
