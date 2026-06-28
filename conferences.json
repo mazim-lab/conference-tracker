@@ -9063,5 +9063,22 @@
     "url": "",
     "tier": "1",
     "dateAdded": "2026-06-25"
+  },
+  {
+    "id": 1706,
+    "name": "IIMB-CCGS International Corporate Governance & Sustainability Conference 2026",
+    "dates": "Nov 20-21",
+    "startDate": "2026-11-20",
+    "location": "Indian Institute of Management, Bangalore",
+    "country": "India",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19287",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19287",
+    "deadline": "2026-07-22",
+    "url": "",
+    "tier": "",
+    "dateAdded": "2026-06-28"
   }
 ]
