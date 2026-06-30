@@ -9080,5 +9080,40 @@
     "url": "",
     "tier": "",
     "dateAdded": "2026-06-28"
+  },
+  {
+    "id": 1715,
+    "name": "Financial Econometrics Conference- Lancaster University Management School",
+    "dates": "Apr 21-23",
+    "startDate": "2027-04-21",
+    "location": "Lancaster University, England",
+    "country": "UK",
+    "disc": [
+      "econ",
+      "fin"
+    ],
+    "sid": "19291",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19291",
+    "deadline": "2026-12-01",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-06-30"
+  },
+  {
+    "id": 1716,
+    "name": "The 2026 Sydney Banking and Financial Stability Conference",
+    "dates": "Nov 30 - Dec 1",
+    "startDate": "2026-11-30",
+    "location": "The University of Sydney Business School, Sydney, Australia",
+    "country": "Australia",
+    "disc": [
+      "fin"
+    ],
+    "sid": "19289",
+    "ssrnLink": "https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19289",
+    "deadline": "2026-08-31",
+    "url": "",
+    "tier": "2",
+    "dateAdded": "2026-06-30"
   }
 ]
